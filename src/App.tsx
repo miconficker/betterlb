@@ -1,31 +1,26 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import Navbar from './components/layout/Navbar';
 import Ticker from './components/ui/Ticker';
 import Footer from './components/layout/Footer';
-import Hero from './components/home/Hero';
-import ServicesSection from './components/home/ServicesSection';
-import NewsSection from './components/home/NewsSection';
-import InfoWidgets from './components/home/InfoWidgets';
-import PromotionBanner from './components/home/PromotionBanner';
-import GovernmentSection from './components/home/GovernmentSection';
+import Home from './pages/Home';
+import DesignGuide from './pages/DesignGuide';
 
 function App() {
   return (
     <LanguageProvider>
-      <div className="min-h-screen flex flex-col">
-        <Navbar />
-        <Ticker />
-        <main className="flex-grow">
-          <Hero />
-          <ServicesSection />
-          <NewsSection />
-          <InfoWidgets />
-          <PromotionBanner />
-          <GovernmentSection />
-        </main>
-        <Footer />
-      </div>
+      <Router>
+        <div className="min-h-screen flex flex-col">
+          <Navbar />
+          <Ticker />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/design" element={<DesignGuide />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
     </LanguageProvider>
   );
 }
