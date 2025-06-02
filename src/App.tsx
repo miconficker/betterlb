@@ -6,6 +6,7 @@ import Ticker from './components/ui/Ticker';
 import Footer from './components/layout/Footer';
 import Home from './pages/Home';
 import DesignGuide from './pages/DesignGuide';
+import Services from './pages/Services';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/design" element={<DesignGuide />} />
+            <Route path="/services" element={<Services />} />
           </Routes>
           <Footer />
         </div>
@@ -24,5 +26,3 @@ function App() {
     </LanguageProvider>
   );
 }
-
-export default App;
