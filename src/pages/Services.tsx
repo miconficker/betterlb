@@ -1,11 +1,12 @@
 import React, { useState, useMemo } from 'react';
-import { Search } from 'lucide-react';
-import * as Tabs from '@radix-ui/react-tabs';
+import { Search, CheckCircle2 } from 'lucide-react';
+import * as ScrollArea from '@radix-ui/react-scroll-area';
 import { Card, CardContent } from '../components/ui/Card';
-import Button from '../components/ui/Button';
 import SearchInput from '../components/ui/SearchInput';
 import serviceCategories from '../data/service_categories.json';
 import services from '../data/services.json';
+import { popularServices } from '../data/services';
+import { formatDate } from '../lib/utils';
 
 const ITEMS_PER_PAGE = 12;
 
@@ -17,7 +18,6 @@ const ServicesPage: React.FC = () => {
   const filteredServices = useMemo(() => {
     let filtered = services;
 
-    // Filter by search query
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
       filtered = filtered.filter(
@@ -28,7 +28,6 @@ const ServicesPage: React.FC = () => {
       );
     }
 
-    // Filter by category
     if (selectedCategory !== 'all') {
       filtered = filtered.filter(
         service => service.category === selectedCategory
@@ -38,8 +37,6 @@ const ServicesPage: React.FC = () => {
     return filtered;
   }, [searchQuery, selectedCategory]);
 
-  // Calculate pagination
-  const totalPages = Math.ceil(filteredServices.length / ITEMS_PER_PAGE);
   const paginatedServices = filteredServices.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
     currentPage * ITEMS_PER_PAGE
@@ -47,17 +44,17 @@ const ServicesPage: React.FC = () => {
 
   const handleSearch = (query: string) => {
     setSearchQuery(query);
-    setCurrentPage(1); // Reset to first page on new search
+    setCurrentPage(1);
   };
 
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
-    setCurrentPage(1); // Reset to first page on category change
+    setCurrentPage(1);
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="container mx-auto px-4">
+    <div className="min-h-screen bg-gray-50">
+      <div className="container mx-auto px-4 py-12">
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -70,7 +67,7 @@ const ServicesPage: React.FC = () => {
         </div>
 
         {/* Search Bar */}
-        <div className="max-w-2xl mx-auto mb-8">
+        <div className="max-w-2xl mx-auto mb-12">
           <SearchInput
             placeholder="Search for services..."
             onSearch={handleSearch}
@@ -79,109 +76,140 @@ const ServicesPage: React.FC = () => {
           />
         </div>
 
-        {/* Category Tabs */}
-        <Tabs.Root
-          value={selectedCategory}
-          onValueChange={handleCategoryChange}
-          className="mb-8"
-        >
-          <Tabs.List className="flex flex-wrap gap-2 border-b border-gray-200">
-            <Tabs.Trigger
-              value="all"
-              className={`px-4 py-2 text-sm font-medium rounded-t-lg transition-colors
-                ${selectedCategory === 'all'
-                  ? 'bg-primary-50 text-primary-600 border-b-2 border-primary-500'
-                  : 'text-gray-600 hover:text-primary-600'
-              }`}
-            >
-              All Services
-            </Tabs.Trigger>
-            {serviceCategories.categories.map((category) => (
-              <Tabs.Trigger
-                key={category.category}
-                value={category.category}
-                className={`px-4 py-2 text-sm font-medium rounded-t-lg transition-colors
-                  ${selectedCategory === category.category
-                    ? 'bg-primary-50 text-primary-600 border-b-2 border-primary-500'
-                    : 'text-gray-600 hover:text-primary-600'
-                  }`}
-              >
-                {category.category}
-              </Tabs.Trigger>
-            ))}
-          </Tabs.List>
-        </Tabs.Root>
-
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          {paginatedServices.map((service, index) => (
-            <Card key={index} hoverable>
-              <CardContent className="p-6">
-                <h3 className="text-lg font-semibold mb-2 text-gray-900">
-                  {service.service}
-                </h3>
-                <div className="mb-4">
-                  <span className="inline-block px-2 py-1 text-xs font-medium rounded bg-primary-100 text-primary-800 mr-2">
-                    {service.category}
-                  </span>
-                  <span className="inline-block px-2 py-1 text-xs font-medium rounded bg-gray-100 text-gray-800">
-                    {service.subcategory}
-                  </span>
-                </div>
-                <a
-                  href={service.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary-600 hover:text-primary-700 font-medium inline-flex items-center"
-                >
-                  Access Service
-                  <svg
-                    className="ml-2 h-4 w-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+        {/* Popular Services */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-semibold mb-6">Popular Services</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {popularServices.map((service) => (
+              <Card key={service.id} hoverable className="bg-white">
+                <CardContent className="p-6">
+                  <h3 className="text-lg font-semibold mb-2 text-gray-900">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 mb-4">
+                    {service.description}
+                  </p>
+                  <a
+                    href={service.url}
+                    className="text-primary-600 hover:text-primary-700 font-medium inline-flex items-center text-sm"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    />
-                  </svg>
-                </a>
-              </CardContent>
-            </Card>
-          ))}
+                    Access Service
+                    <svg
+                      className="ml-1 h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                      />
+                    </svg>
+                  </a>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
 
-        {/* Pagination */}
-        {totalPages > 1 && (
-          <div className="flex justify-center gap-2">
-            <Button
-              variant="outline"
-              onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
-              disabled={currentPage === 1}
-            >
-              Previous
-            </Button>
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
-              <Button
-                key={page}
-                variant={currentPage === page ? 'primary' : 'outline'}
-                onClick={() => setCurrentPage(page)}
-              >
-                {page}
-              </Button>
-            ))}
-            <Button
-              variant="outline"
-              onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
-              disabled={currentPage === totalPages}
-            >
-              Next
-            </Button>
+        <div className="flex gap-8">
+          {/* Categories Sidebar */}
+          <div className="w-64 flex-shrink-0">
+            <div className="bg-white rounded-lg shadow-sm p-4">
+              <h3 className="font-semibold text-gray-900 mb-4">Categories</h3>
+              <ScrollArea.Root className="h-[calc(100vh-400px)]">
+                <ScrollArea.Viewport className="h-full w-full">
+                  <div className="space-y-1 pr-4">
+                    <button
+                      onClick={() => handleCategoryChange('all')}
+                      className={`w-full text-left px-3 py-2 rounded-md text-sm transition-colors ${
+                        selectedCategory === 'all'
+                          ? 'bg-primary-50 text-primary-600 font-medium'
+                          : 'text-gray-600 hover:bg-gray-50'
+                      }`}
+                    >
+                      All Services
+                    </button>
+                    {serviceCategories.categories.map((category) => (
+                      <button
+                        key={category.category}
+                        onClick={() => handleCategoryChange(category.category)}
+                        className={`w-full text-left px-3 py-2 rounded-md text-sm transition-colors ${
+                          selectedCategory === category.category
+                            ? 'bg-primary-50 text-primary-600 font-medium'
+                            : 'text-gray-600 hover:bg-gray-50'
+                        }`}
+                      >
+                        {category.category}
+                      </button>
+                    ))}
+                  </div>
+                </ScrollArea.Viewport>
+                <ScrollArea.Scrollbar
+                  className="flex select-none touch-none p-0.5 bg-gray-100 transition-colors hover:bg-gray-200 rounded-full"
+                  orientation="vertical"
+                >
+                  <ScrollArea.Thumb className="flex-1 bg-gray-300 rounded-full relative" />
+                </ScrollArea.Scrollbar>
+              </ScrollArea.Root>
+            </div>
           </div>
-        )}
+
+          {/* Services Grid */}
+          <div className="flex-1">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {paginatedServices.map((service, index) => (
+                <Card key={index} hoverable className="bg-white">
+                  <CardContent className="p-6">
+                    <div className="flex items-start justify-between mb-4">
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-900">
+                          {service.service}
+                        </h3>
+                        <div className="mt-2 space-x-2">
+                          <span className="inline-block px-2 py-1 text-xs font-medium rounded bg-primary-100 text-primary-800">
+                            {service.category}
+                          </span>
+                          <span className="inline-block px-2 py-1 text-xs font-medium rounded bg-gray-100 text-gray-800">
+                            {service.subcategory}
+                          </span>
+                        </div>
+                      </div>
+                      <CheckCircle2 className="h-5 w-5 text-success-500 flex-shrink-0" />
+                    </div>
+                    <div className="space-y-3">
+                      <a
+                        href={service.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-500 text-sm hover:text-primary-600 transition-colors break-all"
+                      >
+                        {service.url}
+                      </a>
+                      <div className="flex items-center text-sm text-gray-500">
+                        <span>Last verified: {formatDate(new Date())}</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            {/* Load More Button */}
+            {filteredServices.length > ITEMS_PER_PAGE * currentPage && (
+              <div className="mt-8 text-center">
+                <button
+                  onClick={() => setCurrentPage(prev => prev + 1)}
+                  className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+                >
+                  Load More Services
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );
