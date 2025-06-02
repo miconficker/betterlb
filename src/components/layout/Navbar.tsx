@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
       {/* Top bar with language switcher and additional links */}
       <div className="border-b border-gray-200">
         <div className="container mx-auto px-4 flex justify-between items-center h-10">
-          <div className="text-xs text-gray-600">Official Government Portal</div>
+          <div className="text-xs text-gray-600">The Unofficial Government Portal</div>
           <div className="flex items-center space-x-4">
             <a href="/transparency" className="text-xs text-gray-600 hover:text-primary-600 transition-colors">
               Transparency
@@ -58,8 +58,8 @@ const Navbar: React.FC = () => {
             <a href="/" className="flex items-center">
               <img src="/ph-logo.svg" alt="Philippines Logo" className="h-10 w-10 mr-2" />
               <div>
-                <div className="font-bold text-primary-700">Republic of the Philippines</div>
-                <div className="text-xs text-gray-600">Official Government Portal</div>
+                <div className="font-bold text-primary-700">The Philippines</div>
+                <div className="text-xs text-gray-600">Unofficial Government Portal</div>
               </div>
             </a>
           </div>
