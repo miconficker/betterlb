@@ -1,0 +1,114 @@
+{
+  "categories": [
+    {
+      "category": "Business and Trade",
+      "subcategories": [
+        "Business Copyright, Trademark and Patent",
+        "Business Registration, Certificates and Compliance",
+        "Complaints",
+        "Import and Export",
+        "Price Control Monitoring",
+        "Financial Assistance"
+      ]
+    },
+    {
+      "category": "Certificates and IDs",
+      "subcategories": [
+        "Certificates",
+        "Clearances",
+        "ID",
+        "Voters"
+      ]
+    },
+    {
+      "category": "Contributions",
+      "subcategories": [
+        "Benefits Registration",
+        "Salary Loans"
+      ]
+    },
+    {
+      "category": "Disaster and Weather",
+      "subcategories": [
+        "Disaster-prone Areas",
+        "Weather"
+      ]
+    },
+    {
+      "category": "Education",
+      "subcategories": [
+        "Financial Assistance",
+        "Professionals",
+        "Research and Proposal",
+        "Scholarships and Grants",
+        "Training",
+        "Online Certificate Courses"
+      ]
+    },
+    {
+      "category": "Employment",
+      "subcategories": [
+        "Professionals",
+        "Salary Loans",
+        "Union Association",
+        "Overseas Jobs"
+      ]
+    },
+    {
+      "category": "Health",
+      "subcategories": [
+        "Financial Assistance",
+        "Health Programs",
+        "Health Researches"
+      ]
+    },
+    {
+      "category": "Housing",
+      "subcategories": [
+        "Housing Loans",
+        "Land Titles"
+      ]
+    },
+    {
+      "category": "Passport and Travel",
+      "subcategories": [
+        "Travel",
+        "Visa and Citizenship"
+      ]
+    },
+    {
+      "category": "Social Services",
+      "subcategories": [
+        "Benefits Registration",
+        "File Complaints",
+        "Salary Loans",
+        "Financial Assistance",
+        "Register",
+        "Contributions"
+      ]
+    },
+    {
+      "category": "Tax",
+      "subcategories": [
+        "Certificates",
+        "Register",
+        "File Taxes",
+        "Complaints"
+      ]
+    },
+    {
+      "category": "Transport and Driving",
+      "subcategories": [
+        "Financial Assistance",
+        "License",
+        "Transport Complains"
+      ]
+    },
+    {
+      "category": "Uncategorized",
+      "subcategories": [
+        "Uncategorized"
+      ]
+    }
+  ]
+}
