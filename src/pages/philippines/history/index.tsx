@@ -56,6 +56,7 @@ const PhilippinesHistory: React.FC = () => {
                 Journey through time and discover the rich tapestry of events, people, 
                 and movements that shaped the Philippine nation.
               </p>
+              <p className="text-xs"><a href="https://www.pexels.com/photo/women-dancing-in-red-traditional-clothing-in-festival-19376770/">Photo credit</a></p>
             </div>
           </div>
         </div>
