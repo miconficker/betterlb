@@ -9,6 +9,8 @@ import DesignGuide from './pages/DesignGuide';
 import Services from './pages/Services';
 import AboutPhilippines from './pages/philippines/about';
 import PhilippinesHistory from './pages/philippines/history';
+import PhilippinesCulture from './pages/philippines/culture';
+import PhilippinesRegions from './pages/philippines/regions';
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/philippines/about" element={<AboutPhilippines />} />
             <Route path="/philippines/history" element={<PhilippinesHistory />} />
+            <Route path="/philippines/culture" element={<PhilippinesCulture />} />
+            <Route path="/philippines/regions" element={<PhilippinesRegions />} />
           </Routes>
           <Footer />
         </div>
