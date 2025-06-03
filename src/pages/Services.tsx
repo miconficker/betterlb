@@ -1,19 +1,28 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Search, CheckCircle2 } from 'lucide-react';
 import * as ScrollArea from '@radix-ui/react-scroll-area';
 import { Card, CardContent } from '../components/ui/Card';
 import SearchInput from '../components/ui/SearchInput';
 import serviceCategories from '../data/service_categories.json';
 import services from '../data/services.json';
-import { popularServices } from '../data/services';
 import { formatDate } from '../lib/utils';
 
 const ITEMS_PER_PAGE = 12;
 
 const ServicesPage: React.FC = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [currentPage, setCurrentPage] = useState(1);
+
+  // Set initial category from URL params
+  useEffect(() => {
+    const categoryParam = searchParams.get('category');
+    if (categoryParam) {
+      setSelectedCategory(categoryParam);
+    }
+  }, [searchParams]);
 
   const filteredServices = useMemo(() => {
     let filtered = services;
@@ -50,6 +59,7 @@ const ServicesPage: React.FC = () => {
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
     setCurrentPage(1);
+    setSearchParams(category === 'all' ? {} : { category });
   };
 
   return (
@@ -74,48 +84,6 @@ const ServicesPage: React.FC = () => {
             icon={<Search className="h-5 w-5 text-gray-400" />}
             size="lg"
           />
-        </div>
-
-        {/* Popular Services - Horizontal Scrollable */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-semibold mb-6">Popular Services</h2>
-          <div className="relative">
-            <div className="overflow-x-auto pb-4 -mx-4 px-4 scrollbar-hide">
-              <div className="flex space-x-4" style={{ minWidth: 'max-content' }}>
-                {popularServices.map((service) => (
-                  <Card key={service.id} hoverable className="bg-white w-[300px] flex-shrink-0">
-                    <CardContent className="p-4">
-                      <h3 className="text-base font-semibold mb-2 text-gray-900">
-                        {service.title}
-                      </h3>
-                      <p className="text-sm text-gray-600 mb-3 line-clamp-2">
-                        {service.description}
-                      </p>
-                      <a
-                        href={service.url}
-                        className="text-primary-600 hover:text-primary-700 font-medium inline-flex items-center text-sm"
-                      >
-                        Access Service
-                        <svg
-                          className="ml-1 h-4 w-4"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                          />
-                        </svg>
-                      </a>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          </div>
         </div>
 
         <div className="flex gap-8">

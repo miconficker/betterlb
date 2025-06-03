@@ -1,13 +1,31 @@
 import React from 'react';
 import * as LucideIcons from 'lucide-react';
 import { Card, CardContent } from '../ui/Card';
-import { popularServices } from '../../data/services';
+import serviceCategories from '../../data/service_categories.json';
 
 const ServicesSection: React.FC = () => {
-  const getIcon = (iconName: string) => {
-    const Icon = LucideIcons[iconName as keyof typeof LucideIcons];
+  const getIcon = (category: string) => {
+    const iconMap: { [key: string]: keyof typeof LucideIcons } = {
+      'Business and Trade': 'Building2',
+      'Certificates and IDs': 'FileCheck',
+      'Contributions': 'Wallet',
+      'Disaster and Weather': 'Cloud',
+      'Education': 'GraduationCap',
+      'Employment': 'Briefcase',
+      'Health': 'Heart',
+      'Housing': 'Home',
+      'Passport and Travel': 'Plane',
+      'Social Services': 'Users',
+      'Tax': 'Receipt',
+      'Transport and Driving': 'Car',
+    };
+
+    const Icon = LucideIcons[iconMap[category] || 'FileText'];
     return Icon ? <Icon className="h-6 w-6" /> : null;
   };
+
+  // Show only first 6 categories
+  const displayedCategories = serviceCategories.categories.slice(0, 6);
 
   return (
     <section className="py-12 bg-white">
@@ -23,19 +41,22 @@ const ServicesSection: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {popularServices.map((service) => (
-            <Card key={service.id} hoverable className="border-t-4 border-primary-500">
+          {displayedCategories.map((category) => (
+            <Card key={category.category} hoverable className="border-t-4 border-primary-500">
               <CardContent className="flex flex-col items-start p-6">
                 <div className="bg-primary-100 text-primary-600 p-3 rounded-md mb-4">
-                  {getIcon(service.icon)}
+                  {getIcon(category.category)}
                 </div>
-                <h3 className="text-lg font-semibold mb-2 text-gray-900">{service.title}</h3>
-                <p className="text-gray-600 mb-4">{service.description}</p>
+                <h3 className="text-lg font-semibold mb-2 text-gray-900">{category.category}</h3>
+                <p className="text-gray-600 mb-4">
+                  {category.subcategories.slice(0, 2).join(', ')}
+                  {category.subcategories.length > 2 ? ' and more...' : ''}
+                </p>
                 <a
-                  href={service.url}
+                  href={`/services?category=${encodeURIComponent(category.category)}`}
                   className="mt-auto text-primary-600 hover:text-primary-700 font-medium transition-colors"
                 >
-                  Access Service
+                  View Services
                 </a>
               </CardContent>
             </Card>
