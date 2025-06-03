@@ -43,20 +43,32 @@ const ServicesSection: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {displayedCategories.map((category) => (
             <Card key={category.category} hoverable className="border-t-4 border-primary-500">
-              <CardContent className="flex flex-col items-start p-6">
-                <div className="bg-primary-100 text-primary-600 p-3 rounded-md mb-4">
+              <CardContent className="flex flex-col h-full p-6">
+                <div className="bg-primary-100 text-primary-600 p-3 rounded-md mb-4 self-start">
                   {getIcon(category.category)}
                 </div>
-                <h3 className="text-lg font-semibold mb-2 text-gray-900">{category.category}</h3>
-                <p className="text-gray-600 mb-4">
-                  {category.subcategories.slice(0, 2).join(', ')}
-                  {category.subcategories.length > 2 ? ' and more...' : ''}
-                </p>
+                <h3 className="text-lg font-semibold mb-4 text-gray-900">{category.category}</h3>
+                
+                <ul className="space-y-2 mb-6 flex-grow">
+                  {category.subcategories.map((subcategory, index) => (
+                    <li key={index}>
+                      <a
+                        href={`/services?category=${encodeURIComponent(category.category)}&subcategory=${encodeURIComponent(subcategory)}`}
+                        className="text-gray-600 hover:text-primary-600 transition-colors text-sm flex items-center"
+                      >
+                        <span className="w-1.5 h-1.5 bg-gray-300 rounded-full mr-2"></span>
+                        {subcategory}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+
                 <a
                   href={`/services?category=${encodeURIComponent(category.category)}`}
-                  className="mt-auto text-primary-600 hover:text-primary-700 font-medium transition-colors"
+                  className="mt-auto text-primary-600 hover:text-primary-700 font-medium transition-colors inline-flex items-center"
                 >
-                  View Services
+                  View All Services
+                  <LucideIcons.ArrowRight className="ml-1 h-4 w-4" />
                 </a>
               </CardContent>
             </Card>
