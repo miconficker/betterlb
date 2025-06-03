@@ -1,16 +1,16 @@
-import React from 'react';
-import { Search } from 'lucide-react';
-import { useLanguage } from '../../contexts/LanguageContext';
-import SearchInput from '../ui/SearchInput';
-import Button from '../ui/Button';
+import React from 'react'
+import { Search } from 'lucide-react'
+import { useLanguage } from '../../contexts/LanguageContext'
+import SearchInput from '../ui/SearchInput'
+import Button from '../ui/Button'
 
 const Hero: React.FC = () => {
-  const { translate } = useLanguage();
+  const { translate } = useLanguage()
 
   const handleSearch = (query: string) => {
-    console.log('Searching for:', query);
+    console.log('Searching for:', query)
     // Implementation for search functionality
-  };
+  }
 
   const popularServices = [
     {
@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
       label: 'Business Registration',
       href: '/services?category=Business+and+Trade&subcategory=Business+Registration%2C+Certificates+and+Compliance',
     },
-  ];
+  ]
 
   return (
     <div className="bg-gradient-to-r from-primary-600 to-primary-700 text-white py-12 md:py-24">
@@ -64,14 +64,24 @@ const Hero: React.FC = () => {
 
           {/* Right section with quick access services */}
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 shadow-lg animate-slide-in">
-            <h2 className="text-2xl font-semibold mb-4">{translate('services.title')}</h2>
+            <h2 className="text-2xl font-semibold mb-4">
+              {translate('services.title')}
+            </h2>
             <div className="grid grid-cols-2 gap-4">
               <a
                 href="/services?category=Certificates+and+IDs"
                 className="bg-white/10 hover:bg-white/20 rounded-lg p-4 transition-all duration-200 flex flex-col items-center text-center"
               >
                 <div className="bg-primary-500 p-3 rounded-full mb-3">
-                  <svg className="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg
+                    className="h-6 w-6 text-white"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                     <circle cx="12" cy="7" r="4"></circle>
                   </svg>
@@ -83,8 +93,23 @@ const Hero: React.FC = () => {
                 className="bg-white/10 hover:bg-white/20 rounded-lg p-4 transition-all duration-200 flex flex-col items-center text-center"
               >
                 <div className="bg-primary-500 p-3 rounded-full mb-3">
-                  <svg className="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <svg
+                    className="h-6 w-6 text-white"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <rect
+                      x="2"
+                      y="7"
+                      width="20"
+                      height="14"
+                      rx="2"
+                      ry="2"
+                    ></rect>
                     <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
                   </svg>
                 </div>
@@ -95,7 +120,15 @@ const Hero: React.FC = () => {
                 className="bg-white/10 hover:bg-white/20 rounded-lg p-4 transition-all duration-200 flex flex-col items-center text-center"
               >
                 <div className="bg-primary-500 p-3 rounded-full mb-3">
-                  <svg className="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg
+                    className="h-6 w-6 text-white"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
                     <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
                     <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
                   </svg>
@@ -107,7 +140,15 @@ const Hero: React.FC = () => {
                 className="bg-white/10 hover:bg-white/20 rounded-lg p-4 transition-all duration-200 flex flex-col items-center text-center"
               >
                 <div className="bg-primary-500 p-3 rounded-full mb-3">
-                  <svg className="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg
+                    className="h-6 w-6 text-white"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
                     <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
                   </svg>
                 </div>
@@ -127,7 +168,7 @@ const Hero: React.FC = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero
