@@ -30,11 +30,11 @@ const Footer: React.FC = () => {
               <img src="/ph-logo.svg" alt="Philippines Logo" className="h-10 w-10 mr-2" />
               <div>
                 <div className="font-bold">Republic of the Philippines</div>
-                <div className="text-xs text-gray-400">Official Government Portal</div>
+                <div className="text-xs text-gray-400">BetterGov.ph Portal</div>
               </div>
             </div>
             <p className="text-gray-400 text-sm mb-4">
-              The official portal of the Philippine government, providing citizens, businesses, and visitors with information and services.
+              The unofficial portal of the Philippine government, providing citizens, businesses, and visitors with information and services.
             </p>
             <div className="flex space-x-4">
               {footerNavigation.socialLinks.map((link) => (
