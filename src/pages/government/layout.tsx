@@ -6,7 +6,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '../../components/ui/breadcrumb'
+} from '../../components/ui/Breadcrumb'
 import { Home } from 'lucide-react'
 
 interface GovernmentLayoutProps {
@@ -21,7 +21,7 @@ export default function GovernmentLayout({
   children,
 }: GovernmentLayoutProps) {
   return (
-    <div>
+    <div className="container mx-auto">
       <div className="px-8 py-4">
         <Breadcrumb>
           <BreadcrumbList>
