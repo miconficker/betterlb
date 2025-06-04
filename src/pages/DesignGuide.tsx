@@ -1,10 +1,17 @@
-import React from 'react';
-import { Card, CardHeader, CardContent, CardImage } from '../components/ui/Card';
-import Button from '../components/ui/Button';
-import SearchInput from '../components/ui/SearchInput';
-import { Search, MapPin, Phone, Mail, ExternalLink, Calendar, Award, Building, Globe } from 'lucide-react';
+import React from 'react'
+import { Card, CardHeader, CardContent } from '../components/ui/Card'
+import Button from '../components/ui/Button'
+import { Phone, Mail, ExternalLink, Award, Building, Globe } from 'lucide-react'
 
-const ColorBlock = ({ color, name, value }: { color: string; name: string; value: string }) => (
+const ColorBlock = ({
+  color,
+  name,
+  value,
+}: {
+  color: string
+  name: string
+  value: string
+}) => (
   <div className="flex items-center space-x-2">
     <div className={`w-12 h-12 rounded ${color}`} />
     <div>
@@ -12,64 +19,91 @@ const ColorBlock = ({ color, name, value }: { color: string; name: string; value
       <div className="text-sm text-gray-500">{value}</div>
     </div>
   </div>
-);
+)
 
-const TypographyExample = ({ className, label }: { className: string; label: string }) => (
+const TypographyExample = ({
+  className,
+  label,
+}: {
+  className: string
+  label: string
+}) => (
   <div className="mb-4">
     <div className={className}>The quick brown fox jumps over the lazy dog</div>
     <div className="text-sm text-gray-500 mt-1">{label}</div>
   </div>
-);
+)
 
 const DesignGuide: React.FC = () => {
   const searchResults = [
     { id: 1, title: 'National ID Registration', category: 'Citizenship' },
     { id: 2, title: 'Business Permit Application', category: 'Business' },
     { id: 3, title: 'Passport Renewal', category: 'Travel' },
-  ];
+  ]
 
   const tableData = [
     { id: 1, name: 'John Doe', email: 'john@example.com', status: 'Active' },
     { id: 2, name: 'Jane Smith', email: 'jane@example.com', status: 'Pending' },
-    { id: 3, name: 'Bob Johnson', email: 'bob@example.com', status: 'Inactive' },
-  ];
+    {
+      id: 3,
+      name: 'Bob Johnson',
+      email: 'bob@example.com',
+      status: 'Inactive',
+    },
+  ]
 
   const achievements = [
-    "Led the implementation of digital transformation initiatives across government agencies",
-    "Established international partnerships for economic cooperation",
-    "Launched nationwide infrastructure development programs",
-    "Reformed tax collection systems for improved efficiency"
-  ];
+    'Led the implementation of digital transformation initiatives across government agencies',
+    'Established international partnerships for economic cooperation',
+    'Launched nationwide infrastructure development programs',
+    'Reformed tax collection systems for improved efficiency',
+  ]
 
   const education = [
     {
-      degree: "Bachelor of Arts in Political Science",
-      institution: "University of Oxford",
-      year: "1975"
+      degree: 'Bachelor of Arts in Political Science',
+      institution: 'University of Oxford',
+      year: '1975',
     },
     {
-      degree: "Master in Business Administration",
-      institution: "Wharton School of Business",
-      year: "1979"
-    }
-  ];
+      degree: 'Master in Business Administration',
+      institution: 'Wharton School of Business',
+      year: '1979',
+    },
+  ]
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="container mx-auto px-4">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8">Design Guidelines</h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-8">
+          Design Guidelines
+        </h1>
 
         {/* Typography Section */}
         <Card className="mb-8">
           <CardHeader>
             <h2 className="text-2xl font-semibold">Typography</h2>
-            <p className="text-gray-600">Plus Jakarta Sans is our primary font family</p>
+            <p className="text-gray-600">
+              Plus Jakarta Sans is our primary font family
+            </p>
           </CardHeader>
           <CardContent>
-            <TypographyExample className="text-4xl font-bold" label="Heading 1 - text-4xl font-bold" />
-            <TypographyExample className="text-3xl font-semibold" label="Heading 2 - text-3xl font-semibold" />
-            <TypographyExample className="text-2xl font-medium" label="Heading 3 - text-2xl font-medium" />
-            <TypographyExample className="text-xl" label="Heading 4 - text-xl" />
+            <TypographyExample
+              className="text-4xl font-bold"
+              label="Heading 1 - text-4xl font-bold"
+            />
+            <TypographyExample
+              className="text-3xl font-semibold"
+              label="Heading 2 - text-3xl font-semibold"
+            />
+            <TypographyExample
+              className="text-2xl font-medium"
+              label="Heading 3 - text-2xl font-medium"
+            />
+            <TypographyExample
+              className="text-xl"
+              label="Heading 4 - text-xl"
+            />
             <TypographyExample className="text-base" label="Body - text-base" />
             <TypographyExample className="text-sm" label="Small - text-sm" />
           </CardContent>
@@ -86,25 +120,61 @@ const DesignGuide: React.FC = () => {
               <div>
                 <h3 className="font-medium mb-4">Primary</h3>
                 <div className="space-y-4">
-                  <ColorBlock color="bg-primary-500" name="Primary 500" value="#0066eb" />
-                  <ColorBlock color="bg-primary-600" name="Primary 600" value="#0052bc" />
-                  <ColorBlock color="bg-primary-700" name="Primary 700" value="#003d8d" />
+                  <ColorBlock
+                    color="bg-primary-500"
+                    name="Primary 500"
+                    value="#0066eb"
+                  />
+                  <ColorBlock
+                    color="bg-primary-600"
+                    name="Primary 600"
+                    value="#0052bc"
+                  />
+                  <ColorBlock
+                    color="bg-primary-700"
+                    name="Primary 700"
+                    value="#003d8d"
+                  />
                 </div>
               </div>
               <div>
                 <h3 className="font-medium mb-4">Secondary</h3>
                 <div className="space-y-4">
-                  <ColorBlock color="bg-secondary-500" name="Secondary 500" value="#ff4d00" />
-                  <ColorBlock color="bg-secondary-600" name="Secondary 600" value="#cc3e00" />
-                  <ColorBlock color="bg-secondary-700" name="Secondary 700" value="#992e00" />
+                  <ColorBlock
+                    color="bg-secondary-500"
+                    name="Secondary 500"
+                    value="#ff4d00"
+                  />
+                  <ColorBlock
+                    color="bg-secondary-600"
+                    name="Secondary 600"
+                    value="#cc3e00"
+                  />
+                  <ColorBlock
+                    color="bg-secondary-700"
+                    name="Secondary 700"
+                    value="#992e00"
+                  />
                 </div>
               </div>
               <div>
                 <h3 className="font-medium mb-4">Accent</h3>
                 <div className="space-y-4">
-                  <ColorBlock color="bg-accent-500" name="Accent 500" value="#f58900" />
-                  <ColorBlock color="bg-accent-600" name="Accent 600" value="#c46e00" />
-                  <ColorBlock color="bg-accent-700" name="Accent 700" value="#935200" />
+                  <ColorBlock
+                    color="bg-accent-500"
+                    name="Accent 500"
+                    value="#f58900"
+                  />
+                  <ColorBlock
+                    color="bg-accent-600"
+                    name="Accent 600"
+                    value="#c46e00"
+                  />
+                  <ColorBlock
+                    color="bg-accent-700"
+                    name="Accent 700"
+                    value="#935200"
+                  />
                 </div>
               </div>
             </div>
@@ -115,7 +185,9 @@ const DesignGuide: React.FC = () => {
         <Card className="mb-8">
           <CardHeader>
             <h2 className="text-2xl font-semibold">Lists</h2>
-            <p className="text-gray-600">Different list styles and search results</p>
+            <p className="text-gray-600">
+              Different list styles and search results
+            </p>
           </CardHeader>
           <CardContent>
             <div className="space-y-8">
@@ -130,7 +202,9 @@ const DesignGuide: React.FC = () => {
                     >
                       <div className="flex items-start justify-between">
                         <div>
-                          <h4 className="text-lg font-medium text-gray-900">{result.title}</h4>
+                          <h4 className="text-lg font-medium text-gray-900">
+                            {result.title}
+                          </h4>
                           <span className="inline-block px-2 py-1 mt-2 text-xs font-medium rounded bg-gray-100 text-gray-600">
                             {result.category}
                           </span>
@@ -177,24 +251,30 @@ const DesignGuide: React.FC = () => {
                   {tableData.map((row) => (
                     <tr key={row.id} className="hover:bg-gray-50">
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm font-medium text-gray-900">{row.name}</div>
+                        <div className="text-sm font-medium text-gray-900">
+                          {row.name}
+                        </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="text-sm text-gray-500">{row.email}</div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <span className={`inline-flex px-2 py-1 text-xs font-medium rounded-full ${
-                          row.status === 'Active'
-                            ? 'bg-green-100 text-green-800'
-                            : row.status === 'Pending'
-                            ? 'bg-yellow-100 text-yellow-800'
-                            : 'bg-red-100 text-red-800'
-                        }`}>
+                        <span
+                          className={`inline-flex px-2 py-1 text-xs font-medium rounded-full ${
+                            row.status === 'Active'
+                              ? 'bg-green-100 text-green-800'
+                              : row.status === 'Pending'
+                              ? 'bg-yellow-100 text-yellow-800'
+                              : 'bg-red-100 text-red-800'
+                          }`}
+                        >
                           {row.status}
                         </span>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <Button variant="ghost" size="sm">Edit</Button>
+                        <Button variant="ghost" size="sm">
+                          Edit
+                        </Button>
                       </td>
                     </tr>
                   ))}
@@ -225,9 +305,12 @@ const DesignGuide: React.FC = () => {
                       <span className="inline-block px-2 py-1 text-xs font-medium rounded bg-primary-100 text-primary-800 mb-2">
                         News
                       </span>
-                      <h3 className="text-xl font-semibold mb-2">Digital Government Initiatives</h3>
+                      <h3 className="text-xl font-semibold mb-2">
+                        Digital Government Initiatives
+                      </h3>
                       <p className="text-gray-600 mb-4">
-                        Latest updates on the government's digital transformation projects and e-services.
+                        Latest updates on the government's digital
+                        transformation projects and e-services.
                       </p>
                       <Button variant="link">Read More</Button>
                     </CardContent>
@@ -244,7 +327,9 @@ const DesignGuide: React.FC = () => {
                           <span className="inline-block px-2 py-1 text-xs font-medium rounded bg-white/20 mb-2">
                             Tourism
                           </span>
-                          <h3 className="text-xl font-semibold mb-2">Exploring Philippine Islands</h3>
+                          <h3 className="text-xl font-semibold mb-2">
+                            Exploring Philippine Islands
+                          </h3>
                           <p className="text-white/80">
                             Discover the beauty of the Philippine archipelago.
                           </p>
@@ -261,13 +346,16 @@ const DesignGuide: React.FC = () => {
                 <div className="prose max-w-none">
                   <h1 className="text-3xl font-bold mb-4">Article Title</h1>
                   <p className="text-gray-600 mb-6">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua.
                   </p>
-                  <h2 className="text-2xl font-semibold mb-3">Section Heading</h2>
+                  <h2 className="text-2xl font-semibold mb-3">
+                    Section Heading
+                  </h2>
                   <p className="text-gray-600 mb-4">
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                    laboris nisi ut aliquip ex ea commodo consequat.
                   </p>
                 </div>
               </div>
@@ -279,7 +367,9 @@ const DesignGuide: React.FC = () => {
         <Card>
           <CardHeader>
             <h2 className="text-2xl font-semibold">Official Biography</h2>
-            <p className="text-gray-600">Government official profile and biography layout</p>
+            <p className="text-gray-600">
+              Government official profile and biography layout
+            </p>
           </CardHeader>
           <CardContent>
             <div className="max-w-4xl mx-auto">
@@ -305,7 +395,9 @@ const DesignGuide: React.FC = () => {
                         <div className="text-sm font-medium text-primary-200 mb-1">
                           17th President of the Republic of the Philippines
                         </div>
-                        <h1 className="text-4xl font-bold mb-2">Ferdinand Marcos Jr.</h1>
+                        <h1 className="text-4xl font-bold mb-2">
+                          Ferdinand Marcos Jr.
+                        </h1>
                         <p className="text-primary-100">
                           Serving since June 30, 2022
                         </p>
@@ -320,13 +412,17 @@ const DesignGuide: React.FC = () => {
                     {/* Left Column - Contact & Basic Info */}
                     <div className="space-y-6">
                       <div className="bg-gray-50 rounded-lg p-6">
-                        <h3 className="text-lg font-semibold mb-4">Contact Information</h3>
+                        <h3 className="text-lg font-semibold mb-4">
+                          Contact Information
+                        </h3>
                         <div className="space-y-4">
                           <div className="flex items-center text-gray-600">
                             <Building className="h-5 w-5 mr-3 text-primary-600" />
                             <div>
                               <div className="font-medium">Office</div>
-                              <div className="text-sm">Malacañang Palace, Manila</div>
+                              <div className="text-sm">
+                                Malacañang Palace, Manila
+                              </div>
                             </div>
                           </div>
                           <div className="flex items-center text-gray-600">
@@ -347,20 +443,31 @@ const DesignGuide: React.FC = () => {
                             <Globe className="h-5 w-5 mr-3 text-primary-600" />
                             <div>
                               <div className="font-medium">Website</div>
-                              <div className="text-sm">www.president.gov.ph</div>
+                              <div className="text-sm">
+                                www.president.gov.ph
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
 
                       <div className="bg-gray-50 rounded-lg p-6">
-                        <h3 className="text-lg font-semibold mb-4">Education</h3>
+                        <h3 className="text-lg font-semibold mb-4">
+                          Education
+                        </h3>
                         <div className="space-y-4">
                           {education.map((edu, index) => (
-                            <div key={index} className="border-l-2 border-primary-500 pl-4">
+                            <div
+                              key={index}
+                              className="border-l-2 border-primary-500 pl-4"
+                            >
                               <div className="font-medium">{edu.degree}</div>
-                              <div className="text-sm text-gray-600">{edu.institution}</div>
-                              <div className="text-sm text-gray-500">{edu.year}</div>
+                              <div className="text-sm text-gray-600">
+                                {edu.institution}
+                              </div>
+                              <div className="text-sm text-gray-500">
+                                {edu.year}
+                              </div>
                             </div>
                           ))}
                         </div>
@@ -370,24 +477,33 @@ const DesignGuide: React.FC = () => {
                     {/* Right Column - Bio & Achievements */}
                     <div className="lg:col-span-2 space-y-6">
                       <div>
-                        <h3 className="text-xl font-semibold mb-4">Biography</h3>
+                        <h3 className="text-xl font-semibold mb-4">
+                          Biography
+                        </h3>
                         <div className="prose max-w-none">
                           <p className="text-gray-600 leading-relaxed">
-                            Ferdinand "Bongbong" Romualdez Marcos Jr. serves as the 17th President of the Philippines, 
-                            assuming office on June 30, 2022. As the country's chief executive, he leads the 
-                            implementation of laws and policies aimed at national development and public welfare.
+                            Ferdinand "Bongbong" Romualdez Marcos Jr. serves as
+                            the 17th President of the Philippines, assuming
+                            office on June 30, 2022. As the country's chief
+                            executive, he leads the implementation of laws and
+                            policies aimed at national development and public
+                            welfare.
                           </p>
                           <p className="text-gray-600 leading-relaxed mt-4">
-                            Prior to his presidency, he served in various government positions including as a 
-                            Senator of the Philippines from 2010 to 2016, and as Governor of Ilocos Norte. His 
-                            administration focuses on economic recovery, infrastructure development, and digital 
+                            Prior to his presidency, he served in various
+                            government positions including as a Senator of the
+                            Philippines from 2010 to 2016, and as Governor of
+                            Ilocos Norte. His administration focuses on economic
+                            recovery, infrastructure development, and digital
                             transformation of government services.
                           </p>
                         </div>
                       </div>
 
                       <div>
-                        <h3 className="text-xl font-semibold mb-4">Key Achievements</h3>
+                        <h3 className="text-xl font-semibold mb-4">
+                          Key Achievements
+                        </h3>
                         <div className="grid gap-4">
                           {achievements.map((achievement, index) => (
                             <div key={index} className="flex items-start">
@@ -417,7 +533,7 @@ const DesignGuide: React.FC = () => {
         </Card>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default DesignGuide;
+export default DesignGuide

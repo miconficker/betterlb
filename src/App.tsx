@@ -1,5 +1,10 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom'
 import { LanguageProvider } from './contexts/LanguageContext'
 import Navbar from './components/layout/Navbar'
 import Ticker from './components/ui/Ticker'
@@ -13,6 +18,13 @@ import PhilippinesCulture from './pages/philippines/culture'
 import PhilippinesRegions from './pages/philippines/regions'
 import PublicHolidays from './pages/philippines/holidays'
 import PhilippinesMap from './pages/philippines/map'
+import ExecutiveDirectory from './pages/government/executive'
+import ExecutiveOffice from './pages/government/executive/[office]'
+import ExecutiveLayout from './pages/government/executive/layout'
+import DepartmentsIndex from './pages/government/departments'
+import DepartmentDetail from './pages/government/departments/[department]'
+import DepartmentsLayout from './pages/government/departments/layout'
+import GovernmentLayout from './pages/government/layout'
 
 function App() {
   return (
@@ -38,8 +50,26 @@ function App() {
               path="/philippines/regions"
               element={<PhilippinesRegions />}
             />
-            <Route path="/philippines/holidays" element={<PublicHolidays />} />
             <Route path="/philippines/map" element={<PhilippinesMap />} />
+            <Route path="/philippines/holidays" element={<PublicHolidays />} />
+
+            {/* Government Routes */}
+            <Route
+              path="/government"
+              element={<GovernmentLayout title="Government" />}
+            >
+              <Route index element={<Navigate to="departments" replace />} />
+
+              <Route path="executive" element={<ExecutiveLayout />}>
+                <Route index element={<ExecutiveDirectory />} />
+                <Route path=":office" element={<ExecutiveOffice />} />
+              </Route>
+
+              <Route path="departments" element={<DepartmentsLayout />}>
+                <Route index element={<DepartmentsIndex />} />
+                <Route path=":department" element={<DepartmentDetail />} />
+              </Route>
+            </Route>
           </Routes>
           <Footer />
         </div>
