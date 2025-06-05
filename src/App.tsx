@@ -31,6 +31,13 @@ import ConstitutionalOffice from './pages/government/constitutional/[office]'
 import GOCCsPage from './pages/government/constitutional/goccs'
 import SUCsPage from './pages/government/constitutional/sucs'
 
+// Legislative Branch
+import LegislativeLayout from './pages/government/legislative/layout'
+import LegislativeIndex from './pages/government/legislative/index'
+import LegislativeChamber from './pages/government/legislative/[chamber]'
+import HouseMembersPage from './pages/government/legislative/house-members'
+import SenateCommitteesPage from './pages/government/legislative/senate-committees'
+
 function App() {
   return (
     <LanguageProvider>
@@ -80,6 +87,12 @@ function App() {
                 <Route path=":office" element={<ConstitutionalOffice />} />
                 <Route path="goccs" element={<GOCCsPage />} />
                 <Route path="sucs" element={<SUCsPage />} />
+              </Route>
+              <Route path="legislative" element={<LegislativeLayout />}>
+                <Route index element={<LegislativeIndex />} />
+                <Route path=":chamber" element={<LegislativeChamber />} />
+                <Route path="house-members" element={<HouseMembersPage />} />
+                <Route path="senate-committees" element={<SenateCommitteesPage />} />
               </Route>
             </Route>
           </Routes>

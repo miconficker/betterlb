@@ -26,12 +26,12 @@ export default function ConstitutionalSidebar({
   const { office: officeParam } = useParams()
   const navigate = useNavigate()
   const location = useLocation()
-  
+
   // Only include constitutional offices (exclude GOCCs and SUCs)
   const offices = useMemo(() => {
     return constitutionalData.filter(
-      (office: any) => 
-        !office.office_type.includes('Government-Owned') && 
+      (office: any) =>
+        !office.office_type.includes('Government-Owned') &&
         !office.office_type.includes('GOCCs') &&
         !office.office_type.includes('State Universities') &&
         !office.office_type.includes('SUCs')
@@ -41,8 +41,8 @@ export default function ConstitutionalSidebar({
   // Filter offices based on search term
   const filteredOffices = useMemo(() => {
     if (!searchTerm) return offices
-    
-    return offices.filter(office => 
+
+    return offices.filter((office) =>
       office.name.toLowerCase().includes(searchTerm.toLowerCase())
     )
   }, [offices, searchTerm])
@@ -76,9 +76,43 @@ export default function ConstitutionalSidebar({
         <div className="border rounded-lg overflow-hidden bg-white">
           <div className="max-h-[calc(100vh-200px)] overflow-y-auto">
             <nav className="p-2 space-y-4">
+              {/* Constitutional offices */}
+              <div>
+                <h3 className="px-3 text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">
+                  Constitutional Offices
+                </h3>
+                {filteredOffices.length === 0 ? (
+                  <div className="p-4 text-center text-sm text-gray-500">
+                    No offices found
+                  </div>
+                ) : (
+                  <ul className="space-y-1">
+                    {filteredOffices.map((office) => (
+                      <li key={office.name}>
+                        <button
+                          onClick={() => handleOfficeSelect(office)}
+                          className={`w-full text-left px-3 py-2 text-sm rounded-md transition-colors ${
+                            officeParam === office.name
+                              ? 'bg-primary-50 text-primary-700 font-medium'
+                              : 'text-gray-700 hover:bg-gray-50'
+                          }`}
+                        >
+                          <div className="flex items-center">
+                            <Building2 className="h-4 w-4 mr-2 text-gray-400 flex-shrink-0" />
+                            <span className="truncate">{office.name}</span>
+                          </div>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+
               {/* Special category links */}
               <div>
-                <h3 className="px-3 text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Categories</h3>
+                <h3 className="px-3 text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">
+                  Others
+                </h3>
                 <ul className="space-y-1">
                   <li>
                     <Link
@@ -107,36 +141,6 @@ export default function ConstitutionalSidebar({
                     </Link>
                   </li>
                 </ul>
-              </div>
-
-              {/* Constitutional offices */}
-              <div>
-                <h3 className="px-3 text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Constitutional Offices</h3>
-                {filteredOffices.length === 0 ? (
-                  <div className="p-4 text-center text-sm text-gray-500">
-                    No offices found
-                  </div>
-                ) : (
-                  <ul className="space-y-1">
-                    {filteredOffices.map((office) => (
-                      <li key={office.name}>
-                        <button
-                          onClick={() => handleOfficeSelect(office)}
-                          className={`w-full text-left px-3 py-2 text-sm rounded-md transition-colors ${
-                            officeParam === office.name
-                              ? 'bg-primary-50 text-primary-700 font-medium'
-                              : 'text-gray-700 hover:bg-gray-50'
-                          }`}
-                        >
-                          <div className="flex items-center">
-                            <Building2 className="h-4 w-4 mr-2 text-gray-400 flex-shrink-0" />
-                            <span className="truncate">{office.name}</span>
-                          </div>
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                )}
               </div>
             </nav>
           </div>
