@@ -38,6 +38,13 @@ import LegislativeChamber from './pages/government/legislative/[chamber]'
 import HouseMembersPage from './pages/government/legislative/house-members'
 import SenateCommitteesPage from './pages/government/legislative/senate-committees'
 
+// Diplomatic Section
+import DiplomaticLayout from './pages/government/diplomatic/layout'
+import DiplomaticIndex from './pages/government/diplomatic/index'
+import DiplomaticMissionsPage from './pages/government/diplomatic/missions'
+import ConsulatesPage from './pages/government/diplomatic/consulates'
+import InternationalOrganizationsPage from './pages/government/diplomatic/organizations'
+
 function App() {
   return (
     <LanguageProvider>
@@ -93,6 +100,12 @@ function App() {
                 <Route path=":chamber" element={<LegislativeChamber />} />
                 <Route path="house-members" element={<HouseMembersPage />} />
                 <Route path="senate-committees" element={<SenateCommitteesPage />} />
+              </Route>
+              <Route path="diplomatic" element={<DiplomaticLayout />}>
+                <Route index element={<DiplomaticIndex />} />
+                <Route path="missions" element={<DiplomaticMissionsPage />} />
+                <Route path="consulates" element={<ConsulatesPage />} />
+                <Route path="organizations" element={<InternationalOrganizationsPage />} />
               </Route>
             </Route>
           </Routes>
