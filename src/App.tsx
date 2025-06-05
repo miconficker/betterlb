@@ -48,6 +48,11 @@ import OtherExecutiveOffices from './pages/government/executive/other-executive-
 import OfficeOfTheVicePresident from './pages/government/executive/office-of-the-vice-president'
 import PresidentialCommunicationsOffice from './pages/government/executive/presidential-communications-office'
 
+// Local Government Units
+import LocalLayout from './pages/government/local/components/LocalLayout'
+import LocalGovernmentIndex from './pages/government/local/index'
+import RegionalLGUPage from './pages/government/local/[region]'
+
 function App() {
   return (
     <LanguageProvider>
@@ -130,6 +135,12 @@ function App() {
                   path="organizations"
                   element={<InternationalOrganizationsPage />}
                 />
+              </Route>
+              
+              {/* Local Government Routes */}
+              <Route path="local" element={<LocalLayout />}>
+                <Route index element={<LocalGovernmentIndex />} />
+                <Route path=":region" element={<RegionalLGUPage />} />
               </Route>
             </Route>
           </Routes>
