@@ -15,6 +15,7 @@ import {
   GalleryVertical,
   Globe,
   BookOpen,
+  MapPin,
 } from 'lucide-react'
 
 interface GovernmentLayoutProps {
@@ -66,7 +67,7 @@ export default function GovernmentLayout({
       title: 'Executive Branch',
       description:
         'The President, Vice President, and the Cabinet members who implement and enforce laws.',
-      icon: <Landmark className="h-5 w-5" />,
+      icon: <Landmark className="h-4 w-4" />,
       path: '/government/executive',
       color: 'bg-blue-600',
       hoverColor: 'hover:bg-blue-700',
@@ -76,7 +77,7 @@ export default function GovernmentLayout({
       title: 'Executive Departments',
       description:
         'Government departments and agencies responsible for specific areas of governance.',
-      icon: <Building2 className="h-5 w-5" />,
+      icon: <Building2 className="h-4 w-4" />,
       path: '/government/departments',
       color: 'bg-green-600',
       hoverColor: 'hover:bg-green-700',
@@ -86,7 +87,7 @@ export default function GovernmentLayout({
       title: 'Constitutional Bodies',
       description:
         'Independent bodies created by the Constitution with specific mandates.',
-      icon: <BookOpen className="h-5 w-5" />,
+      icon: <BookOpen className="h-4 w-4" />,
       path: '/government/constitutional',
       color: 'bg-purple-600',
       hoverColor: 'hover:bg-purple-700',
@@ -96,17 +97,26 @@ export default function GovernmentLayout({
       title: 'Legislative Branch',
       description:
         'The Senate and House of Representatives that make laws and policies.',
-      icon: <GalleryVertical className="h-5 w-5" />,
+      icon: <GalleryVertical className="h-4 w-4" />,
       path: '/government/legislative',
       color: 'bg-amber-600',
       hoverColor: 'hover:bg-amber-700',
       textColor: 'text-amber-600',
     },
     {
+      title: 'Local Government Units',
+      description: 'Local government units of the Philippines.',
+      icon: <MapPin className="h-4 w-4" />,
+      path: '/government/local',
+      color: 'bg-pink-600',
+      hoverColor: 'hover:bg-pink-700',
+      textColor: 'text-pink-600',
+    },
+    {
       title: 'Diplomatic Missions',
       description:
         'Philippine embassies, consulates, and diplomatic missions around the world.',
-      icon: <Globe className="h-5 w-5" />,
+      icon: <Globe className="h-4 w-4" />,
       path: '/government/diplomatic',
       color: 'bg-red-600',
       hoverColor: 'hover:bg-red-700',
@@ -132,21 +142,26 @@ export default function GovernmentLayout({
 
       {/* Card Tabs Navigation */}
       <div className="mb-12 overflow-x-auto flex justify-center">
-        <div className="flex space-x-2 min-w-max gap-2">
+        <div className="grid grid-cols-3 gap-2">
           {branches.map((branch) => {
             const isActive = currentPath.includes(branch.path)
             return (
               <Link
                 key={branch.path}
                 to={branch.path}
-                className={`flex items-center px-4 py-2 rounded-md transition-all ${
+                className={`flex flex-col px-4 py-4 xrounded-md transition-all rounded-md shadow-sm ${
                   isActive
                     ? `${branch.color} text-white`
                     : `bg-white border ${branch.textColor} ${branch.hoverColor} hover:text-white`
                 }`}
               >
-                <div className="mr-2">{branch.icon}</div>
-                <span className="font-medium">{branch.title}</span>
+                <div className="flex items-center gap-1 mb-1">
+                  <div className="mr-2 text-xs">{branch.icon}</div>
+                  <span className="font-medium text-sm">{branch.title}</span>
+                </div>
+                <div className="text-xs text-gray-800">
+                  {branch.description}
+                </div>
               </Link>
             )
           })}
