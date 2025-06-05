@@ -1,6 +1,17 @@
 import { useState, useMemo } from 'react'
-import { Search, ExternalLink, MapPin, Phone, Mail } from 'lucide-react'
+import { Search } from 'lucide-react'
 import executiveData from '../../../data/directory/executive.json'
+import {
+  CardList,
+  Card,
+  CardContent,
+  CardTitle,
+  CardDescription,
+  CardContactInfo,
+  CardGrid,
+  CardAvatar,
+  CardDivider,
+} from '../../../components/ui/CardList'
 
 interface Personnel {
   name: string
@@ -28,8 +39,8 @@ interface Office {
   trunkline?: string
   website?: string
   officials: (Official | OfficeDivision)[]
-  bureaus?: any[]
-  attached_agency?: any[]
+  bureaus?: unknown[]
+  attached_agency?: unknown[]
 }
 
 export default function PresidentialCommunicationsOfficePage() {
@@ -112,163 +123,109 @@ export default function PresidentialCommunicationsOfficePage() {
           <p className="text-gray-500">Try adjusting your search term.</p>
         </div>
       ) : (
-        <div className="space-y-8">
+        <CardList>
           {filteredOffices.map((office, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg border overflow-hidden shadow-sm hover:shadow-md transition-shadow"
-            >
-              <div className="p-5">
-                <h2 className="text-xl font-semibold text-gray-900 mb-4">
-                  {office.office}
-                </h2>
+            <div key={index} className="space-y-6">
+              <Card>
+                <CardContent>
+                  <CardTitle level="h2" className="text-xl mb-4">
+                    {office.office}
+                  </CardTitle>
+                  <CardContactInfo
+                    contact={{
+                      address: office.address,
+                      phone: office.trunkline,
+                      website: office.website,
+                    }}
+                  />
+                </CardContent>
+              </Card>
 
-                <div className="space-y-2 text-sm mb-4">
-                  {office.address && (
-                    <div className="flex items-start">
-                      <MapPin className="h-4 w-4 text-gray-400 mr-2 mt-0.5" />
-                      <span className="text-gray-600">{office.address}</span>
-                    </div>
-                  )}
+              {office.officials &&
+                office.officials.find(
+                  (official) =>
+                    'name' in official &&
+                    (official.role.includes('Secretary') ||
+                      official.role.includes('Acting Secretary'))
+                ) && (
+                  <Card variant="featured">
+                    <CardContent>
+                      {office.officials
+                        .filter(
+                          (official) =>
+                            'name' in official &&
+                            (official.role.includes('Secretary') ||
+                              official.role.includes('Acting Secretary'))
+                        )
+                        .map((official, officialIndex) => {
+                          if (!('name' in official)) return null
+                          return (
+                            <div
+                              key={officialIndex}
+                              className="flex flex-col items-center text-center"
+                            >
+                              <CardAvatar
+                                name={official.name}
+                                size="lg"
+                                className="mb-4"
+                              />
+                              <CardTitle level="h2" className="text-xl">
+                                {official.name}
+                              </CardTitle>
+                              <CardDescription className="text-primary-600 font-medium text-base">
+                                {official.role}
+                              </CardDescription>
+                              <div className="mt-3">
+                                <CardContactInfo
+                                  contact={{
+                                    phone: official.contact,
+                                    email: official.email,
+                                  }}
+                                  compact
+                                />
+                              </div>
+                            </div>
+                          )
+                        })}
+                    </CardContent>
+                  </Card>
+                )}
 
-                  {office.trunkline && (
-                    <div className="flex items-start">
-                      <Phone className="h-4 w-4 text-gray-400 mr-2 mt-0.5" />
-                      <span className="text-gray-600">{office.trunkline}</span>
-                    </div>
-                  )}
-
-                  {office.website && (
-                    <div className="flex items-start">
-                      <ExternalLink className="h-4 w-4 text-gray-400 mr-2 mt-0.5" />
-                      <a
-                        href={
-                          office.website.startsWith('http')
-                            ? office.website
-                            : `https://${office.website.split(' ')[0]}`
-                        }
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-primary-600 hover:underline"
-                      >
-                        {office.website.split(' ')[0]}
-                      </a>
-                    </div>
-                  )}
-                </div>
-
-                {/* Display key officials */}
-                <div className="mt-4">
-                  {/* Acting Secretary card */}
-                  {office.officials &&
-                    office.officials.find(
-                      (official) =>
-                        'name' in official &&
-                        (official.role.includes('Secretary') ||
-                          official.role.includes('Acting Secretary'))
-                    ) && (
-                      <div className="bg-white rounded-lg border overflow-hidden shadow-md mb-6">
-                        <div className="p-5">
-                          {office.officials
-                            .filter(
-                              (official) =>
-                                'name' in official &&
-                                (official.role.includes('Secretary') ||
-                                  official.role.includes('Acting Secretary'))
-                            )
-                            .map((official, index) => {
-                              if (!('name' in official)) return null
-                              return (
-                                <div
-                                  key={index}
-                                  className="flex flex-col items-center text-center"
-                                >
-                                  <div className="w-24 h-24 rounded-full bg-gray-100 flex items-center justify-center mb-4">
-                                    <span className="text-3xl font-bold text-gray-400">
-                                      {official.name.charAt(0)}
-                                    </span>
-                                  </div>
-                                  <h3 className="text-xl font-bold text-gray-900">
-                                    {official.name}
-                                  </h3>
-                                  <p className="text-primary-600 font-medium">
-                                    {official.role}
-                                  </p>
-                                  {official.contact && (
-                                    <div className="flex items-center mt-2">
-                                      <Phone className="h-4 w-4 text-gray-400 mr-1" />
-                                      <span className="text-sm text-gray-600">
-                                        {official.contact}
-                                      </span>
-                                    </div>
-                                  )}
-                                  {official.email && (
-                                    <div className="flex items-center mt-1">
-                                      <Mail className="h-4 w-4 text-gray-400 mr-1" />
-                                      <a
-                                        href={`mailto:${official.email}`}
-                                        className="text-sm text-primary-600 hover:underline"
-                                      >
-                                        {official.email}
-                                      </a>
-                                    </div>
-                                  )}
-                                </div>
-                              )
-                            })}
-                        </div>
-                      </div>
-                    )}
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {/* Office divisions */}
-
-                  {office.officials &&
-                    office.officials
-                      .filter((item) => 'office_division' in item)
-                      .map((division, idx) => {
-                        if (!('office_division' in division)) return null
-                        return (
-                          <div key={idx} className="border rounded-md p-3">
-                            <h5 className="font-medium text-gray-900 mb-2 pb-1 border-b">
+              {office.officials && (
+                <CardGrid columns={2}>
+                  {office.officials
+                    .filter((item) => 'office_division' in item)
+                    .map((division, idx) => {
+                      if (!('office_division' in division)) return null
+                      return (
+                        <Card key={idx}>
+                          <CardContent>
+                            <CardTitle className="mb-3 capitalize">
                               {division.office_division}
-                            </h5>
+                            </CardTitle>
+                            <CardDivider className="mb-3" />
 
-                            <div className="space-y-3">
+                            <div className="space-y-4">
                               {division.personnel.map((person, personIdx) => (
                                 <div
                                   key={personIdx}
-                                  className="border-b border-gray-100 pb-2 last:border-0"
+                                  className="border-b border-gray-100 pb-3 last:border-0 last:pb-0"
                                 >
-                                  <p className="font-medium text-gray-800 text-sm">
+                                  <p className="font-medium text-gray-800">
                                     {person.name}
                                   </p>
-                                  <p className="text-xs text-gray-600">
+                                  <p className="text-sm text-gray-600">
                                     {person.role}
                                   </p>
 
-                                  <div className="mt-1 space-y-1">
-                                    {person.contact && (
-                                      <div className="flex items-center">
-                                        <Phone className="h-3 w-3 text-gray-400 mr-1" />
-                                        <span className="text-xs text-gray-600">
-                                          {person.contact}
-                                        </span>
-                                      </div>
-                                    )}
-
-                                    {person.email && (
-                                      <div className="flex items-center">
-                                        <Mail className="h-3 w-3 text-gray-400 mr-1" />
-                                        <a
-                                          href={`mailto:${person.email}`}
-                                          className="text-xs text-primary-600 hover:underline"
-                                        >
-                                          {person.email}
-                                        </a>
-                                      </div>
-                                    )}
+                                  <div className="mt-2">
+                                    <CardContactInfo
+                                      contact={{
+                                        phone: person.contact,
+                                        email: person.email,
+                                      }}
+                                      compact
+                                    />
 
                                     {person.other_office && (
                                       <div className="mt-1">
@@ -281,14 +238,15 @@ export default function PresidentialCommunicationsOfficePage() {
                                 </div>
                               ))}
                             </div>
-                          </div>
-                        )
-                      })}
-                </div>
-              </div>
+                          </CardContent>
+                        </Card>
+                      )
+                    })}
+                </CardGrid>
+              )}
             </div>
           ))}
-        </div>
+        </CardList>
       )}
     </div>
   )

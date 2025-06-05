@@ -1,6 +1,15 @@
 import { useState, useMemo } from 'react'
-import { Search, ExternalLink, MapPin, Phone, Mail } from 'lucide-react'
+import { Search } from 'lucide-react'
 import executiveData from '../../../data/directory/executive.json'
+import {
+  CardList,
+  Card,
+  CardContent,
+  CardTitle,
+  CardContactInfo,
+  CardGrid,
+  CardDivider,
+} from '../../../components/ui/CardList'
 
 interface Personnel {
   name: string
@@ -112,56 +121,26 @@ export default function OtherExecutiveOfficesPage() {
           <p className="text-gray-500">Try adjusting your search term.</p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <CardGrid columns={2} breakpoint="lg" gap="lg">
           {filteredOffices.map((office, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg border overflow-hidden shadow-sm hover:shadow-md transition-shadow"
-            >
-              <div className="p-5">
-                <div className="border-b pb-3 mb-4">
-                  <h3 className="font-bold text-gray-900 text-xl">
-                    {office.office}
-                  </h3>
-                </div>
+            <Card key={index}>
+              <CardContent>
+                <CardTitle level="h3" className="mb-2">
+                  {office.office}
+                </CardTitle>
+                <CardDivider className="mb-3" />
 
-                <div className="space-y-2 text-sm mb-4">
-                  {office.address && (
-                    <div className="flex items-start">
-                      <MapPin className="h-4 w-4 text-gray-400 mr-2 mt-0.5" />
-                      <span className="text-gray-600">{office.address}</span>
-                    </div>
-                  )}
-
-                  {office.trunkline && (
-                    <div className="flex items-start">
-                      <Phone className="h-4 w-4 text-gray-400 mr-2 mt-0.5" />
-                      <span className="text-gray-600">{office.trunkline}</span>
-                    </div>
-                  )}
-
-                  {office.website && (
-                    <div className="flex items-start">
-                      <ExternalLink className="h-4 w-4 text-gray-400 mr-2 mt-0.5" />
-                      <a
-                        href={
-                          office.website.startsWith('http')
-                            ? office.website
-                            : `https://${office.website.split(' ')[0]}`
-                        }
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-primary-600 hover:underline"
-                      >
-                        {office.website.split(' ')[0]}
-                      </a>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
+                <CardContactInfo
+                  contact={{
+                    address: office.address,
+                    phone: office.trunkline,
+                    website: office.website,
+                  }}
+                />
+              </CardContent>
+            </Card>
           ))}
-        </div>
+        </CardGrid>
       )}
     </div>
   )

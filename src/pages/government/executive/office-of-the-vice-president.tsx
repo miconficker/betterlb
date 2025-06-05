@@ -1,6 +1,17 @@
 import { useState, useMemo } from 'react'
-import { Search, ExternalLink, MapPin, Phone, Mail } from 'lucide-react'
+import { Search } from 'lucide-react'
 import executiveData from '../../../data/directory/executive.json'
+import {
+  CardList,
+  Card,
+  CardContent,
+  CardTitle,
+  CardDescription,
+  CardContactInfo,
+  CardGrid,
+  CardAvatar,
+  CardDivider,
+} from '../../../components/ui/CardList'
 
 interface Personnel {
   name: string
@@ -28,8 +39,8 @@ interface Office {
   trunkline?: string
   website?: string
   officials: (Official | OfficeDivision)[]
-  bureaus?: any[]
-  attached_agency?: any[]
+  bureaus?: unknown[]
+  attached_agency?: unknown[]
 }
 
 export default function OfficeOfTheVicePresidentPage() {
@@ -101,42 +112,17 @@ export default function OfficeOfTheVicePresidentPage() {
         </div>
       </div>
 
-      {/* Office information card */}
-      <div className="bg-white rounded-lg border overflow-hidden shadow-sm p-4 mb-6">
-        <div className="space-y-2">
-          {officeData.address && (
-            <div className="flex items-start">
-              <MapPin className="h-4 w-4 text-gray-400 mr-2 mt-0.5" />
-              <span className="text-gray-600">{officeData.address}</span>
-            </div>
-          )}
-
-          {officeData.trunkline && (
-            <div className="flex items-start">
-              <Phone className="h-4 w-4 text-gray-400 mr-2 mt-0.5" />
-              <span className="text-gray-600">{officeData.trunkline}</span>
-            </div>
-          )}
-
-          {officeData.website && (
-            <div className="flex items-start">
-              <ExternalLink className="h-4 w-4 text-gray-400 mr-2 mt-0.5" />
-              <a
-                href={
-                  officeData.website.startsWith('http')
-                    ? officeData.website
-                    : `https://${officeData.website.split(' ')[0]}`
-                }
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary-600 hover:underline"
-              >
-                {officeData.website.split(' ')[0]}
-              </a>
-            </div>
-          )}
-        </div>
-      </div>
+      <Card>
+        <CardContent>
+          <CardContactInfo
+            contact={{
+              address: officeData.address,
+              phone: officeData.trunkline,
+              website: officeData.website,
+            }}
+          />
+        </CardContent>
+      </Card>
 
       {filteredOfficials.length === 0 ? (
         <div className="p-8 text-center bg-white rounded-lg border">
@@ -149,14 +135,13 @@ export default function OfficeOfTheVicePresidentPage() {
           <p className="text-gray-500">Try adjusting your search term.</p>
         </div>
       ) : (
-        <div className="space-y-6">
-          {/* Vice President card */}
+        <CardList>
           {filteredOfficials.find(
             (official) =>
               'name' in official && official.role.includes('Vice President')
           ) && (
-            <div className="bg-white rounded-lg border overflow-hidden shadow-md">
-              <div className="p-5">
+            <Card variant="featured">
+              <CardContent>
                 {filteredOfficials
                   .filter(
                     (official) =>
@@ -170,58 +155,45 @@ export default function OfficeOfTheVicePresidentPage() {
                         key={index}
                         className="flex flex-col items-center text-center"
                       >
-                        <div className="w-24 h-24 rounded-full bg-gray-100 flex items-center justify-center mb-4">
-                          <span className="text-3xl font-bold text-gray-400">
-                            {official.name.charAt(0)}
-                          </span>
-                        </div>
-                        <h3 className="text-xl font-bold text-gray-900">
+                        <CardAvatar
+                          name={official.name}
+                          size="lg"
+                          className="mb-4"
+                        />
+                        <CardTitle level="h2" className="text-xl">
                           {official.name}
-                        </h3>
-                        <p className="text-primary-600 font-medium">
+                        </CardTitle>
+                        <CardDescription className="text-primary-600 font-medium text-base">
                           {official.role}
-                        </p>
-                        {official.contact && (
-                          <div className="flex items-center mt-2">
-                            <Phone className="h-4 w-4 text-gray-400 mr-1" />
-                            <span className="text-sm text-gray-600">
-                              {official.contact}
-                            </span>
-                          </div>
-                        )}
-                        {official.email && (
-                          <div className="flex items-center mt-1">
-                            <Mail className="h-4 w-4 text-gray-400 mr-1" />
-                            <a
-                              href={`mailto:${official.email}`}
-                              className="text-sm text-primary-600 hover:underline"
-                            >
-                              {official.email}
-                            </a>
-                          </div>
-                        )}
+                        </CardDescription>
+                        <div className="mt-3">
+                          <CardContactInfo
+                            contact={{
+                              phone: official.contact,
+                              email: official.email,
+                            }}
+                            compact
+                          />
+                        </div>
                       </div>
                     )
                   })}
-              </div>
-            </div>
+              </CardContent>
+            </Card>
           )}
 
-          {/* Office divisions */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <CardGrid columns={2}>
             {filteredOfficials
               .filter((official) => 'office_division' in official)
               .map((division, index) => {
                 if (!('office_division' in division)) return null
                 return (
-                  <div
-                    key={index}
-                    className="bg-white rounded-lg border overflow-hidden shadow-sm hover:shadow-md transition-shadow"
-                  >
-                    <div className="p-4">
-                      <h3 className="font-medium text-gray-900 text-lg border-b pb-2 mb-3">
+                  <Card key={index}>
+                    <CardContent>
+                      <CardTitle className="mb-3">
                         {division.office_division}
-                      </h3>
+                      </CardTitle>
+                      <CardDivider className="mb-3" />
 
                       <div className="space-y-4">
                         {division.personnel.map((person, personIndex) => (
@@ -236,27 +208,14 @@ export default function OfficeOfTheVicePresidentPage() {
                               {person.role}
                             </p>
 
-                            <div className="mt-1 space-y-1">
-                              {person.contact && (
-                                <div className="flex items-center">
-                                  <Phone className="h-3 w-3 text-gray-400 mr-1" />
-                                  <span className="text-xs text-gray-600">
-                                    {person.contact}
-                                  </span>
-                                </div>
-                              )}
-
-                              {person.email && (
-                                <div className="flex items-center">
-                                  <Mail className="h-3 w-3 text-gray-400 mr-1" />
-                                  <a
-                                    href={`mailto:${person.email}`}
-                                    className="text-xs text-primary-600 hover:underline"
-                                  >
-                                    {person.email}
-                                  </a>
-                                </div>
-                              )}
+                            <div className="mt-2">
+                              <CardContactInfo
+                                contact={{
+                                  phone: person.contact,
+                                  email: person.email,
+                                }}
+                                compact
+                              />
 
                               {person.other_office && (
                                 <div className="mt-1">
@@ -269,12 +228,12 @@ export default function OfficeOfTheVicePresidentPage() {
                           </div>
                         ))}
                       </div>
-                    </div>
-                  </div>
+                    </CardContent>
+                  </Card>
                 )
               })}
-          </div>
-        </div>
+          </CardGrid>
+        </CardList>
       )}
     </div>
   )

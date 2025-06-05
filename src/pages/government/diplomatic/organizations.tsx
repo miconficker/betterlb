@@ -1,28 +1,32 @@
 import { useState, useMemo } from 'react'
-import { Search, Landmark, MapPin, Phone, Mail, ExternalLink } from 'lucide-react'
+import { Search, Landmark } from 'lucide-react'
 import diplomaticData from '../../../data/directory/diplomatic.json'
+import {
+  CardGrid,
+  Card,
+  CardContent,
+  CardTitle,
+  CardContactInfo,
+  CardDivider,
+} from '../../../components/ui/CardList'
 
-interface Organization {
-  organization_name: string
-  address: string
-  contact: string
-  email?: string
-  website?: string
-  head: string
-  title: string
-}
 
 export default function InternationalOrganizationsPage() {
   const [searchTerm, setSearchTerm] = useState('')
-  
+
   // Get international organizations data
-  const organizations = diplomaticData["International Organization"] || []
-  
+  const organizations = useMemo(() => {
+    return diplomaticData['International Organization'] || []
+  }, [])
+
   // Filter organizations based on search term
   const filteredOrganizations = useMemo(() => {
-    return organizations.filter((org: Organization) => 
-      org.organization_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      org.head.toLowerCase().includes(searchTerm.toLowerCase())
+    return organizations.filter(
+      (org) =>
+        org.organization_name
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase()) ||
+        org.head.toLowerCase().includes(searchTerm.toLowerCase())
     )
   }, [organizations, searchTerm])
 
@@ -34,10 +38,11 @@ export default function InternationalOrganizationsPage() {
             International Organizations
           </h1>
           <p className="text-gray-500 mt-1">
-            {organizations.length} international organizations in the Philippines
+            {organizations.length} international organizations in the
+            Philippines
           </p>
         </div>
-        
+
         <div className="relative w-full md:w-64">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
           <input
@@ -58,72 +63,44 @@ export default function InternationalOrganizationsPage() {
           <h3 className="text-lg font-medium text-gray-900 mb-1">
             No organizations found
           </h3>
-          <p className="text-gray-500">
-            Try adjusting your search term.
-          </p>
+          <p className="text-gray-500">Try adjusting your search term.</p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {filteredOrganizations.map((org: Organization, index) => (
-            <div key={index} className="bg-white rounded-lg border overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-              <div className="p-4">
+        <CardGrid columns={3} breakpoint="lg" gap="md">
+          {filteredOrganizations.map((org, index) => (
+            <Card key={index}>
+              <CardContent>
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-medium text-gray-900 text-lg">{org.organization_name}</h3>
+                  <CardTitle className="text-lg">
+                    {org.organization_name}
+                  </CardTitle>
                   <div className="bg-purple-50 text-purple-700 text-xs font-medium px-2 py-1 rounded-full">
                     Organization
                   </div>
                 </div>
-                
-                <div className="space-y-2 text-sm mt-4">
-                  {org.address && (
-                    <div className="flex items-start">
-                      <MapPin className="h-4 w-4 text-gray-400 mr-2 mt-0.5" />
-                      <span className="text-gray-600">{org.address}</span>
-                    </div>
-                  )}
-                  
-                  {org.contact && (
-                    <div className="flex items-start">
-                      <Phone className="h-4 w-4 text-gray-400 mr-2 mt-0.5" />
-                      <span className="text-gray-600">{org.contact}</span>
-                    </div>
-                  )}
-                  
-                  {org.email && (
-                    <div className="flex items-start">
-                      <Mail className="h-4 w-4 text-gray-400 mr-2 mt-0.5" />
-                      <a 
-                        href={`mailto:${org.email}`} 
-                        className="text-primary-600 hover:underline"
-                      >
-                        {org.email}
-                      </a>
-                    </div>
-                  )}
-                  
-                  {org.website && (
-                    <div className="flex items-start">
-                      <ExternalLink className="h-4 w-4 text-gray-400 mr-2 mt-0.5" />
-                      <a
-                        href={org.website.startsWith('http') ? org.website : `https://${org.website}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-primary-600 hover:underline"
-                      >
-                        Website
-                      </a>
-                    </div>
-                  )}
+
+                <CardDivider className="my-4" />
+
+                <div className="mt-4">
+                  <CardContactInfo
+                    contact={{
+                      address: org.address,
+                      phone: org.contact,
+                      email: org.email,
+                      website: org.website,
+                    }}
+                  />
                 </div>
-                
-                <div className="mt-4 pt-4 border-t border-gray-100">
+
+                <CardDivider className="mt-4 mb-4" />
+                <div>
                   <p className="font-medium text-gray-900">{org.head}</p>
                   <p className="text-sm text-gray-600">{org.title}</p>
                 </div>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
           ))}
-        </div>
+        </CardGrid>
       )}
     </div>
   )

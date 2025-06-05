@@ -1,30 +1,32 @@
 import { useState, useMemo } from 'react'
-import { Search, Globe, MapPin, Phone, Mail, ExternalLink } from 'lucide-react'
+import { Search, Globe } from 'lucide-react'
 import diplomaticData from '../../../data/directory/diplomatic.json'
+import {
+  CardGrid,
+  Card,
+  CardContent,
+  CardTitle,
+  CardDescription,
+  CardContactInfo,
+  CardDivider,
+} from '../../../components/ui/CardList'
 
-interface DiplomaticMission {
-  country: string
-  office_name: string
-  address: string
-  contact: string
-  email?: string
-  website?: string
-  representative: string
-  title: string
-}
 
 export default function DiplomaticMissionsPage() {
   const [searchTerm, setSearchTerm] = useState('')
-  
+
   // Get diplomatic missions data
-  const missions = diplomaticData["Diplomatic Mission"] || []
-  
+  const missions = useMemo(() => {
+    return diplomaticData['Diplomatic Mission'] || []
+  }, [])
+
   // Filter missions based on search term
   const filteredMissions = useMemo(() => {
-    return missions.filter((mission: DiplomaticMission) => 
-      mission.country.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      mission.office_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      mission.representative.toLowerCase().includes(searchTerm.toLowerCase())
+    return missions.filter(
+      (mission) =>
+        mission.country.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        mission.office_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        mission.representative.toLowerCase().includes(searchTerm.toLowerCase())
     )
   }, [missions, searchTerm])
 
@@ -39,7 +41,7 @@ export default function DiplomaticMissionsPage() {
             {missions.length} diplomatic missions in the Philippines
           </p>
         </div>
-        
+
         <div className="relative w-full md:w-64">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
           <input
@@ -60,74 +62,44 @@ export default function DiplomaticMissionsPage() {
           <h3 className="text-lg font-medium text-gray-900 mb-1">
             No diplomatic missions found
           </h3>
-          <p className="text-gray-500">
-            Try adjusting your search term.
-          </p>
+          <p className="text-gray-500">Try adjusting your search term.</p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {filteredMissions.map((mission: DiplomaticMission, index) => (
-            <div key={index} className="bg-white rounded-lg border overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-              <div className="p-4">
+        <CardGrid columns={3} breakpoint="lg" gap="md">
+          {filteredMissions.map((mission, index) => (
+            <Card key={index}>
+              <CardContent>
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-medium text-gray-900 text-lg">{mission.country}</h3>
+                  <CardTitle className="text-lg">{mission.country}</CardTitle>
                   <div className="bg-blue-50 text-blue-700 text-xs font-medium px-2 py-1 rounded-full">
                     Mission
                   </div>
                 </div>
-                <p className="text-sm text-gray-600 mb-4">{mission.office_name}</p>
-                
-                <div className="space-y-2 text-sm">
-                  {mission.address && (
-                    <div className="flex items-start">
-                      <MapPin className="h-4 w-4 text-gray-400 mr-2 mt-0.5" />
-                      <span className="text-gray-600">{mission.address}</span>
-                    </div>
-                  )}
-                  
-                  {mission.contact && (
-                    <div className="flex items-start">
-                      <Phone className="h-4 w-4 text-gray-400 mr-2 mt-0.5" />
-                      <span className="text-gray-600">{mission.contact}</span>
-                    </div>
-                  )}
-                  
-                  {mission.email && (
-                    <div className="flex items-start">
-                      <Mail className="h-4 w-4 text-gray-400 mr-2 mt-0.5" />
-                      <a 
-                        href={`mailto:${mission.email}`} 
-                        className="text-primary-600 hover:underline"
-                      >
-                        {mission.email}
-                      </a>
-                    </div>
-                  )}
-                  
-                  {mission.website && (
-                    <div className="flex items-start">
-                      <Globe className="h-4 w-4 text-gray-400 mr-2 mt-0.5" />
-                      <a
-                        href={mission.website.startsWith('http') ? mission.website : `https://${mission.website}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-primary-600 hover:underline flex items-center"
-                      >
-                        <span>{mission.website}</span>
-                        <ExternalLink className="ml-1 h-3 w-3" />
-                      </a>
-                    </div>
-                  )}
-                </div>
-                
-                <div className="mt-4 pt-4 border-t border-gray-100">
-                  <p className="font-medium text-gray-900">{mission.representative}</p>
+                <CardDivider className="mb-4" />
+                <CardDescription className="mb-4">
+                  {mission.office_name}
+                </CardDescription>
+
+                <CardContactInfo
+                  contact={{
+                    address: mission.address,
+                    phone: mission.contact,
+                    email: mission.email,
+                    website: mission.website,
+                  }}
+                />
+
+                <CardDivider className="mt-4 mb-4" />
+                <div>
+                  <p className="font-medium text-gray-900">
+                    {mission.representative}
+                  </p>
                   <p className="text-sm text-gray-600">{mission.title}</p>
                 </div>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
           ))}
-        </div>
+        </CardGrid>
       )}
     </div>
   )

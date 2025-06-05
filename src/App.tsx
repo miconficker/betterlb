@@ -19,7 +19,6 @@ import PhilippinesRegions from './pages/philippines/regions'
 import PublicHolidays from './pages/philippines/holidays'
 import PhilippinesMap from './pages/philippines/map'
 import ExecutiveDirectory from './pages/government/executive'
-import ExecutiveOffice from './pages/government/executive/[office]'
 import ExecutiveLayout from './pages/government/executive/layout'
 import DepartmentsIndex from './pages/government/departments'
 import DepartmentDetail from './pages/government/departments/[department]'
@@ -85,7 +84,6 @@ function App() {
 
               <Route path="executive" element={<ExecutiveLayout />}>
                 <Route index element={<ExecutiveDirectory />} />
-                {/* <Route path=":office" element={<ExecutiveOffice />} /> */}
                 <Route
                   path="other-executive-offices"
                   element={<OtherExecutiveOffices />}
