@@ -1,15 +1,6 @@
 import React from 'react'
 import { Outlet, Link } from 'react-router-dom'
 import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from '../../components/ui/Breadcrumb'
-import {
-  Home,
   Building2,
   Landmark,
   GalleryVertical,
@@ -53,11 +44,7 @@ const BranchCard: React.FC<BranchCardProps> = ({
   </Link>
 )
 
-export default function GovernmentLayout({
-  title,
-  description,
-  children,
-}: GovernmentLayoutProps) {
+export default function GovernmentLayout({ children }: GovernmentLayoutProps) {
   // Get current path to highlight active tab
   const currentPath = window.location.pathname
 

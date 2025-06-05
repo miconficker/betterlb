@@ -12,6 +12,8 @@ import {
   CardAvatar,
   CardDivider,
 } from '../../../components/ui/CardList'
+import SEO from '../../../components/SEO'
+import { getExecutiveSEOData } from '../../../utils/seo-data'
 
 interface Personnel {
   name: string
@@ -78,17 +80,24 @@ export default function OfficeOfThePresidentPage() {
     })
   }, [officeData, searchTerm])
 
+  const seoData = getExecutiveSEOData(officeData?.office)
+
   if (!officeData) {
     return (
-      <div className="p-8 text-center bg-white rounded-lg border">
-        <h3 className="text-lg font-medium text-gray-900 mb-1">
-          Office data not found
-        </h3>
-      </div>
+      <>
+        <SEO {...seoData} />
+        <div className="p-8 text-center bg-white rounded-lg border">
+          <h3 className="text-lg font-medium text-gray-900 mb-1">
+            Office data not found
+          </h3>
+        </div>
+      </>
     )
   }
 
   return (
+    <>
+      <SEO {...seoData} />
     <div className="space-y-6">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div>
@@ -235,5 +244,6 @@ export default function OfficeOfThePresidentPage() {
         </CardList>
       )}
     </div>
+    </>
   )
 }

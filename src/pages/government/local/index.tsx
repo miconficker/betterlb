@@ -9,6 +9,8 @@ import {
   CardTitle,
   CardDescription,
 } from '../../../components/ui/CardList'
+import SEO from '../../../components/SEO'
+import { getLocalGovSEOData } from '../../../utils/seo-data'
 
 export default function LocalGovernmentIndex() {
   const [searchTerm, setSearchTerm] = useState('')
@@ -55,19 +57,23 @@ export default function LocalGovernmentIndex() {
     )
   }, [regions, searchTerm])
 
+  const seoData = getLocalGovSEOData()
+
   return (
-    <div className="space-y-6">
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-        <div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Local Government Units
-          </h1>
-          <p className="text-gray-600">
-            {regions.length} regions •{' '}
-            {regions.reduce((total, region) => total + region.cityCount, 0)}{' '}
-            cities and municipalities
-          </p>
-        </div>
+    <>
+      <SEO {...seoData} />
+      <div className="space-y-6">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              Local Government Units
+            </h1>
+            <p className="text-gray-600">
+              {regions.length} regions •{' '}
+              {regions.reduce((total, region) => total + region.cityCount, 0)}{' '}
+              cities and municipalities
+            </p>
+          </div>
 
         <div className="relative w-full md:w-64">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
@@ -132,5 +138,6 @@ export default function LocalGovernmentIndex() {
         </CardGrid>
       )}
     </div>
+    </>
   )
 }

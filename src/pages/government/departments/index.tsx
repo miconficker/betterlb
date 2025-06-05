@@ -10,6 +10,8 @@ import {
 import departmentsData from '../../../data/directory/departments.json'
 import { useState, useEffect } from 'react'
 import { Card, CardContent, CardHeader } from '../../../components/ui/CardList'
+import SEO from '../../../components/SEO'
+import { getDepartmentsSEOData } from '../../../utils/seo-data'
 
 interface Department {
   office_name: string
@@ -24,31 +26,37 @@ interface Department {
 function DepartmentDetail({ departmentName }: { departmentName: string }) {
   const departments = departmentsData as Department[]
   const department = departments.find((d) => d.office_name === departmentName)
+  const seoData = getDepartmentsSEOData(departmentName)
 
   if (!department) {
     return (
-      <div className="bg-white rounded-lg border p-8 text-center h-full flex flex-col items-center justify-center">
-        <div className="mx-auto w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center mb-4">
-          <Building2 className="h-6 w-6 text-gray-400" />
+      <>
+        <SEO {...seoData} />
+        <div className="bg-white rounded-lg border p-8 text-center h-full flex flex-col items-center justify-center">
+          <div className="mx-auto w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center mb-4">
+            <Building2 className="h-6 w-6 text-gray-400" />
+          </div>
+          <h3 className="text-lg font-medium text-gray-900 mb-1">
+            Department not found
+          </h3>
+          <p className="text-gray-500 max-w-md">
+            The department you're looking for doesn't exist or has been moved.
+          </p>
+          <Link
+            to="/government/departments"
+            className="mt-4 text-primary-600 hover:underline flex items-center"
+          >
+            <ArrowRight className="h-4 w-4 mr-1 rotate-180" />
+            Back to all departments
+          </Link>
         </div>
-        <h3 className="text-lg font-medium text-gray-900 mb-1">
-          Department not found
-        </h3>
-        <p className="text-gray-500 max-w-md">
-          The department you're looking for doesn't exist or has been moved.
-        </p>
-        <Link
-          to="/government/departments"
-          className="mt-4 text-primary-600 hover:underline flex items-center"
-        >
-          <ArrowRight className="h-4 w-4 mr-1 rotate-180" />
-          Back to all departments
-        </Link>
-      </div>
+      </>
     )
   }
 
   return (
+    <>
+      <SEO {...seoData} />
     <div className="space-y-6">
       <div className="flex items-start justify-between">
         <div>
@@ -114,6 +122,7 @@ function DepartmentDetail({ departmentName }: { departmentName: string }) {
         <DepartmentDetailSection data={department} />
       </div>
     </div>
+    </>
   )
 }
 
@@ -180,6 +189,7 @@ function DepartmentDetailSection({
 export default function DepartmentsIndex() {
   const { department: departmentParam } = useParams()
   const departments = departmentsData as Department[]
+  const seoData = getDepartmentsSEOData()
 
   // If we have a specific department parameter, show the department detail view
   if (departmentParam) {
@@ -190,17 +200,19 @@ export default function DepartmentsIndex() {
 
   // Otherwise show the departments grid
   return (
-    <div className="space-y-8">
-      <div>
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">
-          Government Departments
-        </h1>
-        <p className="text-gray-600 max-w-3xl">
-          Browse through the official government departments. Each department is
-          responsible for specific areas of governance and public service
-          delivery.
-        </p>
-      </div>
+    <>
+      <SEO {...seoData} />
+      <div className="space-y-8">
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            Government Departments
+          </h1>
+          <p className="text-gray-600 max-w-3xl">
+            Browse through the official government departments. Each department is
+            responsible for specific areas of governance and public service
+            delivery.
+          </p>
+        </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {departments.map((dept, index) => {
@@ -273,5 +285,6 @@ export default function DepartmentsIndex() {
         })}
       </div>
     </div>
+    </>
   )
 }

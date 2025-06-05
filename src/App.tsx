@@ -85,7 +85,7 @@ function App() {
               path="/government"
               element={<GovernmentLayout title="Government" />}
             >
-              <Route index element={<Navigate to="departments" replace />} />
+              <Route index element={<Navigate to="executive" replace />} />
 
               <Route path="executive" element={<ExecutiveLayout />}>
                 <Route index element={<ExecutiveDirectory />} />
@@ -136,7 +136,7 @@ function App() {
                   element={<InternationalOrganizationsPage />}
                 />
               </Route>
-              
+
               {/* Local Government Routes */}
               <Route path="local" element={<LocalLayout />}>
                 <Route index element={<LocalGovernmentIndex />} />

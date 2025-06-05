@@ -2,6 +2,8 @@ import { useParams } from 'react-router-dom'
 import { MapPin, Phone, ExternalLink, Building2, Mail } from 'lucide-react'
 import constitutionalData from '../../../data/directory/constitutional.json'
 import { useState, useEffect } from 'react'
+import SEO from '../../../components/SEO'
+import { getConstitutionalSEOData } from '../../../utils/seo-data'
 
 interface ConstitutionalOffice {
   name: string
@@ -151,8 +153,12 @@ export default function ConstitutionalIndex() {
     }
   }, [officeParam, offices])
 
+  const seoData = getConstitutionalSEOData(selectedOffice?.name)
+
   if (!selectedOffice) {
     return (
+      <>
+        <SEO {...seoData} />
       <div className="bg-white rounded-lg border p-8 text-center h-full flex flex-col items-center justify-center">
         <div className="mx-auto w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center mb-4">
           <Building2 className="h-6 w-6 text-gray-400" />
@@ -165,6 +171,7 @@ export default function ConstitutionalIndex() {
           contact information.
         </p>
       </div>
+      </>
     )
   }
 
@@ -174,8 +181,10 @@ export default function ConstitutionalIndex() {
     : selectedOffice.trunk_line
 
   return (
-    <div className="space-y-6">
-      <div className="flex flex-col space-y-2">
+    <>
+      <SEO {...seoData} />
+      <div className="space-y-6">
+        <div className="flex flex-col space-y-2">
         <div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
             {selectedOffice.name}
@@ -235,5 +244,6 @@ export default function ConstitutionalIndex() {
         <OfficeDetailSection data={selectedOffice} />
       </div>
     </div>
+    </>
   )
 }

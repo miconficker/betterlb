@@ -10,6 +10,8 @@ import {
   CardContactInfo,
   CardAvatar,
 } from '../../../components/ui/CardList'
+import SEO from '../../../components/SEO'
+import { getLocalGovSEOData } from '../../../utils/seo-data'
 
 export default function RegionalLGUPage() {
   const { region } = useParams<{ region: string }>()
@@ -94,33 +96,40 @@ export default function RegionalLGUPage() {
     )
   }, [allLocalGovUnits, searchTerm])
 
+  const seoData = getLocalGovSEOData(regionData?.region)
+
   if (!regionData) {
     return (
-      <div className="p-8 text-center bg-white rounded-lg border">
-        <div className="mx-auto w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center mb-4">
-          <MapPin className="h-6 w-6 text-gray-400" />
+      <>
+        <SEO {...seoData} />
+        <div className="p-8 text-center bg-white rounded-lg border">
+          <div className="mx-auto w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center mb-4">
+            <MapPin className="h-6 w-6 text-gray-400" />
+          </div>
+          <h3 className="text-lg font-medium text-gray-900 mb-1">
+            Region not found
+          </h3>
+          <p className="text-gray-500">
+            The region you're looking for doesn't exist or may have been moved.
+          </p>
         </div>
-        <h3 className="text-lg font-medium text-gray-900 mb-1">
-          Region not found
-        </h3>
-        <p className="text-gray-500">
-          The region you're looking for doesn't exist or may have been moved.
-        </p>
-      </div>
+      </>
     )
   }
 
   return (
-    <div className="space-y-6">
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-        <div>
-          <h1 className="text-2xl font-bold text-gray-900">
-            {regionData.region}
-          </h1>
-          <p className="text-gray-500 mt-1">
-            {allLocalGovUnits.length} cities and municipalities
-          </p>
-        </div>
+    <>
+      <SEO {...seoData} />
+      <div className="space-y-6">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              {regionData.region}
+            </h1>
+            <p className="text-gray-600">
+              {allLocalGovUnits.length} cities and municipalities
+            </p>
+          </div>
 
         <div className="relative w-full md:w-64">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
@@ -232,5 +241,6 @@ export default function RegionalLGUPage() {
         </CardGrid>
       )}
     </div>
+    </>
   )
 }
