@@ -25,6 +25,11 @@ import DepartmentsIndex from './pages/government/departments'
 import DepartmentDetail from './pages/government/departments/[department]'
 import DepartmentsLayout from './pages/government/departments/layout'
 import GovernmentLayout from './pages/government/layout'
+import ConstitutionalLayout from './pages/government/constitutional/layout'
+import ConstitutionalIndex from './pages/government/constitutional/index'
+import ConstitutionalOffice from './pages/government/constitutional/[office]'
+import GOCCsPage from './pages/government/constitutional/goccs'
+import SUCsPage from './pages/government/constitutional/sucs'
 
 function App() {
   return (
@@ -68,6 +73,13 @@ function App() {
               <Route path="departments" element={<DepartmentsLayout />}>
                 <Route index element={<DepartmentsIndex />} />
                 <Route path=":department" element={<DepartmentDetail />} />
+              </Route>
+
+              <Route path="constitutional" element={<ConstitutionalLayout />}>
+                <Route index element={<ConstitutionalIndex />} />
+                <Route path=":office" element={<ConstitutionalOffice />} />
+                <Route path="goccs" element={<GOCCsPage />} />
+                <Route path="sucs" element={<SUCsPage />} />
               </Route>
             </Route>
           </Routes>
