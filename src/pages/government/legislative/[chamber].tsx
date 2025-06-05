@@ -37,7 +37,14 @@ function LegislativeDetailSection({
   )
 
   // Skip these keys as they're displayed in the header
-  const skipKeys = ['branch', 'chamber', 'address', 'trunkline', 'website', 'email']
+  const skipKeys = [
+    'branch',
+    'chamber',
+    'address',
+    'trunkline',
+    'website',
+    'email',
+  ]
 
   if (isSimpleObject) {
     const cols = Object.keys(data).length > 4 ? Object.keys(data).length : 4
@@ -109,7 +116,7 @@ function LegislativeDetailSection({
 
 export default function LegislativeChamber() {
   const { chamber } = useParams<{ chamber: string }>()
-  
+
   const chamberData = legislativeData.find(
     (item: any) => item.chamber === chamber
   )
@@ -117,7 +124,9 @@ export default function LegislativeChamber() {
   if (!chamberData) {
     return (
       <div className="bg-white rounded-lg p-6 shadow-sm">
-        <h1 className="text-2xl font-bold text-gray-900 mb-4">Chamber Not Found</h1>
+        <h1 className="text-2xl font-bold text-gray-900 mb-4">
+          Chamber Not Found
+        </h1>
         <p className="text-gray-600">
           The requested legislative chamber could not be found.
         </p>
@@ -127,30 +136,36 @@ export default function LegislativeChamber() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white rounded-lg p-6 shadow-sm">
-        <div className="space-y-4">
-          <h1 className="text-2xl font-bold text-gray-900">{chamberData.chamber}</h1>
-          
-          <div className="flex flex-col space-y-2 text-sm">
+      <div className="bg-white rounded-lg  shadow-sm">
+        <div className="">
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            {chamberData.chamber}
+          </h1>
+
+          <div className="flex flex-col space-y-2 text-sm pb-4">
             {chamberData.address && (
               <div className="flex items-start">
                 <MapPin className="h-5 w-5 text-gray-400 mr-2 mt-0.5" />
-                <span>{chamberData.address}</span>
+                <span className="text-gray-600">{chamberData.address}</span>
               </div>
             )}
-            
+
             {chamberData.trunkline && (
               <div className="flex items-start">
                 <Phone className="h-5 w-5 text-gray-400 mr-2 mt-0.5" />
-                <span>{chamberData.trunkline}</span>
+                <span className="text-gray-600">{chamberData.trunkline}</span>
               </div>
             )}
-            
+
             {chamberData.website && (
               <div className="flex items-start">
                 <Globe className="h-5 w-5 text-gray-400 mr-2 mt-0.5" />
                 <a
-                  href={chamberData.website.startsWith('http') ? chamberData.website : `https://${chamberData.website}`}
+                  href={
+                    chamberData.website.startsWith('http')
+                      ? chamberData.website
+                      : `https://${chamberData.website}`
+                  }
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary-600 hover:underline flex items-center"
@@ -164,9 +179,7 @@ export default function LegislativeChamber() {
         </div>
       </div>
 
-      <div className="bg-white rounded-lg p-6 shadow-sm">
-        <LegislativeDetailSection data={chamberData} />
-      </div>
+      <LegislativeDetailSection data={chamberData} />
     </div>
   )
 }

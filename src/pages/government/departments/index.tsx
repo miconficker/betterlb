@@ -49,70 +49,68 @@ function DepartmentDetail({ departmentName }: { departmentName: string }) {
   }
 
   return (
-    <div className="bg-white rounded-lg border overflow-hidden h-full">
-      <div className="p-6 border-b">
-        <div className="flex items-start justify-between">
-          <div>
-            <h2 className="text-2xl font-bold text-gray-900">
-              {department.office_name.replace('DEPARTMENT OF ', '')}
-            </h2>
+    <div className="space-y-6">
+      <div className="flex items-start justify-between">
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            {department.office_name.replace('DEPARTMENT OF ', '')}
+          </h1>
 
-            {department.address && (
-              <p className="mt-2 text-gray-600 flex items-start">
-                <MapPin className="h-4 w-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
-                <span>{department.address}</span>
-              </p>
-            )}
-          </div>
-
-          <div className="flex space-x-2">
-            <Link
-              to="/government/departments"
-              className="inline-flex items-center px-3 py-1.5 border border-gray-200 rounded-md text-sm font-medium hover:bg-gray-50"
-            >
-              <ArrowRight className="mr-1.5 h-3.5 w-3.5 rotate-180" />
-              <span>All Departments</span>
-            </Link>
-
-            {department.website && (
-              <a
-                href={
-                  department.website.startsWith('http')
-                    ? department.website
-                    : `https://${department.website}`
-                }
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-3 py-1.5 border border-gray-200 rounded-md text-sm font-medium hover:bg-gray-50"
-              >
-                <span>Website</span>
-                <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
-              </a>
-            )}
-          </div>
+          {department.address && (
+            <p className="mt-2 text-gray-600 flex items-start">
+              <MapPin className="h-4 w-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
+              <span>{department.address}</span>
+            </p>
+          )}
         </div>
 
-        <div className="mt-4 flex flex-wrap gap-4 text-sm">
-          {department.trunkline && (
-            <div className="flex items-center text-gray-600">
-              <Phone className="h-4 w-4 text-gray-500 mr-1.5 flex-shrink-0" />
-              <span>{department.trunkline}</span>
-            </div>
-          )}
+        <div className="flex space-x-2">
+          <Link
+            to="/government/departments"
+            className="inline-flex items-center px-3 py-1.5 border border-gray-200 rounded-md text-sm font-medium hover:bg-gray-50"
+          >
+            <ArrowRight className="mr-1.5 h-3.5 w-3.5 rotate-180" />
+            <span>All Departments</span>
+          </Link>
 
-          {department.email && (
+          {department.website && (
             <a
-              href={`mailto:${department.email}`}
-              className="flex items-center text-gray-600 hover:text-primary-600"
+              href={
+                department.website.startsWith('http')
+                  ? department.website
+                  : `https://${department.website}`
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-3 py-1.5 border border-gray-200 rounded-md text-sm font-medium hover:bg-gray-50"
             >
-              <Mail className="h-4 w-4 text-gray-500 mr-1.5 flex-shrink-0" />
-              <span>{department.email}</span>
+              <span>Website</span>
+              <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
             </a>
           )}
         </div>
       </div>
 
-      <div className="p-6">
+      <div className="flex flex-wrap gap-4 text-sm border-b border-gray-200 pb-6">
+        {department.trunkline && (
+          <div className="flex items-center text-gray-600">
+            <Phone className="h-4 w-4 text-gray-500 mr-1.5 flex-shrink-0" />
+            <span>{department.trunkline}</span>
+          </div>
+        )}
+
+        {department.email && (
+          <a
+            href={`mailto:${department.email}`}
+            className="flex items-center text-gray-600 hover:text-primary-600"
+          >
+            <Mail className="h-4 w-4 text-gray-500 mr-1.5 flex-shrink-0" />
+            <span>{department.email}</span>
+          </a>
+        )}
+      </div>
+
+      <div>
         <DepartmentDetailSection data={department} />
       </div>
     </div>
@@ -192,8 +190,8 @@ export default function DepartmentsIndex() {
 
   // Otherwise show the departments grid
   return (
-    <div className="container mx-auto py-8">
-      <div className="mb-8">
+    <div className="space-y-8">
+      <div>
         <h1 className="text-3xl font-bold text-gray-900 mb-2">
           Government Departments
         </h1>

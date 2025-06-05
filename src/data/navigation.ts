@@ -38,10 +38,10 @@ export const mainNavigation: NavigationItem[] = [
     children: [
       { label: 'Executive', href: '/government/executive' },
       { label: 'Legislative', href: '/government/legislative' },
-      { label: 'Judiciary', href: '/government/judiciary' },
-      { label: 'Agencies & Offices', href: '/government/agencies' },
+      { label: 'Constitutional', href: '/government/constitutional' },
+      { label: 'Departments', href: '/government/departments' },
+      { label: 'Diplomatic', href: '/government/diplomatic' },
       { label: 'Local Government', href: '/government/local' },
-      { label: 'Officials Directory', href: '/government/officials' },
     ],
   },
 ];
