@@ -1,7 +1,15 @@
-import { useParams } from 'react-router-dom'
-import { MapPin, Phone, ExternalLink, Building2, Mail } from 'lucide-react'
+import { Link, useParams } from 'react-router-dom'
+import {
+  MapPin,
+  Phone,
+  ExternalLink,
+  Building2,
+  Mail,
+  ArrowRight,
+} from 'lucide-react'
 import departmentsData from '../../../data/directory/departments.json'
 import { useState, useEffect } from 'react'
+import { Card, CardContent, CardHeader } from '../../../components/ui/CardList'
 
 interface Department {
   office_name: string
@@ -10,6 +18,105 @@ interface Department {
   website?: string
   email?: string
   [key: string]: any
+}
+
+// Component to display department details
+function DepartmentDetail({ departmentName }: { departmentName: string }) {
+  const departments = departmentsData as Department[]
+  const department = departments.find((d) => d.office_name === departmentName)
+
+  if (!department) {
+    return (
+      <div className="bg-white rounded-lg border p-8 text-center h-full flex flex-col items-center justify-center">
+        <div className="mx-auto w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center mb-4">
+          <Building2 className="h-6 w-6 text-gray-400" />
+        </div>
+        <h3 className="text-lg font-medium text-gray-900 mb-1">
+          Department not found
+        </h3>
+        <p className="text-gray-500 max-w-md">
+          The department you're looking for doesn't exist or has been moved.
+        </p>
+        <Link
+          to="/government/departments"
+          className="mt-4 text-primary-600 hover:underline flex items-center"
+        >
+          <ArrowRight className="h-4 w-4 mr-1 rotate-180" />
+          Back to all departments
+        </Link>
+      </div>
+    )
+  }
+
+  return (
+    <div className="bg-white rounded-lg border overflow-hidden h-full">
+      <div className="p-6 border-b">
+        <div className="flex items-start justify-between">
+          <div>
+            <h2 className="text-2xl font-bold text-gray-900">
+              {department.office_name.replace('DEPARTMENT OF ', '')}
+            </h2>
+
+            {department.address && (
+              <p className="mt-2 text-gray-600 flex items-start">
+                <MapPin className="h-4 w-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
+                <span>{department.address}</span>
+              </p>
+            )}
+          </div>
+
+          <div className="flex space-x-2">
+            <Link
+              to="/government/departments"
+              className="inline-flex items-center px-3 py-1.5 border border-gray-200 rounded-md text-sm font-medium hover:bg-gray-50"
+            >
+              <ArrowRight className="mr-1.5 h-3.5 w-3.5 rotate-180" />
+              <span>All Departments</span>
+            </Link>
+
+            {department.website && (
+              <a
+                href={
+                  department.website.startsWith('http')
+                    ? department.website
+                    : `https://${department.website}`
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-3 py-1.5 border border-gray-200 rounded-md text-sm font-medium hover:bg-gray-50"
+              >
+                <span>Website</span>
+                <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
+              </a>
+            )}
+          </div>
+        </div>
+
+        <div className="mt-4 flex flex-wrap gap-4 text-sm">
+          {department.trunkline && (
+            <div className="flex items-center text-gray-600">
+              <Phone className="h-4 w-4 text-gray-500 mr-1.5 flex-shrink-0" />
+              <span>{department.trunkline}</span>
+            </div>
+          )}
+
+          {department.email && (
+            <a
+              href={`mailto:${department.email}`}
+              className="flex items-center text-gray-600 hover:text-primary-600"
+            >
+              <Mail className="h-4 w-4 text-gray-500 mr-1.5 flex-shrink-0" />
+              <span>{department.email}</span>
+            </a>
+          )}
+        </div>
+      </div>
+
+      <div className="p-6">
+        <DepartmentDetailSection data={department} />
+      </div>
+    </div>
+  )
 }
 
 // Recursive component to render department details
@@ -74,100 +181,98 @@ function DepartmentDetailSection({
 
 export default function DepartmentsIndex() {
   const { department: departmentParam } = useParams()
-  const [selectedDept, setSelectedDept] = useState<Department | null>(null)
   const departments = departmentsData as Department[]
 
-  // Set selected department based on URL param or first department
-  useEffect(() => {
-    if (departmentParam) {
-      const dept = departments.find(
-        (d) => d.office_name === decodeURIComponent(departmentParam)
-      )
-      if (dept) {
-        setSelectedDept(dept)
-      }
-    } else if (departments.length > 0) {
-      setSelectedDept(departments[0])
-    } else {
-      setSelectedDept(null)
-    }
-  }, [departmentParam, departments])
-
-  if (!selectedDept) {
+  // If we have a specific department parameter, show the department detail view
+  if (departmentParam) {
     return (
-      <div className="bg-white rounded-lg border p-8 text-center h-full flex flex-col items-center justify-center">
-        <div className="mx-auto w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center mb-4">
-          <Building2 className="h-6 w-6 text-gray-400" />
-        </div>
-        <h3 className="text-lg font-medium text-gray-900 mb-1">
-          No department selected
-        </h3>
-        <p className="text-gray-500 max-w-md">
-          Select a department from the list to view its details and contact
-          information.
-        </p>
-      </div>
+      <DepartmentDetail departmentName={decodeURIComponent(departmentParam)} />
     )
   }
 
+  // Otherwise show the departments grid
   return (
-    <div className="bg-white rounded-lg border overflow-hidden h-full">
-      <div className="p-6 border-b">
-        <div className="flex items-start justify-between">
-          <div>
-            <h2 className="text-2xl font-bold text-gray-900">
-              {selectedDept.office_name.replace('DEPARTMENT OF ', '')}
-            </h2>
-
-            {selectedDept.address && (
-              <p className="mt-2 text-gray-600 flex items-start">
-                <MapPin className="h-4 w-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
-                <span>{selectedDept.address}</span>
-              </p>
-            )}
-          </div>
-
-          <div className="flex space-x-2">
-            {selectedDept.website && (
-              <a
-                href={
-                  selectedDept.website.startsWith('http')
-                    ? selectedDept.website
-                    : `https://${selectedDept.website}`
-                }
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-3 py-1.5 border border-gray-200 rounded-md text-sm font-medium hover:bg-gray-50"
-              >
-                <span>Website</span>
-                <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
-              </a>
-            )}
-          </div>
-        </div>
-
-        <div className="mt-4 flex flex-wrap gap-4 text-sm">
-          {selectedDept.trunkline && (
-            <div className="flex items-center text-gray-600">
-              <Phone className="h-4 w-4 text-gray-500 mr-1.5 flex-shrink-0" />
-              <span>{selectedDept.trunkline}</span>
-            </div>
-          )}
-
-          {selectedDept.email && (
-            <a
-              href={`mailto:${selectedDept.email}`}
-              className="flex items-center text-gray-600 hover:text-primary-600"
-            >
-              <Mail className="h-4 w-4 text-gray-500 mr-1.5 flex-shrink-0" />
-              <span>{selectedDept.email}</span>
-            </a>
-          )}
-        </div>
+    <div className="container mx-auto py-8">
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">
+          Government Departments
+        </h1>
+        <p className="text-gray-600 max-w-3xl">
+          Browse through the official government departments. Each department is
+          responsible for specific areas of governance and public service
+          delivery.
+        </p>
       </div>
 
-      <div className="p-6">
-        <DepartmentDetailSection data={selectedDept} />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {departments.map((dept, index) => {
+          // Extract department name without "DEPARTMENT OF" prefix for cleaner display
+          const deptName = dept.office_name.replace('DEPARTMENT OF ', '')
+
+          return (
+            <Link
+              to={`/government/departments/${encodeURIComponent(
+                dept.office_name
+              )}`}
+              key={index}
+              className="block"
+            >
+              <Card hover={true} className="h-full">
+                <CardHeader>
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <h3 className="font-bold text-lg text-gray-900">
+                        {deptName}
+                      </h3>
+                      {dept.secretary && (
+                        <p className="text-sm text-gray-600 mt-1">
+                          Secretary: {dept.secretary.name}
+                        </p>
+                      )}
+                    </div>
+                    <div className="rounded-full bg-gray-100 p-2 flex-shrink-0">
+                      <Building2 className="h-5 w-5 text-gray-500" />
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-2">
+                    {dept.address && (
+                      <div className="flex items-start">
+                        <MapPin className="h-4 w-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-gray-600 line-clamp-2">
+                          {dept.address}
+                        </span>
+                      </div>
+                    )}
+                    {dept.trunkline && (
+                      <div className="flex items-center">
+                        <Phone className="h-4 w-4 text-gray-400 mr-2 flex-shrink-0" />
+                        <span className="text-sm text-gray-600">
+                          {dept.trunkline}
+                        </span>
+                      </div>
+                    )}
+                    {dept.website && (
+                      <div className="flex items-center">
+                        <ExternalLink className="h-4 w-4 text-gray-400 mr-2 flex-shrink-0" />
+                        <span className="text-sm text-primary-600 truncate">
+                          {dept.website}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="mt-4 pt-4 border-t border-gray-100 flex justify-end">
+                    <span className="text-sm font-medium text-primary-600 flex items-center">
+                      View details <ArrowRight className="ml-1 h-3.5 w-3.5" />
+                    </span>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+          )
+        })}
       </div>
     </div>
   )
