@@ -19,6 +19,7 @@ import PhilippinesCulture from './pages/philippines/culture'
 import PhilippinesRegions from './pages/philippines/regions'
 import PublicHolidays from './pages/philippines/holidays'
 import PhilippinesMap from './pages/philippines/map'
+import Hotlines from './pages/philippines/Hotlines'
 import ExecutiveDirectory from './pages/government/executive'
 import ExecutiveLayout from './pages/government/executive/layout'
 import DepartmentsIndex from './pages/government/departments'
@@ -81,6 +82,7 @@ function App() {
             />
             <Route path="/philippines/map" element={<PhilippinesMap />} />
             <Route path="/philippines/holidays" element={<PublicHolidays />} />
+            <Route path="/philippines/hotlines" element={<Hotlines />} />
 
             {/* Government Routes */}
             <Route

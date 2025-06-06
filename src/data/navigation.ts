@@ -22,6 +22,7 @@ export const mainNavigation: NavigationItem[] = [
       { label: 'Culture', href: '/philippines/culture' },
       { label: 'Regions', href: '/philippines/regions' },
       { label: 'Tourism', href: '/philippines/tourism' },
+      { label: 'Emergency Hotlines', href: '/philippines/hotlines' },
     ],
   },
   {

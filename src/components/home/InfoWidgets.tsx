@@ -4,6 +4,7 @@ import { Card, CardHeader, CardContent } from '../ui/Card';
 import { weatherData } from '../../data/weather';
 import { forexRates } from '../../data/forex';
 import { useLanguage } from '../../contexts/LanguageContext';
+import CriticalHotlinesWidget from '../widgets/CriticalHotlinesWidget';
 
 const InfoWidgets: React.FC = () => {
   const { translate } = useLanguage();
@@ -16,7 +17,7 @@ const InfoWidgets: React.FC = () => {
   return (
     <section className="py-12 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Weather Widget */}
           <Card>
             <CardHeader className="bg-primary-50">
@@ -100,6 +101,11 @@ const InfoWidgets: React.FC = () => {
               </div>
             </CardContent>
           </Card>
+
+          {/* Emergency Hotlines Widget */}
+          <div className="lg:col-span-1">
+            <CriticalHotlinesWidget maxItems={4} />
+          </div>
         </div>
       </div>
     </section>
