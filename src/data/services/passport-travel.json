@@ -69,7 +69,7 @@
   },
   {
     "service": "Amend Permanent Non-Quota Immigrant Visa by Marriage",
-    "url": "http://immigration.gov.ph/visa-requirements/immigrant-visa/amendment-to-prv/amendment-to-prv-by-marriage",
+    "url": "https://immigration.gov.ph/elementor-2671/",
     "id": "f00268db-4027-4998-af3d-71f166945f79",
     "slug": "amend-permanent-non-quota-immigrant-visa-by-marriage",
     "published": true,
@@ -86,7 +86,7 @@
   },
   {
     "service": "Amend Permanent Resident Visa (Probationary) of a Chinese National Married to a Filipino",
-    "url": "http://immigration.gov.ph/visa-requirements/immigrant-visa/amendment-to-prv/amendment-to-prv-proc-married-to-filipino",
+    "url": "https://immigration.gov.ph/immigrant-visa-by-marriage-13a/",
     "id": "5f6f08fd-7c47-463e-9ef3-a0f26d081b62",
     "slug": "amend-permanent-resident-visa-probationary-of-a-chinese-national-married-to-a-filipino",
     "published": true,
@@ -103,7 +103,7 @@
   },
   {
     "service": "Apply for Recognition as Filipino Citizen",
-    "url": "http://immigration.gov.ph/services/citizenship-retention-and-aquisition/recognition-as-filipino-citizen",
+    "url": "https://immigration.gov.ph/returning-former-natural-born-filipino-citizen-13g/",
     "id": "1cb2c35e-78e1-4b01-ac84-414421f58048",
     "slug": "apply-for-recognition-as-filipino-citizen",
     "published": true,
@@ -120,7 +120,7 @@
   },
   {
     "service": "Apply for Retention/ Re-acquisition of Philippine Citizenship",
-    "url": "http://immigration.gov.ph/services/citizenship-retention-and-aquisition/application-for-retention-re-acquisition-of-phil-citizenship",
+    "url": "https://immigration.gov.ph/returning-former-natural-born-filipino-citizen-13g/",
     "id": "0f59c61d-0f79-4f90-af1b-56226884e415",
     "slug": "apply-for-retention-re-acquisition-of-philippine-citizenship",
     "published": true,
@@ -137,7 +137,7 @@
   },
   {
     "service": "Convert Non-Quota Immigrant Visa by Marriage",
-    "url": "http://immigration.gov.ph/visa-requirements/immigrant-visa/non-quota-visa/conversion-to-non-quota-immigrant-visa-by-marriage",
+    "url": "https://immigration.gov.ph/immigrant-visa-by-marriage-13a/",
     "id": "0c30f76b-f98f-4fd5-91a8-4b5abd4f15f8",
     "slug": "convert-non-quota-immigrant-visa-by-marriage",
     "published": true,
@@ -154,7 +154,7 @@
   },
   {
     "service": "Convert to Non-Quota Immigrant Visa of a Child Born Subsequent to the Issuance of Immigrant Visa of the Accompanying Parent",
-    "url": "http://immigration.gov.ph/visa-requirements/immigrant-visa/child-born-subsequent-to-the-issuance-of-immigrant-visa-of-the-accompanying-parent",
+    "url": "https://immigration.gov.ph/child-born-subsqeunt-to-the-issuance-of-immigrant-visa-of-the-accompanying-parent-13c/",
     "id": "836c4b9d-6e36-42c1-9009-42e7e7d762d5",
     "slug": "convert-to-non-quota-immigrant-visa-of-a-child-born-subsequent-to-the-issuance-of-immigrant-visa-of-the-accompanying-parent",
     "published": true,
@@ -171,7 +171,7 @@
   },
   {
     "service": "Convert to Non-Quota Immigrant Visa of a Former Filipino Citizen Naturalized in a Foreign Country",
-    "url": "http://immigration.gov.ph/visa-requirements/immigrant-visa/returning-formal-natural-born-filipino-citizen",
+    "url": "https://immigration.gov.ph/returning-former-natural-born-filipino-citizen-13g/",
     "id": "d256a0cb-13de-430a-83e7-2676f646c79e",
     "slug": "convert-to-non-quota-immigrant-visa-of-a-former-filipino-citizen-naturalized-in-a-foreign-country",
     "published": true,
@@ -188,7 +188,7 @@
   },
   {
     "service": "Convert to Non-Quota Immigrant Visa of a Previous Permanent Resident Returning from a Temporary Visit Abroad",
-    "url": "http://immigration.gov.ph/visa-requirements/immigrant-visa/returning-resident",
+    "url": "https://immigration.gov.ph/returning-resident-13e/",
     "id": "dd2ad7b0-d49e-4f6b-b841-21cdfe6bd531",
     "slug": "convert-to-non-quota-immigrant-visa-of-a-previous-permanent-resident-returning-from-a-temporary-visit-abroad",
     "published": true,
@@ -593,5 +593,141 @@
     },
     "createdAt": "2025-06-06T11:30:06.320Z",
     "updatedAt": "2025-06-06T11:30:06.320Z"
+  },
+  {
+    "service": "Apply for Visa Upon Arrival (SEVUA)",
+    "url": "https://immigration.gov.ph/visa-upon-arrival-sevua/",
+    "id": "7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d",
+    "slug": "apply-for-visa-upon-arrival-sevua",
+    "published": true,
+    "category": {
+      "name": "Passport and Travel",
+      "slug": "passport-travel"
+    },
+    "subcategory": {
+      "name": "Visa and Citizenship",
+      "slug": "visa-citizenship"
+    },
+    "createdAt": "2025-06-06T12:42:33.000Z",
+    "updatedAt": "2025-06-06T12:42:33.000Z"
+  },
+  {
+    "service": "Apply for Special Visa for Employment Generation (SVEG)",
+    "url": "https://immigration.gov.ph/special-visa-for-employment-generation/",
+    "id": "8b9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e",
+    "slug": "apply-for-special-visa-for-employment-generation-sveg",
+    "published": true,
+    "category": {
+      "name": "Passport and Travel",
+      "slug": "passport-travel"
+    },
+    "subcategory": {
+      "name": "Visa and Citizenship",
+      "slug": "visa-citizenship"
+    },
+    "createdAt": "2025-06-06T12:42:33.000Z",
+    "updatedAt": "2025-06-06T12:42:33.000Z"
+  },
+  {
+    "service": "Apply for Special Employment Visa for Offshore Banking Unit",
+    "url": "https://immigration.gov.ph/special-employment-visa-for-offshore-banking-unit/",
+    "id": "9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f",
+    "slug": "apply-for-special-employment-visa-for-offshore-banking-unit",
+    "published": true,
+    "category": {
+      "name": "Passport and Travel",
+      "slug": "passport-travel"
+    },
+    "subcategory": {
+      "name": "Visa and Citizenship",
+      "slug": "visa-citizenship"
+    },
+    "createdAt": "2025-06-06T12:42:33.000Z",
+    "updatedAt": "2025-06-06T12:42:33.000Z"
+  },
+  {
+    "service": "Apply for Special Visa under E.O. 226, as amended by R.A. 8756",
+    "url": "https://immigration.gov.ph/special-visa-under-e-o-226-as-amended-by-r-a-8756/",
+    "id": "0d1e2f3a-4b5c-6d7e-8f9a-0b1c2d3e4f5a",
+    "slug": "apply-for-special-visa-under-eo-226-as-amended-by-ra-8756",
+    "published": true,
+    "category": {
+      "name": "Passport and Travel",
+      "slug": "passport-travel"
+    },
+    "subcategory": {
+      "name": "Visa and Citizenship",
+      "slug": "visa-citizenship"
+    },
+    "createdAt": "2025-06-06T12:42:33.000Z",
+    "updatedAt": "2025-06-06T12:42:33.000Z"
+  },
+  {
+    "service": "Apply for Accredited Official of Foreign Government Visa (9E)",
+    "url": "https://immigration.gov.ph/accredited-official-of-foreign-government-9e/",
+    "id": "1e2f3a4b-5c6d-7e8f-9a0b-1c2d3e4f5a6b",
+    "slug": "apply-for-accredited-official-of-foreign-government-visa-9e",
+    "published": true,
+    "category": {
+      "name": "Passport and Travel",
+      "slug": "passport-travel"
+    },
+    "subcategory": {
+      "name": "Visa and Citizenship",
+      "slug": "visa-citizenship"
+    },
+    "createdAt": "2025-06-06T12:42:33.000Z",
+    "updatedAt": "2025-06-06T12:42:33.000Z"
+  },
+  {
+    "service": "Apply for Student Visa (9F)",
+    "url": "https://immigration.gov.ph/student-visa-9f-2/",
+    "id": "2f3a4b5c-6d7e-8f9a-0b1c-2d3e4f5a6b7c",
+    "slug": "apply-for-student-visa-9f",
+    "published": true,
+    "category": {
+      "name": "Passport and Travel",
+      "slug": "passport-travel"
+    },
+    "subcategory": {
+      "name": "Visa and Citizenship",
+      "slug": "visa-citizenship"
+    },
+    "createdAt": "2025-06-06T12:42:33.000Z",
+    "updatedAt": "2025-06-06T12:42:33.000Z"
+  },
+  {
+    "service": "Apply for Pre-arranged Employment Visa (9G)",
+    "url": "https://immigration.gov.ph/pre-arranged-employment-visa-9g-2/",
+    "id": "3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d",
+    "slug": "apply-for-pre-arranged-employment-visa-9g",
+    "published": true,
+    "category": {
+      "name": "Passport and Travel",
+      "slug": "passport-travel"
+    },
+    "subcategory": {
+      "name": "Visa and Citizenship",
+      "slug": "visa-citizenship"
+    },
+    "createdAt": "2025-06-06T12:42:33.000Z",
+    "updatedAt": "2025-06-06T12:42:33.000Z"
+  },
+  {
+    "service": "Apply for Temporary Visitor Visa (9A)",
+    "url": "https://immigration.gov.ph/temporary-visitor-visa-9a-2/",
+    "id": "4b5c6d7e-8f9a-0b1c-2d3e-4f5a6b7c8d9e",
+    "slug": "apply-for-temporary-visitor-visa-9a",
+    "published": true,
+    "category": {
+      "name": "Passport and Travel",
+      "slug": "passport-travel"
+    },
+    "subcategory": {
+      "name": "Visa and Citizenship",
+      "slug": "visa-citizenship"
+    },
+    "createdAt": "2025-06-06T12:42:33.000Z",
+    "updatedAt": "2025-06-06T12:42:33.000Z"
   }
 ]

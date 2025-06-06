@@ -21,6 +21,7 @@ import socialServices from '../../data/services/social-services.json'
 import taxServices from '../../data/services/tax.json'
 import transportDrivingServices from '../../data/services/transport-driving.json'
 import uncategorizedServices from '../../data/services/uncategorized.json'
+import Button from '../../components/ui/Button'
 
 // Combine all services
 const allServices = [
@@ -68,7 +69,7 @@ interface Category {
   subcategories: Subcategory[]
 }
 
-const ITEMS_PER_PAGE = 12
+const ITEMS_PER_PAGE = 16
 
 export default function ServicesPage() {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -379,18 +380,24 @@ export default function ServicesPage() {
                           href={service.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-gray-500 text-sm hover:text-primary-600 transition-colors break-all"
+                          className="text-gray-500 text-sm hover:text-primary-600 transition-colors break-all line-clamp-1"
                         >
                           {service.url}
                         </a>
-                        <div className="flex items-center text-sm text-gray-500">
+                        <a href={service.url} target="_blank" rel="noopener noreferrer">
+                         <Button
+                           className="bg-blue-600 text-white rounded-lg px-4 py-1 text-xs mt-4"
+                          >View Service</Button> 
+                        </a>
+
+                        {/* <div className="flex items-center text-sm text-gray-500">
                           <time
                             dateTime={new Date().toISOString()}
                             className="text-xs md:text-sm"
                           >
                             Last verified: {formatDate(new Date())}
                           </time>
-                        </div>
+                        </div> */}
                       </div>
                     </CardContent>
                   </Card>
