@@ -115,7 +115,7 @@ const Navbar: React.FC = () => {
               </div>
             ))}
           </div>
-          <div>
+          <div className="hidden md:block">
             <a
               href="/about"
               className="flex items-center text-gray-700 hover:text-primary-600 font-medium transition-colors"
