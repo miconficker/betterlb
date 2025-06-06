@@ -18,7 +18,7 @@ export default function StandardSidebar({
     <div className="w-full md:w-64 flex-shrink-0">
       <div className="md:sticky md:top-6 space-y-4">
         {/* Search input - uncomment if needed */}
-        <div className="relative">
+        {/* <div className="relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
           <input
             type="search"
@@ -27,7 +27,7 @@ export default function StandardSidebar({
             value={searchTerm}
             onChange={(e) => onSearchChange(e.target.value)}
           />
-        </div>
+        </div> */}
 
         <div className="border rounded-lg overflow-hidden bg-white shadow-sm">
           <div className="max-h-[60vh] md:max-h-[calc(100vh-200px)] overflow-y-auto py-4 px-2">
