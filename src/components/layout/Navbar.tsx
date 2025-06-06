@@ -42,12 +42,6 @@ const Navbar: React.FC = () => {
             </a>
 
             <a
-              href="/about"
-              className="text-xs text-gray-600 hover:text-primary-600 transition-colors"
-            >
-              About
-            </a>
-            <a
               href="/contact"
               className="text-xs text-gray-600 hover:text-primary-600 transition-colors"
             >
@@ -86,7 +80,7 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Desktop navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8 pr-24">
             {mainNavigation.map((item) => (
               <div key={item.label} className="relative group">
                 <a
@@ -109,7 +103,7 @@ const Navbar: React.FC = () => {
                         <a
                           key={child.label}
                           href={child.href}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600"
+                          className="text-left block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600"
                           role="menuitem"
                         >
                           {child.label}
@@ -120,6 +114,14 @@ const Navbar: React.FC = () => {
                 )}
               </div>
             ))}
+          </div>
+          <div>
+            <a
+              href="/about"
+              className="flex items-center text-gray-700 hover:text-primary-600 font-medium transition-colors"
+            >
+              About
+            </a>
           </div>
 
           {/* Mobile menu button */}

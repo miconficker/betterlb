@@ -38,17 +38,19 @@ const VisaTypeDetail: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('')
 
   // Use the categories from the consolidated JSON file
-  const visaCategories: VisaCategory[] = visaData.categories.map(category => ({
-    id: category.id,
-    name: category.name,
-    description: category.description,
-    icon: getCategoryIcon(category.id),
-    visaTypes: category.visaTypes
-  }))
-  
+  const visaCategories: VisaCategory[] = visaData.categories.map(
+    (category) => ({
+      id: category.id,
+      name: category.name,
+      description: category.description,
+      icon: getCategoryIcon(category.id),
+      visaTypes: category.visaTypes,
+    })
+  )
+
   // Helper function to get the appropriate icon for each category
   function getCategoryIcon(categoryId: string) {
-    switch(categoryId) {
+    switch (categoryId) {
       case 'immigrant':
         return <Users size={24} />
       case 'non-immigrant':
@@ -68,37 +70,41 @@ const VisaTypeDetail: React.FC = () => {
   }
 
   // Filter visa types based on search term
-  const filteredVisaTypes = searchTerm.trim() === ''
-    ? []
-    : visaCategories.flatMap(category => 
-        category.visaTypes.filter(visa => 
-          visa.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          visa.description.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredVisaTypes =
+    searchTerm.trim() === ''
+      ? []
+      : visaCategories.flatMap((category) =>
+          category.visaTypes.filter(
+            (visa) =>
+              visa.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+              visa.description.toLowerCase().includes(searchTerm.toLowerCase())
+          )
         )
-      )
 
   useEffect(() => {
     setLoading(true)
-    
+
     try {
       // Flatten all visa types from all categories to find the requested visa
-      const allVisaTypes = visaData.categories.flatMap(category => category.visaTypes)
-      
+      const allVisaTypes = visaData.categories.flatMap(
+        (category) => category.visaTypes
+      )
+
       // Find the visa by ID
-      const foundVisa = allVisaTypes.find(v => v.id === type)
-      
+      const foundVisa = allVisaTypes.find((v) => v.id === type)
+
       if (foundVisa) {
         setVisa(foundVisa)
-        
+
         // Find which category this visa belongs to
-        const visaCategory = visaData.categories.find(category => 
-          category.visaTypes.some(v => v.id === type)
+        const visaCategory = visaData.categories.find((category) =>
+          category.visaTypes.some((v) => v.id === type)
         )
-        
+
         if (visaCategory) {
           setSelectedCategory(visaCategory.id)
         }
-        
+
         setError(null)
       } else {
         setError(`Visa type "${type}" not found`)
@@ -132,7 +138,8 @@ const VisaTypeDetail: React.FC = () => {
               Philippines Visa Types
             </h1>
             <p className="text-xl opacity-90 mb-6">
-              Explore different types of visas available for travel to the Philippines
+              Explore different types of visas available for travel to the
+              Philippines
             </p>
 
             {/* Search Box */}
@@ -179,7 +186,8 @@ const VisaTypeDetail: React.FC = () => {
             Philippines Visa Types
           </h1>
           <p className="text-xl opacity-90 mb-6">
-            Explore different types of visas available for travel to the Philippines
+            Explore different types of visas available for travel to the
+            Philippines
           </p>
 
           {/* Search Box */}
@@ -232,7 +240,9 @@ const VisaTypeDetail: React.FC = () => {
             <div className="md:col-span-1">
               <div className="bg-white rounded-lg shadow-sm border border-gray-200 sticky top-4">
                 <div className="p-4 border-b border-gray-200">
-                  <h2 className="font-semibold text-lg text-gray-800">Visa Categories</h2>
+                  <h2 className="font-semibold text-lg text-gray-800">
+                    Visa Categories
+                  </h2>
                 </div>
                 <nav className="p-2">
                   {visaCategories.map((category) => (
@@ -271,42 +281,41 @@ const VisaTypeDetail: React.FC = () => {
                   <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
                     {visa.name}
                   </h2>
-                  <p className="text-lg text-gray-600 mb-6">{visa.description}</p>
+                  <p className="text-lg text-gray-600 mb-6">
+                    {visa.description}
+                  </p>
 
                   {/* Official Information */}
                   {visa.url && (
                     <div className="mb-8">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        as="a"
-                        href={visa.url}
+                      <Link
+                        to={visa.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center"
+                        className="inline-flex items-center bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
                       >
-                        <Globe className="h-4 w-4 mr-2" />
                         Official Information
-                        <ExternalLink className="h-3 w-3 ml-1" />
-                      </Button>
+                        <ExternalLink className="h-4 w-4 ml-1" />
+                      </Link>
                     </div>
                   )}
 
                   {/* Minimum Requirements */}
-                  {visa.minimumRequirements && visa.minimumRequirements.length > 0 && (
-                    <div className="mb-8">
-                      <h3 className="text-xl font-semibold text-gray-800 mb-4">
-                        Minimum Requirements
-                      </h3>
-                      <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                        <ul className="list-disc pl-5 text-gray-700 space-y-2">
-                          {visa.minimumRequirements.map((req, index) => (
-                            <li key={index}>{req}</li>
-                          ))}
-                        </ul>
+                  {visa.minimumRequirements &&
+                    visa.minimumRequirements.length > 0 && (
+                      <div className="mb-8">
+                        <h3 className="text-xl font-semibold text-gray-800 mb-4">
+                          Minimum Requirements
+                        </h3>
+                        <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                          <ul className="list-disc pl-5 text-gray-700 space-y-2">
+                            {visa.minimumRequirements.map((req, index) => (
+                              <li key={index}>{req}</li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    )}
 
                   {/* Visa Subtypes */}
                   {visa.subtypes && visa.subtypes.length > 0 && (
@@ -382,11 +391,13 @@ const VisaTypeDetail: React.FC = () => {
                   <div className="flex items-start">
                     <AlertCircle className="h-5 w-5 text-blue-500 mt-0.5 mr-2 flex-shrink-0" />
                     <div>
-                      <h3 className="font-medium text-blue-800">Important Notice</h3>
+                      <h3 className="font-medium text-blue-800">
+                        Important Notice
+                      </h3>
                       <p className="text-sm text-blue-700 mt-1">
-                        This information is provided for reference only. For the most
-                        accurate and up-to-date visa requirements, please consult the
-                        official{' '}
+                        This information is provided for reference only. For the
+                        most accurate and up-to-date visa requirements, please
+                        consult the official{' '}
                         <a
                           href="https://immigration.gov.ph/visas/"
                           target="_blank"

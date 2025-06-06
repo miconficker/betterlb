@@ -1,15 +1,15 @@
-import { NavigationItem } from '../types';
-import serviceCategories from './service_categories.json';
+import { NavigationItem } from '../types'
+import serviceCategories from './service_categories.json'
 
 interface Subcategory {
-  name: string;
-  slug: string;
+  name: string
+  slug: string
 }
 
 interface Category {
-  category: string;
-  slug: string;
-  subcategories: Subcategory[];
+  category: string
+  slug: string
+  subcategories: Subcategory[]
 }
 
 export const mainNavigation: NavigationItem[] = [
@@ -28,17 +28,18 @@ export const mainNavigation: NavigationItem[] = [
   {
     label: 'Services',
     href: '/services',
-    children: (serviceCategories.categories as Category[]).map(category => ({
+    children: (serviceCategories.categories as Category[]).map((category) => ({
       label: category.category,
-      href: `/services?category=${category.slug}`
+      href: `/services?category=${category.slug}`,
     })),
   },
   {
     label: 'Travel',
     href: '/travel',
     children: [
-      { label: 'Travel Guidelines', href: '/travel/guidelines' },
       { label: 'Visa Information', href: '/travel/visa' },
+      { label: 'Visa Types', href: '/travel/visa-types' },
+      { label: 'Working in the Philippines', href: '/travel/visa-types/swp-c' },
       { label: 'Tourist Destinations', href: '/travel/destinations' },
       { label: 'Transportation', href: '/travel/transportation' },
       { label: 'Travel Advisories', href: '/travel/advisories' },
@@ -56,7 +57,7 @@ export const mainNavigation: NavigationItem[] = [
       { label: 'Local Government', href: '/government/local' },
     ],
   },
-];
+]
 
 export const footerNavigation = {
   mainSections: [
@@ -97,4 +98,4 @@ export const footerNavigation = {
     { label: 'Instagram', href: 'https://instagram.com/govph' },
     { label: 'YouTube', href: 'https://youtube.com/govph' },
   ],
-};
+}
