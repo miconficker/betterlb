@@ -117,9 +117,7 @@ function LegislativeDetailSection({
 export default function LegislativeChamber() {
   const { chamber } = useParams<{ chamber: string }>()
 
-  const chamberData = legislativeData.find(
-    (item: any) => item.chamber === chamber
-  )
+  const chamberData = legislativeData.find((item: any) => item.slug === chamber)
 
   if (!chamberData) {
     return (

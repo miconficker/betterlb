@@ -8,7 +8,6 @@ import {
   ArrowRight,
 } from 'lucide-react'
 import departmentsData from '../../../data/directory/departments.json'
-import { useState, useEffect } from 'react'
 import { Card, CardContent, CardHeader } from '../../../components/ui/CardList'
 import SEO from '../../../components/SEO'
 import { getDepartmentsSEOData } from '../../../utils/seo-data'
@@ -57,71 +56,71 @@ function DepartmentDetail({ departmentName }: { departmentName: string }) {
   return (
     <>
       <SEO {...seoData} />
-    <div className="space-y-6">
-      <div className="flex items-start justify-between">
-        <div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            {department.office_name.replace('DEPARTMENT OF ', '')}
-          </h1>
+      <div className="space-y-6">
+        <div className="flex items-start justify-between">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              {department.office_name.replace('DEPARTMENT OF ', '')}
+            </h1>
 
-          {department.address && (
-            <p className="mt-2 text-gray-600 flex items-start">
-              <MapPin className="h-4 w-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
-              <span>{department.address}</span>
-            </p>
-          )}
-        </div>
+            {department.address && (
+              <p className="mt-2 text-gray-600 flex items-start">
+                <MapPin className="h-4 w-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
+                <span>{department.address}</span>
+              </p>
+            )}
+          </div>
 
-        <div className="flex space-x-2">
-          <Link
-            to="/government/departments"
-            className="inline-flex items-center px-3 py-1.5 border border-gray-200 rounded-md text-sm font-medium hover:bg-gray-50"
-          >
-            <ArrowRight className="mr-1.5 h-3.5 w-3.5 rotate-180" />
-            <span>All Departments</span>
-          </Link>
-
-          {department.website && (
-            <a
-              href={
-                department.website.startsWith('http')
-                  ? department.website
-                  : `https://${department.website}`
-              }
-              target="_blank"
-              rel="noopener noreferrer"
+          <div className="flex space-x-2">
+            <Link
+              to="/government/departments"
               className="inline-flex items-center px-3 py-1.5 border border-gray-200 rounded-md text-sm font-medium hover:bg-gray-50"
             >
-              <span>Website</span>
-              <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
+              <ArrowRight className="mr-1.5 h-3.5 w-3.5 rotate-180" />
+              <span>All Departments</span>
+            </Link>
+
+            {department.website && (
+              <a
+                href={
+                  department.website.startsWith('http')
+                    ? department.website
+                    : `https://${department.website}`
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-3 py-1.5 border border-gray-200 rounded-md text-sm font-medium hover:bg-gray-50"
+              >
+                <span>Website</span>
+                <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
+              </a>
+            )}
+          </div>
+        </div>
+
+        <div className="flex flex-wrap gap-4 text-sm border-b border-gray-200 pb-6">
+          {department.trunkline && (
+            <div className="flex items-center text-gray-600">
+              <Phone className="h-4 w-4 text-gray-500 mr-1.5 flex-shrink-0" />
+              <span>{department.trunkline}</span>
+            </div>
+          )}
+
+          {department.email && (
+            <a
+              href={`mailto:${department.email}`}
+              className="flex items-center text-gray-600 hover:text-primary-600"
+            >
+              <Mail className="h-4 w-4 text-gray-500 mr-1.5 flex-shrink-0" />
+              <span>{department.email}</span>
             </a>
           )}
         </div>
-      </div>
 
-      <div className="flex flex-wrap gap-4 text-sm border-b border-gray-200 pb-6">
-        {department.trunkline && (
-          <div className="flex items-center text-gray-600">
-            <Phone className="h-4 w-4 text-gray-500 mr-1.5 flex-shrink-0" />
-            <span>{department.trunkline}</span>
-          </div>
-        )}
-
-        {department.email && (
-          <a
-            href={`mailto:${department.email}`}
-            className="flex items-center text-gray-600 hover:text-primary-600"
-          >
-            <Mail className="h-4 w-4 text-gray-500 mr-1.5 flex-shrink-0" />
-            <span>{department.email}</span>
-          </a>
-        )}
+        <div>
+          <DepartmentDetailSection data={department} />
+        </div>
       </div>
-
-      <div>
-        <DepartmentDetailSection data={department} />
-      </div>
-    </div>
     </>
   )
 }
@@ -208,83 +207,83 @@ export default function DepartmentsIndex() {
             Government Departments
           </h1>
           <p className="text-gray-600 max-w-3xl">
-            Browse through the official government departments. Each department is
-            responsible for specific areas of governance and public service
+            Browse through the official government departments. Each department
+            is responsible for specific areas of governance and public service
             delivery.
           </p>
         </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {departments.map((dept, index) => {
-          // Extract department name without "DEPARTMENT OF" prefix for cleaner display
-          const deptName = dept.office_name.replace('DEPARTMENT OF ', '')
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {departments.map((dept, index) => {
+            // Extract department name without "DEPARTMENT OF" prefix for cleaner display
+            const deptName = dept.office_name.replace('DEPARTMENT OF ', '')
 
-          return (
-            <Link
-              to={`/government/departments/${encodeURIComponent(
-                dept.office_name
-              )}`}
-              key={index}
-              className="block"
-            >
-              <Card hover={true} className="h-full">
-                <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <h3 className="font-bold text-lg text-gray-900">
-                        {deptName}
-                      </h3>
-                      {dept.secretary && (
-                        <p className="text-sm text-gray-600 mt-1">
-                          Secretary: {dept.secretary.name}
-                        </p>
+            return (
+              <Link
+                to={`/government/departments/${encodeURIComponent(
+                  dept.office_name
+                )}`}
+                key={index}
+                className="block"
+              >
+                <Card hover={true} className="h-full">
+                  <CardHeader>
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <h3 className="font-bold text-lg text-gray-900">
+                          {deptName}
+                        </h3>
+                        {dept.secretary && (
+                          <p className="text-sm text-gray-600 mt-1">
+                            Secretary: {dept.secretary.name}
+                          </p>
+                        )}
+                      </div>
+                      <div className="rounded-full bg-gray-100 p-2 flex-shrink-0">
+                        <Building2 className="h-5 w-5 text-gray-500" />
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-2">
+                      {dept.address && (
+                        <div className="flex items-start">
+                          <MapPin className="h-4 w-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-gray-600 line-clamp-2">
+                            {dept.address}
+                          </span>
+                        </div>
+                      )}
+                      {dept.trunkline && (
+                        <div className="flex items-center">
+                          <Phone className="h-4 w-4 text-gray-400 mr-2 flex-shrink-0" />
+                          <span className="text-sm text-gray-600">
+                            {dept.trunkline}
+                          </span>
+                        </div>
+                      )}
+                      {dept.website && (
+                        <div className="flex items-center">
+                          <ExternalLink className="h-4 w-4 text-gray-400 mr-2 flex-shrink-0" />
+                          <span className="text-sm text-primary-600 truncate">
+                            {dept.website}
+                          </span>
+                        </div>
                       )}
                     </div>
-                    <div className="rounded-full bg-gray-100 p-2 flex-shrink-0">
-                      <Building2 className="h-5 w-5 text-gray-500" />
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-2">
-                    {dept.address && (
-                      <div className="flex items-start">
-                        <MapPin className="h-4 w-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm text-gray-600 line-clamp-2">
-                          {dept.address}
-                        </span>
-                      </div>
-                    )}
-                    {dept.trunkline && (
-                      <div className="flex items-center">
-                        <Phone className="h-4 w-4 text-gray-400 mr-2 flex-shrink-0" />
-                        <span className="text-sm text-gray-600">
-                          {dept.trunkline}
-                        </span>
-                      </div>
-                    )}
-                    {dept.website && (
-                      <div className="flex items-center">
-                        <ExternalLink className="h-4 w-4 text-gray-400 mr-2 flex-shrink-0" />
-                        <span className="text-sm text-primary-600 truncate">
-                          {dept.website}
-                        </span>
-                      </div>
-                    )}
-                  </div>
 
-                  <div className="mt-4 pt-4 border-t border-gray-100 flex justify-end">
-                    <span className="text-sm font-medium text-primary-600 flex items-center">
-                      View details <ArrowRight className="ml-1 h-3.5 w-3.5" />
-                    </span>
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-          )
-        })}
+                    <div className="mt-4 pt-4 border-t border-gray-100 flex justify-end">
+                      <span className="text-sm font-medium text-primary-600 flex items-center">
+                        View details <ArrowRight className="ml-1 h-3.5 w-3.5" />
+                      </span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            )
+          })}
+        </div>
       </div>
-    </div>
     </>
   )
 }

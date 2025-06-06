@@ -110,7 +110,7 @@ function DepartmentDetailSection({
 export default function DepartmentDetail() {
   const { department: departmentName } = useParams<{ department: string }>()
   const department = (departmentsData as Department[]).find(
-    (d) => d.office_name === decodeURIComponent(departmentName || '')
+    (d) => d.slug === decodeURIComponent(departmentName || '')
   )
 
   if (!department) {

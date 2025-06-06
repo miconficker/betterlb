@@ -141,7 +141,7 @@ export default function ConstitutionalIndex() {
   useEffect(() => {
     if (officeParam) {
       const office = offices.find(
-        (o) => o.name === decodeURIComponent(officeParam)
+        (o) => o.slug === decodeURIComponent(officeParam)
       )
       if (office) {
         setSelectedOffice(office)
@@ -159,18 +159,18 @@ export default function ConstitutionalIndex() {
     return (
       <>
         <SEO {...seoData} />
-      <div className="bg-white rounded-lg border p-8 text-center h-full flex flex-col items-center justify-center">
-        <div className="mx-auto w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center mb-4">
-          <Building2 className="h-6 w-6 text-gray-400" />
+        <div className="bg-white rounded-lg border p-8 text-center h-full flex flex-col items-center justify-center">
+          <div className="mx-auto w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center mb-4">
+            <Building2 className="h-6 w-6 text-gray-400" />
+          </div>
+          <h3 className="text-lg font-medium text-gray-900 mb-1">
+            No constitutional office selected
+          </h3>
+          <p className="text-gray-500 max-w-md">
+            Select a constitutional office from the list to view its details and
+            contact information.
+          </p>
         </div>
-        <h3 className="text-lg font-medium text-gray-900 mb-1">
-          No constitutional office selected
-        </h3>
-        <p className="text-gray-500 max-w-md">
-          Select a constitutional office from the list to view its details and
-          contact information.
-        </p>
-      </div>
       </>
     )
   }
@@ -185,65 +185,65 @@ export default function ConstitutionalIndex() {
       <SEO {...seoData} />
       <div className="space-y-6">
         <div className="flex flex-col space-y-2">
-        <div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            {selectedOffice.name}
-          </h1>
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              {selectedOffice.name}
+            </h1>
 
-          {selectedOffice.description && (
-            <p className="text-gray-600 text-sm">
-              {selectedOffice.description}
-            </p>
+            {selectedOffice.description && (
+              <p className="text-gray-600 text-sm">
+                {selectedOffice.description}
+              </p>
+            )}
+
+            {selectedOffice.address && (
+              <p className="mt-2 text-gray-600 flex items-start text-sm">
+                <MapPin className="h-4 w-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
+                <span>{selectedOffice.address}</span>
+              </p>
+            )}
+          </div>
+
+          {selectedOffice.website && (
+            <div className="flex space-x-2 flex-row text-sm">
+              <ExternalLink className="h-4 w-4 text-gray-400 mt-0.5 flex-shrink-0" />
+              <a
+                href={
+                  selectedOffice.website.startsWith('http')
+                    ? selectedOffice.website
+                    : `https://${selectedOffice.website}`
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-600 hover:underline flex items-center"
+              >
+                {selectedOffice.website}
+              </a>
+            </div>
           )}
 
-          {selectedOffice.address && (
-            <p className="mt-2 text-gray-600 flex items-start text-sm">
-              <MapPin className="h-4 w-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
-              <span>{selectedOffice.address}</span>
-            </p>
+          {contactNumber && (
+            <div className="flex items-center text-gray-600 text-sm">
+              <Phone className="h-4 w-4 text-gray-500 mr-1.5 flex-shrink-0" />
+              <span>{contactNumber}</span>
+            </div>
+          )}
+
+          {selectedOffice.email && (
+            <a
+              href={`mailto:${selectedOffice.email}`}
+              className="flex items-center text-gray-600 hover:text-primary-600"
+            >
+              <Mail className="h-4 w-4 text-gray-500 mr-1.5 flex-shrink-0" />
+              <span>{selectedOffice.email}</span>
+            </a>
           )}
         </div>
 
-        {selectedOffice.website && (
-          <div className="flex space-x-2 flex-row text-sm">
-            <ExternalLink className="h-4 w-4 text-gray-400 mt-0.5 flex-shrink-0" />
-            <a
-              href={
-                selectedOffice.website.startsWith('http')
-                  ? selectedOffice.website
-                  : `https://${selectedOffice.website}`
-              }
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary-600 hover:underline flex items-center"
-            >
-              {selectedOffice.website}
-            </a>
-          </div>
-        )}
-
-        {contactNumber && (
-          <div className="flex items-center text-gray-600 text-sm">
-            <Phone className="h-4 w-4 text-gray-500 mr-1.5 flex-shrink-0" />
-            <span>{contactNumber}</span>
-          </div>
-        )}
-
-        {selectedOffice.email && (
-          <a
-            href={`mailto:${selectedOffice.email}`}
-            className="flex items-center text-gray-600 hover:text-primary-600"
-          >
-            <Mail className="h-4 w-4 text-gray-500 mr-1.5 flex-shrink-0" />
-            <span>{selectedOffice.email}</span>
-          </a>
-        )}
+        <div>
+          <OfficeDetailSection data={selectedOffice} />
+        </div>
       </div>
-
-      <div>
-        <OfficeDetailSection data={selectedOffice} />
-      </div>
-    </div>
     </>
   )
 }

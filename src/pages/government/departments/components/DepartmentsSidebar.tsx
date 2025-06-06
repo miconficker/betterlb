@@ -33,7 +33,7 @@ export default function DepartmentsSidebar({
     if (onDepartmentSelect) {
       onDepartmentSelect(dept)
     }
-    navigate(`/government/departments/${encodeURIComponent(dept.office_name)}`)
+    navigate(`/government/departments/${encodeURIComponent(dept.slug)}`)
   }
 
   return (
@@ -53,11 +53,11 @@ export default function DepartmentsSidebar({
           </h3>
           <ul className="space-y-1">
             {filteredDepartments.map((dept) => (
-              <li key={dept.office_name}>
+              <li key={dept.slug}>
                 <button
                   onClick={() => handleDeptSelect(dept)}
                   className={`w-full text-left px-4 py-3 text-sm rounded-md transition-colors ${
-                    departmentParam === dept.office_name
+                    departmentParam === dept.slug
                       ? 'bg-primary-50 text-primary-700 font-medium'
                       : 'text-gray-700 hover:bg-gray-50'
                   }`}

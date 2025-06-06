@@ -44,7 +44,7 @@ export default function ConstitutionalSidebar({
     if (!searchTerm) return offices
 
     return offices.filter((office) =>
-      office.name.toLowerCase().includes(searchTerm.toLowerCase())
+      office.slug.toLowerCase().includes(searchTerm.toLowerCase())
     )
   }, [offices, searchTerm])
 
@@ -52,7 +52,7 @@ export default function ConstitutionalSidebar({
     if (onOfficeSelect) {
       onOfficeSelect(office)
     }
-    navigate(`/government/constitutional/${encodeURIComponent(office.name)}`)
+    navigate(`/government/constitutional/${encodeURIComponent(office.slug)}`)
   }
 
   // Check if a path is active

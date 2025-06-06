@@ -11,7 +11,6 @@ import {
   CardDivider,
 } from '../../../components/ui/CardList'
 
-
 export default function DiplomaticMissionsPage() {
   const [searchTerm, setSearchTerm] = useState('')
 
@@ -25,7 +24,7 @@ export default function DiplomaticMissionsPage() {
     return missions.filter(
       (mission) =>
         mission.country.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        mission.office_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        mission.slug.toLowerCase().includes(searchTerm.toLowerCase()) ||
         mission.representative.toLowerCase().includes(searchTerm.toLowerCase())
     )
   }, [missions, searchTerm])

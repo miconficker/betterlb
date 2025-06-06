@@ -10,7 +10,6 @@ import {
   CardDivider,
 } from '../../../components/ui/CardList'
 
-
 export default function InternationalOrganizationsPage() {
   const [searchTerm, setSearchTerm] = useState('')
 

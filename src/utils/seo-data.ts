@@ -17,16 +17,16 @@ const baseKeywords = [
   'Philippine Government',
   'Government Services',
   'Republic of the Philippines',
-  'Official Government Portal'
+  'Official Government Portal',
 ]
 
 export function getExecutiveSEOData(officeName?: string): GovernmentSEOData {
   const baseTitle = 'Executive Branch'
   const title = officeName ? `${officeName} - ${baseTitle}` : baseTitle
-  
+
   return {
     title,
-    description: officeName 
+    description: officeName
       ? `Contact information and details for ${officeName}. Official directory of the Philippine Executive Branch.`
       : 'Official directory of the Philippine Executive Branch including the Office of the President, Vice President, and other executive offices.',
     keywords: [
@@ -36,36 +36,59 @@ export function getExecutiveSEOData(officeName?: string): GovernmentSEOData {
       'Vice President',
       'Executive Offices',
       'Presidential Communications',
-      ...(officeName ? [officeName] : [])
+      ...(officeName ? [officeName] : []),
     ],
-    canonical: officeName ? `/government/executive/${encodeURIComponent(officeName.toLowerCase().replace(/\s+/g, '-'))}` : '/government/executive',
+    canonical: officeName
+      ? `/government/executive/${encodeURIComponent(
+          officeName.toLowerCase().replace(/\s+/g, '-')
+        )}`
+      : '/government/executive',
     breadcrumbs: [
       { name: 'Home', url: '/' },
       { name: 'Government', url: '/government' },
       { name: 'Executive Branch', url: '/government/executive' },
-      ...(officeName ? [{ name: officeName, url: `/government/executive/${encodeURIComponent(officeName.toLowerCase().replace(/\s+/g, '-'))}` }] : [])
+      ...(officeName
+        ? [
+            {
+              name: officeName,
+              url: `/government/executive/${encodeURIComponent(
+                officeName.toLowerCase().replace(/\s+/g, '-')
+              )}`,
+            },
+          ]
+        : []),
     ],
     jsonLd: {
-      "@context": "https://schema.org",
-      "@type": "GovernmentOrganization",
-      "name": officeName || "Philippine Executive Branch",
-      "url": `https://gov.ph/government/executive${officeName ? `/${encodeURIComponent(officeName.toLowerCase().replace(/\s+/g, '-'))}` : ''}`,
-      "description": officeName 
+      '@context': 'https://schema.org',
+      '@type': 'GovernmentOrganization',
+      name: officeName || 'Philippine Executive Branch',
+      url: `https://gov.ph/government/executive${
+        officeName
+          ? `/${encodeURIComponent(
+              officeName.toLowerCase().replace(/\s+/g, '-')
+            )}`
+          : ''
+      }`,
+      description: officeName
         ? `${officeName} - Philippine Executive Branch`
-        : "Official directory of the Philippine Executive Branch",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "PH",
-        "addressLocality": "Manila"
-      }
-    }
+        : 'Official directory of the Philippine Executive Branch',
+      address: {
+        '@type': 'PostalAddress',
+        addressCountry: 'PH',
+        addressLocality: 'Manila',
+      },
+    },
   }
 }
 
-export function getDepartmentsSEOData(departmentName?: string): GovernmentSEOData {
+export function getDepartmentsSEOData(
+  departmentName?: string
+): GovernmentSEOData {
   const baseTitle = 'Government Departments'
-  const title = departmentName ? `${departmentName.replace('DEPARTMENT OF ', '')} - ${baseTitle}` : baseTitle
-  
+  const title = departmentName
+    ? `${departmentName.replace('DEPARTMENT OF ', '')} - ${baseTitle}`
+    : baseTitle
+
   return {
     title,
     description: departmentName
@@ -77,36 +100,51 @@ export function getDepartmentsSEOData(departmentName?: string): GovernmentSEODat
       'Philippine Departments',
       'Government Services',
       'Department Directory',
-      ...(departmentName ? [departmentName] : [])
+      ...(departmentName ? [departmentName] : []),
     ],
-    canonical: departmentName ? `/government/departments/${encodeURIComponent(departmentName)}` : '/government/departments',
+    canonical: departmentName
+      ? `/government/departments/${encodeURIComponent(departmentName)}`
+      : '/government/departments',
     breadcrumbs: [
       { name: 'Home', url: '/' },
       { name: 'Government', url: '/government' },
       { name: 'Departments', url: '/government/departments' },
-      ...(departmentName ? [{ name: departmentName.replace('DEPARTMENT OF ', ''), url: `/government/departments/${encodeURIComponent(departmentName)}` }] : [])
+      ...(departmentName
+        ? [
+            {
+              name: departmentName.replace('DEPARTMENT OF ', ''),
+              url: `/government/departments/${encodeURIComponent(
+                departmentName
+              )}`,
+            },
+          ]
+        : []),
     ],
     jsonLd: {
-      "@context": "https://schema.org",
-      "@type": "GovernmentOrganization",
-      "name": departmentName || "Philippine Government Departments",
-      "url": `https://gov.ph/government/departments${departmentName ? `/${encodeURIComponent(departmentName)}` : ''}`,
-      "description": departmentName 
+      '@context': 'https://schema.org',
+      '@type': 'GovernmentOrganization',
+      name: departmentName || 'Philippine Government Departments',
+      url: `https://gov.ph/government/departments${
+        departmentName ? `/${encodeURIComponent(departmentName)}` : ''
+      }`,
+      description: departmentName
         ? `${departmentName} - Philippine Government Department`
-        : "Official directory of Philippine Government Departments",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "PH",
-        "addressLocality": "Manila"
-      }
-    }
+        : 'Official directory of Philippine Government Departments',
+      address: {
+        '@type': 'PostalAddress',
+        addressCountry: 'PH',
+        addressLocality: 'Manila',
+      },
+    },
   }
 }
 
-export function getConstitutionalSEOData(officeName?: string): GovernmentSEOData {
+export function getConstitutionalSEOData(
+  officeName?: string
+): GovernmentSEOData {
   const baseTitle = 'Constitutional Bodies'
   const title = officeName ? `${officeName} - ${baseTitle}` : baseTitle
-  
+
   return {
     title,
     description: officeName
@@ -118,31 +156,44 @@ export function getConstitutionalSEOData(officeName?: string): GovernmentSEOData
       'Constitutional Offices',
       'Independent Bodies',
       'Constitutional Commissions',
-      ...(officeName ? [officeName] : [])
+      ...(officeName ? [officeName] : []),
     ],
-    canonical: officeName ? `/government/constitutional/${encodeURIComponent(officeName)}` : '/government/constitutional',
+    canonical: officeName
+      ? `/government/constitutional/${encodeURIComponent(officeName)}`
+      : '/government/constitutional',
     breadcrumbs: [
       { name: 'Home', url: '/' },
       { name: 'Government', url: '/government' },
       { name: 'Constitutional Bodies', url: '/government/constitutional' },
-      ...(officeName ? [{ name: officeName, url: `/government/constitutional/${encodeURIComponent(officeName)}` }] : [])
+      ...(officeName
+        ? [
+            {
+              name: officeName,
+              url: `/government/constitutional/${encodeURIComponent(
+                officeName
+              )}`,
+            },
+          ]
+        : []),
     ],
     jsonLd: {
-      "@context": "https://schema.org",
-      "@type": "GovernmentOrganization",
-      "name": officeName || "Philippine Constitutional Bodies",
-      "url": `https://gov.ph/government/constitutional${officeName ? `/${encodeURIComponent(officeName)}` : ''}`,
-      "description": officeName 
+      '@context': 'https://schema.org',
+      '@type': 'GovernmentOrganization',
+      name: officeName || 'Philippine Constitutional Bodies',
+      url: `https://gov.ph/government/constitutional${
+        officeName ? `/${encodeURIComponent(officeName)}` : ''
+      }`,
+      description: officeName
         ? `${officeName} - Philippine Constitutional Body`
-        : "Official directory of Philippine Constitutional Bodies"
-    }
+        : 'Official directory of Philippine Constitutional Bodies',
+    },
   }
 }
 
 export function getLegislativeSEOData(chamberName?: string): GovernmentSEOData {
   const baseTitle = 'Legislative Branch'
   const title = chamberName ? `${chamberName} - ${baseTitle}` : baseTitle
-  
+
   return {
     title,
     description: chamberName
@@ -155,31 +206,42 @@ export function getLegislativeSEOData(chamberName?: string): GovernmentSEOData {
       'Senate',
       'House of Representatives',
       'Legislators',
-      ...(chamberName ? [chamberName] : [])
+      ...(chamberName ? [chamberName] : []),
     ],
-    canonical: chamberName ? `/government/legislative/${encodeURIComponent(chamberName)}` : '/government/legislative',
+    canonical: chamberName
+      ? `/government/legislative/${encodeURIComponent(chamberName)}`
+      : '/government/legislative',
     breadcrumbs: [
       { name: 'Home', url: '/' },
       { name: 'Government', url: '/government' },
       { name: 'Legislative Branch', url: '/government/legislative' },
-      ...(chamberName ? [{ name: chamberName, url: `/government/legislative/${encodeURIComponent(chamberName)}` }] : [])
+      ...(chamberName
+        ? [
+            {
+              name: chamberName,
+              url: `/government/legislative/${encodeURIComponent(chamberName)}`,
+            },
+          ]
+        : []),
     ],
     jsonLd: {
-      "@context": "https://schema.org",
-      "@type": "GovernmentOrganization",
-      "name": chamberName || "Philippine Legislative Branch",
-      "url": `https://gov.ph/government/legislative${chamberName ? `/${encodeURIComponent(chamberName)}` : ''}`,
-      "description": chamberName 
+      '@context': 'https://schema.org',
+      '@type': 'GovernmentOrganization',
+      name: chamberName || 'Philippine Legislative Branch',
+      url: `https://gov.ph/government/legislative${
+        chamberName ? `/${encodeURIComponent(chamberName)}` : ''
+      }`,
+      description: chamberName
         ? `${chamberName} - Philippine Legislative Branch`
-        : "Official directory of the Philippine Legislative Branch"
-    }
+        : 'Official directory of the Philippine Legislative Branch',
+    },
   }
 }
 
 export function getDiplomaticSEOData(category?: string): GovernmentSEOData {
   const baseTitle = 'Diplomatic Missions'
   const title = category ? `${category} - ${baseTitle}` : baseTitle
-  
+
   return {
     title,
     description: category
@@ -192,31 +254,44 @@ export function getDiplomaticSEOData(category?: string): GovernmentSEOData {
       'Consulates',
       'International Relations',
       'Foreign Affairs',
-      ...(category ? [category] : [])
+      ...(category ? [category] : []),
     ],
-    canonical: category ? `/government/diplomatic/${category.toLowerCase()}` : '/government/diplomatic',
+    canonical: category
+      ? `/government/diplomatic/${category.toLowerCase()}`
+      : '/government/diplomatic',
     breadcrumbs: [
       { name: 'Home', url: '/' },
       { name: 'Government', url: '/government' },
       { name: 'Diplomatic Missions', url: '/government/diplomatic' },
-      ...(category ? [{ name: category, url: `/government/diplomatic/${category.toLowerCase()}` }] : [])
+      ...(category
+        ? [
+            {
+              name: category,
+              url: `/government/diplomatic/${category.toLowerCase()}`,
+            },
+          ]
+        : []),
     ],
     jsonLd: {
-      "@context": "https://schema.org",
-      "@type": "GovernmentOrganization",
-      "name": category ? `Philippine ${category}` : "Philippine Diplomatic Missions",
-      "url": `https://gov.ph/government/diplomatic${category ? `/${category.toLowerCase()}` : ''}`,
-      "description": category 
+      '@context': 'https://schema.org',
+      '@type': 'GovernmentOrganization',
+      name: category
+        ? `Philippine ${category}`
+        : 'Philippine Diplomatic Missions',
+      url: `https://gov.ph/government/diplomatic${
+        category ? `/${category.toLowerCase()}` : ''
+      }`,
+      description: category
         ? `Philippine ${category} - Diplomatic Missions`
-        : "Official directory of Philippine Diplomatic Missions"
-    }
+        : 'Official directory of Philippine Diplomatic Missions',
+    },
   }
 }
 
 export function getLocalGovSEOData(regionName?: string): GovernmentSEOData {
   const baseTitle = 'Local Government Units'
   const title = regionName ? `${regionName} - ${baseTitle}` : baseTitle
-  
+
   return {
     title,
     description: regionName
@@ -230,27 +305,46 @@ export function getLocalGovSEOData(regionName?: string): GovernmentSEOData {
       'Municipalities',
       'Provinces',
       'Regional Government',
-      ...(regionName ? [regionName] : [])
+      ...(regionName ? [regionName] : []),
     ],
-    canonical: regionName ? `/government/local/${encodeURIComponent(regionName.toLowerCase().replace(/\s+/g, '-'))}` : '/government/local',
+    canonical: regionName
+      ? `/government/local/${encodeURIComponent(
+          regionName.toLowerCase().replace(/\s+/g, '-')
+        )}`
+      : '/government/local',
     breadcrumbs: [
       { name: 'Home', url: '/' },
       { name: 'Government', url: '/government' },
       { name: 'Local Government', url: '/government/local' },
-      ...(regionName ? [{ name: regionName, url: `/government/local/${encodeURIComponent(regionName.toLowerCase().replace(/\s+/g, '-'))}` }] : [])
+      ...(regionName
+        ? [
+            {
+              name: regionName,
+              url: `/government/local/${encodeURIComponent(
+                regionName.toLowerCase().replace(/\s+/g, '-')
+              )}`,
+            },
+          ]
+        : []),
     ],
     jsonLd: {
-      "@context": "https://schema.org",
-      "@type": "AdministrativeArea",
-      "name": regionName || "Philippine Local Government Units",
-      "url": `https://gov.ph/government/local${regionName ? `/${encodeURIComponent(regionName.toLowerCase().replace(/\s+/g, '-'))}` : ''}`,
-      "description": regionName 
+      '@context': 'https://schema.org',
+      '@type': 'AdministrativeArea',
+      name: regionName || 'Philippine Local Government Units',
+      url: `https://gov.ph/government/local${
+        regionName
+          ? `/${encodeURIComponent(
+              regionName.toLowerCase().replace(/\s+/g, '-')
+            )}`
+          : ''
+      }`,
+      description: regionName
         ? `Local Government Units in ${regionName}`
-        : "Official directory of Philippine Local Government Units",
-      "containedInPlace": {
-        "@type": "Country",
-        "name": "Philippines"
-      }
-    }
+        : 'Official directory of Philippine Local Government Units',
+      containedInPlace: {
+        '@type': 'Country',
+        name: 'Philippines',
+      },
+    },
   }
 }
