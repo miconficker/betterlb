@@ -19,10 +19,11 @@ export const mainNavigation: NavigationItem[] = [
     children: [
       { label: 'About the Philippines', href: '/philippines/about' },
       { label: 'History', href: '/philippines/history' },
-      { label: 'Culture', href: '/philippines/culture' },
+      // { label: 'Culture', href: '/philippines/culture' },
       { label: 'Regions', href: '/philippines/regions' },
-      { label: 'Tourism', href: '/philippines/tourism' },
-      { label: 'Emergency Hotlines', href: '/philippines/hotlines' },
+      { label: 'Map', href: '/philippines/map' },
+      // { label: 'Tourism', href: '/philippines/tourism' },
+      { label: 'Hotlines', href: '/philippines/hotlines' },
     ],
   },
   {

@@ -29,7 +29,7 @@ const Navbar: React.FC = () => {
       {/* Top bar with language switcher and additional links */}
       <div className="border-b border-gray-200">
         <div className="container mx-auto px-4 flex justify-between items-center h-10">
-          <div className="text-xs text-gray-600">
+          <div className="hidden md:block text-xs text-gray-600">
             The Unofficial Government Portal
           </div>
           <div className="flex items-center space-x-4">
@@ -42,12 +42,12 @@ const Navbar: React.FC = () => {
             </a>
 
             <a
-              href="/contact"
+              href="/hotlines"
               className="text-xs text-gray-600 hover:text-primary-600 transition-colors"
             >
-              Contact
+              Hotlines
             </a>
-            <div className="relative">
+            <div className="hidden md:block relative">
               <button
                 className="flex items-center text-xs text-gray-600 hover:text-primary-600 transition-colors"
                 onClick={() => changeLanguage(language === 'en' ? 'fil' : 'en')}
