@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   InstantSearch,
   SearchBox,
@@ -26,9 +26,14 @@ const { searchClient } = instantMeiliSearch(
   {
     primaryKey: 'slug',
     keepZeroFacets: true,
-    finitePagination: false,
     meiliSearchParams: {
-      attributesToHighlight: ['name', 'service', 'description'],
+      attributesToHighlight: [
+        'name',
+        'office_name',
+        'office',
+        'service',
+        'description',
+      ],
       // highlightPreTag: '<em>',
       // highlightPostTag: '</em>',
       attributesToSearchOn: [
@@ -76,7 +81,7 @@ interface HitProps {
 }
 
 const Hit: React.FC<HitProps> = ({ hit }) => {
-  const title = hit.service || hit.name || hit.slug
+  const title = hit.service || hit.name || hit.office_name || hit.office
   const link = hit.url || `/directory/${hit.slug}`
 
   return (
@@ -88,7 +93,8 @@ const Hit: React.FC<HitProps> = ({ hit }) => {
         className="block"
       >
         <h2 className="text-lg font-semibold text-blue-600 hover:underline">
-          <Highlight
+          {title}
+          {/* <Highlight
             attribute={
               hit.service
                 ? 'service'
@@ -99,14 +105,14 @@ const Hit: React.FC<HitProps> = ({ hit }) => {
                 : 'office'
             }
             hit={hit as any}
-          />
+          /> */}
         </h2>
         {hit.description && (
           <p className="text-sm text-gray-600 mt-1">
             <Snippet attribute="description" hit={hit as any} />
           </p>
         )}
-        <div className="text-xs text-gray-500 mt-2">
+        <div className="text-xs text-gray-500">
           {hit.category && (
             <span>
               <Highlight
@@ -144,21 +150,30 @@ const Hit: React.FC<HitProps> = ({ hit }) => {
 }
 
 const MeilisearchInstantSearch: React.FC = () => {
+  const [hasInteracted, setHasInteracted] = useState(false)
   return (
-    <InstantSearch searchClient={searchClient} indexName="bettergov">
-      {' '}
-      {/* Default to 'services', can be configured */}
-      <Configure hitsPerPage={4} />
+    <InstantSearch
+      searchClient={searchClient}
+      indexName="bettergov"
+      initialUiState={{
+        bettergov: {
+          query: undefined,
+          hitsPerPage: 4,
+        },
+      }}
+    >
+      <Configure hitsPerPage={10} />
       <div className="ais-InstantSearch">
         <div className="mb-2 w-full">
           <SearchBox
             placeholder="Search for services, directory items..."
             className="w-full"
+            onFocus={() => setHasInteracted(true)}
             classNames={{
               root: 'mb-2',
               form: 'relative',
               input:
-                'w-full p-3 pr-10 placeholder:pl-4 border border-gray-300  focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition duration-150 ease-in-out',
+                'w-full p-3 pl-10 border border-gray-300  focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition duration-150 ease-in-out',
               submit:
                 'absolute top-0 right-0 h-full px-3 text-gray-500 hover:text-blue-600',
               reset:
@@ -166,21 +181,22 @@ const MeilisearchInstantSearch: React.FC = () => {
             }}
           />
 
-          <Stats
-            classNames={{
-              root: 'text-sm text-gray-600',
-            }}
-          />
-
-          <div className="bg-white rounded-lg shadow overflow-hidden absolute z-30 w-2/5">
-            <Hits
-              hitComponent={Hit}
-              className="w-full"
-              classNames={{
-                item: 'w-full px-2 py-0 border-none',
-              }}
-            />
-          </div>
+          {hasInteracted && (
+            <div className="bg-white rounded-lg shadow overflow-y-scroll h-96 absolute z-30 w-2/5">
+              <Stats
+                classNames={{
+                  root: 'text-sm text-gray-600 p-2 text-right text-xs',
+                }}
+              />
+              <Hits
+                hitComponent={Hit}
+                className="w-full"
+                classNames={{
+                  item: 'w-full px-2 py-0 border-none',
+                }}
+              />
+            </div>
+          )}
         </div>
       </div>
     </InstantSearch>
