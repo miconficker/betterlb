@@ -51,8 +51,7 @@ const translations: Record<LanguageType, Record<string, string>> = {
     'news.title': 'Pinakabagong Balita at Updates',
     'weather.title': 'Mga Update sa Panahon',
     'forex.title': 'Palitan ng Pera',
-    'footer.copyright':
-      '© 2025 Republika ng Pilipinas. Nakalaan ang lahat ng karapatan.',
+    'footer.copyright': '© 2025 BetterGov.',
     // Add more translations as needed
   },
 }

@@ -27,8 +27,8 @@ export function getExecutiveSEOData(officeName?: string): GovernmentSEOData {
   return {
     title,
     description: officeName
-      ? `Contact information and details for ${officeName}. Official directory of the Philippine Executive Branch.`
-      : 'Official directory of the Philippine Executive Branch including the Office of the President, Vice President, and other executive offices.',
+      ? `Contact information and details for ${officeName}. A directory of the Philippine Executive Branch.`
+      : 'A directory of the Philippine Executive Branch including the Office of the President, Vice President, and other executive offices.',
     keywords: [
       ...baseKeywords,
       'Executive Branch',
@@ -71,7 +71,7 @@ export function getExecutiveSEOData(officeName?: string): GovernmentSEOData {
       }`,
       description: officeName
         ? `${officeName} - Philippine Executive Branch`
-        : 'Official directory of the Philippine Executive Branch',
+        : 'A directory of the Philippine Executive Branch',
       address: {
         '@type': 'PostalAddress',
         addressCountry: 'PH',
@@ -92,8 +92,8 @@ export function getDepartmentsSEOData(
   return {
     title,
     description: departmentName
-      ? `Contact information, services, and details for the ${departmentName}. Official government department directory.`
-      : 'Official directory of Philippine Government Departments. Browse all government departments, their services, and contact information.',
+      ? `Contact information, services, and details for the ${departmentName}. A government department directory.`
+      : 'A directory of Philippine Government Departments. Browse all government departments, their services, and contact information.',
     keywords: [
       ...baseKeywords,
       'Government Departments',
@@ -129,7 +129,7 @@ export function getDepartmentsSEOData(
       }`,
       description: departmentName
         ? `${departmentName} - Philippine Government Department`
-        : 'Official directory of Philippine Government Departments',
+        : 'A directory of Philippine Government Departments',
       address: {
         '@type': 'PostalAddress',
         addressCountry: 'PH',
@@ -148,8 +148,8 @@ export function getConstitutionalSEOData(
   return {
     title,
     description: officeName
-      ? `Information and contact details for ${officeName}. Official directory of Philippine Constitutional Bodies.`
-      : 'Official directory of Philippine Constitutional Bodies including independent offices created by the Constitution.',
+      ? `Information and contact details for ${officeName}. A directory of Philippine Constitutional Bodies.`
+      : 'A directory of Philippine Constitutional Bodies including independent offices created by the Constitution.',
     keywords: [
       ...baseKeywords,
       'Constitutional Bodies',
@@ -185,7 +185,7 @@ export function getConstitutionalSEOData(
       }`,
       description: officeName
         ? `${officeName} - Philippine Constitutional Body`
-        : 'Official directory of Philippine Constitutional Bodies',
+        : 'A directory of Philippine Constitutional Bodies',
     },
   }
 }
@@ -197,8 +197,8 @@ export function getLegislativeSEOData(chamberName?: string): GovernmentSEOData {
   return {
     title,
     description: chamberName
-      ? `Information about ${chamberName}. Official directory of the Philippine Legislative Branch.`
-      : 'Official directory of the Philippine Legislative Branch including the Senate and House of Representatives.',
+      ? `Information about ${chamberName}. A directory of the Philippine Legislative Branch.`
+      : 'A directory of the Philippine Legislative Branch including the Senate and House of Representatives.',
     keywords: [
       ...baseKeywords,
       'Legislative Branch',
@@ -233,7 +233,7 @@ export function getLegislativeSEOData(chamberName?: string): GovernmentSEOData {
       }`,
       description: chamberName
         ? `${chamberName} - Philippine Legislative Branch`
-        : 'Official directory of the Philippine Legislative Branch',
+        : 'A directory of the Philippine Legislative Branch',
     },
   }
 }
@@ -245,8 +245,8 @@ export function getDiplomaticSEOData(category?: string): GovernmentSEOData {
   return {
     title,
     description: category
-      ? `Directory of Philippine ${category.toLowerCase()}. Official listing of Philippine diplomatic missions worldwide.`
-      : 'Official directory of Philippine diplomatic missions including embassies, consulates, and international organizations.',
+      ? `Directory of Philippine ${category.toLowerCase()}. A listing of Philippine diplomatic missions worldwide.`
+      : 'A directory of Philippine diplomatic missions including embassies, consulates, and international organizations.',
     keywords: [
       ...baseKeywords,
       'Diplomatic Missions',
@@ -283,7 +283,7 @@ export function getDiplomaticSEOData(category?: string): GovernmentSEOData {
       }`,
       description: category
         ? `Philippine ${category} - Diplomatic Missions`
-        : 'Official directory of Philippine Diplomatic Missions',
+        : 'A directory of Philippine Diplomatic Missions',
     },
   }
 }
@@ -296,7 +296,7 @@ export function getLocalGovSEOData(regionName?: string): GovernmentSEOData {
     title,
     description: regionName
       ? `Directory of local government units in ${regionName}. Cities, municipalities, and provinces in the region.`
-      : 'Official directory of Philippine Local Government Units organized by region. Find cities, municipalities, and provinces.',
+      : 'A directory of Philippine Local Government Units organized by region. Find cities, municipalities, and provinces.',
     keywords: [
       ...baseKeywords,
       'Local Government Units',
@@ -340,7 +340,7 @@ export function getLocalGovSEOData(regionName?: string): GovernmentSEOData {
       }`,
       description: regionName
         ? `Local Government Units in ${regionName}`
-        : 'Official directory of Philippine Local Government Units',
+        : 'A directory of Philippine Local Government Units',
       containedInPlace: {
         '@type': 'Country',
         name: 'Philippines',
