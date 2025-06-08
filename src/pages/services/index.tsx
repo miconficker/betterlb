@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react'
 import { useSearchParams, Link } from 'react-router-dom'
-import { Search, CheckCircle2, Menu, X } from 'lucide-react'
+import { Search, CheckCircle2, Menu, X, Globe, ExternalLink } from 'lucide-react'
 import * as ScrollArea from '@radix-ui/react-scroll-area'
 import { Card, CardContent } from '../../components/ui/Card'
 import SearchInput from '../../components/ui/SearchInput'
@@ -196,6 +196,35 @@ export default function ServicesPage() {
           <p className="sr-only" id="search-description">
             Search for government services by name, category, or description
           </p>
+        </section>
+
+        {/* Featured Services */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Featured Resources</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Link to="/services/websites" className="group">
+              <Card className="h-full transition-all duration-300 hover:shadow-lg hover:border-primary-300 group-hover:transform group-hover:-translate-y-1">
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="p-3 rounded-full bg-primary-50 text-primary-600 mr-4">
+                      <Globe className="h-6 w-6" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 group-hover:text-primary-600 transition-colors">
+                      Government Websites Directory
+                    </h3>
+                  </div>
+                  <p className="text-gray-600 mb-4">
+                    Comprehensive directory of Philippine government websites, agencies, and services.
+                    Find official websites for all government institutions.
+                  </p>
+                  <div className="flex items-center text-primary-600 font-medium">
+                    <span>Browse Directory</span>
+                    <ExternalLink className="ml-2 h-4 w-4" />
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+          </div>
         </section>
 
         {/* Mobile Category Toggle */}

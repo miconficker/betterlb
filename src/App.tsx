@@ -65,6 +65,9 @@ import SearchPage from './pages/Search'
 import WeatherPage from './pages/data/weather'
 import ForexPage from './pages/data/forex'
 
+// Services Pages
+import WebsitesDirectory from './pages/services/websites'
+
 function App() {
   return (
     <LanguageProvider>
@@ -98,6 +101,9 @@ function App() {
             {/* Data Routes */}
             <Route path="/data/weather" element={<WeatherPage />} />
             <Route path="/data/forex" element={<ForexPage />} />
+            
+            {/* Services Routes */}
+            <Route path="/services/websites" element={<WebsitesDirectory />} />
 
             {/* Travel Routes */}
             <Route path="/travel/visa" element={<VisaPage />} />
