@@ -4,6 +4,8 @@ import { Card, CardHeader, CardContent } from '../ui/Card'
 import { WeatherData, ForexRate } from '../../types'
 import { useLanguage } from '../../contexts/LanguageContext'
 import CriticalHotlinesWidget from '../widgets/CriticalHotlinesWidget'
+import { fetchWeatherData } from '../../lib/weather'
+import { fetchForexData } from '../../lib/forex'
 
 const InfoWidgets: React.FC = () => {
   const { translate } = useLanguage()
@@ -14,32 +16,6 @@ const InfoWidgets: React.FC = () => {
   const [weatherError, setWeatherError] = useState<string | null>(null)
   const [forexError, setForexError] = useState<string | null>(null)
 
-  // Function to map OpenWeatherMap icon codes to Lucide icon names
-  const mapWeatherIconToLucide = (iconCode: string): string => {
-    const iconMap: Record<string, string> = {
-      '01d': 'Sun', // clear sky day
-      '01n': 'Moon', // clear sky night
-      '02d': 'CloudSun', // few clouds day
-      '02n': 'CloudMoon', // few clouds night
-      '03d': 'Cloud', // scattered clouds
-      '03n': 'Cloud',
-      '04d': 'Cloud', // broken clouds
-      '04n': 'Cloud',
-      '09d': 'CloudDrizzle', // shower rain
-      '09n': 'CloudDrizzle',
-      '10d': 'CloudRain', // rain
-      '10n': 'CloudRain',
-      '11d': 'CloudLightning', // thunderstorm
-      '11n': 'CloudLightning',
-      '13d': 'CloudSnow', // snow
-      '13n': 'CloudSnow',
-      '50d': 'Cloud', // mist
-      '50n': 'Cloud',
-    }
-
-    return iconMap[iconCode] || 'Cloud' // Default to Cloud if icon code not found
-  }
-
   // Function to get weather icon component
   const getWeatherIcon = (iconName: string) => {
     const Icon = LucideIcons[iconName as keyof typeof LucideIcons]
@@ -48,29 +24,12 @@ const InfoWidgets: React.FC = () => {
 
   // Fetch weather data
   useEffect(() => {
-    const fetchWeatherData = async () => {
+    const getWeatherData = async () => {
       try {
         setIsLoadingWeather(true)
         setWeatherError(null)
 
-        const response = await fetch('https://api.bettergov.ph/weather')
-
-        if (!response.ok) {
-          throw new Error(`Failed to fetch weather data: ${response.status}`)
-        }
-
-        const data = await response.json()
-
-        // Transform API data to match our WeatherData type
-        const transformedData: WeatherData[] = Object.keys(data).map(
-          (key: any) => ({
-            location: key,
-            temperature: Math.round(data[key].main.temp), // Round temperature to nearest integer
-            condition: data[key].weather[0].description,
-            icon: mapWeatherIconToLucide(data[key].weather[0].icon),
-          })
-        )
-
+        const transformedData = await fetchWeatherData()
         setWeatherData(transformedData)
       } catch (error) {
         console.error('Error fetching weather data:', error)
@@ -84,37 +43,25 @@ const InfoWidgets: React.FC = () => {
       }
     }
 
-    fetchWeatherData()
+    getWeatherData()
   }, [])
 
   // Fetch forex data
   useEffect(() => {
-    const fetchForexData = async () => {
+    const getForexData = async () => {
       try {
         setIsLoadingForex(true)
         setForexError(null)
 
-        const response = await fetch('https://api.bettergov.ph/forex')
-
-        if (!response.ok) {
-          throw new Error(`Failed to fetch forex data: ${response.status}`)
-        }
-
-        const data = await response.json()
-
-        // Transform API data to match our ForexRate type
-        // BSP API returns rates with PHP as the base currency
-        // We'll display the top 6 currencies
-        const transformedData: ForexRate[] = data.rates
-          .filter((rate: any) =>
-            ['USD', 'EUR', 'JPY', 'GBP', 'AUD', 'SGD'].includes(rate.symbol)
-          )
-          .map((rate: any) => ({
-            currency: rate.country,
-            code: rate.symbol,
-            rate: rate.phpEquivalent,
-          }))
-
+        // Get forex data for the top 6 currencies
+        const transformedData = await fetchForexData([
+          'USD',
+          'EUR',
+          'JPY',
+          'GBP',
+          'AUD',
+          'SGD',
+        ])
         setForexRates(transformedData)
       } catch (error) {
         console.error('Error fetching forex data:', error)
@@ -126,7 +73,7 @@ const InfoWidgets: React.FC = () => {
       }
     }
 
-    fetchForexData()
+    getForexData()
   }, [])
 
   return (

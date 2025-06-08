@@ -4,19 +4,23 @@ import {
   Pen as Yen,
   Euro as EuroSign,
   PoundSterling,
+  Loader,
+  Cloud,
 } from 'lucide-react'
-import { weatherData } from '../../data/weather'
-import { forexRates } from '../../data/forex'
+import { ForexRate, WeatherData } from '../../types'
+import { fetchForexData, getCurrencyIconName } from '../../lib/forex'
+import { fetchWeatherData } from '../../lib/weather'
 
 const getCurrencyIcon = (code: string) => {
-  switch (code) {
-    case 'USD':
+  const iconName = getCurrencyIconName(code)
+  switch (iconName) {
+    case 'DollarSign':
       return <DollarSign className="h-4 w-4" />
-    case 'JPY':
+    case 'Pen':
       return <Yen className="h-4 w-4" />
-    case 'EUR':
+    case 'Euro':
       return <EuroSign className="h-4 w-4" />
-    case 'GBP':
+    case 'PoundSterling':
       return <PoundSterling className="h-4 w-4" />
     default:
       return null
@@ -24,11 +28,72 @@ const getCurrencyIcon = (code: string) => {
 }
 
 const Ticker: React.FC = () => {
+  const [forexRates, setForexRates] = useState<ForexRate[]>([])
+  const [weatherData, setWeatherData] = useState<WeatherData[]>([])
   const [currentRateIndex, setCurrentRateIndex] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+  const [weatherLoading, setWeatherLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const [weatherError, setWeatherError] = useState<string | null>(null)
+
+  // Fetch forex data
+  useEffect(() => {
+    const getForexData = async () => {
+      try {
+        setIsLoading(true)
+        setError(null)
+
+        // Get forex data for the top 4 currencies
+        const transformedData = await fetchForexData([
+          'USD',
+          'EUR',
+          'JPY',
+          'GBP',
+        ])
+        setForexRates(transformedData)
+      } catch (error) {
+        console.error('Error fetching forex data:', error)
+        setError(
+          error instanceof Error ? error.message : 'Failed to fetch forex data'
+        )
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    getForexData()
+  }, [])
+
+  // Fetch weather data
+  useEffect(() => {
+    const getWeatherData = async () => {
+      try {
+        setWeatherLoading(true)
+        setWeatherError(null)
+
+        const data = await fetchWeatherData()
+        setWeatherData(data)
+      } catch (error) {
+        console.error('Error fetching weather data:', error)
+        setWeatherError(
+          error instanceof Error
+            ? error.message
+            : 'Failed to fetch weather data'
+        )
+      } finally {
+        setWeatherLoading(false)
+      }
+    }
+
+    getWeatherData()
+  }, [])
 
   // Rotate through the forex rates
   useEffect(() => {
+    // Only start rotation if we have forex rates
+    if (forexRates.length === 0) return
+
     const interval = setInterval(() => {
       setIsAnimating(true)
 
@@ -40,7 +105,27 @@ const Ticker: React.FC = () => {
     }, 4000) // Show each rate for 4 seconds
 
     return () => clearInterval(interval)
-  }, [])
+  }, [forexRates.length])
+
+  // If loading or error, show appropriate content
+  if (isLoading && weatherLoading) {
+    return (
+      <div className="bg-primary-600 text-white py-1 px-4">
+        <div className="container mx-auto flex items-center justify-center">
+          <Loader className="h-4 w-4 animate-spin mr-2" />
+          <span className="text-xs">Loading data...</span>
+        </div>
+      </div>
+    )
+  }
+
+  // If both forex and weather have errors or no data, hide the ticker
+  if (
+    (error && weatherError) ||
+    (forexRates.length === 0 && weatherData.length === 0)
+  ) {
+    return null
+  }
 
   const currentRate = forexRates[currentRateIndex]
 
@@ -66,8 +151,7 @@ const Ticker: React.FC = () => {
                     {currentRate.code}
                   </span>
                   <span className="text-xs text-accent-100">
-                    ₱{currentRate.buyingRate.toFixed(2)} / ₱
-                    {currentRate.sellingRate.toFixed(2)}
+                    ₱{currentRate.rate.toFixed(2)}
                   </span>
                 </div>
               </div>
@@ -76,14 +160,34 @@ const Ticker: React.FC = () => {
 
           {/* Weather information */}
           <div className="flex items-center space-x-6 pl-4 border-l border-accent-500">
-            {weatherData.map((data) => (
-              <div key={data.location} className="flex items-center space-x-2">
-                <span className="text-xs font-medium text-accent-100">
-                  {data.location}
+            {weatherLoading ? (
+              <div className="flex items-center space-x-2">
+                <Loader className="h-3 w-3 animate-spin text-accent-100" />
+                <span className="text-xs text-accent-100">
+                  Loading weather...
                 </span>
-                <span className="text-xs text-white">{data.temperature}°C</span>
               </div>
-            ))}
+            ) : weatherError ? (
+              <div className="flex items-center space-x-2">
+                <span className="text-xs text-accent-100">
+                  Weather unavailable
+                </span>
+              </div>
+            ) : (
+              weatherData.slice(0, 4).map((data) => (
+                <div
+                  key={data.location}
+                  className="flex items-center space-x-2 uppercase"
+                >
+                  <span className="text-xs font-medium text-accent-100">
+                    {data.location}
+                  </span>
+                  <span className="text-xs text-white">
+                    {data.temperature}°C
+                  </span>
+                </div>
+              ))
+            )}
           </div>
         </div>
       </div>
