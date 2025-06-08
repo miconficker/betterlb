@@ -61,6 +61,10 @@ import RegionalLGUPage from './pages/government/local/[region]'
 // Search Page
 import SearchPage from './pages/Search'
 
+// Data Pages
+import WeatherPage from './pages/data/weather'
+import ForexPage from './pages/data/forex'
+
 function App() {
   return (
     <LanguageProvider>
@@ -90,6 +94,10 @@ function App() {
             <Route path="/philippines/map" element={<PhilippinesMap />} />
             <Route path="/philippines/holidays" element={<PublicHolidays />} />
             <Route path="/philippines/hotlines" element={<Hotlines />} />
+            
+            {/* Data Routes */}
+            <Route path="/data/weather" element={<WeatherPage />} />
+            <Route path="/data/forex" element={<ForexPage />} />
 
             {/* Travel Routes */}
             <Route path="/travel/visa" element={<VisaPage />} />

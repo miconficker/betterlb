@@ -129,6 +129,8 @@ const Ticker: React.FC = () => {
 
   const currentRate = forexRates[currentRateIndex]
 
+  if (!currentRate) return null
+
   return (
     <div className="bg-blue-950 text-white py-1.5">
       <div className="container mx-auto px-4 flex justify-end">

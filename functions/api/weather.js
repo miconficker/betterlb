@@ -92,7 +92,7 @@ export async function onScheduled(event) {
 
     // Store the data in Cloudflare KV
     await event.env.WEATHER_KV.put('philippines_weather', JSON.stringify(weatherData), {
-      expirationTtl: 3600 // Expire after 1 hour
+      expirationTtl: 3600 * 24 // Expire after 1 day
     });
 
     return {
@@ -120,7 +120,7 @@ export async function onRequest(context) {
     if (forceUpdate) {
       // Fetch fresh data for all cities
       const weatherData = await fetchWeatherData(context.env, cityParam);
-      
+
       // Store the data in KV regardless of whether a specific city was requested
       if (!cityParam) {
         await context.env.WEATHER_KV.put('philippines_weather', JSON.stringify(weatherData), {
@@ -134,7 +134,7 @@ export async function onRequest(context) {
           expirationTtl: 3600 // Expire after 1 hour
         });
       }
-      
+
       // Return the fresh data
       return new Response(JSON.stringify(cityParam ? weatherData[cityParam.toLowerCase()] || {} : weatherData), {
         headers: {
@@ -147,7 +147,7 @@ export async function onRequest(context) {
 
     // Check if data exists in KV and is not expired
     const cachedData = await context.env.WEATHER_KV.get('philippines_weather', { type: 'json' });
-    
+
     // If city parameter is provided, filter the data
     if (cityParam && cachedData) {
       const cityKey = cityParam.toLowerCase();
@@ -179,7 +179,7 @@ export async function onRequest(context) {
     // 3. The cached data has expired
     // So we fetch fresh data
     const weatherData = await fetchWeatherData(context.env, cityParam);
-    
+
     // Store the data in KV
     if (!cityParam) {
       await context.env.WEATHER_KV.put('philippines_weather', JSON.stringify(weatherData), {

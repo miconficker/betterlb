@@ -11,13 +11,13 @@ async function fetchForexData(env) {
         'Content-Type': 'application/json'
       }
     });
-    
+
     if (!response.ok) {
       throw new Error(`Failed to fetch BSP data: ${response.status} ${response.statusText}`);
     }
-    
+
     const data = await response.json();
-    
+
     // Process the data to make it more usable
     const processedData = {
       metadata: {
@@ -36,7 +36,7 @@ async function fetchForexData(env) {
         publishedDate: item.PublishedDate
       }))
     };
-    
+
     return processedData;
   } catch (error) {
     console.error('Error fetching forex data:', error);
@@ -49,12 +49,12 @@ export async function onScheduled(event) {
   try {
     // Fetch forex data
     const forexData = await fetchForexData(event.env);
-    
+
     // Store the data in Cloudflare KV
     await event.env.FOREX_KV.put('bsp_exchange_rates', JSON.stringify(forexData), {
-      expirationTtl: 3600 // Expire after 1 hour
+      expirationTtl: 3600 * 24 // Expire after 1 day
     });
-    
+
     return {
       success: true,
       message: `Exchange rate data updated for ${forexData.rates.length} currencies`,
@@ -75,25 +75,25 @@ export async function onRequest(context) {
   const url = new URL(request.url);
   const symbol = url.searchParams.get('symbol');
   const forceUpdate = url.searchParams.get('update') === 'true';
-  
+
   try {
     // Always fetch fresh data if update=true is specified
     if (forceUpdate) {
       // Fetch fresh forex data
       const forexData = await fetchForexData(env);
-      
+
       // Store the data in KV
       await env.FOREX_KV.put('bsp_exchange_rates', JSON.stringify(forexData), {
         expirationTtl: 3600 // Expire after 1 hour
       });
-      
+
       // Filter by symbol if specified
       if (symbol) {
         const upperSymbol = symbol.toUpperCase();
-        const filteredRates = forexData.rates.filter(rate => 
+        const filteredRates = forexData.rates.filter(rate =>
           rate.symbol.toUpperCase() === upperSymbol
         );
-        
+
         if (filteredRates.length > 0) {
           return new Response(JSON.stringify({
             metadata: forexData.metadata,
@@ -107,7 +107,7 @@ export async function onRequest(context) {
           });
         }
       }
-      
+
       // Return all data if no symbol specified or no match found
       return new Response(JSON.stringify(forexData), {
         headers: {
@@ -117,20 +117,20 @@ export async function onRequest(context) {
         }
       });
     }
-    
+
     // Try to get cached data first
     const cachedData = await env.FOREX_KV.get('bsp_exchange_rates');
-    
+
     if (cachedData) {
       const parsedData = JSON.parse(cachedData);
-      
+
       // If a specific currency symbol is requested, filter the data
       if (symbol) {
         const upperSymbol = symbol.toUpperCase();
-        const filteredRates = parsedData.rates.filter(rate => 
+        const filteredRates = parsedData.rates.filter(rate =>
           rate.symbol.toUpperCase() === upperSymbol
         );
-        
+
         if (filteredRates.length > 0) {
           return new Response(JSON.stringify({
             metadata: parsedData.metadata,
@@ -144,7 +144,7 @@ export async function onRequest(context) {
           });
         }
       }
-      
+
       // Return all data if no symbol specified or no match found
       return new Response(cachedData, {
         headers: {
@@ -154,22 +154,22 @@ export async function onRequest(context) {
         }
       });
     }
-    
+
     // If no cached data, fetch fresh data
     const forexData = await fetchForexData(env);
-    
+
     // Store the data in KV
     await env.FOREX_KV.put('bsp_exchange_rates', JSON.stringify(forexData), {
       expirationTtl: 3600 // Expire after 1 hour
     });
-    
+
     // Filter by symbol if specified
     if (symbol) {
       const upperSymbol = symbol.toUpperCase();
-      const filteredRates = forexData.rates.filter(rate => 
+      const filteredRates = forexData.rates.filter(rate =>
         rate.symbol.toUpperCase() === upperSymbol
       );
-      
+
       if (filteredRates.length > 0) {
         return new Response(JSON.stringify({
           metadata: forexData.metadata,
@@ -183,7 +183,7 @@ export async function onRequest(context) {
         });
       }
     }
-    
+
     return new Response(JSON.stringify(forexData), {
       headers: {
         'Content-Type': 'application/json',
