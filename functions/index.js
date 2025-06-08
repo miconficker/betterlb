@@ -1,6 +1,8 @@
 // Main entry point for Cloudflare Workers
 import { onScheduled as getWeatherScheduled, onRequest as weatherRequest } from './api/weather';
 import { onScheduled as getForexScheduled, onRequest as forexRequest } from './api/forex';
+import { onRequest as weatherKVRequest } from './weather';
+import { onRequest as forexKVRequest } from './forex';
 
 // Export the scheduled handlers
 export { onScheduled as scheduled_getWeather } from './api/weather';
@@ -55,6 +57,35 @@ export default {
       });
     }
 
+    // Handle the new KV-only endpoints
+    if (path === '/weather') {
+      const response = await weatherKVRequest({ request, env, ctx });
+      // Add CORS headers to the response
+      const newHeaders = new Headers(response.headers);
+      Object.keys(corsHeaders).forEach(key => {
+        newHeaders.set(key, corsHeaders[key]);
+      });
+      return new Response(response.body, {
+        status: response.status,
+        statusText: response.statusText,
+        headers: newHeaders
+      });
+    }
+    
+    if (path === '/forex') {
+      const response = await forexKVRequest({ request, env, ctx });
+      // Add CORS headers to the response
+      const newHeaders = new Headers(response.headers);
+      Object.keys(corsHeaders).forEach(key => {
+        newHeaders.set(key, corsHeaders[key]);
+      });
+      return new Response(response.body, {
+        status: response.status,
+        statusText: response.statusText,
+        headers: newHeaders
+      });
+    }
+
     // Simple API to check if the functions are running
     if (path === '/api/status') {
       return new Response(JSON.stringify({
@@ -63,14 +94,30 @@ export default {
         endpoints: [
           {
             path: '/api/weather',
-            description: 'Get weather data for Philippine cities',
+            description: 'Get weather data for Philippine cities (fetches from external API)',
+            parameters: [
+              { name: 'city', required: false, description: 'Specific city to get weather for' },
+              { name: 'update', required: false, description: 'Set to "true" to force update KV store' }
+            ]
+          },
+          {
+            path: '/api/forex',
+            description: 'Get currency exchange rates from BSP API (fetches from external API)',
+            parameters: [
+              { name: 'symbol', required: false, description: 'Filter by currency symbol (e.g., USD)' },
+              { name: 'update', required: false, description: 'Set to "true" to force update KV store' }
+            ]
+          },
+          {
+            path: '/weather',
+            description: 'Get weather data from KV store only (no external API calls)',
             parameters: [
               { name: 'city', required: false, description: 'Specific city to get weather for' }
             ]
           },
           {
-            path: '/api/forex',
-            description: 'Get currency exchange rates from BSP',
+            path: '/forex',
+            description: 'Get forex data from KV store only (no external API calls)',
             parameters: [
               { name: 'symbol', required: false, description: 'Filter by currency symbol (e.g., USD)' }
             ]
@@ -88,7 +135,7 @@ export default {
     // Return 404 for any other routes
     return new Response(JSON.stringify({
       error: 'Not found',
-      availableEndpoints: ['/api/status', '/api/weather', '/api/forex']
+      availableEndpoints: ['/api/status', '/api/weather', '/api/forex', '/weather', '/forex']
     }), { 
       status: 404,
       headers: {

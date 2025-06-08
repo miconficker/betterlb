@@ -15,7 +15,7 @@ const CITY_COORDINATES = PHILIPPINE_CITIES.reduce((map, city) => {
 // Core function to fetch weather data using OpenWeatherMap API
 async function fetchWeatherData(env, specificCity = null) {
   // Get API key from environment variable
-  const apiKey = import.meta.env.OPENWEATHERMAP_API_KEY;
+  const apiKey = env.OPENWEATHERMAP_API_KEY;
   if (!apiKey) {
     throw new Error('OpenWeatherMap API key not found in environment variables');
   }
@@ -109,36 +109,106 @@ export async function onScheduled(event) {
   }
 }
 
-// Function for direct API access
+// Handler for direct HTTP requests
 export async function onRequest(context) {
-  const { request, env } = context;
-  const url = new URL(request.url);
-  const city = url.searchParams.get('city');
-
   try {
-    // Try to get cached data first if no specific city is requested
-    if (!city) {
-      const cachedData = await env.WEATHER_KV.get('philippines_weather');
-      if (cachedData) {
-        return new Response(cachedData, {
-          headers: { 'Content-Type': 'application/json' }
+    const url = new URL(context.request.url);
+    const cityParam = url.searchParams.get('city');
+    const forceUpdate = url.searchParams.get('update') === 'true';
+
+    // Always fetch fresh data if update=true is specified
+    if (forceUpdate) {
+      // Fetch fresh data for all cities
+      const weatherData = await fetchWeatherData(context.env, cityParam);
+      
+      // Store the data in KV regardless of whether a specific city was requested
+      if (!cityParam) {
+        await context.env.WEATHER_KV.put('philippines_weather', JSON.stringify(weatherData), {
+          expirationTtl: 3600 // Expire after 1 hour
+        });
+      } else if (cityParam && weatherData[cityParam.toLowerCase()]) {
+        // If a specific city was requested and found, update just that city in the KV store
+        const existingData = await context.env.WEATHER_KV.get('philippines_weather', { type: 'json' }) || {};
+        existingData[cityParam.toLowerCase()] = weatherData[cityParam.toLowerCase()];
+        await context.env.WEATHER_KV.put('philippines_weather', JSON.stringify(existingData), {
+          expirationTtl: 3600 // Expire after 1 hour
+        });
+      }
+      
+      // Return the fresh data
+      return new Response(JSON.stringify(cityParam ? weatherData[cityParam.toLowerCase()] || {} : weatherData), {
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Cache-Control': 'max-age=3600'
+        }
+      });
+    }
+
+    // Check if data exists in KV and is not expired
+    const cachedData = await context.env.WEATHER_KV.get('philippines_weather', { type: 'json' });
+    
+    // If city parameter is provided, filter the data
+    if (cityParam && cachedData) {
+      const cityKey = cityParam.toLowerCase();
+      if (cachedData[cityKey]) {
+        return new Response(JSON.stringify({ [cityKey]: cachedData[cityKey] }), {
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Cache-Control': 'max-age=3600'
+          }
         });
       }
     }
 
-    // If no cached data or specific city requested, fetch fresh data
-    const weatherData = await fetchWeatherData(env, city);
+    // If we have cached data for all cities and no specific city is requested, return it
+    if (cachedData && !cityParam) {
+      return new Response(JSON.stringify(cachedData), {
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Cache-Control': 'max-age=3600'
+        }
+      });
+    }
 
-    return new Response(JSON.stringify(weatherData), {
-      headers: { 'Content-Type': 'application/json' }
+    // If we reach here, either:
+    // 1. No cached data exists
+    // 2. A specific city was requested that wasn't in the cache
+    // 3. The cached data has expired
+    // So we fetch fresh data
+    const weatherData = await fetchWeatherData(context.env, cityParam);
+    
+    // Store the data in KV
+    if (!cityParam) {
+      await context.env.WEATHER_KV.put('philippines_weather', JSON.stringify(weatherData), {
+        expirationTtl: 3600 // Expire after 1 hour
+      });
+    } else if (cityParam && weatherData[cityParam.toLowerCase()]) {
+      // If a specific city was requested and found, update just that city in the KV store
+      const existingData = await context.env.WEATHER_KV.get('philippines_weather', { type: 'json' }) || {};
+      existingData[cityParam.toLowerCase()] = weatherData[cityParam.toLowerCase()];
+      await context.env.WEATHER_KV.put('philippines_weather', JSON.stringify(existingData), {
+        expirationTtl: 3600 // Expire after 1 hour
+      });
+    }
+
+    // Return the response
+    return new Response(JSON.stringify(cityParam ? weatherData[cityParam.toLowerCase()] || {} : weatherData), {
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Cache-Control': 'max-age=3600'
+      }
     });
   } catch (error) {
-    return new Response(JSON.stringify({
-      success: false,
-      error: error.message
-    }), {
+    return new Response(JSON.stringify({ error: error.message }), {
       status: 500,
-      headers: { 'Content-Type': 'application/json' }
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
     });
   }
 }

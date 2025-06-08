@@ -74,8 +74,50 @@ export async function onRequest(context) {
   const { request, env } = context;
   const url = new URL(request.url);
   const symbol = url.searchParams.get('symbol');
+  const forceUpdate = url.searchParams.get('update') === 'true';
   
   try {
+    // Always fetch fresh data if update=true is specified
+    if (forceUpdate) {
+      // Fetch fresh forex data
+      const forexData = await fetchForexData(env);
+      
+      // Store the data in KV
+      await env.FOREX_KV.put('bsp_exchange_rates', JSON.stringify(forexData), {
+        expirationTtl: 3600 // Expire after 1 hour
+      });
+      
+      // Filter by symbol if specified
+      if (symbol) {
+        const upperSymbol = symbol.toUpperCase();
+        const filteredRates = forexData.rates.filter(rate => 
+          rate.symbol.toUpperCase() === upperSymbol
+        );
+        
+        if (filteredRates.length > 0) {
+          return new Response(JSON.stringify({
+            metadata: forexData.metadata,
+            rates: filteredRates
+          }), {
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*',
+              'Cache-Control': 'max-age=3600'
+            }
+          });
+        }
+      }
+      
+      // Return all data if no symbol specified or no match found
+      return new Response(JSON.stringify(forexData), {
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Cache-Control': 'max-age=3600'
+        }
+      });
+    }
+    
     // Try to get cached data first
     const cachedData = await env.FOREX_KV.get('bsp_exchange_rates');
     
@@ -94,19 +136,32 @@ export async function onRequest(context) {
             metadata: parsedData.metadata,
             rates: filteredRates
           }), {
-            headers: { 'Content-Type': 'application/json' }
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*',
+              'Cache-Control': 'max-age=3600'
+            }
           });
         }
       }
       
       // Return all data if no symbol specified or no match found
       return new Response(cachedData, {
-        headers: { 'Content-Type': 'application/json' }
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Cache-Control': 'max-age=3600'
+        }
       });
     }
     
     // If no cached data, fetch fresh data
     const forexData = await fetchForexData(env);
+    
+    // Store the data in KV
+    await env.FOREX_KV.put('bsp_exchange_rates', JSON.stringify(forexData), {
+      expirationTtl: 3600 // Expire after 1 hour
+    });
     
     // Filter by symbol if specified
     if (symbol) {
@@ -120,13 +175,21 @@ export async function onRequest(context) {
           metadata: forexData.metadata,
           rates: filteredRates
         }), {
-          headers: { 'Content-Type': 'application/json' }
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Cache-Control': 'max-age=3600'
+          }
         });
       }
     }
     
     return new Response(JSON.stringify(forexData), {
-      headers: { 'Content-Type': 'application/json' }
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Cache-Control': 'max-age=3600'
+      }
     });
   } catch (error) {
     return new Response(JSON.stringify({
@@ -134,7 +197,10 @@ export async function onRequest(context) {
       error: error.message
     }), {
       status: 500,
-      headers: { 'Content-Type': 'application/json' }
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
     });
   }
 }
