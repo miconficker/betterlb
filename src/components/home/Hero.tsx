@@ -76,7 +76,7 @@ const Hero: React.FC = () => {
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
               {translate('hero.title')}
             </h1>
-            <p className="text-lg opacity-90 mb-8 max-w-lg">
+            <p className="text-lg text-blue-200 mb-8 max-w-lg">
               {translate('hero.subtitle')}
             </p>
             {/* Meilisearch component will be full width and include its own styling */}
