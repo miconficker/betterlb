@@ -1,11 +1,17 @@
 import React, { useState, useMemo, useEffect } from 'react'
 import { useSearchParams, Link } from 'react-router-dom'
-import { Search, CheckCircle2, Menu, X, Globe, ExternalLink } from 'lucide-react'
+import {
+  Search,
+  CheckCircle2,
+  Menu,
+  X,
+  Globe,
+  ExternalLink,
+} from 'lucide-react'
 import * as ScrollArea from '@radix-ui/react-scroll-area'
 import { Card, CardContent } from '../../components/ui/Card'
 import SearchInput from '../../components/ui/SearchInput'
 import serviceCategories from '../../data/service_categories.json'
-import { formatDate } from '../../lib/utils'
 
 // Import all service files
 import businessTradeServices from '../../data/services/business-trade.json'
@@ -22,6 +28,7 @@ import taxServices from '../../data/services/tax.json'
 import transportDrivingServices from '../../data/services/transport-driving.json'
 import uncategorizedServices from '../../data/services/uncategorized.json'
 import Button from '../../components/ui/Button'
+import { Helmet } from 'react-helmet-async'
 
 // Combine all services
 const allServices = [
@@ -37,7 +44,7 @@ const allServices = [
   ...socialServices,
   ...taxServices,
   ...transportDrivingServices,
-  ...uncategorizedServices
+  ...uncategorizedServices,
 ]
 
 interface Service {
@@ -168,6 +175,26 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Helmet>
+        <title>Government Services Directory | BetterGov.ph</title>
+        <meta
+          name="description"
+          content="Browse and search a comprehensive directory of Philippine government services across categories and subcategories."
+        />
+        <meta
+          name="keywords"
+          content="philippine government services, online services, public service directory, government portal"
+        />
+        <link rel="canonical" href="https://gov.ph/services" />
+        <meta property="og:title" content="Government Services Directory" />
+        <meta
+          property="og:description"
+          content="Browse and search a comprehensive directory of Philippine government services."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://gov.ph/services" />
+        <meta property="og:image" content="https://gov.ph/ph-logo.png" />
+      </Helmet>
       <div className="container mx-auto px-4 py-6 md:py-12">
         {/* Header */}
         <header className="text-center mb-8 md:mb-12">
@@ -200,7 +227,9 @@ export default function ServicesPage() {
 
         {/* Featured Services */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Featured Resources</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            Featured Resources
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <Link to="/services/websites" className="group">
               <Card className="h-full transition-all duration-300 hover:shadow-lg hover:border-primary-300 group-hover:transform group-hover:-translate-y-1">
@@ -214,8 +243,9 @@ export default function ServicesPage() {
                     </h3>
                   </div>
                   <p className="text-gray-600 mb-4">
-                    Comprehensive directory of Philippine government websites, agencies, and services.
-                    Find official websites for all government institutions.
+                    Comprehensive directory of Philippine government websites,
+                    agencies, and services. Find official websites for all
+                    government institutions.
                   </p>
                   <div className="flex items-center text-primary-600 font-medium">
                     <span>Browse Directory</span>
@@ -413,10 +443,14 @@ export default function ServicesPage() {
                         >
                           {service.url}
                         </a>
-                        <a href={service.url} target="_blank" rel="noopener noreferrer">
-                         <Button
-                           className="bg-blue-600 text-white rounded-lg px-4 py-1 text-xs mt-4"
-                          >View Service</Button> 
+                        <a
+                          href={service.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button className="bg-blue-600 text-white rounded-lg px-4 py-1 text-xs mt-4">
+                            View Service
+                          </Button>
                         </a>
 
                         {/* <div className="flex items-center text-sm text-gray-500">
