@@ -173,33 +173,74 @@ export default function ServicesPage() {
 
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
+  // Dynamically generate SEO meta tags based on selected category & subcategory
+  const { metaTitle, metaDescription, metaKeywords, canonicalUrl } = useMemo(() => {
+    const baseTitle = 'Government Services Directory | BetterGov.ph'
+    const baseDescription =
+      'Browse and search a comprehensive directory of Philippine government services across categories and subcategories.'
+
+    const phrases: string[] = []
+    if (selectedCategory) {
+      phrases.push(selectedCategory.category)
+    }
+    if (selectedSubcategory) {
+      phrases.push(selectedSubcategory.name)
+    }
+
+    const title = phrases.length
+      ? `${phrases.join(' – ')} | BetterGov.ph`
+      : baseTitle
+
+    const description = phrases.length
+      ? `Explore Philippine government services for ${phrases.join(
+          ' '
+        )}. Find online resources, requirements, and assistance.`
+      : baseDescription
+
+    const keywords = [
+      'philippine government services',
+      'online services',
+      'public service directory',
+      'government portal',
+      ...phrases.map((p) => p.toLowerCase()),
+    ].join(', ')
+
+    let canonical = 'https://bettergov.ph/services'
+    if (selectedCategorySlug !== 'all') {
+      canonical += `?category=${selectedCategorySlug}`
+      if (selectedSubcategorySlug !== 'all') {
+        canonical += `&subcategory=${selectedSubcategorySlug}`
+      }
+    }
+
+    return { metaTitle: title, metaDescription: description, metaKeywords: keywords, canonicalUrl: canonical }
+  }, [
+    selectedCategory,
+    selectedSubcategory,
+    selectedCategorySlug,
+    selectedSubcategorySlug,
+  ])
+
   return (
     <div className="min-h-screen bg-gray-50">
-      <Helmet>
-        <title>Government Services Directory | BetterGov.ph</title>
-        <meta
-          name="description"
-          content="Browse and search a comprehensive directory of Philippine government services across categories and subcategories."
-        />
-        <meta
-          name="keywords"
-          content="philippine government services, online services, public service directory, government portal"
-        />
-        <link rel="canonical" href="https://gov.ph/services" />
-        <meta property="og:title" content="Government Services Directory" />
-        <meta
-          property="og:description"
-          content="Browse and search a comprehensive directory of Philippine government services."
-        />
+      <Helmet key={canonicalUrl}>
+        <title>{metaTitle}</title>
+        <meta name="description" content={metaDescription} />
+        <meta name="keywords" content={metaKeywords} />
+        <link rel="canonical" href={canonicalUrl} />
+
+        {/* Open Graph / Social */}
+        <meta property="og:title" content={metaTitle} />
+        <meta property="og:description" content={metaDescription} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://gov.ph/services" />
+        <meta property="og:url" content={canonicalUrl} />
         <meta property="og:image" content="https://gov.ph/ph-logo.png" />
       </Helmet>
       <div className="container mx-auto px-4 py-6 md:py-12">
         {/* Header */}
         <header className="text-center mb-8 md:mb-12">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Government Services
+            {`${selectedCategory?.category} Government Services` || 'Government Services'}
           </h1>
           <p className="text-sm md:text-lg text-gray-600 max-w-2xl mx-auto">
             Access official government services quickly and easily. Find what
