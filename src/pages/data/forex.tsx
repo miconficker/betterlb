@@ -222,7 +222,7 @@ const ForexPage: React.FC = () => {
                   </div>
 
                   {/* Chart */}
-                  <div className="h-80">
+                  <div className="h-80 hidden">
                     <ResponsiveContainer width="100%" height="100%">
                       <LineChart
                         data={historicalData}

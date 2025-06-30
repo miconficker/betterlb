@@ -12,7 +12,7 @@ const Home: React.FC = () => {
     <main className="flex-grow">
       <Hero />
       <ServicesSection />
-      <NewsSection />
+      {/* <NewsSection /> */}
       <InfoWidgets />
       <DataSection />
       <PromotionBanner />

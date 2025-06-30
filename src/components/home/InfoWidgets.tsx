@@ -123,7 +123,7 @@ const InfoWidgets: React.FC = () => {
               )}
               <div className="text-right mt-4">
                 <a
-                  href="/weather"
+                  href="/data/weather"
                   className="text-primary-600 text-sm hover:underline"
                 >
                   Detailed Forecast
@@ -203,7 +203,7 @@ const InfoWidgets: React.FC = () => {
               </div>
               <div className="text-right mt-4">
                 <a
-                  href="/forex"
+                  href="/data/forex"
                   className="text-primary-600 text-sm hover:underline"
                 >
                   More Currencies

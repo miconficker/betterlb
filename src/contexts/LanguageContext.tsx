@@ -38,6 +38,7 @@ const translations: Record<LanguageType, Record<string, string>> = {
     // Add more translations as needed
   },
   fil: {
+    'navbar.philippines': 'Pilipinas',
     'navbar.home': 'Tahanan',
     'navbar.services': 'Mga Serbisyo',
     'navbar.travel': 'Paglalakbay',
