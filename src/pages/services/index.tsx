@@ -240,7 +240,9 @@ export default function ServicesPage() {
         {/* Header */}
         <header className="text-center mb-8 md:mb-12">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            {`${selectedCategory?.category} Government Services` || 'Government Services'}
+            {selectedCategory?.category
+              ? `${selectedCategory?.category} Government Services`
+              : 'Government Services'}
           </h1>
           <p className="text-sm md:text-lg text-gray-600 max-w-2xl mx-auto">
             Access official government services quickly and easily. Find what
