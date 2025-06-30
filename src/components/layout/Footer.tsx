@@ -91,7 +91,7 @@ const Footer: React.FC = () => {
               {translate('footer.copyright')}
             </p>
             <div className="flex space-x-4">
-              <a
+              {/* <a
                 href="/privacy"
                 className="text-gray-400 hover:text-white text-sm transition-colors"
               >
@@ -102,7 +102,7 @@ const Footer: React.FC = () => {
                 className="text-gray-400 hover:text-white text-sm transition-colors"
               >
                 Terms of Use
-              </a>
+              </a> */}
               <Link
                 to="/sitemap"
                 className="text-gray-400 hover:text-white text-sm transition-colors"
