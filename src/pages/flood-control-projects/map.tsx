@@ -316,7 +316,7 @@ const FloodControlProjectsMap: React.FC = () => {
                       filters="type:flood_control"
                     />
                     <SearchBox
-                      placeholder="Search projects..."
+                      placeholder="Search projects, contractors, municipality, province, region..."
                       classNames={{
                         root: 'mb-2',
                         form: 'relative',
