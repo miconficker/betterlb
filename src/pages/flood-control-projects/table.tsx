@@ -9,7 +9,6 @@ import {
   ChevronLeft, 
   BarChart3, 
   Download,
-  X,
   Table,
   Map,
   ArrowUpDown,
@@ -39,7 +38,7 @@ const MEILISEARCH_PORT = import.meta.env.VITE_MEILISEARCH_PORT || '7700';
 const MEILISEARCH_SEARCH_API_KEY = import.meta.env.VITE_MEILISEARCH_SEARCH_API_KEY || 'your_public_search_key_here';
 
 // Create search client with proper type casting
-const searchClient = instantMeiliSearch(
+const meiliSearchInstance = instantMeiliSearch(
   `${MEILISEARCH_HOST}:${MEILISEARCH_PORT}`,
   MEILISEARCH_SEARCH_API_KEY,
   {
@@ -47,6 +46,10 @@ const searchClient = instantMeiliSearch(
     keepZeroFacets: true,
   }
 );
+
+// Extract the searchClient from meiliSearchInstance
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const searchClient = meiliSearchInstance.searchClient as any;
 
 // Define filter dropdown component props
 interface FilterDropdownProps {
@@ -178,8 +181,128 @@ const TableRow: React.FC<HitProps> = ({ hit }) => {
   );
 };
 
+// Define a more specific type for flood control project data
+type FloodControlHit = {
+  GlobalID?: string;
+  objectID?: string;
+  ProjectDescription?: string;
+  InfraYear?: string;
+  Region?: string;
+  Province?: string;
+  Municipality?: string;
+  TypeofWork?: string;
+  Contractor?: string;
+  ContractCost?: string;
+};
+
+// Define filters type
+type FilterState = {
+  InfraYear: string;
+  Region: string;
+  Province: string;
+  TypeofWork: string;
+  DistrictEngineeringOffice: string;
+  LegislativeDistrict: string;
+  [key: string]: string;
+};
+
+// Dynamic filter title component
+const FilterTitle: React.FC<{ filters: FilterState; searchTerm: string }> = ({ filters, searchTerm }) => {
+  // Create an array of active filter descriptions
+  const activeFilters: string[] = [];
+  
+  if (searchTerm) {
+    activeFilters.push(`Search: "${searchTerm}"`);
+  }
+  
+  if (filters.InfraYear) {
+    activeFilters.push(`Year: ${filters.InfraYear}`);
+  }
+  
+  if (filters.Region) {
+    activeFilters.push(`Region: ${filters.Region}`);
+  }
+  
+  if (filters.Province) {
+    activeFilters.push(`Province: ${filters.Province}`);
+  }
+  
+  if (filters.TypeofWork) {
+    activeFilters.push(`Type of Work: ${filters.TypeofWork}`);
+  }
+  
+  if (filters.DistrictEngineeringOffice) {
+    activeFilters.push(`District Engineering Office: ${filters.DistrictEngineeringOffice}`);
+  }
+  
+  if (filters.LegislativeDistrict) {
+    activeFilters.push(`Legislative District: ${filters.LegislativeDistrict}`);
+  }
+  
+  // Generate title
+  let title = "All Flood Control Projects";
+  
+  if (activeFilters.length > 0) {
+    title = `Flood Control Projects | ${activeFilters.join(' | ')}`;
+  }
+  
+  return (
+    <div className="mb-4">
+      <h2 className="text-xl font-bold text-gray-800">{title}</h2>
+      {activeFilters.length > 0 && (
+        <div className="mt-2 flex flex-wrap gap-2">
+          {activeFilters.map((filter, index) => (
+            <span key={index} className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+              {filter}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+// Statistics component for displaying summary data
+const ResultsStatistics: React.FC<{ hits: FloodControlHit[] }> = ({ hits }) => {
+  // Calculate statistics
+  const totalCount = hits.length;
+  
+  // Calculate total contract cost - handle possible non-numeric values
+  const totalContractCost = hits.reduce((sum, hit) => {
+    const cost = parseFloat(hit.ContractCost || '0');
+    return sum + (isNaN(cost) ? 0 : cost);
+  }, 0);
+  
+  // Get unique contractors count
+  const uniqueContractors = new Set(
+    hits
+      .filter(hit => hit.Contractor && hit.Contractor.trim() !== '')
+      .map(hit => hit.Contractor)
+  ).size;
+
+  return (
+    <div className="bg-white p-4 rounded-lg shadow mb-4">
+      <h3 className="text-lg font-medium text-gray-900 mb-2">Project Statistics</h3>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="bg-blue-50 p-3 rounded-md">
+          <p className="text-sm text-gray-500">Total Projects</p>
+          <p className="text-2xl font-bold text-blue-700">{totalCount.toLocaleString()}</p>
+        </div>
+        <div className="bg-green-50 p-3 rounded-md">
+          <p className="text-sm text-gray-500">Total Contract Cost</p>
+          <p className="text-2xl font-bold text-green-700">₱{totalContractCost.toLocaleString()}</p>
+        </div>
+        <div className="bg-purple-50 p-3 rounded-md">
+          <p className="text-sm text-gray-500">Unique Contractors</p>
+          <p className="text-2xl font-bold text-purple-700">{uniqueContractors.toLocaleString()}</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // Custom Hits component for table view
-const TableHits: React.FC = () => {
+const TableHits: React.FC<{ filters: FilterState; searchTerm: string }> = ({ filters, searchTerm }) => {
   const [sortField, setSortField] = useState<string>('ProjectDescription');
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
   
@@ -208,37 +331,45 @@ const TableHits: React.FC = () => {
   );
 
   return (
-    <div className="overflow-x-auto">
-      <table className="min-w-full divide-y divide-gray-200">
-        <thead className="bg-gray-50">
-          <tr>
-            <SortHeader field="ProjectDescription" label="Project Description" />
-            <SortHeader field="InfraYear" label="Year" />
-            <SortHeader field="Region" label="Region" />
-            <SortHeader field="Province" label="Province" />
-            <SortHeader field="Municipality" label="Municipality" />
-            <SortHeader field="TypeofWork" label="Type of Work" />
-            <SortHeader field="Contractor" label="Contractor" />
-            <SortHeader field="ContractCost" label="Contract Cost" />
-          </tr>
-        </thead>
-        <tbody className="bg-white divide-y divide-gray-200">
-          {/* Render hits directly as table rows without extra wrapping elements */}
-          {hits.map((hit) => (
-            <TableRow 
-              key={typeof hit.GlobalID === 'string' ? hit.GlobalID : hit.objectID} 
-              hit={hit as unknown as FloodControlProject} 
-            />
-          ))}
-        </tbody>
-      </table>
+    <div>
+      {/* Add the filter title component */}
+      <FilterTitle filters={filters} searchTerm={searchTerm} />
+      
+      {/* Add the statistics component */}
+      <ResultsStatistics hits={hits as FloodControlHit[]} />
+      
+      <div className="overflow-x-auto">
+        <table className="min-w-full divide-y divide-gray-200">
+          <thead className="bg-gray-50">
+            <tr>
+              <SortHeader field="ProjectDescription" label="Project Description" />
+              <SortHeader field="InfraYear" label="Year" />
+              <SortHeader field="Region" label="Region" />
+              <SortHeader field="Province" label="Province" />
+              <SortHeader field="Municipality" label="Municipality" />
+              <SortHeader field="TypeofWork" label="Type of Work" />
+              <SortHeader field="Contractor" label="Contractor" />
+              <SortHeader field="ContractCost" label="Contract Cost" />
+            </tr>
+          </thead>
+          <tbody className="bg-white divide-y divide-gray-200">
+            {/* Render hits directly as table rows without extra wrapping elements */}
+            {hits.map((hit) => (
+              <TableRow 
+                key={typeof hit.GlobalID === 'string' ? hit.GlobalID : hit.objectID} 
+                hit={hit as unknown as FloodControlProject} 
+              />
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
 
 const FloodControlProjectsTable: React.FC = () => {
-  // State for filters
-  const [filters, setFilters] = useState({
+  // State for filters and search
+  const [filters, setFilters] = useState<FilterState>({
     InfraYear: '',
     Region: '',
     Province: '',
@@ -246,15 +377,8 @@ const FloodControlProjectsTable: React.FC = () => {
     DistrictEngineeringOffice: '',
     LegislativeDistrict: ''
   });
-  
-  // State for sidebar visibility on mobile
-  const [showSidebar, setShowSidebar] = useState<boolean>(true);
-  
-  // State for search term
-  const [searchTerm, setSearchTerm] = useState<string>('');
-  
-  // Loading state for export
-  const [isExporting, setIsExporting] = useState<boolean>(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [isExporting, setIsExporting] = useState(false);
   
   // Handle filter change
   const handleFilterChange = (filterName: string, value: string) => {
@@ -356,104 +480,93 @@ const FloodControlProjectsTable: React.FC = () => {
       {/* Main layout with sidebar and content */}
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row gap-6">
-          {/* Sidebar for filters - collapsible on mobile */}
-          <div className={`md:w-64 flex-shrink-0 transition-all duration-300 ${showSidebar ? 'block' : 'hidden md:block'}`}>
-            <div className="bg-white rounded-lg shadow-md p-4 sticky top-20">
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center">
-                  <Filter className="w-5 h-5 text-blue-600 mr-2" />
-                  <h2 className="text-lg font-semibold text-gray-800">Filters</h2>
-                </div>
-                <button 
-                  className="md:hidden text-gray-500 hover:text-gray-700"
-                  onClick={() => setShowSidebar(false)}
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-              
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Infrastructure Year</label>
-                  <FilterDropdown 
-                    name="Year" 
-                    options={infraYearData.InfraYear} 
-                    value={filters.InfraYear} 
-                    onChange={(value) => handleFilterChange('InfraYear', value)} 
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Region</label>
-                  <FilterDropdown 
-                    name="Region" 
-                    options={regionData.Region} 
-                    value={filters.Region} 
-                    onChange={(value) => handleFilterChange('Region', value)} 
-                    searchable
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Province</label>
-                  <FilterDropdown 
-                    name="Province" 
-                    options={provinceData.Province} 
-                    value={filters.Province} 
-                    onChange={(value) => handleFilterChange('Province', value)} 
-                    searchable
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Type of Work</label>
-                  <FilterDropdown 
-                    name="Type of Work" 
-                    options={typeOfWorkData.TypeofWork} 
-                    value={filters.TypeofWork} 
-                    onChange={(value) => handleFilterChange('TypeofWork', value)} 
-                    searchable
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">District Engineering Office</label>
-                  <FilterDropdown 
-                    name="DEO" 
-                    options={deoData.DistrictEngineeringOffice} 
-                    value={filters.DistrictEngineeringOffice} 
-                    onChange={(value) => handleFilterChange('DistrictEngineeringOffice', value)} 
-                    searchable
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Legislative District</label>
-                  <FilterDropdown 
-                    name="Legislative District" 
-                    options={legislativeDistrictData.LegislativeDistrict} 
-                    value={filters.LegislativeDistrict} 
-                    onChange={(value) => handleFilterChange('LegislativeDistrict', value)} 
-                    searchable
-                  />
-                </div>
+          {/* Sidebar with filters */}
+          <div className="w-full md:w-72 bg-white p-4 rounded-lg shadow-md">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-lg font-medium">Filters</h2>
+            </div>
+
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Year</label>
+                <FilterDropdown 
+                  name="Year" 
+                  options={infraYearData.InfraYear} 
+                  value={filters.InfraYear} 
+                  onChange={(value) => handleFilterChange('InfraYear', value)} 
+                />
               </div>
 
-              {/* Search box in sidebar */}
-              <div className="mt-6 border-t border-gray-200 pt-4">
-                <h3 className="text-sm font-medium text-gray-700 mb-2">Search Projects</h3>
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Search className="h-4 w-4 text-gray-400" />
-                  </div>
-                  <input
-                    type="text"
-                    className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                    placeholder="Search projects..."
-                    value={searchTerm}
-                    onChange={(e) => handleSearchChange(e.target.value)}
-                  />
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Region</label>
+                <FilterDropdown 
+                  name="Region" 
+                  options={regionData.Region} 
+                  value={filters.Region} 
+                  onChange={(value) => handleFilterChange('Region', value)} 
+                  searchable
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Province</label>
+                <FilterDropdown 
+                  name="Province" 
+                  options={provinceData.Province} 
+                  value={filters.Province} 
+                  onChange={(value) => handleFilterChange('Province', value)} 
+                  searchable
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Type of Work</label>
+                <FilterDropdown 
+                  name="Type of Work" 
+                  options={typeOfWorkData.TypeofWork} 
+                  value={filters.TypeofWork} 
+                  onChange={(value) => handleFilterChange('TypeofWork', value)} 
+                  searchable
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">District Engineering Office</label>
+                <FilterDropdown 
+                  name="DEO" 
+                  options={deoData.DistrictEngineeringOffice} 
+                  value={filters.DistrictEngineeringOffice} 
+                  onChange={(value) => handleFilterChange('DistrictEngineeringOffice', value)} 
+                  searchable
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Legislative District</label>
+                <FilterDropdown 
+                  name="Legislative District" 
+                  options={legislativeDistrictData.LegislativeDistrict} 
+                  value={filters.LegislativeDistrict} 
+                  onChange={(value) => handleFilterChange('LegislativeDistrict', value)} 
+                  searchable
+                />
+              </div>
+            </div>
+
+            {/* Search box in sidebar */}
+            <div className="mt-6 border-t border-gray-200 pt-4">
+              <h3 className="text-sm font-medium text-gray-700 mb-2">Search Projects</h3>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <Search className="h-4 w-4 text-gray-400" />
                 </div>
+                <input
+                  type="text"
+                  className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  placeholder="Search projects..."
+                  value={searchTerm}
+                  onChange={(e) => handleSearchChange(e.target.value)}
+                />
               </div>
             </div>
           </div>
@@ -464,7 +577,7 @@ const FloodControlProjectsTable: React.FC = () => {
             <div className="md:hidden mb-4">
               <Button 
                 variant="outline"
-                onClick={() => setShowSidebar(true)}
+                onClick={() => {/* Mobile sidebar functionality */}}
                 leftIcon={<Filter className="w-4 h-4" />}
               >
                 Show Filters
@@ -510,28 +623,18 @@ const FloodControlProjectsTable: React.FC = () => {
             </div>
 
             {/* Table View */}
-            <div className="bg-white rounded-lg shadow-md p-4 mb-6">
-              <InstantSearch
-                // @ts-expect-error - Meilisearch client is compatible with InstantSearch
-                searchClient={searchClient.searchClient}
-                indexName="bettergov_flood_control"
-                initialUiState={{
-                  bettergov_flood_control: {
-                    query: getEffectiveSearchTerm(),
-                  },
-                }}
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <InstantSearch 
+                indexName="bettergov_flood_control" 
+                searchClient={searchClient}
+                future={{preserveSharedStateOnUnmount: true}}
               >
                 <Configure 
-                  hitsPerPage={20} 
-                  attributesToRetrieve={[
-                    'ProjectDescription', 'Municipality', 'Province', 'Region', 
-                    'ContractID', 'TypeofWork', 'ContractCost', 'GlobalID',
-                    'InfraYear', 'Contractor', 'FundingYear'
-                  ]}
+                  hitsPerPage={100}
                   filters={buildFilterString()}
                   query={getEffectiveSearchTerm()}
                 />
-                <TableHits />
+                <TableHits filters={filters} searchTerm={searchTerm} />
               </InstantSearch>
             </div>
 

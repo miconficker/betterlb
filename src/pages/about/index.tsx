@@ -66,13 +66,13 @@ const AboutPage: React.FC = () => {
                 </h2>
                 <p className="mb-4 text-gray-700">
                   We are a volunteer-led initiative with a clear mission: to
-                  provide a 'better' national website for the Philippines.
+                  provide a 'better' website for the Philippines.
                 </p>
                 <p className="mb-4 text-gray-700">Our goals include:</p>
                 <ul className="list-disc pl-6 mb-6 text-gray-700">
                   <li>
-                    Building a volunteer-run national website that reflects
-                    Filipino values and culture
+                    Building a volunteer-run website that reflects Filipino
+                    values and culture
                   </li>
                   <li>
                     Creating intuitive navigation and search functionality
