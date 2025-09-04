@@ -35,6 +35,7 @@ import {
   Table,
   Map,
   Search,
+  Contractors,
 } from 'lucide-react'
 import Button from '../../components/ui/Button'
 import { ScrollArea } from '../../components/ui/ScrollArea'
@@ -755,6 +756,13 @@ const FloodControlProjects: React.FC = () => {
               >
                 <Map className="w-4 h-4 mr-2" />
                 Map
+              </a>
+              <a
+                href="/flood-control-projects/contractors"
+                className="px-4 py-2 text-gray-600 hover:text-blue-600 font-medium flex items-center"
+              >
+                <Users className="w-4 h-4 mr-2" />
+                Contractors
               </a>
             </div>
 
