@@ -62,6 +62,13 @@ Found a problem with the website? Help us improve by reporting it!
 
 Alternatively, email us at [bugs@bettergov.ph](mailto:bugs@bettergov.ph)
 
+## Setup
+
+1. Clone the repository
+2. Install dependencies
+3. Set up environment variables
+4. Run the development server
+
 ## Development
 
 ```bash
