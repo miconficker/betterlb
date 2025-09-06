@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { InstantSearch, Configure, useHits } from 'react-instantsearch'
@@ -15,8 +15,13 @@ import {
   Info,
   Users,
   Building2,
+  ZoomIn,
+  ZoomOut,
 } from 'lucide-react'
 import Button from '../../../components/ui/Button'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import L, { LatLngExpression } from 'leaflet'
+import 'leaflet/dist/leaflet.css'
 
 // Import contractor data
 import contractorData from '../../../data/flood_control/lookups/Contractor_with_counts.json'
@@ -51,6 +56,8 @@ const searchClient = meiliSearchInstance.searchClient as any
 
 // Define hit component for search results
 interface FloodControlProject {
+  GlobalID?: string
+  objectID?: string
   ProjectDescription?: string
   Municipality?: string
   Region?: string
@@ -63,6 +70,8 @@ interface FloodControlProject {
   DistrictEngineeringOffice?: string
   InfraYear?: string
   Contractor?: string
+  Latitude?: string
+  Longitude?: string
   slug?: string
 }
 
@@ -101,6 +110,8 @@ type FloodControlHit = {
   TypeofWork?: string
   Contractor?: string
   ContractCost?: string
+  Latitude?: string
+  Longitude?: string
   [key: string]: string | undefined
 }
 
@@ -125,12 +136,10 @@ const ResultsStatistics: React.FC<{
   const estimatedTotalContractCost = avgCostPerProject * totalCount
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow mb-6">
+    <div className="bg-white p-6 rounded-t-lg shadow mb-6">
       <div className="flex items-center mb-4">
         <Building2 className="w-6 h-6 text-blue-600 mr-3" />
-        <h3 className="text-xl font-semibold text-gray-900">
-          {contractor}
-        </h3>
+        <h3 className="text-xl font-semibold text-gray-900">{contractor}</h3>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="bg-blue-50 p-4 rounded-md">
@@ -162,6 +171,19 @@ const ResultsStatistics: React.FC<{
   )
 }
 
+// Custom component to access Meilisearch hits for map
+const MapHits: React.FC<{
+  onHitsUpdate: (hits: FloodControlProject[]) => void
+}> = ({ onHitsUpdate }) => {
+  const { hits } = useHits<FloodControlProject>()
+
+  useEffect(() => {
+    onHitsUpdate(hits)
+  }, [hits, onHitsUpdate])
+
+  return null
+}
+
 // Custom Hits component for table view
 const TableHits: React.FC<{ selectedContractor: string }> = ({
   selectedContractor,
@@ -175,22 +197,24 @@ const TableHits: React.FC<{ selectedContractor: string }> = ({
   const { hits, results } = useHits()
 
   // Sort hits based on current sort field and direction
-  const sortedHits = [...hits].sort((a: FloodControlHit, b: FloodControlHit) => {
-    // Handle special case for ContractCost which needs numeric sorting
-    if (sortField === 'ContractCost') {
-      const costA = parseFloat(a[sortField] || '0')
-      const costB = parseFloat(b[sortField] || '0')
-      return sortDirection === 'asc' ? costA - costB : costB - costA
+  const sortedHits = [...hits].sort(
+    (a: FloodControlHit, b: FloodControlHit) => {
+      // Handle special case for ContractCost which needs numeric sorting
+      if (sortField === 'ContractCost') {
+        const costA = parseFloat(a[sortField] || '0')
+        const costB = parseFloat(b[sortField] || '0')
+        return sortDirection === 'asc' ? costA - costB : costB - costA
+      }
+
+      // String comparison for other fields
+      const valueA = a[sortField]?.toString().toLowerCase() || ''
+      const valueB = b[sortField]?.toString().toLowerCase() || ''
+
+      if (valueA < valueB) return sortDirection === 'asc' ? -1 : 1
+      if (valueA > valueB) return sortDirection === 'asc' ? 1 : -1
+      return 0
     }
-
-    // String comparison for other fields
-    const valueA = a[sortField]?.toString().toLowerCase() || ''
-    const valueB = b[sortField]?.toString().toLowerCase() || ''
-
-    if (valueA < valueB) return sortDirection === 'asc' ? -1 : 1
-    if (valueA > valueB) return sortDirection === 'asc' ? 1 : -1
-    return 0
-  })
+  )
 
   const handleSort = (field: string) => {
     if (sortField === field) {
@@ -433,17 +457,27 @@ const createSlug = (name: string): string => {
 
 // Utility function to find contractor by slug
 const findContractorBySlug = (slug: string): DataItem | null => {
-  return contractorData.Contractor.find(contractor => 
-    createSlug(contractor.value) === slug
-  ) || null
+  return (
+    contractorData.Contractor.find(
+      (contractor) => createSlug(contractor.value) === slug
+    ) || null
+  )
 }
 
 // Main Contractor Detail component
 const ContractorDetail: React.FC = () => {
-  const { 'contractor-name': contractorSlug } = useParams<{ 'contractor-name': string }>()
+  const { 'contractor-name': contractorSlug } = useParams<{
+    'contractor-name': string
+  }>()
   const navigate = useNavigate()
   const [isExporting, setIsExporting] = useState(false)
   const [contractor, setContractor] = useState<DataItem | null>(null)
+  // Remove viewMode state since we'll show both views side by side
+  const [mapProjects, setMapProjects] = useState<FloodControlProject[]>([])
+  const mapRef = useRef<L.Map>(null)
+
+  const initialCenter: LatLngExpression = [12.8797, 121.774] // Philippines center
+  const initialZoom = 6
 
   useEffect(() => {
     if (contractorSlug) {
@@ -508,7 +542,9 @@ const ContractorDetail: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Helmet>
-        <title>{contractor.value} - Flood Control Projects | BetterGov.ph</title>
+        <title>
+          {contractor.value} - Flood Control Projects | BetterGov.ph
+        </title>
         <meta
           name="description"
           content={`View all flood control projects by ${contractor.value}. Total projects: ${contractor.count}`}
@@ -526,13 +562,22 @@ const ContractorDetail: React.FC = () => {
             <ChevronLeft className="w-4 h-4 mr-1" />
             Back to Contractors
           </Link>
-          
+
           <nav className="text-sm text-gray-500 mb-4">
-            <Link to="/" className="hover:text-blue-600">Home</Link>
+            <Link to="/" className="hover:text-blue-600">
+              Home
+            </Link>
             <span className="mx-2">/</span>
-            <Link to="/flood-control-projects" className="hover:text-blue-600">Flood Control Projects</Link>
+            <Link to="/flood-control-projects" className="hover:text-blue-600">
+              Flood Control Projects
+            </Link>
             <span className="mx-2">/</span>
-            <Link to="/flood-control-projects/contractors" className="hover:text-blue-600">Contractors</Link>
+            <Link
+              to="/flood-control-projects/contractors"
+              className="hover:text-blue-600"
+            >
+              Contractors
+            </Link>
             <span className="mx-2">/</span>
             <span className="text-gray-900">{contractor.value}</span>
           </nav>
@@ -545,7 +590,8 @@ const ContractorDetail: React.FC = () => {
               {contractor.value}
             </h1>
             <p className="text-gray-600">
-              Flood control projects contractor with {contractor.count} total projects
+              Flood control projects contractor with {contractor.count} total
+              projects
             </p>
           </div>
           <Button
@@ -590,21 +636,173 @@ const ContractorDetail: React.FC = () => {
           </Link>
         </div>
 
-        {/* Table View */}
-        <div className="bg-white rounded-lg shadow-md overflow-hidden">
-          <InstantSearch
-            indexName="bettergov_flood_control"
-            searchClient={searchClient}
-            future={{ preserveSharedStateOnUnmount: true }}
-            key={`search-${contractor.value}`} // Force re-render when contractor changes
-          >
-            <Configure 
-              hitsPerPage={1000} 
-              filters={buildFilterString()} 
-              query={contractor.value} 
-            />
-            <TableHits selectedContractor={contractor.value} />
-          </InstantSearch>
+        {/* Side by Side Content View */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Table View */}
+          <div className="bg-white rounded-lg shadow-md overflow-hidden mb-4">
+            <InstantSearch
+              indexName="bettergov_flood_control"
+              searchClient={searchClient}
+              future={{ preserveSharedStateOnUnmount: true }}
+              key={`search-table-${contractor.value}`}
+            >
+              <Configure
+                hitsPerPage={1000}
+                filters={buildFilterString()}
+                query={contractor.value}
+                attributesToRetrieve={[
+                  'ProjectDescription',
+                  'Municipality',
+                  'Province',
+                  'Region',
+                  'ContractID',
+                  'TypeofWork',
+                  'ContractCost',
+                  'GlobalID',
+                  'InfraYear',
+                  'Contractor',
+                  'Latitude',
+                  'Longitude',
+                ]}
+              />
+              <TableHits selectedContractor={contractor.value} />
+            </InstantSearch>
+          </div>
+
+          {/* Map View */}
+          <div className="bg-white rounded-lg shadow-md overflow-hidden">
+            <div className="p-4">
+              <div className="h-[800px] relative">
+                <MapContainer
+                  center={initialCenter}
+                  zoom={initialZoom}
+                  style={{ height: '100%', width: '100%' }}
+                  ref={mapRef}
+                >
+                  <TileLayer
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  />
+
+                  {/* Show project markers */}
+                  {mapProjects.map((project) => {
+                    // Check if we have valid coordinates
+                    if (!project.Latitude || !project.Longitude) return null
+
+                    const lat = parseFloat(project.Latitude)
+                    const lng = parseFloat(project.Longitude)
+
+                    // Validate coordinates
+                    if (isNaN(lat) || isNaN(lng)) return null
+
+                    return (
+                      <Marker
+                        key={project.GlobalID || project.objectID}
+                        position={[lat, lng]}
+                      >
+                        <Popup>
+                          <div className="min-w-[200px]">
+                            <h3 className="font-bold text-gray-900">
+                              {project.ProjectDescription || 'Unnamed Project'}
+                            </h3>
+                            <p className="text-sm text-gray-600 mt-1">
+                              <strong>Region:</strong> {project.Region || 'N/A'}
+                            </p>
+                            <p className="text-sm text-gray-600">
+                              <strong>Province:</strong>{' '}
+                              {project.Province || 'N/A'}
+                            </p>
+                            <p className="text-sm text-gray-600">
+                              <strong>Municipality:</strong>{' '}
+                              {project.Municipality || 'N/A'}
+                            </p>
+                            <p className="text-sm text-gray-600">
+                              <strong>Type of Work:</strong>{' '}
+                              {project.TypeofWork || 'N/A'}
+                            </p>
+                            <p className="text-sm text-gray-600">
+                              <strong>Cost:</strong> ₱
+                              {project.ContractCost
+                                ? Number(project.ContractCost).toLocaleString()
+                                : 'N/A'}
+                            </p>
+                            <p className="text-sm text-gray-600">
+                              <strong>Year:</strong>{' '}
+                              {project.InfraYear || 'N/A'}
+                            </p>
+                          </div>
+                        </Popup>
+                      </Marker>
+                    )
+                  })}
+                </MapContainer>
+
+                {/* Zoom Controls */}
+                <div className="absolute top-4 right-4 z-[1000] flex flex-col gap-2">
+                  <Button
+                    variant="primary"
+                    size="sm"
+                    onClick={() => mapRef.current?.zoomIn()}
+                    aria-label="Zoom in"
+                  >
+                    <ZoomIn className="h-4 w-4" />
+                  </Button>
+                  <Button
+                    variant="primary"
+                    size="sm"
+                    onClick={() => mapRef.current?.zoomOut()}
+                    aria-label="Zoom out"
+                  >
+                    <ZoomOut className="h-4 w-4" />
+                  </Button>
+                </div>
+
+                {/* Map Info Panel */}
+                <div className="absolute top-4 left-4 bg-white rounded-lg shadow-lg p-3 max-w-xs z-[1000]">
+                  <h4 className="font-bold text-gray-900 text-sm mb-1">
+                    {contractor.value}
+                  </h4>
+                  <p className="text-xs text-gray-600">
+                    <strong>Total:</strong> {mapProjects.length}
+                  </p>
+                  <p className="text-xs text-gray-600">
+                    <strong>With Location:</strong>{' '}
+                    {
+                      mapProjects.filter((p) => p.Latitude && p.Longitude)
+                        .length
+                    }
+                  </p>
+                </div>
+              </div>
+            </div>
+            <InstantSearch
+              indexName="bettergov_flood_control"
+              searchClient={searchClient}
+              future={{ preserveSharedStateOnUnmount: true }}
+              key={`search-map-${contractor.value}`}
+            >
+              <Configure
+                hitsPerPage={1000}
+                filters={buildFilterString()}
+                query={contractor.value}
+                attributesToRetrieve={[
+                  'ProjectDescription',
+                  'Municipality',
+                  'Province',
+                  'Region',
+                  'ContractID',
+                  'TypeofWork',
+                  'ContractCost',
+                  'GlobalID',
+                  'InfraYear',
+                  'Contractor',
+                  'Latitude',
+                  'Longitude',
+                ]}
+              />
+              <MapHits onHitsUpdate={setMapProjects} />
+            </InstantSearch>
+          </div>
         </div>
 
         {/* Data Source Information */}
@@ -612,9 +810,7 @@ const ContractorDetail: React.FC = () => {
           <div className="flex items-start space-x-2">
             <Info className="w-5 h-5 text-blue-500 mt-0.5" />
             <div>
-              <h4 className="text-sm font-medium text-gray-900">
-                Data Source
-              </h4>
+              <h4 className="text-sm font-medium text-gray-900">Data Source</h4>
               <p className="text-sm text-gray-500">
                 This data is sourced from the Department of Public Works and
                 Highways (DPWH) and represents flood control infrastructure

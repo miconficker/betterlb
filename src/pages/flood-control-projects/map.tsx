@@ -1,35 +1,88 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { InstantSearch, SearchBox, Configure } from 'react-instantsearch'
+import { InstantSearch, Configure, useHits } from 'react-instantsearch'
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch'
 import 'instantsearch.css/themes/satellite.css'
 import { exportMeilisearchData } from '../../lib/exportData'
 import {
-  Filter,
   ChevronLeft,
-  BarChart3,
   Download,
   X,
-  Table,
-  Map as MapIcon,
   Info,
-  Users,
+  Loader2,
+  ZoomIn,
+  ZoomOut,
+  Search,
 } from 'lucide-react'
 import Button from '../../components/ui/Button'
 import { ScrollArea } from '../../components/ui/ScrollArea'
+import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from 'react-leaflet'
+import L, { LatLngExpression, GeoJSON as LeafletGeoJSON, Layer } from 'leaflet'
+import 'leaflet/dist/leaflet.css'
+import FloodControlProjectsTab from './tab'
 
 // Import lookup data
 import infraYearData from '../../data/flood_control/lookups/InfraYear_with_counts.json'
-import regionData from '../../data/flood_control/lookups/Region_with_counts.json'
-import provinceData from '../../data/flood_control/lookups/Province_with_counts.json'
-import deoData from '../../data/flood_control/lookups/DistrictEngineeringOffice_with_counts.json'
-import legislativeDistrictData from '../../data/flood_control/lookups/LegislativeDistrict_with_counts.json'
 import typeOfWorkData from '../../data/flood_control/lookups/TypeofWork_with_counts.json'
+import philippinesRegionsData from '../../data/philippines-regions.json'
 
 // Define types for our data
 interface DataItem {
   value: string
   count: number
+}
+
+// Define types for region data and GeoJSON properties
+interface RegionData {
+  id: string
+  name: string
+  description?: string
+  population?: string
+  capital?: string
+  area?: string
+  provinces?: string[]
+  wikipedia?: string
+  loading?: boolean
+  projectCount?: number
+  totalCost?: number
+}
+
+interface RegionProperties {
+  name: string // Region name from GeoJSON
+  capital?: string
+  population?: string
+  provinces?: string[]
+  // Add other properties from your GeoJSON if needed
+}
+
+interface FloodControlProject {
+  GlobalID?: string
+  objectID?: string
+  ProjectDescription?: string
+  InfraYear?: string
+  Region?: string
+  Province?: string
+  Municipality?: string
+  TypeofWork?: string
+  Contractor?: string
+  ContractCost?: string
+  Latitude?: string
+  Longitude?: string
+}
+
+// Custom component to access Meilisearch hits for map
+const MapHitsComponent = ({
+  onHitsUpdate,
+}: {
+  onHitsUpdate: (hits: FloodControlProject[]) => void
+}) => {
+  const { hits } = useHits<FloodControlProject>()
+
+  useEffect(() => {
+    onHitsUpdate(hits)
+  }, [hits, onHitsUpdate])
+
+  return null
 }
 
 // Meilisearch configuration
@@ -41,7 +94,7 @@ const MEILISEARCH_SEARCH_API_KEY =
   'your_public_search_key_here'
 
 // Create search client with proper type casting
-const searchClient = instantMeiliSearch(
+const meiliSearchInstance = instantMeiliSearch(
   `${MEILISEARCH_HOST}:${MEILISEARCH_PORT}`,
   MEILISEARCH_SEARCH_API_KEY,
   {
@@ -49,6 +102,10 @@ const searchClient = instantMeiliSearch(
     keepZeroFacets: true,
   }
 )
+
+// Extract the searchClient from meiliSearchInstance
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const searchClient = meiliSearchInstance.searchClient as any
 
 // Define filter dropdown component props
 interface FilterDropdownProps {
@@ -153,21 +210,31 @@ const FloodControlProjectsMap: React.FC = () => {
   // State for filters
   const [filters, setFilters] = useState({
     InfraYear: '',
-    Region: '',
-    Province: '',
     TypeofWork: '',
-    DistrictEngineeringOffice: '',
-    LegislativeDistrict: '',
   })
-
-  // State for sidebar visibility on mobile
-  const [showSidebar, setShowSidebar] = useState<boolean>(true)
 
   // State for search term
   const [searchTerm, setSearchTerm] = useState<string>('')
 
   // Loading state for export
   const [isExporting, setIsExporting] = useState<boolean>(false)
+
+  // Map states
+  const [selectedRegion, setSelectedRegion] = useState<RegionData | null>(null)
+  const [hoveredRegionName, setHoveredRegionName] = useState<string | null>(
+    null
+  )
+  const [mapData] = useState<GeoJSON.FeatureCollection<any, RegionProperties>>(
+    philippinesRegionsData as GeoJSON.FeatureCollection<any, RegionProperties>
+  )
+  const [isLoadingDetails, setIsLoadingDetails] = useState(false)
+  const [mapProjects, setMapProjects] = useState<FloodControlProject[]>([])
+  const [zoomLevel, setZoomLevel] = useState<number>(6)
+  const mapRef = useRef<L.Map>(null)
+  const geoJsonLayerRef = useRef<LeafletGeoJSON | null>(null)
+
+  const initialCenter: LatLngExpression = [12.8797, 121.774] // Philippines center
+  const initialZoom = 6
 
   // Handle filter change
   const handleFilterChange = (filterName: string, value: string) => {
@@ -183,34 +250,19 @@ const FloodControlProjectsMap: React.FC = () => {
     setIsExporting(true)
 
     // Build filter string based on selected filters
-    const filterStrings: string[] = ['type:flood_control']
+    const filterStrings: string[] = ['type = "flood_control"']
 
     if (filters.InfraYear) {
-      filterStrings.push(`InfraYear = "${filters.InfraYear}"`)
-    }
-
-    if (filters.Region) {
-      filterStrings.push(`Region = "${filters.Region}"`)
-    }
-
-    if (filters.Province) {
-      filterStrings.push(`Province = "${filters.Province}"`)
+      filterStrings.push(`FundingYear = ${filters.InfraYear}`)
     }
 
     if (filters.TypeofWork) {
       filterStrings.push(`TypeofWork = "${filters.TypeofWork}"`)
     }
 
-    if (filters.DistrictEngineeringOffice) {
-      filterStrings.push(
-        `DistrictEngineeringOffice = "${filters.DistrictEngineeringOffice}"`
-      )
-    }
-
-    if (filters.LegislativeDistrict) {
-      filterStrings.push(
-        `LegislativeDistrict = "${filters.LegislativeDistrict}"`
-      )
+    // Add selected region filter if one is selected
+    if (selectedRegion && selectedRegion.name) {
+      filterStrings.push(`Region = "${selectedRegion.name}"`)
     }
 
     const filterString = filterStrings.join(' AND ')
@@ -236,6 +288,109 @@ const FloodControlProjectsMap: React.FC = () => {
     }
   }
 
+  // Build filter string for Meilisearch
+  const buildFilterString = (): string => {
+    // Start with an empty array - we'll add filters as needed
+    const filterStrings: string[] = []
+
+    // Always filter by type - format it correctly
+    filterStrings.push('type = "flood_control"')
+
+    // InfraYear is not filterable, try using FundingYear instead if they represent the same data
+    if (filters.InfraYear && filters.InfraYear.trim()) {
+      filterStrings.push(`FundingYear = ${filters.InfraYear.trim()}`)
+    }
+
+    if (filters.TypeofWork && filters.TypeofWork.trim()) {
+      filterStrings.push(`TypeofWork = "${filters.TypeofWork.trim()}"`)
+    }
+
+    // Add selected region filter if one is selected
+    if (selectedRegion && selectedRegion.name) {
+      filterStrings.push(`Region = "${selectedRegion.name}"`)
+    }
+
+    return filterStrings.length > 0 ? filterStrings.join(' AND ') : ''
+  }
+
+  const getRegionName = (
+    feature: GeoJSON.Feature<any, RegionProperties>
+  ): string => {
+    const props = feature.properties
+    return props?.name || ''
+  }
+
+  // Style for GeoJSON features
+  const regionStyle = (feature?: GeoJSON.Feature<any, RegionProperties>) => {
+    if (!feature) return {}
+    const regionName = getRegionName(feature)
+    const isSelected = selectedRegion?.id === regionName
+    const isHovered = hoveredRegionName === regionName
+
+    return {
+      fillColor: isSelected ? '#6D28D9' : isHovered ? '#A78BFA' : '#EDE9FE',
+      weight: isSelected || isHovered ? 2 : 1,
+      opacity: 1,
+      color: isSelected || isHovered ? '#4C1D95' : '#A78BFA',
+      fillOpacity: 0.7,
+    }
+  }
+
+  // Handle region click
+  const onRegionClick = useCallback(
+    (feature: GeoJSON.Feature<any, RegionProperties>) => {
+      if (!feature.properties) return
+      const props = feature.properties
+      const regionName = props.name
+
+      const regionDetails: RegionData = {
+        id: regionName,
+        name: regionName,
+        loading: true,
+      }
+      setSelectedRegion(regionDetails)
+
+      // Center map on the region
+      if (mapRef.current && feature.geometry) {
+        // We know this is a valid geometry
+        const bounds = L.geoJSON(feature.geometry).getBounds()
+        mapRef.current.fitBounds(bounds)
+        setZoomLevel(mapRef.current.getZoom())
+      }
+    },
+    []
+  )
+
+  // Event handlers for each feature
+  const onEachFeature = (
+    feature: GeoJSON.Feature<any, RegionProperties>,
+    layer: Layer
+  ) => {
+    layer.on({
+      click: () => onRegionClick(feature),
+      mouseover: (e) => {
+        setHoveredRegionName(getRegionName(feature))
+        e.target.setStyle(regionStyle(feature)) // Re-apply style with hover state
+        e.target.bringToFront()
+      },
+      mouseout: (e) => {
+        setHoveredRegionName(null)
+        // Reset to default style or selected style if it's the selected region
+        if (geoJsonLayerRef.current) {
+          geoJsonLayerRef.current.resetStyle(e.target)
+        }
+      },
+    })
+  }
+
+  const handleZoomIn = () => mapRef.current?.zoomIn()
+  const handleZoomOut = () => mapRef.current?.zoomOut()
+
+  // Update search term when it changes in the search box
+  const handleSearchChange = (query: string) => {
+    setSearchTerm(query)
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Helmet>
@@ -246,275 +401,268 @@ const FloodControlProjectsMap: React.FC = () => {
         />
       </Helmet>
 
-      {/* Main layout with sidebar and content */}
+      {/* Simplified layout with minimal filters */}
       <div className="container mx-auto px-4 py-8">
-        <div className="flex flex-col md:flex-row gap-6">
-          {/* Sidebar for filters - collapsible on mobile */}
-          <div
-            className={`md:w-64 flex-shrink-0 transition-all duration-300 ${
-              showSidebar ? 'block' : 'hidden md:block'
-            }`}
-          >
-            <div className="bg-white rounded-lg shadow-md p-4 sticky top-20">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <Filter className="w-5 h-5 text-blue-600 mr-2" />
-                  <h2 className="text-lg font-semibold text-gray-800">
-                    Filters
-                  </h2>
+        <div className="flex flex-col gap-6">
+          {/* Page header */}
+          <div className="flex justify-between items-center">
+            <h1 className="text-2xl font-bold text-gray-900">
+              Flood Control Projects Map
+            </h1>
+            <Button
+              variant="outline"
+              leftIcon={isExporting ? null : <Download className="w-4 h-4" />}
+              onClick={handleExportData}
+              disabled={isExporting}
+            >
+              {isExporting ? 'Exporting...' : 'Export Data'}
+            </Button>
+          </div>
+
+          {/* View Tabs */}
+          <FloodControlProjectsTab selectedTab="map" />
+
+          {/* Minimal filters - only search, year, and type of work */}
+          <div className="bg-white rounded-lg shadow-md p-4">
+            <div className="flex flex-wrap gap-4 items-end">
+              <div className="flex-1 min-w-[200px]">
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Search Projects
+                </label>
+                <div className="relative">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                  <input
+                    type="text"
+                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                    placeholder="Search projects, contractors, municipality..."
+                    value={searchTerm}
+                    onChange={(e) => handleSearchChange(e.target.value)}
+                  />
                 </div>
-                <button
-                  className="md:hidden text-gray-500 hover:text-gray-700"
-                  onClick={() => setShowSidebar(false)}
-                >
-                  <X className="w-5 h-5" />
-                </button>
               </div>
 
-              <div className="space-y-4">
-                {/* Search box in sidebar */}
-                <div className="mt-6 border-t border-gray-200 pt-4">
-                  <h3 className="text-sm font-medium text-gray-700 mb-2">
-                    Search Projects
-                  </h3>
-                  <InstantSearch
-                    // @ts-expect-error - Meilisearch client is compatible with InstantSearch
-                    searchClient={searchClient.searchClient}
-                    indexName="bettergov_flood_control"
-                    initialUiState={{
-                      bettergov_flood_control: {
-                        query: '',
-                      },
-                    }}
-                    onStateChange={(state) => {
-                      const query =
-                        state.uiState?.bettergov_flood_control?.query || ''
-                      setSearchTerm(query)
-                    }}
-                  >
-                    <Configure
-                      hitsPerPage={5}
-                      attributesToHighlight={[
-                        'ProjectDescription',
-                        'Municipality',
-                        'Province',
-                        'Region',
-                      ]}
-                      attributesToRetrieve={[
-                        'ProjectDescription',
-                        'Municipality',
-                        'Province',
-                        'Region',
-                        'ContractID',
-                        'TypeofWork',
-                        'ContractCost',
-                        'GlobalID',
-                        'InfraYear',
-                        'Contractor',
-                        'Latitude',
-                        'Longitude',
-                      ]}
-                      filters="type:flood_control"
-                    />
-                    <SearchBox
-                      placeholder="Search projects, contractors, municipality, province, region..."
-                      classNames={{
-                        root: 'mb-2',
-                        form: 'relative',
-                        input:
-                          'w-full p-2 pl-8 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none',
-                        submit:
-                          'absolute top-0 left-0 h-full px-2 text-gray-500',
-                        reset:
-                          'absolute top-0 right-0 h-full px-2 text-gray-400',
-                      }}
-                    />
-                  </InstantSearch>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Infrastructure Year
-                  </label>
-                  <FilterDropdown
-                    name="Year"
-                    options={infraYearData.InfraYear}
-                    value={filters.InfraYear}
-                    onChange={(value) => handleFilterChange('InfraYear', value)}
-                  />
-                </div>
+              <div className="min-w-[150px]">
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Year
+                </label>
+                <FilterDropdown
+                  name="Year"
+                  options={infraYearData.InfraYear}
+                  value={filters.InfraYear}
+                  onChange={(value) => handleFilterChange('InfraYear', value)}
+                />
+              </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Region
-                  </label>
-                  <FilterDropdown
-                    name="Region"
-                    options={regionData.Region}
-                    value={filters.Region}
-                    onChange={(value) => handleFilterChange('Region', value)}
-                    searchable
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Province
-                  </label>
-                  <FilterDropdown
-                    name="Province"
-                    options={provinceData.Province}
-                    value={filters.Province}
-                    onChange={(value) => handleFilterChange('Province', value)}
-                    searchable
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Type of Work
-                  </label>
-                  <FilterDropdown
-                    name="Type of Work"
-                    options={typeOfWorkData.TypeofWork}
-                    value={filters.TypeofWork}
-                    onChange={(value) =>
-                      handleFilterChange('TypeofWork', value)
-                    }
-                    searchable
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    District Engineering Office
-                  </label>
-                  <FilterDropdown
-                    name="DEO"
-                    options={deoData.DistrictEngineeringOffice}
-                    value={filters.DistrictEngineeringOffice}
-                    onChange={(value) =>
-                      handleFilterChange('DistrictEngineeringOffice', value)
-                    }
-                    searchable
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Legislative District
-                  </label>
-                  <FilterDropdown
-                    name="Legislative District"
-                    options={legislativeDistrictData.LegislativeDistrict}
-                    value={filters.LegislativeDistrict}
-                    onChange={(value) =>
-                      handleFilterChange('LegislativeDistrict', value)
-                    }
-                    searchable
-                  />
-                </div>
+              <div className="min-w-[200px]">
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Type of Work
+                </label>
+                <FilterDropdown
+                  name="Type of Work"
+                  options={typeOfWorkData.TypeofWork}
+                  value={filters.TypeofWork}
+                  onChange={(value) => handleFilterChange('TypeofWork', value)}
+                  searchable
+                />
               </div>
             </div>
           </div>
 
-          {/* Main content area */}
-          <div className="flex-1">
-            {/* Mobile toggle for sidebar */}
-            <div className="md:hidden mb-4">
-              <Button
-                variant="outline"
-                onClick={() => setShowSidebar(true)}
-                leftIcon={<Filter className="w-4 h-4" />}
+          {/* Map View - now takes full width */}
+          <div className="bg-white rounded-lg shadow-md p-4">
+            <div className="h-[700px] relative">
+              {/* Fixed InstantSearch implementation - should wrap the entire map section like in contractor page */}
+              <InstantSearch
+                indexName="bettergov_flood_control"
+                searchClient={searchClient}
+                future={{ preserveSharedStateOnUnmount: true }}
               >
-                Show Filters
-              </Button>
-            </div>
+                <Configure
+                  hitsPerPage={1000}
+                  filters={buildFilterString()}
+                  query={searchTerm}
+                  attributesToRetrieve={[
+                    'ProjectDescription',
+                    'Municipality',
+                    'Province',
+                    'Region',
+                    'ContractID',
+                    'TypeofWork',
+                    'ContractCost',
+                    'GlobalID',
+                    'InfraYear',
+                    'Contractor',
+                    'Latitude',
+                    'Longitude',
+                  ]}
+                />
+                <MapHitsComponent onHitsUpdate={setMapProjects} />
+                <MapContainer
+                  center={initialCenter}
+                  zoom={initialZoom}
+                  style={{ height: '100%', width: '100%' }}
+                  ref={mapRef}
+                  whenReady={() => {
+                    if (mapRef.current) {
+                      mapRef.current.on('zoomend', () => {
+                        if (mapRef.current) {
+                          setZoomLevel(mapRef.current.getZoom())
+                        }
+                      })
+                    }
+                  }}
+                >
+                  <TileLayer
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  />
 
-            {/* Page header */}
-            <div className="flex justify-between items-center mb-6">
-              <h1 className="text-2xl font-bold text-gray-900">
-                Flood Control Projects Map
-              </h1>
-              <Button
-                variant="outline"
-                leftIcon={isExporting ? null : <Download className="w-4 h-4" />}
-                onClick={handleExportData}
-                disabled={isExporting}
-              >
-                {isExporting ? 'Exporting...' : 'Export Data'}
-              </Button>
-            </div>
+                  {mapData && mapData.features && (
+                    <GeoJSON
+                      ref={geoJsonLayerRef}
+                      data={mapData}
+                      style={regionStyle}
+                      onEachFeature={onEachFeature}
+                    />
+                  )}
 
-            {/* View Tabs */}
-            <div className="flex border-b border-gray-200 mb-6">
-              <a
-                href="/flood-control-projects"
-                className="px-4 py-2 text-gray-600 hover:text-blue-600 font-medium flex items-center"
-              >
-                <BarChart3 className="w-4 h-4 mr-2" />
-                Visual
-              </a>
-              <a
-                href="/flood-control-projects/table"
-                className="px-4 py-2 text-gray-600 hover:text-blue-600 font-medium flex items-center"
-              >
-                <Table className="w-4 h-4 mr-2" />
-                Table
-              </a>
-              <a
-                href="/flood-control-projects/map"
-                className="px-4 py-2 border-b-2 border-blue-500 text-blue-600 font-medium flex items-center"
-              >
-                <MapIcon className="w-4 h-4 mr-2" />
-                Map
-              </a>
-              <a
-                href="/flood-control-projects/contractors"
-                className="px-4 py-2 text-gray-600 hover:text-blue-600 font-medium flex items-center"
-              >
-                <Users className="w-4 h-4 mr-2" />
-                Contractors
-              </a>
-            </div>
+                  {/* Show project markers only when zoomed in and we have projects */}
+                  {zoomLevel > 8 &&
+                    mapProjects.map((project) => {
+                      // Check if we have valid coordinates
+                      if (!project.Latitude || !project.Longitude) return null
 
-            {/* Map View */}
-            <div className="bg-white rounded-lg shadow-md p-4 mb-6">
-              <div className="h-[600px] bg-gray-100 rounded-lg flex items-center justify-center">
-                <div className="text-center p-8">
-                  <MapIcon className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                  <h3 className="text-xl font-medium text-gray-700 mb-2">
-                    Interactive Map Coming Soon
-                  </h3>
-                  <p className="text-gray-500 max-w-md mx-auto">
-                    We're working on integrating an interactive map to visualize
-                    flood control projects across the Philippines. This feature
-                    will allow you to see the geographical distribution of
-                    projects and explore them by location.
-                  </p>
+                      const lat = parseFloat(project.Latitude)
+                      const lng = parseFloat(project.Longitude)
+
+                      // Validate coordinates
+                      if (isNaN(lat) || isNaN(lng)) return null
+
+                      return (
+                        <Marker
+                          key={project.GlobalID || project.objectID}
+                          position={[lat, lng]}
+                        >
+                          <Popup>
+                            <div className="min-w-[200px]">
+                              <h3 className="font-bold text-gray-900">
+                                {project.ProjectDescription ||
+                                  'Unnamed Project'}
+                              </h3>
+                              <p className="text-sm text-gray-600 mt-1">
+                                <strong>Region:</strong>{' '}
+                                {project.Region || 'N/A'}
+                              </p>
+                              <p className="text-sm text-gray-600">
+                                <strong>Province:</strong>{' '}
+                                {project.Province || 'N/A'}
+                              </p>
+                              <p className="text-sm text-gray-600">
+                                <strong>Municipality:</strong>{' '}
+                                {project.Municipality || 'N/A'}
+                              </p>
+                              <p className="text-sm text-gray-600">
+                                <strong>Contractor:</strong>{' '}
+                                {project.Contractor || 'N/A'}
+                              </p>
+                              <p className="text-sm text-gray-600">
+                                <strong>Cost:</strong> ₱
+                                {project.ContractCost || 'N/A'}
+                              </p>
+                            </div>
+                          </Popup>
+                        </Marker>
+                      )
+                    })}
+                </MapContainer>
+              </InstantSearch>
+
+              {/* Zoom Controls */}
+              <div className="absolute top-4 right-4 z-[1000] flex flex-col gap-2">
+                <Button
+                  variant="primary"
+                  size="sm"
+                  onClick={handleZoomIn}
+                  aria-label="Zoom in"
+                >
+                  <ZoomIn className="h-4 w-4" />
+                </Button>
+                <Button
+                  variant="primary"
+                  size="sm"
+                  onClick={handleZoomOut}
+                  aria-label="Zoom out"
+                >
+                  <ZoomOut className="h-4 w-4" />
+                </Button>
+              </div>
+
+              {/* Region Details Panel */}
+              {selectedRegion && (
+                <div className="absolute top-4 left-4 bg-white rounded-lg shadow-lg p-4 max-w-md z-[1000]">
+                  <div className="flex justify-between items-start">
+                    <h3 className="font-bold text-gray-900">
+                      {selectedRegion.name}
+                    </h3>
+                    <button
+                      onClick={() => setSelectedRegion(null)}
+                      className="text-gray-500 hover:text-gray-700"
+                    >
+                      <X className="h-5 w-5" />
+                    </button>
+                  </div>
+
+                  {selectedRegion.loading ? (
+                    <div className="flex items-center justify-center py-4">
+                      <Loader2 className="h-6 w-6 animate-spin text-blue-600" />
+                    </div>
+                  ) : (
+                    <div className="mt-2">
+                      <p className="text-sm text-gray-600">
+                        <strong>Projects:</strong> {mapProjects.length}
+                      </p>
+                      {mapProjects.length > 0 && (
+                        <div className="mt-2">
+                          <p className="text-sm text-gray-600">
+                            <strong>Zoom in to see project locations</strong>
+                          </p>
+                          <p className="text-xs text-gray-500 mt-1">
+                            Showing{' '}
+                            {
+                              mapProjects.filter(
+                                (p) => p.Latitude && p.Longitude
+                              ).length
+                            }{' '}
+                            projects with location data
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
-              </div>
+              )}
             </div>
+          </div>
 
-            {/* Data Source Information */}
-            <div className="bg-white rounded-lg shadow-md p-4">
-              <div className="flex items-center mb-4">
-                <Info className="w-5 h-5 text-blue-600 mr-2" />
-                <h2 className="text-lg font-semibold text-gray-800">
-                  About This Data
-                </h2>
-              </div>
-              <p className="text-gray-600 mb-4">
-                The map will display flood control infrastructure projects
-                across the Philippines. You'll be able to filter projects by
-                region, province, year, and other criteria to visualize their
-                geographical distribution and identify patterns in
-                infrastructure development.
-              </p>
-              <p className="text-sm text-gray-500">
-                Source: Department of Public Works and Highways (DPWH) Flood
-                Control Information System
-              </p>
+          {/* Data Source Information */}
+          <div className="bg-white rounded-lg shadow-md p-4">
+            <div className="flex items-center mb-4">
+              <Info className="w-5 h-5 text-blue-600 mr-2" />
+              <h2 className="text-lg font-semibold text-gray-800">
+                About This Data
+              </h2>
             </div>
+            <p className="text-gray-600 mb-4">
+              This map displays flood control infrastructure projects across the
+              Philippines. Click on a region to filter projects by that area.
+              Zoom in to see individual project locations. You can also use the
+              filters to narrow down projects by year, type of work, and search
+              terms.
+            </p>
+            <p className="text-sm text-gray-500">
+              Source: Department of Public Works and Highways (DPWH) Flood
+              Control Information System
+            </p>
           </div>
         </div>
       </div>

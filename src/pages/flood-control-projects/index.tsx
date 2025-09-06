@@ -25,7 +25,6 @@ import {
 } from 'recharts'
 import {
   Filter,
-  ChevronLeft,
   BarChart3,
   PieChart as PieChartIcon,
   Info,
@@ -33,23 +32,20 @@ import {
   X,
   Users,
   Table,
-  Map,
   Search,
-  Contractors,
 } from 'lucide-react'
 import Button from '../../components/ui/Button'
-import { ScrollArea } from '../../components/ui/ScrollArea'
 
 // Import shared components
 import {
   FilterDropdown,
   FilterTitle,
-  ResultsStatistics,
   buildFilterString,
   FilterState,
   FloodControlProject,
   FloodControlHit,
 } from './shared-components'
+import FloodControlProjectsTab from './tab'
 
 // Import lookup data
 import infraYearData from '../../data/flood_control/lookups/InfraYear_with_counts.json'
@@ -735,36 +731,7 @@ const FloodControlProjects: React.FC = () => {
             </div>
 
             {/* View Tabs */}
-            <div className="flex border-b border-gray-200 mb-6">
-              <a
-                href="/flood-control-projects"
-                className="px-4 py-2 border-b-2 border-blue-500 text-blue-600 font-medium flex items-center"
-              >
-                <BarChart3 className="w-4 h-4 mr-2" />
-                Visual
-              </a>
-              <a
-                href="/flood-control-projects/table"
-                className="px-4 py-2 text-gray-600 hover:text-blue-600 font-medium flex items-center"
-              >
-                <Table className="w-4 h-4 mr-2" />
-                Table
-              </a>
-              <a
-                href="/flood-control-projects/map"
-                className="px-4 py-2 text-gray-600 hover:text-blue-600 font-medium flex items-center"
-              >
-                <Map className="w-4 h-4 mr-2" />
-                Map
-              </a>
-              <a
-                href="/flood-control-projects/contractors"
-                className="px-4 py-2 text-gray-600 hover:text-blue-600 font-medium flex items-center"
-              >
-                <Users className="w-4 h-4 mr-2" />
-                Contractors
-              </a>
-            </div>
+            <FloodControlProjectsTab selectedTab="index" />
 
             {/* Active Filter Display */}
             <InstantSearch
