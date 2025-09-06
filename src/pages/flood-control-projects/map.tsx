@@ -450,39 +450,36 @@ const FloodControlProjectsMap: React.FC = () => {
                         key={project.GlobalID || project.objectID}
                         position={[lat, lng]}
                       >
-                        <Popup maxWidth={300} minWidth={250}>
-                          <div style={{ padding: '8px', minWidth: '200px' }}>
-                            <h3 style={{ 
-                              fontWeight: 'bold', 
-                              color: '#111827', 
-                              marginBottom: '8px',
-                              fontSize: '16px',
-                              lineHeight: '1.4'
-                            }}>
+                        <Popup>
+                          <div className="min-w-[200px]">
+                            <h3 className="font-bold text-gray-900">
                               {project.ProjectDescription || 'Unnamed Project'}
                             </h3>
-                            <div style={{ fontSize: '14px', color: '#4B5563', lineHeight: '1.5' }}>
-                              <p style={{ margin: '4px 0' }}>
-                                <strong>Region:</strong> {project.Region || 'N/A'}
-                              </p>
-                              <p style={{ margin: '4px 0' }}>
-                                <strong>Province:</strong> {project.Province || 'N/A'}
-                              </p>
-                              <p style={{ margin: '4px 0' }}>
-                                <strong>Municipality:</strong> {project.Municipality || 'N/A'}
-                              </p>
-                              <p style={{ margin: '4px 0' }}>
-                                <strong>Contractor:</strong> {project.Contractor || 'N/A'}
-                              </p>
-                              <p style={{ margin: '4px 0' }}>
-                                <strong>Cost:</strong> ₱{project.ContractCost
-                                  ? Number(project.ContractCost).toLocaleString()
-                                  : 'N/A'}
-                              </p>
-                              <p style={{ margin: '4px 0' }}>
-                                <strong>Year:</strong> {project.InfraYear || 'N/A'}
-                              </p>
-                            </div>
+                            <p className="text-sm text-gray-600 mt-1">
+                              <strong>Region:</strong> {project.Region || 'N/A'}
+                            </p>
+                            <p className="text-sm text-gray-600">
+                              <strong>Province:</strong>{' '}
+                              {project.Province || 'N/A'}
+                            </p>
+                            <p className="text-sm text-gray-600">
+                              <strong>Municipality:</strong>{' '}
+                              {project.Municipality || 'N/A'}
+                            </p>
+                            <p className="text-sm text-gray-600">
+                              <strong>Contractor:</strong>{' '}
+                              {project.Contractor || 'N/A'}
+                            </p>
+                            <p className="text-sm text-gray-600">
+                              <strong>Cost:</strong> ₱
+                              {project.ContractCost
+                                ? Number(project.ContractCost).toLocaleString()
+                                : 'N/A'}
+                            </p>
+                            <p className="text-sm text-gray-600">
+                              <strong>Year:</strong>{' '}
+                              {project.InfraYear || 'N/A'}
+                            </p>
                           </div>
                         </Popup>
                       </Marker>
@@ -511,7 +508,7 @@ const FloodControlProjectsMap: React.FC = () => {
               </div>
 
               {/* Region Details Panel */}
-              {selectedRegion && (
+              {/* {selectedRegion && (
                 <div className="absolute top-4 left-4 bg-white rounded-lg shadow-lg p-4 max-w-sm z-[1000]">
                   <div className="flex justify-between items-start mb-3">
                     <h3 className="font-bold text-gray-900 text-lg">
@@ -579,7 +576,7 @@ const FloodControlProjectsMap: React.FC = () => {
                     </div>
                   )}
                 </div>
-              )}
+              )} */}
             </div>
           </div>
 
