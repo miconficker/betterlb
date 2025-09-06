@@ -42,7 +42,7 @@ export const mainNavigation: NavigationItem[] = [
       { label: 'Visa Information', href: '/travel/visa' },
       { label: 'Visa Types', href: '/travel/visa-types' },
       { label: 'Working in the Philippines', href: '/travel/visa-types/swp-c' },
-      { label: 'Tourist Destinations', href: '/travel/destinations' },
+      // { label: 'Tourist Destinations', href: '/travel/destinations' },
     ],
   },
   {
@@ -64,6 +64,7 @@ export const mainNavigation: NavigationItem[] = [
       { label: 'Charts', href: '/flood-control-projects' },
       { label: 'Table', href: '/flood-control-projects/table' },
       { label: 'Map', href: '/flood-control-projects/map' },
+      { label: 'Contractors', href: '/flood-control-projects/contractors' },
     ],
   },
 ]
