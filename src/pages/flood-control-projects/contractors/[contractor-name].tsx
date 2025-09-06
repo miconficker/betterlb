@@ -699,6 +699,12 @@ const ContractorDetail: React.FC = () => {
                       <Marker
                         key={project.GlobalID || project.objectID}
                         position={[lat, lng]}
+                        icon={L.icon({
+                          iconUrl: '/marker-icon-2x.png',
+                          iconSize: [16, 24],
+                          iconAnchor: [8, 8],
+                          popupAnchor: [0, -25],
+                        })}
                       >
                         <Popup>
                           <div className="min-w-[200px]">

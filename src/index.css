@@ -5,7 +5,8 @@
 /* Leaflet popup fixes for Tailwind CSS conflicts */
 .leaflet-popup-content-wrapper {
   border-radius: 8px !important;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
 }
 
 .leaflet-popup-content {
@@ -13,6 +14,8 @@
   line-height: 1.5 !important;
   font-size: 14px !important;
   color: #374151 !important;
+  padding: 16px;
+  min-width: 300px;
 }
 
 .leaflet-popup-tip {
@@ -26,6 +29,7 @@
   font-size: 18px !important;
   font-weight: bold !important;
   padding: 4px 8px !important;
+  margin-right: 12px !important;
 }
 
 .leaflet-popup-close-button:hover {
