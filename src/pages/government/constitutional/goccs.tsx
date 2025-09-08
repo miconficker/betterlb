@@ -1,5 +1,12 @@
 import { useState } from 'react'
-import { Search, ExternalLink, Building2, MapPin, Phone, Mail } from 'lucide-react'
+import {
+  Search,
+  ExternalLink,
+  Building2,
+  MapPin,
+  Phone,
+  Mail,
+} from 'lucide-react'
 import constitutionalData from '../../../data/directory/constitutional.json'
 
 interface GOCC {
@@ -18,13 +25,14 @@ interface GOCC {
 
 export default function GOCCsPage() {
   const [searchTerm, setSearchTerm] = useState('')
-  
+
   // Filter GOCCs from constitutional data
   const goccs = constitutionalData.filter(
-    (office: any) => office.office_type.includes('Government-Owned') || 
-                    office.office_type.includes('GOCCs')
+    (office: any) =>
+      office.office_type.includes('Government-Owned') ||
+      office.office_type.includes('GOCCs')
   ) as GOCC[]
-  
+
   // Filter based on search term
   const filteredGOCCs = goccs.filter((gocc) =>
     gocc.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -37,11 +45,11 @@ export default function GOCCsPage() {
           <h1 className="text-2xl font-bold text-gray-900">
             Government-Owned and Controlled Corporations
           </h1>
-          <p className="text-gray-500 mt-1">
+          <p className="text-gray-800 mt-1">
             {goccs.length} GOCCs in the directory
           </p>
         </div>
-        
+
         <div className="relative w-full md:w-64">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
           <input
@@ -63,56 +71,65 @@ export default function GOCCsPage() {
             <h3 className="text-lg font-medium text-gray-900 mb-1">
               No GOCCs found
             </h3>
-            <p className="text-gray-500">
-              Try adjusting your search term.
-            </p>
+            <p className="text-gray-800">Try adjusting your search term.</p>
           </div>
         ) : (
           filteredGOCCs.map((gocc) => (
-            <div key={gocc.name} className="bg-white rounded-lg border overflow-hidden">
+            <div
+              key={gocc.name}
+              className="bg-white rounded-lg border overflow-hidden"
+            >
               <div className="p-4 border-b">
                 <h3 className="font-semibold text-lg text-gray-900 line-clamp-2">
                   {gocc.name}
                 </h3>
               </div>
-              
+
               <div className="p-4 space-y-3">
                 {gocc.address && (
-                  <p className="text-sm text-gray-600 flex items-start">
+                  <p className="text-sm text-gray-800 flex items-start">
                     <MapPin className="h-4 w-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
                     <span>{gocc.address}</span>
                   </p>
                 )}
-                
-                {(gocc.phone || gocc.trunk_line || (gocc.trunklines && gocc.trunklines[0])) && (
-                  <p className="text-sm text-gray-600 flex items-start">
+
+                {(gocc.phone ||
+                  gocc.trunk_line ||
+                  (gocc.trunklines && gocc.trunklines[0])) && (
+                  <p className="text-sm text-gray-800 flex items-start">
                     <Phone className="h-4 w-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
-                    <span>{gocc.phone || gocc.trunk_line || gocc.trunklines?.[0]}</span>
+                    <span>
+                      {gocc.phone || gocc.trunk_line || gocc.trunklines?.[0]}
+                    </span>
                   </p>
                 )}
-                
+
                 {gocc.email && (
-                  <a 
+                  <a
                     href={`mailto:${gocc.email}`}
-                    className="text-sm text-gray-600 flex items-start hover:text-primary-600"
+                    className="text-sm text-gray-800 flex items-start hover:text-primary-600"
                   >
                     <Mail className="h-4 w-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
                     <span>{gocc.email}</span>
                   </a>
                 )}
-                
+
                 {gocc.officials && gocc.officials.length > 0 && (
                   <div className="pt-2 border-t border-gray-100">
-                    <h4 className="text-sm font-medium text-gray-700 mb-2">Key Officials</h4>
+                    <h4 className="text-sm font-medium text-gray-700 mb-2">
+                      Key Officials
+                    </h4>
                     <ul className="space-y-1">
                       {gocc.officials.slice(0, 2).map((official, index) => (
                         <li key={index} className="text-sm">
-                          <span className="text-gray-500">{official.role}: </span>
+                          <span className="text-gray-800">
+                            {official.role}:{' '}
+                          </span>
                           <span className="font-medium">{official.name}</span>
                         </li>
                       ))}
                       {gocc.officials.length > 2 && (
-                        <li className="text-xs text-gray-500">
+                        <li className="text-xs text-gray-800">
                           +{gocc.officials.length - 2} more officials
                         </li>
                       )}
@@ -120,11 +137,15 @@ export default function GOCCsPage() {
                   </div>
                 )}
               </div>
-              
+
               {gocc.website && (
                 <div className="px-4 py-3 bg-gray-50 border-t">
                   <a
-                    href={gocc.website.startsWith('http') ? gocc.website : `https://${gocc.website}`}
+                    href={
+                      gocc.website.startsWith('http')
+                        ? gocc.website
+                        : `https://${gocc.website}`
+                    }
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-sm text-primary-600 hover:text-primary-700 flex items-center"

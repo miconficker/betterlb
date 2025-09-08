@@ -1,12 +1,12 @@
-import React from 'react';
-import { ArrowRight } from 'lucide-react';
-import { Card, CardImage, CardContent } from '../ui/Card';
-import { useLanguage } from '../../contexts/LanguageContext';
-import { news } from '../../data/news';
-import { formatDate, truncateText } from '../../lib/utils';
+import React from 'react'
+import { ArrowRight } from 'lucide-react'
+import { Card, CardImage, CardContent } from '../ui/Card'
+import { useLanguage } from '../../contexts/LanguageContext'
+import { news } from '../../data/news'
+import { formatDate, truncateText } from '../../lib/utils'
 
 const NewsSection: React.FC = () => {
-  const { translate } = useLanguage();
+  const { translate } = useLanguage()
 
   return (
     <section className="py-12 bg-gray-50">
@@ -31,14 +31,19 @@ const NewsSection: React.FC = () => {
               <CardContent className="flex-1 flex flex-col">
                 <div className="mb-2">
                   <span className="inline-block px-2 py-1 text-xs font-medium rounded bg-primary-100 text-primary-800">
-                    {item.category.charAt(0).toUpperCase() + item.category.slice(1)}
+                    {item.category.charAt(0).toUpperCase() +
+                      item.category.slice(1)}
                   </span>
-                  <span className="text-gray-500 text-sm ml-2">
+                  <span className="text-gray-800 text-sm ml-2">
                     {formatDate(new Date(item.date))}
                   </span>
                 </div>
-                <h3 className="text-lg font-semibold mb-2 text-gray-900">{item.title}</h3>
-                <p className="text-gray-600 mb-4 flex-1">{truncateText(item.excerpt, 100)}</p>
+                <h3 className="text-lg font-semibold mb-2 text-gray-900">
+                  {item.title}
+                </h3>
+                <p className="text-gray-800 mb-4 flex-1">
+                  {truncateText(item.excerpt, 100)}
+                </p>
                 <a
                   href={`/news/${item.id}`}
                   className="text-primary-600 hover:text-primary-700 font-medium flex items-center mt-auto transition-colors"
@@ -52,7 +57,7 @@ const NewsSection: React.FC = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default NewsSection;
+export default NewsSection

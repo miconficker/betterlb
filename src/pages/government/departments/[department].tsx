@@ -119,7 +119,7 @@ export default function DepartmentDetail() {
     return (
       <div className="bg-white rounded-lg border p-8 text-center h-full flex flex-col items-center justify-center">
         <h2 className="text-2xl font-semibold mb-4">Department not found</h2>
-        <p className="text-gray-500">
+        <p className="text-gray-800">
           Please select a department from the sidebar.
         </p>
       </div>
@@ -139,7 +139,7 @@ export default function DepartmentDetail() {
           <h2 className="text-xl font-bold text-gray-900">{displayName}</h2>
 
           {address && (
-            <p className="mt-1 text-gray-600 flex items-start text-sm">
+            <p className="mt-1 text-gray-800 flex items-start text-sm">
               <MapPin className="h-4 w-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
               <span>{address}</span>
             </p>
@@ -158,8 +158,8 @@ export default function DepartmentDetail() {
           )}
 
           {trunkline && (
-            <div className="flex items-center text-gray-600 text-sm">
-              <Phone className="h-4 w-4 text-gray-500 mr-1 flex-shrink-0" />
+            <div className="flex items-center text-gray-800 text-sm">
+              <Phone className="h-4 w-4 text-gray-800 mr-1 flex-shrink-0" />
               <span>{trunkline}</span>
             </div>
           )}
@@ -167,9 +167,9 @@ export default function DepartmentDetail() {
           {email && (
             <a
               href={`mailto:${email}`}
-              className="flex items-center text-gray-600 hover:text-primary-600 text-sm"
+              className="flex items-center text-gray-800 hover:text-primary-600 text-sm"
             >
-              <Mail className="h-4 w-4 text-gray-500 mr-1 flex-shrink-0" />
+              <Mail className="h-4 w-4 text-gray-800 mr-1 flex-shrink-0" />
               <span>{email}</span>
             </a>
           )}

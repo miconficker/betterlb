@@ -11,7 +11,6 @@ import {
   CardDivider,
 } from '../../../components/ui/CardList'
 
-
 export default function ConsulatesPage() {
   const [searchTerm, setSearchTerm] = useState('')
 
@@ -39,7 +38,7 @@ export default function ConsulatesPage() {
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Consulates</h1>
-          <p className="text-gray-500 mt-1">
+          <p className="text-gray-800 mt-1">
             {consulates.length} consulates in the Philippines
           </p>
         </div>
@@ -64,7 +63,7 @@ export default function ConsulatesPage() {
           <h3 className="text-lg font-medium text-gray-900 mb-1">
             No consulates found
           </h3>
-          <p className="text-gray-500">Try adjusting your search term.</p>
+          <p className="text-gray-800">Try adjusting your search term.</p>
         </div>
       ) : (
         <CardGrid columns={3} breakpoint="lg" gap="md">
@@ -99,7 +98,7 @@ export default function ConsulatesPage() {
                   <p className="font-medium text-gray-900">
                     {consulate.representative}
                   </p>
-                  <p className="text-sm text-gray-600">{consulate.title}</p>
+                  <p className="text-sm text-gray-800">{consulate.title}</p>
                 </div>
               </CardContent>
             </Card>

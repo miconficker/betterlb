@@ -192,7 +192,7 @@ const WeatherPage: React.FC = () => {
                           className="bg-gray-50 rounded-lg p-4 text-center"
                         >
                           <p className="font-medium text-gray-800">{dayName}</p>
-                          <p className="text-sm text-gray-500 mb-2">{dayNum}</p>
+                          <p className="text-sm text-gray-800 mb-2">{dayNum}</p>
                           <div className="flex justify-center my-2">
                             {getWeatherIcon(mockIcon, 'h-8 w-8 text-gray-700')}
                           </div>
@@ -214,7 +214,7 @@ const WeatherPage: React.FC = () => {
           <h2 className="text-2xl font-bold mb-4 text-gray-800">
             About Weather Data
           </h2>
-          <p className="text-gray-600 mb-4">
+          <p className="text-gray-800 mb-4">
             The weather data displayed on this page is sourced from the
             Philippine Atmospheric, Geophysical and Astronomical Services
             Administration (PAGASA) and other reliable weather services. The
@@ -227,7 +227,7 @@ const WeatherPage: React.FC = () => {
               <h3 className="text-lg font-semibold text-gray-800 mb-2">
                 Understanding the Data
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-800">
                 Temperature is displayed in Celsius (°C). Weather conditions are
                 categorized based on current atmospheric observations. The
                 forecast provides a 5-day outlook to help you plan ahead.
@@ -237,7 +237,7 @@ const WeatherPage: React.FC = () => {
               <h3 className="text-lg font-semibold text-gray-800 mb-2">
                 Weather Advisories
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-800">
                 For official weather advisories, warnings, and detailed
                 forecasts, please visit the{' '}
                 <a

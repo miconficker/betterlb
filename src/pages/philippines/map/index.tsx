@@ -279,13 +279,13 @@ const PhilippinesMap: React.FC = () => {
                   <h2 className="text-2xl font-bold text-gray-900">
                     {selectedRegion.name}
                   </h2>
-                  <p className="text-sm text-gray-500 mt-1">
+                  <p className="text-sm text-gray-800 mt-1">
                     Philippine Region
                   </p>
                 </div>
                 <button
                   onClick={() => setSelectedRegion(null)}
-                  className="text-gray-400 hover:text-gray-600"
+                  className="text-gray-400 hover:text-gray-800"
                 >
                   <svg
                     className="h-6 w-6"
@@ -315,7 +315,7 @@ const PhilippinesMap: React.FC = () => {
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">
                         Overview
                       </h3>
-                      <p className="text-gray-600 leading-relaxed">
+                      <p className="text-gray-800 leading-relaxed">
                         {selectedRegion.description}
                       </p>
                     </div>
@@ -399,7 +399,7 @@ const InfoItem: React.FC<InfoItemProps> = ({ icon, label, value }) => (
     })}
     <div>
       <p className="text-sm font-medium text-gray-900">{label}</p>
-      <p className="text-sm text-gray-600">{value || 'N/A'}</p>
+      <p className="text-sm text-gray-800">{value || 'N/A'}</p>
     </div>
   </div>
 )

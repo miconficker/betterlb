@@ -1,14 +1,23 @@
-import React from 'react';
-import { Card, CardContent } from '../ui/Card';
+import React from 'react'
+import { Card, CardContent } from '../ui/Card'
 
 const GovernmentSection: React.FC = () => {
   const branches = [
     {
       id: 'executive',
       title: 'Executive Branch',
-      description: 'Led by the President, responsible for implementing and enforcing laws.',
+      description:
+        'Led by the President, responsible for implementing and enforcing laws.',
       icon: (
-        <svg className="h-10 w-10 text-primary-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg
+          className="h-10 w-10 text-primary-600"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
           <path d="M12 17.8L5.8 21 7 14.1 2 9.3l7-1L12 2l3 6.3 7 1-5 4.8 1.2 6.9-6.2-3.2z"></path>
         </svg>
       ),
@@ -17,9 +26,18 @@ const GovernmentSection: React.FC = () => {
     {
       id: 'legislative',
       title: 'Legislative Branch',
-      description: 'Composed of the Senate and House of Representatives, responsible for making laws.',
+      description:
+        'Composed of the Senate and House of Representatives, responsible for making laws.',
       icon: (
-        <svg className="h-10 w-10 text-primary-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg
+          className="h-10 w-10 text-primary-600"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
           <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
           <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
         </svg>
@@ -29,9 +47,18 @@ const GovernmentSection: React.FC = () => {
     {
       id: 'judiciary',
       title: 'Judicial Branch',
-      description: 'Led by the Supreme Court, responsible for interpreting laws and administering justice.',
+      description:
+        'Led by the Supreme Court, responsible for interpreting laws and administering justice.',
       icon: (
-        <svg className="h-10 w-10 text-primary-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg
+          className="h-10 w-10 text-primary-600"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
           <path d="M3 21h18"></path>
           <path d="M12 3v18"></path>
           <path d="M5 8h14"></path>
@@ -40,7 +67,7 @@ const GovernmentSection: React.FC = () => {
       ),
       link: '/government/judiciary',
     },
-  ];
+  ]
 
   return (
     <section className="py-12 bg-white">
@@ -49,8 +76,9 @@ const GovernmentSection: React.FC = () => {
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
             Government of the Philippines
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Learn about the three branches of the Philippine government and how they work together to serve the people.
+          <p className="text-gray-800 max-w-2xl mx-auto">
+            Learn about the three branches of the Philippine government and how
+            they work together to serve the people.
           </p>
         </div>
 
@@ -58,17 +86,25 @@ const GovernmentSection: React.FC = () => {
           {branches.map((branch) => (
             <Card key={branch.id} hoverable className="text-center">
               <CardContent className="p-6">
-                <div className="flex justify-center mb-4">
-                  {branch.icon}
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">{branch.title}</h3>
-                <p className="text-gray-600 mb-4">{branch.description}</p>
+                <div className="flex justify-center mb-4">{branch.icon}</div>
+                <h3 className="text-xl font-semibold mb-2 text-gray-900">
+                  {branch.title}
+                </h3>
+                <p className="text-gray-800 mb-4">{branch.description}</p>
                 <a
                   href={branch.link}
                   className="text-primary-600 hover:text-primary-700 font-medium inline-flex items-center transition-colors"
                 >
                   Learn More
-                  <svg className="ml-1 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg
+                    className="ml-1 h-4 w-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
@@ -81,9 +117,12 @@ const GovernmentSection: React.FC = () => {
         <div className="mt-12 bg-gray-50 rounded-lg p-6">
           <div className="md:flex items-center">
             <div className="mb-6 md:mb-0 md:w-2/3 md:pr-8">
-              <h3 className="text-xl font-semibold mb-2 text-gray-900">Official Directory</h3>
-              <p className="text-gray-600">
-                Find contact information for government officials, agencies, and offices at national and local levels.
+              <h3 className="text-xl font-semibold mb-2 text-gray-900">
+                Official Directory
+              </h3>
+              <p className="text-gray-800">
+                Find contact information for government officials, agencies, and
+                offices at national and local levels.
               </p>
             </div>
             <div className="md:w-1/3 flex justify-center md:justify-end">
@@ -98,7 +137,7 @@ const GovernmentSection: React.FC = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default GovernmentSection;
+export default GovernmentSection

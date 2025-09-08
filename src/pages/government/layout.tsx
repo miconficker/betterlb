@@ -39,7 +39,7 @@ const BranchCard: React.FC<BranchCardProps> = ({
       <h3 className="text-base md:text-lg font-semibold">{title}</h3>
     </div>
     <div className="p-3 md:p-4 flex-grow">
-      <p className="text-xs md:text-sm text-gray-600">{description}</p>
+      <p className="text-xs md:text-sm text-gray-800">{description}</p>
     </div>
   </Link>
 )
@@ -122,7 +122,7 @@ export default function GovernmentLayout({ children }: GovernmentLayoutProps) {
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
           The Philippine Government Directory
         </h2>
-        <p className="text-sm md:text-base text-gray-600">
+        <p className="text-sm md:text-base text-gray-800">
           Explore the different branches and agencies of the Philippine
           government
         </p>
@@ -145,7 +145,9 @@ export default function GovernmentLayout({ children }: GovernmentLayoutProps) {
               >
                 <div className="flex items-center gap-1 mb-1">
                   <div className="mr-2 text-xs md:text-sm">{branch.icon}</div>
-                  <span className="font-medium text-sm md:text-base">{branch.title}</span>
+                  <span className="font-medium text-sm md:text-base">
+                    {branch.title}
+                  </span>
                 </div>
                 <div className="text-xs md:text-sm text-gray-800">
                   {branch.description}
@@ -161,8 +163,10 @@ export default function GovernmentLayout({ children }: GovernmentLayoutProps) {
         {isMainPage ? (
           <div className="space-y-6">
             <div>
-              <h1 className="text-xl md:text-2xl font-bold mb-2">Philippine Government</h1>
-              <p className="text-sm md:text-base text-gray-600">
+              <h1 className="text-xl md:text-2xl font-bold mb-2">
+                Philippine Government
+              </h1>
+              <p className="text-sm md:text-base text-gray-800">
                 Explore the different branches and agencies of the Philippine
                 government
               </p>

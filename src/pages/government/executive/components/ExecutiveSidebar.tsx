@@ -68,7 +68,7 @@ export default function ExecutiveSidebar() {
     >
       <nav className="p-2 space-y-4 pt-4">
         <div>
-          <h3 className="px-3 text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">
+          <h3 className="px-3 text-xs font-medium text-gray-800 uppercase tracking-wider mb-2">
             Executive Categories
           </h3>
           <ul className="space-y-1">

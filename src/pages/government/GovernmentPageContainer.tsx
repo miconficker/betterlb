@@ -26,9 +26,9 @@ export default function GovernmentPageContainer({
             >
               <span>Menu</span>
               {sidebarOpen ? (
-                <X className="h-5 w-5 text-gray-600" />
+                <X className="h-5 w-5 text-gray-800" />
               ) : (
-                <Menu className="h-5 w-5 text-gray-600" />
+                <Menu className="h-5 w-5 text-gray-800" />
               )}
             </button>
           </div>
@@ -36,7 +36,11 @@ export default function GovernmentPageContainer({
 
         <div className="flex flex-col md:flex-row md:gap-8">
           {sidebar && (
-            <aside className={`${sidebarOpen ? 'block' : 'hidden'} md:block mb-6 md:mb-0 flex-shrink-0`}>
+            <aside
+              className={`${
+                sidebarOpen ? 'block' : 'hidden'
+              } md:block mb-6 md:mb-0 flex-shrink-0`}
+            >
               {sidebar}
             </aside>
           )}
@@ -69,8 +73,12 @@ export function GovernmentPageHeader({
       className={`flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6 md:mb-8 ${className}`}
     >
       <div>
-        <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">{title}</h1>
-        {subtitle && <p className="text-sm md:text-base text-gray-600">{subtitle}</p>}
+        <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+          {title}
+        </h1>
+        {subtitle && (
+          <p className="text-sm md:text-base text-gray-800">{subtitle}</p>
+        )}
       </div>
       {actions && <div className="flex-shrink-0">{actions}</div>}
     </div>

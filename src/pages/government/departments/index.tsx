@@ -38,7 +38,7 @@ function DepartmentDetail({ departmentName }: { departmentName: string }) {
           <h3 className="text-lg font-medium text-gray-900 mb-1">
             Department not found
           </h3>
-          <p className="text-gray-500 max-w-md">
+          <p className="text-gray-800 max-w-md">
             The department you're looking for doesn't exist or has been moved.
           </p>
           <Link
@@ -64,7 +64,7 @@ function DepartmentDetail({ departmentName }: { departmentName: string }) {
             </h1>
 
             {department.address && (
-              <p className="mt-2 text-gray-600 flex items-start">
+              <p className="mt-2 text-gray-800 flex items-start">
                 <MapPin className="h-4 w-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
                 <span>{department.address}</span>
               </p>
@@ -100,8 +100,8 @@ function DepartmentDetail({ departmentName }: { departmentName: string }) {
 
         <div className="flex flex-wrap gap-4 text-sm border-b border-gray-200 pb-6">
           {department.trunkline && (
-            <div className="flex items-center text-gray-600">
-              <Phone className="h-4 w-4 text-gray-500 mr-1.5 flex-shrink-0" />
+            <div className="flex items-center text-gray-800">
+              <Phone className="h-4 w-4 text-gray-800 mr-1.5 flex-shrink-0" />
               <span>{department.trunkline}</span>
             </div>
           )}
@@ -109,9 +109,9 @@ function DepartmentDetail({ departmentName }: { departmentName: string }) {
           {department.email && (
             <a
               href={`mailto:${department.email}`}
-              className="flex items-center text-gray-600 hover:text-primary-600"
+              className="flex items-center text-gray-800 hover:text-primary-600"
             >
-              <Mail className="h-4 w-4 text-gray-500 mr-1.5 flex-shrink-0" />
+              <Mail className="h-4 w-4 text-gray-800 mr-1.5 flex-shrink-0" />
               <span>{department.email}</span>
             </a>
           )}
@@ -175,7 +175,7 @@ function DepartmentDetailSection({
         return (
           <div key={key} className="space-y-1">
             <h3 className="font-medium text-gray-900">{label}</h3>
-            <div className="text-gray-600">
+            <div className="text-gray-800">
               <DepartmentDetailSection data={value} level={level + 1} />
             </div>
           </div>
@@ -206,7 +206,7 @@ export default function DepartmentsIndex() {
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
             Government Departments
           </h1>
-          <p className="text-gray-600 max-w-3xl">
+          <p className="text-gray-800 max-w-3xl">
             Browse through the official government departments. Each department
             is responsible for specific areas of governance and public service
             delivery.
@@ -234,13 +234,13 @@ export default function DepartmentsIndex() {
                           {deptName}
                         </h3>
                         {dept.secretary && (
-                          <p className="text-sm text-gray-600 mt-1">
+                          <p className="text-sm text-gray-800 mt-1">
                             Secretary: {dept.secretary.name}
                           </p>
                         )}
                       </div>
                       <div className="rounded-full bg-gray-100 p-2 flex-shrink-0">
-                        <Building2 className="h-5 w-5 text-gray-500" />
+                        <Building2 className="h-5 w-5 text-gray-800" />
                       </div>
                     </div>
                   </CardHeader>
@@ -249,7 +249,7 @@ export default function DepartmentsIndex() {
                       {dept.address && (
                         <div className="flex items-start">
                           <MapPin className="h-4 w-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
-                          <span className="text-sm text-gray-600 line-clamp-2">
+                          <span className="text-sm text-gray-800 line-clamp-2">
                             {dept.address}
                           </span>
                         </div>
@@ -257,7 +257,7 @@ export default function DepartmentsIndex() {
                       {dept.trunkline && (
                         <div className="flex items-center">
                           <Phone className="h-4 w-4 text-gray-400 mr-2 flex-shrink-0" />
-                          <span className="text-sm text-gray-600">
+                          <span className="text-sm text-gray-800">
                             {dept.trunkline}
                           </span>
                         </div>

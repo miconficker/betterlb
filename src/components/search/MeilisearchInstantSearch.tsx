@@ -107,11 +107,11 @@ const Hit: React.FC<HitProps> = ({ hit }) => {
           /> */}
         </h2>
         {hit.description && (
-          <p className="text-sm text-gray-600 mt-1">
+          <p className="text-sm text-gray-800 mt-1">
             <Snippet attribute="description" hit={hit as any} />
           </p>
         )}
-        <div className="text-xs text-gray-500">
+        <div className="text-xs text-gray-800">
           {hit.category && (
             <span>
               <Highlight
@@ -205,9 +205,9 @@ const MeilisearchInstantSearch: React.FC = () => {
               input:
                 'w-full p-3 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition duration-150 ease-in-out',
               submit:
-                'absolute top-0 right-0 h-full px-3 text-gray-500 hover:text-blue-600',
+                'absolute top-0 right-0 h-full px-3 text-gray-800 hover:text-blue-600',
               reset:
-                'absolute top-0 right-8 h-full px-3 text-gray-400 hover:text-gray-600',
+                'absolute top-0 right-8 h-full px-3 text-gray-400 hover:text-gray-800',
             }}
           />
 
@@ -215,7 +215,7 @@ const MeilisearchInstantSearch: React.FC = () => {
             <div className="bg-white rounded-lg shadow overflow-y-scroll h-96 absolute z-30 w-[calc(100%-2rem)] max-w-[calc(100%-4rem)] lg:w-1/2">
               <Stats
                 classNames={{
-                  root: 'text-sm text-gray-600 p-2 text-right text-xs',
+                  root: 'text-sm text-gray-800 p-2 text-right text-xs',
                 }}
               />
               <Hits

@@ -1,5 +1,12 @@
 import { useState } from 'react'
-import { Search, ExternalLink, Building2, MapPin, Phone, Mail } from 'lucide-react'
+import {
+  Search,
+  ExternalLink,
+  Building2,
+  MapPin,
+  Phone,
+  Mail,
+} from 'lucide-react'
 import constitutionalData from '../../../data/directory/constitutional.json'
 
 interface SUC {
@@ -18,13 +25,14 @@ interface SUC {
 
 export default function SUCsPage() {
   const [searchTerm, setSearchTerm] = useState('')
-  
+
   // Filter SUCs from constitutional data
   const sucs = constitutionalData.filter(
-    (office: any) => office.office_type.includes('State Universities') || 
-                    office.office_type.includes('SUCs')
+    (office: any) =>
+      office.office_type.includes('State Universities') ||
+      office.office_type.includes('SUCs')
   ) as SUC[]
-  
+
   // Filter based on search term
   const filteredSUCs = sucs.filter((suc) =>
     suc.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -37,11 +45,11 @@ export default function SUCsPage() {
           <h1 className="text-2xl font-bold text-gray-900">
             State Universities and Colleges
           </h1>
-          <p className="text-gray-500 mt-1">
+          <p className="text-gray-800 mt-1">
             {sucs.length} SUCs in the directory
           </p>
         </div>
-        
+
         <div className="relative w-full md:w-64">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
           <input
@@ -63,56 +71,65 @@ export default function SUCsPage() {
             <h3 className="text-lg font-medium text-gray-900 mb-1">
               No SUCs found
             </h3>
-            <p className="text-gray-500">
-              Try adjusting your search term.
-            </p>
+            <p className="text-gray-800">Try adjusting your search term.</p>
           </div>
         ) : (
           filteredSUCs.map((suc) => (
-            <div key={suc.name} className="bg-white rounded-lg border overflow-hidden">
+            <div
+              key={suc.name}
+              className="bg-white rounded-lg border overflow-hidden"
+            >
               <div className="p-4 border-b">
                 <h3 className="font-semibold text-lg text-gray-900 line-clamp-2">
                   {suc.name}
                 </h3>
               </div>
-              
+
               <div className="p-4 space-y-3">
                 {suc.address && (
-                  <p className="text-sm text-gray-600 flex items-start">
+                  <p className="text-sm text-gray-800 flex items-start">
                     <MapPin className="h-4 w-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
                     <span>{suc.address}</span>
                   </p>
                 )}
-                
-                {(suc.phone || suc.trunk_line || (suc.trunklines && suc.trunklines[0])) && (
-                  <p className="text-sm text-gray-600 flex items-start">
+
+                {(suc.phone ||
+                  suc.trunk_line ||
+                  (suc.trunklines && suc.trunklines[0])) && (
+                  <p className="text-sm text-gray-800 flex items-start">
                     <Phone className="h-4 w-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
-                    <span>{suc.phone || suc.trunk_line || suc.trunklines?.[0]}</span>
+                    <span>
+                      {suc.phone || suc.trunk_line || suc.trunklines?.[0]}
+                    </span>
                   </p>
                 )}
-                
+
                 {suc.email && (
-                  <a 
+                  <a
                     href={`mailto:${suc.email}`}
-                    className="text-sm text-gray-600 flex items-start hover:text-primary-600"
+                    className="text-sm text-gray-800 flex items-start hover:text-primary-600"
                   >
                     <Mail className="h-4 w-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
                     <span>{suc.email}</span>
                   </a>
                 )}
-                
+
                 {suc.officials && suc.officials.length > 0 && (
                   <div className="pt-2 border-t border-gray-100">
-                    <h4 className="text-sm font-medium text-gray-700 mb-2">Key Officials</h4>
+                    <h4 className="text-sm font-medium text-gray-700 mb-2">
+                      Key Officials
+                    </h4>
                     <ul className="space-y-1">
                       {suc.officials.slice(0, 2).map((official, index) => (
                         <li key={index} className="text-sm">
-                          <span className="text-gray-500">{official.role}: </span>
+                          <span className="text-gray-800">
+                            {official.role}:{' '}
+                          </span>
                           <span className="font-medium">{official.name}</span>
                         </li>
                       ))}
                       {suc.officials.length > 2 && (
-                        <li className="text-xs text-gray-500">
+                        <li className="text-xs text-gray-800">
                           +{suc.officials.length - 2} more officials
                         </li>
                       )}
@@ -120,11 +137,15 @@ export default function SUCsPage() {
                   </div>
                 )}
               </div>
-              
+
               {suc.website && (
                 <div className="px-4 py-3 bg-gray-50 border-t">
                   <a
-                    href={suc.website.startsWith('http') ? suc.website : `https://${suc.website}`}
+                    href={
+                      suc.website.startsWith('http')
+                        ? suc.website
+                        : `https://${suc.website}`
+                    }
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-sm text-primary-600 hover:text-primary-700 flex items-center"

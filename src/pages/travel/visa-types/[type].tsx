@@ -122,7 +122,7 @@ const VisaTypeDetail: React.FC = () => {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading visa information...</p>
+          <p className="mt-4 text-gray-800">Loading visa information...</p>
         </div>
       </div>
     )
@@ -223,7 +223,7 @@ const VisaTypeDetail: React.FC = () => {
                       {visa.name}
                       <ChevronRight className="h-5 w-5 text-blue-500" />
                     </h3>
-                    <p className="text-gray-600 text-sm mb-3">
+                    <p className="text-gray-800 text-sm mb-3">
                       {visa.description}
                     </p>
                   </div>
@@ -281,7 +281,7 @@ const VisaTypeDetail: React.FC = () => {
                   <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
                     {visa.name}
                   </h2>
-                  <p className="text-lg text-gray-600 mb-6">
+                  <p className="text-lg text-gray-800 mb-6">
                     {visa.description}
                   </p>
 
@@ -332,7 +332,7 @@ const VisaTypeDetail: React.FC = () => {
                             <h4 className="font-medium text-lg text-gray-800">
                               {subtype.name}
                             </h4>
-                            <p className="text-gray-600 text-sm mb-3">
+                            <p className="text-gray-800 text-sm mb-3">
                               {subtype.description}
                             </p>
 
@@ -341,7 +341,7 @@ const VisaTypeDetail: React.FC = () => {
                                 <h5 className="text-sm font-medium text-gray-700 mt-2">
                                   Requirements:
                                 </h5>
-                                <ul className="list-disc pl-5 text-sm text-gray-600">
+                                <ul className="list-disc pl-5 text-sm text-gray-800">
                                   {subtype.requirements.map((req, index) => (
                                     <li key={index}>{req}</li>
                                   ))}
@@ -354,7 +354,7 @@ const VisaTypeDetail: React.FC = () => {
                                     <h5 className="text-sm font-medium text-gray-700 mt-2">
                                       For Business Owners:
                                     </h5>
-                                    <ul className="list-disc pl-5 text-sm text-gray-600">
+                                    <ul className="list-disc pl-5 text-sm text-gray-800">
                                       {subtype.requirements.businessOwners.map(
                                         (req, index) => (
                                           <li key={index}>{req}</li>
@@ -369,7 +369,7 @@ const VisaTypeDetail: React.FC = () => {
                                     <h5 className="text-sm font-medium text-gray-700 mt-2">
                                       For Employees:
                                     </h5>
-                                    <ul className="list-disc pl-5 text-sm text-gray-600">
+                                    <ul className="list-disc pl-5 text-sm text-gray-800">
                                       {subtype.requirements.employees.map(
                                         (req, index) => (
                                           <li key={index}>{req}</li>

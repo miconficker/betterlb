@@ -69,19 +69,19 @@ const PublicHolidays: React.FC = () => {
                 <tr>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    className="px-6 py-3 text-left text-xs font-medium text-gray-800 uppercase tracking-wider"
                   >
                     Event
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    className="px-6 py-3 text-left text-xs font-medium text-gray-800 uppercase tracking-wider"
                   >
                     Date
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    className="px-6 py-3 text-left text-xs font-medium text-gray-800 uppercase tracking-wider"
                   >
                     Day
                   </th>
@@ -121,7 +121,7 @@ const PublicHolidays: React.FC = () => {
         <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
           Philippine Public Holidays 2025
         </h1>
-        <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
+        <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-800 sm:mt-4">
           Official non-working holidays in the Philippines
         </p>
       </div>

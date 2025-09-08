@@ -174,52 +174,58 @@ export default function ServicesPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   // Dynamically generate SEO meta tags based on selected category & subcategory
-  const { metaTitle, metaDescription, metaKeywords, canonicalUrl } = useMemo(() => {
-    const baseTitle = 'Government Services Directory | BetterGov.ph'
-    const baseDescription =
-      'Browse and search a comprehensive directory of Philippine government services across categories and subcategories.'
+  const { metaTitle, metaDescription, metaKeywords, canonicalUrl } =
+    useMemo(() => {
+      const baseTitle = 'Government Services Directory | BetterGov.ph'
+      const baseDescription =
+        'Browse and search a comprehensive directory of Philippine government services across categories and subcategories.'
 
-    const phrases: string[] = []
-    if (selectedCategory) {
-      phrases.push(selectedCategory.category)
-    }
-    if (selectedSubcategory) {
-      phrases.push(selectedSubcategory.name)
-    }
-
-    const title = phrases.length
-      ? `${phrases.join(' – ')} | BetterGov.ph`
-      : baseTitle
-
-    const description = phrases.length
-      ? `Explore Philippine government services for ${phrases.join(
-          ' '
-        )}. Find online resources, requirements, and assistance.`
-      : baseDescription
-
-    const keywords = [
-      'philippine government services',
-      'online services',
-      'public service directory',
-      'government portal',
-      ...phrases.map((p) => p.toLowerCase()),
-    ].join(', ')
-
-    let canonical = 'https://bettergov.ph/services'
-    if (selectedCategorySlug !== 'all') {
-      canonical += `?category=${selectedCategorySlug}`
-      if (selectedSubcategorySlug !== 'all') {
-        canonical += `&subcategory=${selectedSubcategorySlug}`
+      const phrases: string[] = []
+      if (selectedCategory) {
+        phrases.push(selectedCategory.category)
       }
-    }
+      if (selectedSubcategory) {
+        phrases.push(selectedSubcategory.name)
+      }
 
-    return { metaTitle: title, metaDescription: description, metaKeywords: keywords, canonicalUrl: canonical }
-  }, [
-    selectedCategory,
-    selectedSubcategory,
-    selectedCategorySlug,
-    selectedSubcategorySlug,
-  ])
+      const title = phrases.length
+        ? `${phrases.join(' – ')} | BetterGov.ph`
+        : baseTitle
+
+      const description = phrases.length
+        ? `Explore Philippine government services for ${phrases.join(
+            ' '
+          )}. Find online resources, requirements, and assistance.`
+        : baseDescription
+
+      const keywords = [
+        'philippine government services',
+        'online services',
+        'public service directory',
+        'government portal',
+        ...phrases.map((p) => p.toLowerCase()),
+      ].join(', ')
+
+      let canonical = 'https://bettergov.ph/services'
+      if (selectedCategorySlug !== 'all') {
+        canonical += `?category=${selectedCategorySlug}`
+        if (selectedSubcategorySlug !== 'all') {
+          canonical += `&subcategory=${selectedSubcategorySlug}`
+        }
+      }
+
+      return {
+        metaTitle: title,
+        metaDescription: description,
+        metaKeywords: keywords,
+        canonicalUrl: canonical,
+      }
+    }, [
+      selectedCategory,
+      selectedSubcategory,
+      selectedCategorySlug,
+      selectedSubcategorySlug,
+    ])
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -244,7 +250,7 @@ export default function ServicesPage() {
               ? `${selectedCategory?.category} Government Services`
               : 'Government Services'}
           </h1>
-          <p className="text-sm md:text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-sm md:text-lg text-gray-800 max-w-2xl mx-auto">
             Access official government services quickly and easily. Find what
             you need for citizenship, business, education, and more.
           </p>
@@ -285,7 +291,7 @@ export default function ServicesPage() {
                       Government Websites Directory
                     </h3>
                   </div>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-gray-800 mb-4">
                     Comprehensive directory of Philippine government websites,
                     agencies, and services. Find official websites for all
                     government institutions.
@@ -315,9 +321,9 @@ export default function ServicesPage() {
                 `(${selectedCategory?.category})`}
             </span>
             {sidebarOpen ? (
-              <X className="h-5 w-5 text-gray-600" aria-hidden="true" />
+              <X className="h-5 w-5 text-gray-800" aria-hidden="true" />
             ) : (
-              <Menu className="h-5 w-5 text-gray-600" aria-hidden="true" />
+              <Menu className="h-5 w-5 text-gray-800" aria-hidden="true" />
             )}
           </button>
         </div>
@@ -348,7 +354,7 @@ export default function ServicesPage() {
                         className={`w-full text-left px-3 py-2 rounded-md text-sm transition-colors ${
                           selectedCategorySlug === 'all'
                             ? 'bg-primary-50 text-primary-600 font-medium'
-                            : 'text-gray-600 hover:bg-gray-50'
+                            : 'text-gray-800 hover:bg-gray-50'
                         }`}
                         aria-current={
                           selectedCategorySlug === 'all' ? 'true' : undefined
@@ -371,7 +377,7 @@ export default function ServicesPage() {
                             className={`w-full text-left px-3 py-2 rounded-md text-sm transition-colors ${
                               selectedCategorySlug === category.slug
                                 ? 'bg-primary-50 text-primary-600 font-medium'
-                                : 'text-gray-600 hover:bg-gray-50'
+                                : 'text-gray-800 hover:bg-gray-50'
                             }`}
                             aria-expanded={
                               selectedCategorySlug === category.slug
@@ -409,7 +415,7 @@ export default function ServicesPage() {
                                 className={`w-full text-left px-3 py-1.5 rounded-md text-sm transition-colors ${
                                   selectedSubcategorySlug === subcategory.slug
                                     ? 'bg-primary-50 text-primary-600 font-medium'
-                                    : 'text-gray-500 hover:bg-gray-50'
+                                    : 'text-gray-800 hover:bg-gray-50'
                                 }`}
                                 aria-current={
                                   selectedSubcategorySlug === subcategory.slug
@@ -482,7 +488,7 @@ export default function ServicesPage() {
                           href={service.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-gray-500 text-sm hover:text-primary-600 transition-colors break-all line-clamp-1"
+                          className="text-gray-800 text-sm hover:text-primary-600 transition-colors break-all line-clamp-1"
                         >
                           {service.url}
                         </a>
@@ -496,7 +502,7 @@ export default function ServicesPage() {
                           </Button>
                         </a>
 
-                        {/* <div className="flex items-center text-sm text-gray-500">
+                        {/* <div className="flex items-center text-sm text-gray-800">
                           <time
                             dateTime={new Date().toISOString()}
                             className="text-xs md:text-sm"

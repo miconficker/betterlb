@@ -102,7 +102,7 @@ const PhilippinesRegions: React.FC = () => {
                               {region.displayName}
                             </h3>
                           </Link>
-                          <div className="flex items-center text-sm text-gray-500 mb-4">
+                          <div className="flex items-center text-sm text-gray-800 mb-4">
                             <MapPin className="h-4 w-4 mr-1" />
                             <span>Local Government Units</span>
                           </div>
@@ -141,20 +141,20 @@ const PhilippinesRegions: React.FC = () => {
                 Regional Overview
               </h2>
               <div className="prose max-w-none">
-                <p className="text-gray-600 leading-relaxed mb-4">
+                <p className="text-gray-800 leading-relaxed mb-4">
                   The Philippines is divided into three main geographical
                   divisions: Luzon, Visayas, and Mindanao. These are further
                   subdivided into 17 regions, each with its own administrative
                   center, cultural identity, and economic focus.
                 </p>
-                <p className="text-gray-600 leading-relaxed mb-4">
+                <p className="text-gray-800 leading-relaxed mb-4">
                   Each region showcases unique traditions, dialects, and
                   cuisines, contributing to the country's rich cultural
                   tapestry. From the mountain tribes of the Cordilleras to the
                   seafaring communities of the Visayas, the diversity of
                   Filipino regional cultures is remarkable.
                 </p>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-800 leading-relaxed">
                   The regions also vary in their economic activities, from the
                   industrial and service-oriented National Capital Region to the
                   agricultural heartlands of Central Luzon and the resource-rich
@@ -173,7 +173,7 @@ const PhilippinesRegions: React.FC = () => {
                 </h3>
                 <div className="space-y-4">
                   <div>
-                    <div className="text-sm font-medium text-gray-500">
+                    <div className="text-sm font-medium text-gray-800">
                       Total Regions
                     </div>
                     <div className="text-gray-900">
@@ -181,19 +181,19 @@ const PhilippinesRegions: React.FC = () => {
                     </div>
                   </div>
                   <div>
-                    <div className="text-sm font-medium text-gray-500">
+                    <div className="text-sm font-medium text-gray-800">
                       Provinces
                     </div>
                     <div className="text-gray-900">82 Provinces</div>
                   </div>
                   <div>
-                    <div className="text-sm font-medium text-gray-500">
+                    <div className="text-sm font-medium text-gray-800">
                       Cities
                     </div>
                     <div className="text-gray-900">149 Cities</div>
                   </div>
                   <div>
-                    <div className="text-sm font-medium text-gray-500">
+                    <div className="text-sm font-medium text-gray-800">
                       Municipalities
                     </div>
                     <div className="text-gray-900">1,493 Municipalities</div>
@@ -210,19 +210,19 @@ const PhilippinesRegions: React.FC = () => {
                 <div className="space-y-3">
                   <div>
                     <div className="font-medium text-gray-900">Luzon</div>
-                    <div className="text-sm text-gray-600">
+                    <div className="text-sm text-gray-800">
                       Tagalog, Ilocano, Bicolano
                     </div>
                   </div>
                   <div>
                     <div className="font-medium text-gray-900">Visayas</div>
-                    <div className="text-sm text-gray-600">
+                    <div className="text-sm text-gray-800">
                       Cebuano, Hiligaynon, Waray
                     </div>
                   </div>
                   <div>
                     <div className="font-medium text-gray-900">Mindanao</div>
-                    <div className="text-sm text-gray-600">
+                    <div className="text-sm text-gray-800">
                       Cebuano, Maguindanaon, Tausug
                     </div>
                   </div>

@@ -36,7 +36,7 @@ export default function InternationalOrganizationsPage() {
           <h1 className="text-2xl font-bold text-gray-900">
             International Organizations
           </h1>
-          <p className="text-gray-500 mt-1">
+          <p className="text-gray-800 mt-1">
             {organizations.length} international organizations in the
             Philippines
           </p>
@@ -62,7 +62,7 @@ export default function InternationalOrganizationsPage() {
           <h3 className="text-lg font-medium text-gray-900 mb-1">
             No organizations found
           </h3>
-          <p className="text-gray-500">Try adjusting your search term.</p>
+          <p className="text-gray-800">Try adjusting your search term.</p>
         </div>
       ) : (
         <CardGrid columns={3} breakpoint="lg" gap="md">
@@ -94,7 +94,7 @@ export default function InternationalOrganizationsPage() {
                 <CardDivider className="mt-4 mb-4" />
                 <div>
                   <p className="font-medium text-gray-900">{org.head}</p>
-                  <p className="text-sm text-gray-600">{org.title}</p>
+                  <p className="text-sm text-gray-800">{org.title}</p>
                 </div>
               </CardContent>
             </Card>

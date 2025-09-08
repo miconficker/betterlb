@@ -125,7 +125,7 @@ export default function LegislativeChamber() {
         <h1 className="text-2xl font-bold text-gray-900 mb-4">
           Chamber Not Found
         </h1>
-        <p className="text-gray-600">
+        <p className="text-gray-800">
           The requested legislative chamber could not be found.
         </p>
       </div>
@@ -144,14 +144,14 @@ export default function LegislativeChamber() {
             {chamberData.address && (
               <div className="flex items-start">
                 <MapPin className="h-5 w-5 text-gray-400 mr-2 mt-0.5" />
-                <span className="text-gray-600">{chamberData.address}</span>
+                <span className="text-gray-800">{chamberData.address}</span>
               </div>
             )}
 
             {chamberData.trunkline && (
               <div className="flex items-start">
                 <Phone className="h-5 w-5 text-gray-400 mr-2 mt-0.5" />
-                <span className="text-gray-600">{chamberData.trunkline}</span>
+                <span className="text-gray-800">{chamberData.trunkline}</span>
               </div>
             )}
 

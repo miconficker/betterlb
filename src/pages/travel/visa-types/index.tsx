@@ -26,20 +26,23 @@ interface VisaCategory {
 
 const VisaTypesPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('')
-  const [selectedCategory, setSelectedCategory] = useState<string>('non-immigrant')
+  const [selectedCategory, setSelectedCategory] =
+    useState<string>('non-immigrant')
 
   // Use the categories from the consolidated JSON file
-  const visaCategories: VisaCategory[] = visaData.categories.map(category => ({
-    id: category.id,
-    name: category.name,
-    description: category.description,
-    icon: getCategoryIcon(category.id),
-    visaTypes: category.visaTypes
-  }))
-  
+  const visaCategories: VisaCategory[] = visaData.categories.map(
+    (category) => ({
+      id: category.id,
+      name: category.name,
+      description: category.description,
+      icon: getCategoryIcon(category.id),
+      visaTypes: category.visaTypes,
+    })
+  )
+
   // Helper function to get the appropriate icon for each category
   function getCategoryIcon(categoryId: string) {
-    switch(categoryId) {
+    switch (categoryId) {
       case 'immigrant':
         return <Users size={24} />
       case 'non-immigrant':
@@ -59,20 +62,27 @@ const VisaTypesPage: React.FC = () => {
   }
 
   // Filter visa types based on search term
-  const filteredCategories = searchTerm.trim() === ''
-    ? visaCategories
-    : visaCategories.map(category => ({
-        ...category,
-        visaTypes: category.visaTypes.filter(visa => 
-          visa.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          visa.description.toLowerCase().includes(searchTerm.toLowerCase())
-        )
-      })).filter(category => category.visaTypes.length > 0)
+  const filteredCategories =
+    searchTerm.trim() === ''
+      ? visaCategories
+      : visaCategories
+          .map((category) => ({
+            ...category,
+            visaTypes: category.visaTypes.filter(
+              (visa) =>
+                visa.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                visa.description
+                  .toLowerCase()
+                  .includes(searchTerm.toLowerCase())
+            ),
+          }))
+          .filter((category) => category.visaTypes.length > 0)
 
   // Get all visa types across categories for search results display
-  const allVisaTypes = searchTerm.trim() !== '' 
-    ? filteredCategories.flatMap(category => category.visaTypes)
-    : []
+  const allVisaTypes =
+    searchTerm.trim() !== ''
+      ? filteredCategories.flatMap((category) => category.visaTypes)
+      : []
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -83,7 +93,8 @@ const VisaTypesPage: React.FC = () => {
             Philippines Visa Types
           </h1>
           <p className="text-xl opacity-90 mb-6">
-            Explore different types of visas available for travel to the Philippines
+            Explore different types of visas available for travel to the
+            Philippines
           </p>
 
           {/* Search Box */}
@@ -119,7 +130,7 @@ const VisaTypesPage: React.FC = () => {
                       {visa.name}
                       <ChevronRight className="h-5 w-5 text-blue-500" />
                     </h3>
-                    <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+                    <p className="text-gray-800 text-sm mb-3 line-clamp-2">
                       {visa.description}
                     </p>
                   </div>
@@ -136,7 +147,9 @@ const VisaTypesPage: React.FC = () => {
             <div className="md:col-span-1">
               <div className="bg-white rounded-lg shadow-sm border border-gray-200 sticky top-4">
                 <div className="p-4 border-b border-gray-200">
-                  <h2 className="font-semibold text-lg text-gray-800">Visa Categories</h2>
+                  <h2 className="font-semibold text-lg text-gray-800">
+                    Visa Categories
+                  </h2>
                 </div>
                 <nav className="p-2">
                   {visaCategories.map((category) => (
@@ -161,7 +174,8 @@ const VisaTypesPage: React.FC = () => {
             <div className="md:col-span-3">
               {filteredCategories.map(
                 (category) =>
-                  (searchTerm.trim() !== '' || category.id === selectedCategory) && (
+                  (searchTerm.trim() !== '' ||
+                    category.id === selectedCategory) && (
                     <div key={category.id} className="mb-8">
                       <div className="flex items-center mb-4">
                         <span className="mr-2">{category.icon}</span>
@@ -169,7 +183,9 @@ const VisaTypesPage: React.FC = () => {
                           {category.name}
                         </h2>
                       </div>
-                      <p className="text-gray-600 mb-6">{category.description}</p>
+                      <p className="text-gray-800 mb-6">
+                        {category.description}
+                      </p>
 
                       {/* Visa Types Grid */}
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -184,7 +200,7 @@ const VisaTypesPage: React.FC = () => {
                                 {visa.name}
                                 <ChevronRight className="h-5 w-5 text-blue-500" />
                               </h3>
-                              <p className="text-gray-600 text-sm mb-3">
+                              <p className="text-gray-800 text-sm mb-3">
                                 {visa.description}
                               </p>
                             </div>

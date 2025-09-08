@@ -441,28 +441,28 @@ const FloodControlProjectsMap: React.FC = () => {
                             <h3 className="font-bold text-gray-900">
                               {project.ProjectDescription || 'Unnamed Project'}
                             </h3>
-                            <p className="text-sm text-gray-600 mt-1">
+                            <p className="text-sm text-gray-800 mt-1">
                               <strong>Region:</strong> {project.Region || 'N/A'}
                             </p>
-                            <p className="text-sm text-gray-600">
+                            <p className="text-sm text-gray-800">
                               <strong>Province:</strong>{' '}
                               {project.Province || 'N/A'}
                             </p>
-                            <p className="text-sm text-gray-600">
+                            <p className="text-sm text-gray-800">
                               <strong>Municipality:</strong>{' '}
                               {project.Municipality || 'N/A'}
                             </p>
-                            <p className="text-sm text-gray-600">
+                            <p className="text-sm text-gray-800">
                               <strong>Contractor:</strong>{' '}
                               {project.Contractor || 'N/A'}
                             </p>
-                            <p className="text-sm text-gray-600">
+                            <p className="text-sm text-gray-800">
                               <strong>Cost:</strong> ₱
                               {project.ContractCost
                                 ? Number(project.ContractCost).toLocaleString()
                                 : 'N/A'}
                             </p>
-                            <p className="text-sm text-gray-600">
+                            <p className="text-sm text-gray-800">
                               <strong>Year:</strong>{' '}
                               {project.InfraYear || 'N/A'}
                             </p>
@@ -502,7 +502,7 @@ const FloodControlProjectsMap: React.FC = () => {
                     </h3>
                     <button
                       onClick={() => setSelectedRegion(null)}
-                      className="text-gray-500 hover:text-gray-700 ml-2"
+                      className="text-gray-800 hover:text-gray-700 ml-2"
                     >
                       <X className="h-5 w-5" />
                     </button>
@@ -516,7 +516,7 @@ const FloodControlProjectsMap: React.FC = () => {
                     <div className="space-y-3">
                       <div className="grid grid-cols-1 gap-2">
                         <div className="bg-blue-50 p-3 rounded-md">
-                          <p className="text-xs text-gray-500 uppercase tracking-wide">
+                          <p className="text-xs text-gray-800 uppercase tracking-wide">
                             Total Projects
                           </p>
                           <p className="text-xl font-bold text-blue-700">
@@ -524,7 +524,7 @@ const FloodControlProjectsMap: React.FC = () => {
                           </p>
                         </div>
                         <div className="bg-green-50 p-3 rounded-md">
-                          <p className="text-xs text-gray-500 uppercase tracking-wide">
+                          <p className="text-xs text-gray-800 uppercase tracking-wide">
                             Total Cost
                           </p>
                           <p className="text-xl font-bold text-green-700">
@@ -536,7 +536,7 @@ const FloodControlProjectsMap: React.FC = () => {
                           </p>
                         </div>
                         <div className="bg-purple-50 p-3 rounded-md">
-                          <p className="text-xs text-gray-500 uppercase tracking-wide">
+                          <p className="text-xs text-gray-800 uppercase tracking-wide">
                             Contractors
                           </p>
                           <p className="text-xl font-bold text-purple-700">
@@ -546,7 +546,7 @@ const FloodControlProjectsMap: React.FC = () => {
                       </div>
 
                       <div className="pt-2 border-t border-gray-200">
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-gray-800">
                           <strong>Projects with location data:</strong>{' '}
                           {
                             filteredProjects.filter(
@@ -555,7 +555,7 @@ const FloodControlProjectsMap: React.FC = () => {
                             ).length
                           }
                         </p>
-                        <p className="text-xs text-gray-500 mt-1">
+                        <p className="text-xs text-gray-800 mt-1">
                           Click markers to view project details
                         </p>
                       </div>
@@ -574,14 +574,14 @@ const FloodControlProjectsMap: React.FC = () => {
                 About This Data
               </h2>
             </div>
-            <p className="text-gray-600 mb-4">
+            <p className="text-gray-800 mb-4">
               This map displays flood control infrastructure projects across the
               Philippines. Click on a region to filter projects by that area.
               Zoom in to see individual project locations. You can also use the
               filters to narrow down projects by year, type of work, and search
               terms.
             </p>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-800">
               Source: Department of Public Works and Highways (DPWH) Flood
               Control Information System
             </p>

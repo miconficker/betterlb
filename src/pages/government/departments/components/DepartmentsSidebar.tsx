@@ -43,12 +43,12 @@ export default function DepartmentsSidebar({
       searchPlaceholder="Search departments..."
     >
       {filteredDepartments.length === 0 ? (
-        <div className="p-4 text-center text-sm text-gray-500">
+        <div className="p-4 text-center text-sm text-gray-800">
           No departments found
         </div>
       ) : (
         <nav className="p-1">
-          <h3 className="px-3 text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">
+          <h3 className="px-3 text-xs font-medium text-gray-800 uppercase tracking-wider mb-2">
             Department of
           </h3>
           <ul className="space-y-1">

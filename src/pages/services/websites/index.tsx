@@ -144,7 +144,7 @@ const WebsitesDirectory: React.FC = () => {
         {/* Results Section */}
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           <div className="p-4 border-b border-gray-200 bg-gray-50 flex justify-between items-center">
-            <div className="text-sm text-gray-500">
+            <div className="text-sm text-gray-800">
               Showing {filteredWebsites.length} of {websitesData.length}{' '}
               websites
             </div>
@@ -189,13 +189,13 @@ const WebsitesDirectory: React.FC = () => {
                       </div>
 
                       {website.address && (
-                        <p className="text-gray-600 mt-1 text-sm">
+                        <p className="text-gray-800 mt-1 text-sm">
                           {website.address}
                         </p>
                       )}
                       {website.website && (
                         <div className="mt-2">
-                          <span className="text-sm font-medium text-gray-500">
+                          <span className="text-sm font-medium text-gray-800">
                             Website:{' '}
                           </span>
                           <a
@@ -211,7 +211,7 @@ const WebsitesDirectory: React.FC = () => {
 
                       {website.email && (
                         <div className="mt-2">
-                          <span className="text-sm font-medium text-gray-500">
+                          <span className="text-sm font-medium text-gray-800">
                             Email:{' '}
                           </span>
                           <span className="text-sm text-primary-600">
@@ -224,10 +224,10 @@ const WebsitesDirectory: React.FC = () => {
 
                       {website.contact && (
                         <div className="mt-1">
-                          <span className="text-sm font-medium text-gray-500">
+                          <span className="text-sm font-medium text-gray-800">
                             Contact:{' '}
                           </span>
-                          <span className="text-sm text-gray-600">
+                          <span className="text-sm text-gray-800">
                             {Array.isArray(website.contact)
                               ? website.contact.join(', ')
                               : website.contact}
@@ -260,7 +260,7 @@ const WebsitesDirectory: React.FC = () => {
                 <h3 className="text-lg font-medium text-gray-900">
                   No websites found
                 </h3>
-                <p className="mt-1 text-gray-500">
+                <p className="mt-1 text-gray-800">
                   Try adjusting your search or filter to find what you're
                   looking for.
                 </p>
@@ -274,7 +274,7 @@ const WebsitesDirectory: React.FC = () => {
           <h2 className="text-xl font-bold mb-4 text-gray-800">
             About This Directory
           </h2>
-          <p className="text-gray-600 mb-4">
+          <p className="text-gray-800 mb-4">
             This comprehensive directory provides access to official websites of
             various Philippine government institutions, agencies, and local
             government units. The information is regularly updated to ensure
@@ -285,7 +285,7 @@ const WebsitesDirectory: React.FC = () => {
               <h3 className="text-lg font-semibold text-gray-800 mb-2">
                 Categories
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-800">
                 Websites are categorized by type of institution (executive,
                 judicial, legislative, constitutional, diplomatic, and local
                 government units) to help you find the right government service
@@ -296,7 +296,7 @@ const WebsitesDirectory: React.FC = () => {
               <h3 className="text-lg font-semibold text-gray-800 mb-2">
                 Reporting Issues
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-800">
                 If you find any broken links, outdated information, or have
                 suggestions for improvement, please contact us through our
                 feedback form or email at

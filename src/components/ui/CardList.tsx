@@ -141,7 +141,7 @@ export function CardDescription({
   children,
   className = '',
 }: CardDescriptionProps) {
-  return <p className={`text-gray-600 text-sm mt-1 ${className}`}>{children}</p>
+  return <p className={`text-gray-800 text-sm mt-1 ${className}`}>{children}</p>
 }
 
 export function CardContactInfo({
@@ -159,7 +159,7 @@ export function CardContactInfo({
           <MapPin
             className={`${iconSize} text-gray-400 mr-2 mt-0.5 flex-shrink-0`}
           />
-          <span className={`text-gray-600 ${textSize}`}>{contact.address}</span>
+          <span className={`text-gray-800 ${textSize}`}>{contact.address}</span>
         </div>
       )}
 
@@ -170,7 +170,7 @@ export function CardContactInfo({
           />
           <a
             href={`tel:${contact.phone}`}
-            className={`text-gray-600 ${textSize} hover:text-primary-600 transition-colors`}
+            className={`text-gray-800 ${textSize} hover:text-primary-600 transition-colors`}
           >
             {contact.phone}
           </a>

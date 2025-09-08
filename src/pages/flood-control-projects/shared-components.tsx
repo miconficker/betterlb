@@ -137,7 +137,7 @@ export const FilterDropdown: React.FC<FilterDropdownProps> = ({
                 >
                   <div className="flex justify-between items-center">
                     <span className="truncate">{option.value}</span>
-                    <span className="text-gray-500 text-xs">
+                    <span className="text-gray-800 text-xs">
                       {option.count}
                     </span>
                   </div>
@@ -190,15 +190,12 @@ export const FilterTitle: React.FC<{
   }
 
   // Generate title
-  const title = activeFilters.length > 0 
-    ? `Flood Control Projects (${activeFilters.join(', ')})` 
-    : 'Flood Control Projects'
-  
-  return (
-    <h1 className="text-2xl font-bold text-gray-900 mb-4">
-      {title}
-    </h1>
-  )
+  const title =
+    activeFilters.length > 0
+      ? `Flood Control Projects (${activeFilters.join(', ')})`
+      : 'Flood Control Projects'
+
+  return <h1 className="text-2xl font-bold text-gray-900 mb-4">{title}</h1>
 }
 
 // Statistics component for displaying summary data
@@ -234,25 +231,25 @@ export const ResultsStatistics: React.FC<{
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="bg-blue-50 p-3 rounded-md">
-          <p className="text-sm text-gray-500">Total Projects</p>
+          <p className="text-sm text-gray-800">Total Projects</p>
           <p className="text-2xl font-bold text-blue-700">
             {totalCount.toLocaleString()}
           </p>
         </div>
         <div className="bg-green-50 p-3 rounded-md">
-          <p className="text-sm text-gray-500">Estimated Total Contract Cost</p>
+          <p className="text-sm text-gray-800">Estimated Total Contract Cost</p>
           <p className="text-2xl font-bold text-green-700">
             ₱
             {estimatedTotalContractCost.toLocaleString(undefined, {
               maximumFractionDigits: 0,
             })}
           </p>
-          <p className="text-xs text-gray-500 mt-1">
+          <p className="text-xs text-gray-800 mt-1">
             Based on average project cost
           </p>
         </div>
         <div className="bg-purple-50 p-3 rounded-md">
-          <p className="text-sm text-gray-500">Unique Contractors</p>
+          <p className="text-sm text-gray-800">Unique Contractors</p>
           <p className="text-2xl font-bold text-purple-700">
             {uniqueContractors.toLocaleString()}
           </p>

@@ -184,7 +184,7 @@ const VisaPage: React.FC = () => {
                   <Compass className="mr-2 h-5 w-5 text-blue-600" />
                   Quick Visa Check
                 </h2>
-                <p className="text-sm text-gray-600 mb-4">
+                <p className="text-sm text-gray-800 mb-4">
                   Select your country of citizenship to check visa requirements
                   for traveling to the Philippines.
                 </p>
@@ -236,7 +236,7 @@ const VisaPage: React.FC = () => {
                     </button>
                   ))
                 ) : (
-                  <div className="text-center py-8 text-gray-500">
+                  <div className="text-center py-8 text-gray-800">
                     <Search className="mx-auto h-8 w-8 mb-2 opacity-50" />
                     <p>No countries found matching your search.</p>
                   </div>
@@ -353,7 +353,7 @@ const VisaPage: React.FC = () => {
                             </div>
                             <div>
                               <h4 className="font-medium">eVisa Portal</h4>
-                              <p className="text-sm text-gray-600">
+                              <p className="text-sm text-gray-800">
                                 Apply online through the official eVisa system
                               </p>
                               <div className="flex items-center text-blue-600 text-sm mt-1">
@@ -375,7 +375,7 @@ const VisaPage: React.FC = () => {
                               <h4 className="font-medium">
                                 Philippine Embassies
                               </h4>
-                              <p className="text-sm text-gray-600">
+                              <p className="text-sm text-gray-800">
                                 Find your nearest Philippine Embassy or
                                 Consulate
                               </p>
@@ -400,7 +400,7 @@ const VisaPage: React.FC = () => {
                   <h2 className="text-2xl font-semibold mb-2">
                     Check Your Visa Requirements
                   </h2>
-                  <p className="text-gray-600 max-w-md mx-auto">
+                  <p className="text-gray-800 max-w-md mx-auto">
                     Select your country from the list to check if you need a
                     visa to visit the Philippines and learn about entry
                     requirements.

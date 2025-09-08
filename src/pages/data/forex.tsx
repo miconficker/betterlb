@@ -157,7 +157,7 @@ const ForexPage: React.FC = () => {
                     <div className="flex items-center">
                       <div>
                         <div className="font-medium">{rate.code}</div>
-                        <div className="text-xs text-gray-500">
+                        <div className="text-xs text-gray-800">
                           {formatCurrencyName(rate.currency)}
                         </div>
                       </div>
@@ -186,19 +186,19 @@ const ForexPage: React.FC = () => {
                         <h2 className="text-2xl font-bold text-gray-800">
                           {selectedCurrencyData.code}
                         </h2>
-                        <p className="text-gray-500">
+                        <p className="text-gray-800">
                           {formatCurrencyName(selectedCurrencyData.currency)}
                         </p>
                       </div>
                     </div>
                     <div className="bg-gray-100 rounded-lg p-4">
-                      <div className="text-sm text-gray-500 mb-1">
+                      <div className="text-sm text-gray-800 mb-1">
                         Current Rate
                       </div>
                       <div className="text-3xl font-bold text-gray-800">
                         ₱{selectedCurrencyData.rate.toFixed(4)}
                       </div>
-                      <div className="text-xs text-gray-500">
+                      <div className="text-xs text-gray-800">
                         Philippine Peso
                       </div>
                     </div>
@@ -287,7 +287,7 @@ const ForexPage: React.FC = () => {
                       </label>
                       <div className="relative rounded-md shadow-sm">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <span className="text-gray-500 sm:text-sm">₱</span>
+                          <span className="text-gray-800 sm:text-sm">₱</span>
                         </div>
                         <input
                           type="number"
@@ -304,7 +304,7 @@ const ForexPage: React.FC = () => {
                       </label>
                       <div className="relative rounded-md shadow-sm">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <span className="text-gray-500 sm:text-sm">
+                          <span className="text-gray-800 sm:text-sm">
                             {selectedCurrencyData.code === 'USD'
                               ? '$'
                               : selectedCurrencyData.code === 'EUR'
@@ -325,7 +325,7 @@ const ForexPage: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                  <p className="mt-4 text-sm text-gray-500">
+                  <p className="mt-4 text-sm text-gray-800">
                     Exchange rates are provided by Bangko Sentral ng Pilipinas
                     (BSP). Last updated:{' '}
                     {new Date().toLocaleDateString('en-US', {
@@ -347,7 +347,7 @@ const ForexPage: React.FC = () => {
           <h2 className="text-2xl font-bold mb-4 text-gray-800">
             About Foreign Exchange Rates
           </h2>
-          <p className="text-gray-600 mb-4">
+          <p className="text-gray-800 mb-4">
             The foreign exchange rates displayed on this page are sourced from
             the Bangko Sentral ng Pilipinas (BSP), the central bank of the
             Philippines. These rates represent the official reference rates for
@@ -358,7 +358,7 @@ const ForexPage: React.FC = () => {
               <h3 className="text-lg font-semibold text-gray-800 mb-2">
                 Understanding Exchange Rates
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-800">
                 Exchange rates indicate how much of one currency can be
                 exchanged for another. The rates shown here represent the amount
                 of Philippine Pesos (PHP) needed to purchase one unit of the
@@ -369,7 +369,7 @@ const ForexPage: React.FC = () => {
               <h3 className="text-lg font-semibold text-gray-800 mb-2">
                 Official BSP Rates
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-800">
                 For official foreign exchange reference rates and more detailed
                 information, please visit the{' '}
                 <a

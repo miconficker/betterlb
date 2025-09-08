@@ -36,7 +36,7 @@ export default function DiplomaticMissionsPage() {
           <h1 className="text-2xl font-bold text-gray-900">
             Diplomatic Missions
           </h1>
-          <p className="text-gray-500 mt-1">
+          <p className="text-gray-800 mt-1">
             {missions.length} diplomatic missions in the Philippines
           </p>
         </div>
@@ -61,7 +61,7 @@ export default function DiplomaticMissionsPage() {
           <h3 className="text-lg font-medium text-gray-900 mb-1">
             No diplomatic missions found
           </h3>
-          <p className="text-gray-500">Try adjusting your search term.</p>
+          <p className="text-gray-800">Try adjusting your search term.</p>
         </div>
       ) : (
         <CardGrid columns={3} breakpoint="lg" gap="md">
@@ -93,7 +93,7 @@ export default function DiplomaticMissionsPage() {
                   <p className="font-medium text-gray-900">
                     {mission.representative}
                   </p>
-                  <p className="text-sm text-gray-600">{mission.title}</p>
+                  <p className="text-sm text-gray-800">{mission.title}</p>
                 </div>
               </CardContent>
             </Card>

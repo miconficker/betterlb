@@ -1,35 +1,39 @@
-import React from 'react';
-import { Globe2, Users, Building2, Mountain, Sun } from 'lucide-react';
-import { Card, CardContent } from '../../../components/ui/Card';
+import React from 'react'
+import { Globe2, Users, Building2, Mountain, Sun } from 'lucide-react'
+import { Card, CardContent } from '../../../components/ui/Card'
 
 const AboutPhilippines: React.FC = () => {
   const facts = [
     {
       icon: <Globe2 className="h-6 w-6" />,
       title: 'Geography',
-      description: 'An archipelago of over 7,640 islands located in Southeast Asia',
+      description:
+        'An archipelago of over 7,640 islands located in Southeast Asia',
     },
     {
       icon: <Users className="h-6 w-6" />,
       title: 'Population',
-      description: 'Home to over 110 million people across diverse ethnic groups',
+      description:
+        'Home to over 110 million people across diverse ethnic groups',
     },
     {
       icon: <Building2 className="h-6 w-6" />,
       title: 'Capital',
-      description: 'Manila serves as the capital, with Metro Manila as the economic center',
+      description:
+        'Manila serves as the capital, with Metro Manila as the economic center',
     },
     {
       icon: <Mountain className="h-6 w-6" />,
       title: 'Landscape',
-      description: 'Features mountains, volcanoes, tropical rainforests, and beautiful beaches',
+      description:
+        'Features mountains, volcanoes, tropical rainforests, and beautiful beaches',
     },
     {
       icon: <Sun className="h-6 w-6" />,
       title: 'Climate',
       description: 'Tropical maritime climate with three distinct seasons',
     },
-  ];
+  ]
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -50,8 +54,9 @@ const AboutPhilippines: React.FC = () => {
                 About the Philippines
               </h1>
               <p className="text-xl text-white/90 leading-relaxed">
-                Discover the Pearl of the Orient Seas, a nation of vibrant culture, 
-                rich history, and natural wonders spread across thousands of islands.
+                Discover the Pearl of the Orient Seas, a nation of vibrant
+                culture, rich history, and natural wonders spread across
+                thousands of islands.
               </p>
             </div>
           </div>
@@ -64,7 +69,9 @@ const AboutPhilippines: React.FC = () => {
           {/* Quick Facts */}
           <div className="lg:col-span-2 space-y-8">
             <section>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Quick Facts</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                Quick Facts
+              </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {facts.map((fact, index) => (
                   <Card key={index}>
@@ -77,7 +84,7 @@ const AboutPhilippines: React.FC = () => {
                           <h3 className="text-lg font-semibold text-gray-900 mb-2">
                             {fact.title}
                           </h3>
-                          <p className="text-gray-600">{fact.description}</p>
+                          <p className="text-gray-800">{fact.description}</p>
                         </div>
                       </div>
                     </CardContent>
@@ -87,26 +94,31 @@ const AboutPhilippines: React.FC = () => {
             </section>
 
             <section>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Overview</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                Overview
+              </h2>
               <div className="prose max-w-none">
-                <p className="text-gray-600 leading-relaxed mb-4">
-                  The Philippines is a sovereign archipelagic country located in Southeast Asia, 
-                  comprising over 7,640 islands. Named after King Philip II of Spain, the country 
-                  has a rich history spanning thousands of years, from ancient indigenous cultures 
-                  to colonial periods under Spanish and American rule, leading to its independence 
-                  in 1946.
+                <p className="text-gray-800 leading-relaxed mb-4">
+                  The Philippines is a sovereign archipelagic country located in
+                  Southeast Asia, comprising over 7,640 islands. Named after
+                  King Philip II of Spain, the country has a rich history
+                  spanning thousands of years, from ancient indigenous cultures
+                  to colonial periods under Spanish and American rule, leading
+                  to its independence in 1946.
                 </p>
-                <p className="text-gray-600 leading-relaxed mb-4">
-                  Today, the Philippines stands as one of Southeast Asia's most dynamic economies, 
-                  blending traditional values with modern development. The country is known for its 
-                  warm hospitality, diverse cultural heritage, stunning natural landscapes, and 
+                <p className="text-gray-800 leading-relaxed mb-4">
+                  Today, the Philippines stands as one of Southeast Asia's most
+                  dynamic economies, blending traditional values with modern
+                  development. The country is known for its warm hospitality,
+                  diverse cultural heritage, stunning natural landscapes, and
                   vibrant democracy.
                 </p>
-                <p className="text-gray-600 leading-relaxed">
-                  Filipino culture is a unique fusion of indigenous, Asian, European, and American 
-                  influences, reflected in its art, music, cuisine, and traditions. The nation's 
-                  biodiversity, featuring unique species and ecosystems, makes it one of the world's 
-                  most environmentally significant countries.
+                <p className="text-gray-800 leading-relaxed">
+                  Filipino culture is a unique fusion of indigenous, Asian,
+                  European, and American influences, reflected in its art,
+                  music, cuisine, and traditions. The nation's biodiversity,
+                  featuring unique species and ecosystems, makes it one of the
+                  world's most environmentally significant countries.
                 </p>
               </div>
             </section>
@@ -116,27 +128,47 @@ const AboutPhilippines: React.FC = () => {
           <div className="space-y-6">
             <Card>
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Key Information</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Key Information
+                </h3>
                 <div className="space-y-3">
                   <div>
-                    <div className="text-sm font-medium text-gray-500">Official Languages</div>
-                    <div className="text-gray-900">Filipino (Tagalog), English</div>
+                    <div className="text-sm font-medium text-gray-800">
+                      Official Languages
+                    </div>
+                    <div className="text-gray-900">
+                      Filipino (Tagalog), English
+                    </div>
                   </div>
                   <div>
-                    <div className="text-sm font-medium text-gray-500">Government</div>
-                    <div className="text-gray-900">Presidential Constitutional Republic</div>
+                    <div className="text-sm font-medium text-gray-800">
+                      Government
+                    </div>
+                    <div className="text-gray-900">
+                      Presidential Constitutional Republic
+                    </div>
                   </div>
                   <div>
-                    <div className="text-sm font-medium text-gray-500">Currency</div>
+                    <div className="text-sm font-medium text-gray-800">
+                      Currency
+                    </div>
                     <div className="text-gray-900">Philippine Peso (₱)</div>
                   </div>
                   <div>
-                    <div className="text-sm font-medium text-gray-500">Time Zone</div>
-                    <div className="text-gray-900">UTC+8 (Philippine Standard Time)</div>
+                    <div className="text-sm font-medium text-gray-800">
+                      Time Zone
+                    </div>
+                    <div className="text-gray-900">
+                      UTC+8 (Philippine Standard Time)
+                    </div>
                   </div>
                   <div>
-                    <div className="text-sm font-medium text-gray-500">Major Cities</div>
-                    <div className="text-gray-900">Manila, Quezon City, Davao, Cebu</div>
+                    <div className="text-sm font-medium text-gray-800">
+                      Major Cities
+                    </div>
+                    <div className="text-gray-900">
+                      Manila, Quezon City, Davao, Cebu
+                    </div>
                   </div>
                 </div>
               </CardContent>
@@ -144,7 +176,9 @@ const AboutPhilippines: React.FC = () => {
 
             <Card>
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Related Links</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Related Links
+                </h3>
                 <nav className="space-y-2">
                   <a
                     href="/philippines/history"
@@ -177,7 +211,7 @@ const AboutPhilippines: React.FC = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AboutPhilippines;
+export default AboutPhilippines

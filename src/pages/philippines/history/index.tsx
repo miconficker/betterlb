@@ -1,6 +1,6 @@
-import React from 'react';
-import { Clock, Flag, Crown, Scale, Star } from 'lucide-react';
-import { Card, CardContent } from '../../../components/ui/Card';
+import React from 'react'
+import { Clock, Flag, Crown, Scale, Star } from 'lucide-react'
+import { Card, CardContent } from '../../../components/ui/Card'
 
 const PhilippinesHistory: React.FC = () => {
   const timelinePeriods = [
@@ -8,31 +8,39 @@ const PhilippinesHistory: React.FC = () => {
       icon: <Clock className="h-6 w-6" />,
       title: 'Pre-Colonial Period',
       period: 'Before 1521',
-      description: 'Indigenous peoples with advanced societies, trade networks, and rich cultures',
-      image: 'https://images.pexels.com/photos/5325407/pexels-photo-5325407.jpeg',
+      description:
+        'Indigenous peoples with advanced societies, trade networks, and rich cultures',
+      image:
+        'https://images.pexels.com/photos/5325407/pexels-photo-5325407.jpeg',
     },
     {
       icon: <Crown className="h-6 w-6" />,
       title: 'Spanish Colonial Era',
       period: '1521-1898',
-      description: 'Over 300 years of Spanish rule, introducing Christianity and colonial institutions',
-      image: 'https://images.pexels.com/photos/5325407/pexels-photo-5325407.jpeg',
+      description:
+        'Over 300 years of Spanish rule, introducing Christianity and colonial institutions',
+      image:
+        'https://images.pexels.com/photos/5325407/pexels-photo-5325407.jpeg',
     },
     {
       icon: <Star className="h-6 w-6" />,
       title: 'American Period',
       period: '1898-1946',
-      description: 'American administration, introducing modern education and democratic institutions',
-      image: 'https://images.pexels.com/photos/5325407/pexels-photo-5325407.jpeg',
+      description:
+        'American administration, introducing modern education and democratic institutions',
+      image:
+        'https://images.pexels.com/photos/5325407/pexels-photo-5325407.jpeg',
     },
     {
       icon: <Flag className="h-6 w-6" />,
       title: 'Independence and Modern Era',
       period: '1946-Present',
-      description: 'Independent republic facing challenges and achievements in nation-building',
-      image: 'https://images.pexels.com/photos/5325407/pexels-photo-5325407.jpeg',
+      description:
+        'Independent republic facing challenges and achievements in nation-building',
+      image:
+        'https://images.pexels.com/photos/5325407/pexels-photo-5325407.jpeg',
     },
-  ];
+  ]
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -53,10 +61,14 @@ const PhilippinesHistory: React.FC = () => {
                 History of the Philippines
               </h1>
               <p className="text-xl text-white/90 leading-relaxed">
-                Journey through time and discover the rich tapestry of events, people, 
-                and movements that shaped the Philippine nation.
+                Journey through time and discover the rich tapestry of events,
+                people, and movements that shaped the Philippine nation.
               </p>
-              <p className="text-xs"><a href="https://www.pexels.com/photo/women-dancing-in-red-traditional-clothing-in-festival-19376770/">Photo credit</a></p>
+              <p className="text-xs">
+                <a href="https://www.pexels.com/photo/women-dancing-in-red-traditional-clothing-in-festival-19376770/">
+                  Photo credit
+                </a>
+              </p>
             </div>
           </div>
         </div>
@@ -68,7 +80,9 @@ const PhilippinesHistory: React.FC = () => {
           {/* Timeline */}
           <div className="lg:col-span-2">
             <section className="mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Historical Timeline</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                Historical Timeline
+              </h2>
               <div className="space-y-8">
                 {timelinePeriods.map((period, index) => (
                   <Card key={index}>
@@ -86,7 +100,9 @@ const PhilippinesHistory: React.FC = () => {
                               {period.period}
                             </span>
                           </div>
-                          <p className="text-gray-600 mb-4">{period.description}</p>
+                          <p className="text-gray-800 mb-4">
+                            {period.description}
+                          </p>
                           <img
                             src={period.image}
                             alt={period.title}
@@ -101,23 +117,29 @@ const PhilippinesHistory: React.FC = () => {
             </section>
 
             <section>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Historical Overview</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                Historical Overview
+              </h2>
               <div className="prose max-w-none">
-                <p className="text-gray-600 leading-relaxed mb-4">
-                  The Philippines' history spans thousands of years, beginning with the migration 
-                  of Austronesian peoples. These early settlers developed sophisticated societies, 
-                  trading with various Asian civilizations and developing unique cultural traditions.
+                <p className="text-gray-800 leading-relaxed mb-4">
+                  The Philippines' history spans thousands of years, beginning
+                  with the migration of Austronesian peoples. These early
+                  settlers developed sophisticated societies, trading with
+                  various Asian civilizations and developing unique cultural
+                  traditions.
                 </p>
-                <p className="text-gray-600 leading-relaxed mb-4">
-                  The arrival of Ferdinand Magellan in 1521 marked the beginning of Spanish 
-                  colonization, which would last for over three centuries. This period saw the 
-                  widespread adoption of Christianity and the establishment of colonial institutions 
+                <p className="text-gray-800 leading-relaxed mb-4">
+                  The arrival of Ferdinand Magellan in 1521 marked the beginning
+                  of Spanish colonization, which would last for over three
+                  centuries. This period saw the widespread adoption of
+                  Christianity and the establishment of colonial institutions
                   that would significantly influence Filipino society.
                 </p>
-                <p className="text-gray-600 leading-relaxed">
-                  Following the Spanish-American War, the Philippines came under American rule, 
-                  leading to significant changes in education, governance, and society. The country 
-                  achieved independence in 1946 and has since worked to build a modern nation while 
+                <p className="text-gray-800 leading-relaxed">
+                  Following the Spanish-American War, the Philippines came under
+                  American rule, leading to significant changes in education,
+                  governance, and society. The country achieved independence in
+                  1946 and has since worked to build a modern nation while
                   preserving its rich cultural heritage.
                 </p>
               </div>
@@ -128,23 +150,37 @@ const PhilippinesHistory: React.FC = () => {
           <div className="space-y-6">
             <Card>
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Key Historical Figures</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Key Historical Figures
+                </h3>
                 <div className="space-y-4">
                   <div>
                     <div className="font-medium text-gray-900">José Rizal</div>
-                    <div className="text-sm text-gray-600">National Hero, Writer, Reformist</div>
+                    <div className="text-sm text-gray-800">
+                      National Hero, Writer, Reformist
+                    </div>
                   </div>
                   <div>
-                    <div className="font-medium text-gray-900">Andrés Bonifacio</div>
-                    <div className="text-sm text-gray-600">Revolutionary Leader</div>
+                    <div className="font-medium text-gray-900">
+                      Andrés Bonifacio
+                    </div>
+                    <div className="text-sm text-gray-800">
+                      Revolutionary Leader
+                    </div>
                   </div>
                   <div>
-                    <div className="font-medium text-gray-900">Emilio Aguinaldo</div>
-                    <div className="text-sm text-gray-600">First President</div>
+                    <div className="font-medium text-gray-900">
+                      Emilio Aguinaldo
+                    </div>
+                    <div className="text-sm text-gray-800">First President</div>
                   </div>
                   <div>
-                    <div className="font-medium text-gray-900">Corazon Aquino</div>
-                    <div className="text-sm text-gray-600">Democracy Icon, Former President</div>
+                    <div className="font-medium text-gray-900">
+                      Corazon Aquino
+                    </div>
+                    <div className="text-sm text-gray-800">
+                      Democracy Icon, Former President
+                    </div>
                   </div>
                 </div>
               </CardContent>
@@ -152,23 +188,39 @@ const PhilippinesHistory: React.FC = () => {
 
             <Card>
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Important Dates</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Important Dates
+                </h3>
                 <div className="space-y-3">
                   <div>
-                    <div className="text-sm font-medium text-gray-500">March 16, 1521</div>
+                    <div className="text-sm font-medium text-gray-800">
+                      March 16, 1521
+                    </div>
                     <div className="text-gray-900">Arrival of Magellan</div>
                   </div>
                   <div>
-                    <div className="text-sm font-medium text-gray-500">June 12, 1898</div>
-                    <div className="text-gray-900">Declaration of Independence</div>
+                    <div className="text-sm font-medium text-gray-800">
+                      June 12, 1898
+                    </div>
+                    <div className="text-gray-900">
+                      Declaration of Independence
+                    </div>
                   </div>
                   <div>
-                    <div className="text-sm font-medium text-gray-500">July 4, 1946</div>
-                    <div className="text-gray-900">Recognition of Independence</div>
+                    <div className="text-sm font-medium text-gray-800">
+                      July 4, 1946
+                    </div>
+                    <div className="text-gray-900">
+                      Recognition of Independence
+                    </div>
                   </div>
                   <div>
-                    <div className="text-sm font-medium text-gray-500">February 25, 1986</div>
-                    <div className="text-gray-900">EDSA People Power Revolution</div>
+                    <div className="text-sm font-medium text-gray-800">
+                      February 25, 1986
+                    </div>
+                    <div className="text-gray-900">
+                      EDSA People Power Revolution
+                    </div>
                   </div>
                 </div>
               </CardContent>
@@ -176,7 +228,9 @@ const PhilippinesHistory: React.FC = () => {
 
             <Card>
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Related Links</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Related Links
+                </h3>
                 <nav className="space-y-2">
                   <a
                     href="/philippines/about"
@@ -209,7 +263,7 @@ const PhilippinesHistory: React.FC = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PhilippinesHistory;
+export default PhilippinesHistory

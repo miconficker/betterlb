@@ -49,7 +49,7 @@ const ServicesSection: React.FC = () => {
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
             Government Services
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-gray-800 max-w-2xl mx-auto">
             Access official government services quickly and easily. Find what
             you need for citizenship, business, education, and more.
           </p>
@@ -78,7 +78,7 @@ const ServicesSection: React.FC = () => {
                     <li key={subcategory.slug}>
                       <Link
                         to={`/services?category=${category.slug}&subcategory=${subcategory.slug}`}
-                        className="text-gray-600 hover:text-primary-600 transition-colors text-md flex items-center"
+                        className="text-gray-800 hover:text-primary-600 transition-colors text-md flex items-center"
                       >
                         <span className="w-1.5 h-1.5 bg-gray-300 rounded-full mr-2"></span>
                         {subcategory.name}

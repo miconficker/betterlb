@@ -166,7 +166,7 @@ export default function ConstitutionalIndex() {
           <h3 className="text-lg font-medium text-gray-900 mb-1">
             No constitutional office selected
           </h3>
-          <p className="text-gray-500 max-w-md">
+          <p className="text-gray-800 max-w-md">
             Select a constitutional office from the list to view its details and
             contact information.
           </p>
@@ -191,13 +191,13 @@ export default function ConstitutionalIndex() {
             </h1>
 
             {selectedOffice.description && (
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-800 text-sm">
                 {selectedOffice.description}
               </p>
             )}
 
             {selectedOffice.address && (
-              <p className="mt-2 text-gray-600 flex items-start text-sm">
+              <p className="mt-2 text-gray-800 flex items-start text-sm">
                 <MapPin className="h-4 w-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
                 <span>{selectedOffice.address}</span>
               </p>
@@ -223,8 +223,8 @@ export default function ConstitutionalIndex() {
           )}
 
           {contactNumber && (
-            <div className="flex items-center text-gray-600 text-sm">
-              <Phone className="h-4 w-4 text-gray-500 mr-1.5 flex-shrink-0" />
+            <div className="flex items-center text-gray-800 text-sm">
+              <Phone className="h-4 w-4 text-gray-800 mr-1.5 flex-shrink-0" />
               <span>{contactNumber}</span>
             </div>
           )}
@@ -232,9 +232,9 @@ export default function ConstitutionalIndex() {
           {selectedOffice.email && (
             <a
               href={`mailto:${selectedOffice.email}`}
-              className="flex items-center text-gray-600 hover:text-primary-600"
+              className="flex items-center text-gray-800 hover:text-primary-600"
             >
-              <Mail className="h-4 w-4 text-gray-500 mr-1.5 flex-shrink-0" />
+              <Mail className="h-4 w-4 text-gray-800 mr-1.5 flex-shrink-0" />
               <span>{selectedOffice.email}</span>
             </a>
           )}

@@ -93,11 +93,11 @@ const Hit: React.FC<HitProps> = ({ hit }) => {
           {title}
         </h2>
         {hit.description && (
-          <p className="text-sm text-gray-600 mt-1">
+          <p className="text-sm text-gray-800 mt-1">
             <Snippet attribute="description" hit={hit as any} />
           </p>
         )}
-        <div className="text-xs text-gray-500">
+        <div className="text-xs text-gray-800">
           {hit.category && (
             <span>
               <Highlight
@@ -170,7 +170,7 @@ const SearchPage: React.FC = () => {
                     checkbox:
                       'form-checkbox h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500',
                     count:
-                      'ml-2 text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full',
+                      'ml-2 text-xs text-gray-800 bg-gray-100 px-2 py-0.5 rounded-full',
                   }}
                 />
               </div>
@@ -187,7 +187,7 @@ const SearchPage: React.FC = () => {
                     checkbox:
                       'form-checkbox h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500',
                     count:
-                      'ml-2 text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full',
+                      'ml-2 text-xs text-gray-800 bg-gray-100 px-2 py-0.5 rounded-full',
                   }}
                 />
               </div>
@@ -204,7 +204,7 @@ const SearchPage: React.FC = () => {
                     checkbox:
                       'form-checkbox h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500',
                     count:
-                      'ml-2 text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full',
+                      'ml-2 text-xs text-gray-800 bg-gray-100 px-2 py-0.5 rounded-full',
                   }}
                 />
               </div>
@@ -221,9 +221,9 @@ const SearchPage: React.FC = () => {
                   input:
                     'text-lg w-full p-4 pl-12 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition duration-150 ease-in-out',
                   submit:
-                    'absolute top-0 right-0 h-full px-4 text-gray-500 hover:text-blue-600',
+                    'absolute top-0 right-0 h-full px-4 text-gray-800 hover:text-blue-600',
                   reset:
-                    'absolute top-0 right-10 h-full px-3 text-gray-400 hover:text-gray-600',
+                    'absolute top-0 right-10 h-full px-3 text-gray-400 hover:text-gray-800',
                 }}
               />
             </div>
@@ -233,7 +233,7 @@ const SearchPage: React.FC = () => {
                 <h2 className="text-xl font-semibold">Results</h2>
                 <Stats
                   classNames={{
-                    root: 'text-sm text-gray-600',
+                    root: 'text-sm text-gray-800',
                   }}
                 />
               </div>

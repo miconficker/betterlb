@@ -93,7 +93,7 @@ export default function OtherExecutiveOfficesPage() {
           <h1 className="text-2xl font-bold text-gray-900">
             Other Executive Offices
           </h1>
-          <p className="text-gray-500 mt-1">
+          <p className="text-gray-800 mt-1">
             {filteredOffices.length} executive offices
           </p>
         </div>
@@ -118,7 +118,7 @@ export default function OtherExecutiveOfficesPage() {
           <h3 className="text-lg font-medium text-gray-900 mb-1">
             No offices found
           </h3>
-          <p className="text-gray-500">Try adjusting your search term.</p>
+          <p className="text-gray-800">Try adjusting your search term.</p>
         </div>
       ) : (
         <CardGrid columns={2} breakpoint="lg" gap="lg">

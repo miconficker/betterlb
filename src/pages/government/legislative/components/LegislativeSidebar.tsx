@@ -36,7 +36,7 @@ export default function LegislativeSidebar() {
       <nav className="p-2 space-y-4 pt-4">
         {/* Senate Section */}
         <div>
-          <h3 className="px-3 text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">
+          <h3 className="px-3 text-xs font-medium text-gray-800 uppercase tracking-wider mb-2">
             Senate
           </h3>
           <ul className="space-y-1">
@@ -71,7 +71,7 @@ export default function LegislativeSidebar() {
 
         {/* House of Representatives Section */}
         <div>
-          <h3 className="px-3 text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">
+          <h3 className="px-3 text-xs font-medium text-gray-800 uppercase tracking-wider mb-2">
             House of Representatives
           </h3>
           <ul className="space-y-1">

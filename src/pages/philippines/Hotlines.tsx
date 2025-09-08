@@ -1,45 +1,66 @@
-import React, { useState } from 'react';
-import hotlinesData from '../../data/philippines_hotlines.json';
+import React, { useState } from 'react'
+import hotlinesData from '../../data/philippines_hotlines.json'
 
 interface Hotline {
-  name: string;
-  category: string;
-  numbers: string[];
-  description?: string;
+  name: string
+  category: string
+  numbers: string[]
+  description?: string
 }
-import { Phone, Search, AlertCircle, Umbrella, Shield, Bus, Droplet, Heart } from 'lucide-react';
+import {
+  Phone,
+  Search,
+  AlertCircle,
+  Umbrella,
+  Shield,
+  Bus,
+  Droplet,
+  Heart,
+} from 'lucide-react'
 
 const Hotlines: React.FC = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [activeCategory, setActiveCategory] = useState<string>('all');
+  const [searchTerm, setSearchTerm] = useState('')
+  const [activeCategory, setActiveCategory] = useState<string>('all')
 
   const categories = [
     { id: 'all', name: 'All Hotlines', icon: <Phone className="w-5 h-5" /> },
-    { id: 'emergency', name: 'Emergency', icon: <AlertCircle className="w-5 h-5" /> },
-    { id: 'disaster', name: 'Disaster', icon: <Umbrella className="w-5 h-5" /> },
+    {
+      id: 'emergency',
+      name: 'Emergency',
+      icon: <AlertCircle className="w-5 h-5" />,
+    },
+    {
+      id: 'disaster',
+      name: 'Disaster',
+      icon: <Umbrella className="w-5 h-5" />,
+    },
     { id: 'security', name: 'Security', icon: <Shield className="w-5 h-5" /> },
     { id: 'transport', name: 'Transport', icon: <Bus className="w-5 h-5" /> },
     { id: 'weather', name: 'Weather', icon: <Umbrella className="w-5 h-5" /> },
     { id: 'utility', name: 'Utilities', icon: <Droplet className="w-5 h-5" /> },
-    { id: 'social', name: 'Social Services', icon: <Heart className="w-5 h-5" /> },
-  ];
+    {
+      id: 'social',
+      name: 'Social Services',
+      icon: <Heart className="w-5 h-5" />,
+    },
+  ]
 
   const getCategoryHotlines = (category: string): Hotline[] => {
     switch (category) {
       case 'emergency':
-        return hotlinesData.emergencyHotlines as Hotline[];
+        return hotlinesData.emergencyHotlines as Hotline[]
       case 'disaster':
-        return hotlinesData.disasterHotlines as Hotline[];
+        return hotlinesData.disasterHotlines as Hotline[]
       case 'security':
-        return hotlinesData.securityHotlines as Hotline[];
+        return hotlinesData.securityHotlines as Hotline[]
       case 'transport':
-        return hotlinesData.transportHotlines as Hotline[];
+        return hotlinesData.transportHotlines as Hotline[]
       case 'weather':
-        return hotlinesData.weatherHotlines as Hotline[];
+        return hotlinesData.weatherHotlines as Hotline[]
       case 'utility':
-        return hotlinesData.utilityHotlines as Hotline[];
+        return hotlinesData.utilityHotlines as Hotline[]
       case 'social':
-        return hotlinesData.socialServicesHotlines as Hotline[];
+        return hotlinesData.socialServicesHotlines as Hotline[]
       default:
         return [
           ...hotlinesData.emergencyHotlines,
@@ -48,21 +69,26 @@ const Hotlines: React.FC = () => {
           ...hotlinesData.transportHotlines,
           ...hotlinesData.weatherHotlines,
           ...hotlinesData.utilityHotlines,
-          ...hotlinesData.socialServicesHotlines
-        ] as Hotline[];
+          ...hotlinesData.socialServicesHotlines,
+        ] as Hotline[]
     }
-  };
+  }
 
-  const filteredHotlines = getCategoryHotlines(activeCategory).filter(hotline =>
-    hotline.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    hotline.numbers.some(number => number.includes(searchTerm))
-  );
+  const filteredHotlines = getCategoryHotlines(activeCategory).filter(
+    (hotline) =>
+      hotline.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      hotline.numbers.some((number) => number.includes(searchTerm))
+  )
 
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold mb-2">Philippines Emergency Hotlines</h1>
-        <p className="text-gray-600">Important contact numbers for emergencies and public services</p>
+        <h1 className="text-3xl font-bold mb-2">
+          Philippines Emergency Hotlines
+        </h1>
+        <p className="text-gray-800">
+          Important contact numbers for emergencies and public services
+        </p>
       </div>
 
       {/* Search Bar */}
@@ -108,7 +134,9 @@ const Hotlines: React.FC = () => {
               <div className="p-5">
                 <h3 className="font-bold text-lg mb-2">{hotline.name}</h3>
                 {hotline.description && (
-                  <p className="text-gray-600 text-sm mb-3">{hotline.description}</p>
+                  <p className="text-gray-800 text-sm mb-3">
+                    {hotline.description}
+                  </p>
                 )}
                 <div className="space-y-2">
                   {hotline.numbers.map((number, idx) => (
@@ -129,20 +157,24 @@ const Hotlines: React.FC = () => {
         ) : (
           <div className="col-span-full text-center py-10">
             <AlertCircle className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-            <h3 className="text-lg font-medium text-gray-900">No hotlines found</h3>
-            <p className="mt-1 text-gray-500">Try adjusting your search or filter.</p>
+            <h3 className="text-lg font-medium text-gray-900">
+              No hotlines found
+            </h3>
+            <p className="mt-1 text-gray-800">
+              Try adjusting your search or filter.
+            </p>
           </div>
         )}
       </div>
 
       <div className="mt-12 text-center">
-        <p className="text-sm text-gray-500">
-          These hotlines are collected from official government sources. If you notice any outdated information,
-          please report it.
+        <p className="text-sm text-gray-800">
+          These hotlines are collected from official government sources. If you
+          notice any outdated information, please report it.
         </p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Hotlines;
+export default Hotlines

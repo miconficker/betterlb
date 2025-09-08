@@ -95,7 +95,7 @@ export default function PresidentialCommunicationsOfficePage() {
           <h1 className="text-2xl font-bold text-gray-900">
             Presidential Communications Offices
           </h1>
-          <p className="text-gray-500 mt-1">
+          <p className="text-gray-800 mt-1">
             {filteredOffices.length} communications-related offices
           </p>
         </div>
@@ -120,7 +120,7 @@ export default function PresidentialCommunicationsOfficePage() {
           <h3 className="text-lg font-medium text-gray-900 mb-1">
             No offices found
           </h3>
-          <p className="text-gray-500">Try adjusting your search term.</p>
+          <p className="text-gray-800">Try adjusting your search term.</p>
         </div>
       ) : (
         <CardList>
@@ -214,7 +214,7 @@ export default function PresidentialCommunicationsOfficePage() {
                                   <p className="font-medium text-gray-800">
                                     {person.name}
                                   </p>
-                                  <p className="text-sm text-gray-600">
+                                  <p className="text-sm text-gray-800">
                                     {person.role}
                                   </p>
 
@@ -229,7 +229,7 @@ export default function PresidentialCommunicationsOfficePage() {
 
                                     {person.other_office && (
                                       <div className="mt-1">
-                                        <span className="text-xs text-gray-500 italic">
+                                        <span className="text-xs text-gray-800 italic">
                                           {person.other_office}
                                         </span>
                                       </div>

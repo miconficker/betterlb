@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
           <div className="flex items-center space-x-4">
             <a
               href="https://www.gov.ph"
-              className="text-xs text-gray-600 hover:text-primary-600 transition-colors"
+              className="text-xs text-gray-800 hover:text-primary-600 transition-colors"
               target="_blank"
             >
               Official Gov.ph
@@ -41,13 +41,13 @@ const Navbar: React.FC = () => {
 
             <Link
               to="/philippines/hotlines"
-              className="text-xs text-gray-600 hover:text-primary-600 transition-colors"
+              className="text-xs text-gray-800 hover:text-primary-600 transition-colors"
             >
               Hotlines
             </Link>
             <div className="hidden md:block relative">
               <button
-                className="flex items-center text-xs text-gray-600 hover:text-primary-600 transition-colors"
+                className="flex items-center text-xs text-gray-800 hover:text-primary-600 transition-colors"
                 onClick={() => changeLanguage(language === 'en' ? 'fil' : 'en')}
               >
                 <Globe className="h-3 w-3 mr-1" />
@@ -70,7 +70,7 @@ const Navbar: React.FC = () => {
               />
               <div>
                 <div className="text-black font-bold">BetterGov.ph</div>
-                <div className="text-xs text-gray-600">
+                <div className="text-xs text-gray-800">
                   A community-run portal for the Philippines
                 </div>
               </div>
@@ -87,7 +87,7 @@ const Navbar: React.FC = () => {
                 >
                   {translate(`navbar.${item.label.toLowerCase()}`)}
                   {item.children && (
-                    <ChevronDown className="ml-1 h-4 w-4 text-gray-500 group-hover:text-primary-600 transition-colors" />
+                    <ChevronDown className="ml-1 h-4 w-4 text-gray-800 group-hover:text-primary-600 transition-colors" />
                   )}
                 </Link>
                 {item.children && (
@@ -205,14 +205,14 @@ const Navbar: React.FC = () => {
           </Link>
           <div className="px-4 py-3 border-t border-gray-200">
             <div className="flex items-center">
-              <Globe className="h-5 w-5 text-gray-500 mr-2" />
+              <Globe className="h-5 w-5 text-gray-800 mr-2" />
               <div className="space-x-2">
                 <button
                   onClick={() => changeLanguage('en')}
                   className={`text-sm ${
                     language === 'en'
                       ? 'font-semibold text-primary-600'
-                      : 'text-gray-600'
+                      : 'text-gray-800'
                   }`}
                 >
                   English
@@ -223,7 +223,7 @@ const Navbar: React.FC = () => {
                   className={`text-sm ${
                     language === 'fil'
                       ? 'font-semibold text-primary-600'
-                      : 'text-gray-600'
+                      : 'text-gray-800'
                   }`}
                 >
                   Filipino

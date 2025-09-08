@@ -114,7 +114,7 @@ const InfoWidgets: React.FC = () => {
                       <div className="text-2xl font-bold">
                         {location.temperature}°C
                       </div>
-                      <div className="text-sm text-gray-500 text-center">
+                      <div className="text-sm text-gray-800 text-center">
                         {location.condition}
                       </div>
                     </div>
@@ -145,10 +145,10 @@ const InfoWidgets: React.FC = () => {
                 <table className="min-w-full divide-y divide-gray-200">
                   <thead className="bg-gray-50">
                     <tr>
-                      <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-3 py-3 text-left text-xs font-medium text-gray-800 uppercase tracking-wider">
                         Currency
                       </th>
-                      <th className="px-3 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-3 py-3 text-right text-xs font-medium text-gray-800 uppercase tracking-wider">
                         ₱ Rate
                       </th>
                     </tr>
@@ -174,7 +174,7 @@ const InfoWidgets: React.FC = () => {
                       <tr>
                         <td
                           colSpan={3}
-                          className="px-3 py-4 text-center text-gray-500"
+                          className="px-3 py-4 text-center text-gray-800"
                         >
                           No forex data available
                         </td>
@@ -187,7 +187,7 @@ const InfoWidgets: React.FC = () => {
                               <div className="font-medium text-gray-900">
                                 {rate.code}
                               </div>
-                              <div className="text-gray-500 text-sm ml-2">
+                              <div className="text-gray-800 text-sm ml-2">
                                 {rate.currency}
                               </div>
                             </div>

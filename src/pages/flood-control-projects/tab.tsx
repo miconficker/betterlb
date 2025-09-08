@@ -13,7 +13,7 @@ export default function FloodControlProjectsTab({
         className={`px-4 py-2 border-b-2 ${
           selectedTab === 'index'
             ? 'border-blue-500'
-            : 'text-gray-600 hover:text-blue-600'
+            : 'text-gray-800 hover:text-blue-600'
         } font-medium flex items-center`}
       >
         <BarChart3 className="w-4 h-4 mr-2" />
@@ -24,7 +24,7 @@ export default function FloodControlProjectsTab({
         className={`px-4 py-2 border-b-2 ${
           selectedTab === 'table'
             ? 'border-blue-500'
-            : 'text-gray-600 hover:text-blue-600'
+            : 'text-gray-800 hover:text-blue-600'
         } font-medium flex items-center`}
       >
         <Table className="w-4 h-4 mr-2" />
@@ -35,7 +35,7 @@ export default function FloodControlProjectsTab({
         className={`px-4 py-2 border-b-2 ${
           selectedTab === 'contractors'
             ? 'border-blue-500'
-            : 'text-gray-600 hover:text-blue-600'
+            : 'text-gray-800 hover:text-blue-600'
         } font-medium flex items-center`}
       >
         <Users className="w-4 h-4 mr-2" />
@@ -46,7 +46,7 @@ export default function FloodControlProjectsTab({
         className={`px-4 py-2 border-b-2 ${
           selectedTab === 'map'
             ? 'border-blue-500'
-            : 'text-gray-600 hover:text-blue-600'
+            : 'text-gray-800 hover:text-blue-600'
         } font-medium flex items-center`}
       >
         <Map className="w-4 h-4 mr-2" />

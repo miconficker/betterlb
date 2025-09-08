@@ -160,7 +160,7 @@ const DashboardStatistics: React.FC = () => {
     <div className="mb-6">
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="bg-white rounded-lg shadow-sm p-4">
-          <h3 className="text-sm font-medium text-gray-500 mb-1">
+          <h3 className="text-sm font-medium text-gray-800 mb-1">
             Total Projects
           </h3>
           <p className="text-2xl font-bold text-blue-600">
@@ -169,7 +169,7 @@ const DashboardStatistics: React.FC = () => {
         </div>
 
         <div className="bg-white rounded-lg shadow-sm p-4">
-          <h3 className="text-sm font-medium text-gray-500 mb-1">
+          <h3 className="text-sm font-medium text-gray-800 mb-1">
             Total Contract Cost
           </h3>
           <p className="text-2xl font-bold text-green-600">
@@ -178,7 +178,7 @@ const DashboardStatistics: React.FC = () => {
         </div>
 
         <div className="bg-white rounded-lg shadow-sm p-4">
-          <h3 className="text-sm font-medium text-gray-500 mb-1">
+          <h3 className="text-sm font-medium text-gray-800 mb-1">
             Unique Contractors
           </h3>
           <p className="text-2xl font-bold text-purple-600">
@@ -589,7 +589,7 @@ const FloodControlProjects: React.FC = () => {
                   </h2>
                 </div>
                 <button
-                  className="md:hidden text-gray-500 hover:text-gray-700"
+                  className="md:hidden text-gray-800 hover:text-gray-700"
                   onClick={() => setShowSidebar(false)}
                 >
                   <X className="w-5 h-5" />
@@ -778,14 +778,14 @@ const FloodControlProjects: React.FC = () => {
                 <div className="mb-6">
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div className="bg-white rounded-lg shadow-sm p-4">
-                      <h3 className="text-sm font-medium text-gray-500 mb-1">
+                      <h3 className="text-sm font-medium text-gray-800 mb-1">
                         Total Projects
                       </h3>
                       <p className="text-2xl font-bold text-blue-600">9,855</p>
                     </div>
 
                     <div className="bg-white rounded-lg shadow-sm p-4">
-                      <h3 className="text-sm font-medium text-gray-500 mb-1">
+                      <h3 className="text-sm font-medium text-gray-800 mb-1">
                         Total Contract Cost
                       </h3>
                       <p className="text-2xl font-bold text-green-600">
@@ -794,7 +794,7 @@ const FloodControlProjects: React.FC = () => {
                     </div>
 
                     <div className="bg-white rounded-lg shadow-sm p-4">
-                      <h3 className="text-sm font-medium text-gray-500 mb-1">
+                      <h3 className="text-sm font-medium text-gray-800 mb-1">
                         Unique Contractors
                       </h3>
                       <p className="text-2xl font-bold text-purple-600">
@@ -1032,7 +1032,7 @@ const FloodControlProjects: React.FC = () => {
                   View Table
                 </a>
               </div>
-              <p className="text-gray-600">
+              <p className="text-gray-800">
                 Visit the Table view for detailed search results, sortable
                 columns, and advanced filtering options.
               </p>
@@ -1046,14 +1046,14 @@ const FloodControlProjects: React.FC = () => {
                   About This Data
                 </h2>
               </div>
-              <p className="text-gray-600 mb-4">
+              <p className="text-gray-800 mb-4">
                 This dashboard visualizes flood control infrastructure projects
                 across the Philippines. The data includes information about
                 project locations, types, implementing offices, and more. Use
                 the filters in the sidebar to explore specific aspects of the
                 data or use the search functionality to find specific projects.
               </p>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-gray-800">
                 Source: https://sumbongsapangulo.ph/flood-control-map/
               </p>
             </div>

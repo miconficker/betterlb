@@ -16,7 +16,7 @@ const ColorBlock = ({
     <div className={`w-12 h-12 rounded ${color}`} />
     <div>
       <div className="font-medium">{name}</div>
-      <div className="text-sm text-gray-500">{value}</div>
+      <div className="text-sm text-gray-800">{value}</div>
     </div>
   </div>
 )
@@ -30,7 +30,7 @@ const TypographyExample = ({
 }) => (
   <div className="mb-4">
     <div className={className}>The quick brown fox jumps over the lazy dog</div>
-    <div className="text-sm text-gray-500 mt-1">{label}</div>
+    <div className="text-sm text-gray-800 mt-1">{label}</div>
   </div>
 )
 
@@ -83,7 +83,7 @@ const DesignGuide: React.FC = () => {
         <Card className="mb-8">
           <CardHeader>
             <h2 className="text-2xl font-semibold">Typography</h2>
-            <p className="text-gray-600">
+            <p className="text-gray-800">
               Plus Jakarta Sans is our primary font family
             </p>
           </CardHeader>
@@ -113,7 +113,7 @@ const DesignGuide: React.FC = () => {
         <Card className="mb-8">
           <CardHeader>
             <h2 className="text-2xl font-semibold">Colors</h2>
-            <p className="text-gray-600">Our color palette</p>
+            <p className="text-gray-800">Our color palette</p>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -185,7 +185,7 @@ const DesignGuide: React.FC = () => {
         <Card className="mb-8">
           <CardHeader>
             <h2 className="text-2xl font-semibold">Lists</h2>
-            <p className="text-gray-600">
+            <p className="text-gray-800">
               Different list styles and search results
             </p>
           </CardHeader>
@@ -205,7 +205,7 @@ const DesignGuide: React.FC = () => {
                           <h4 className="text-lg font-medium text-gray-900">
                             {result.title}
                           </h4>
-                          <span className="inline-block px-2 py-1 mt-2 text-xs font-medium rounded bg-gray-100 text-gray-600">
+                          <span className="inline-block px-2 py-1 mt-2 text-xs font-medium rounded bg-gray-100 text-gray-800">
                             {result.category}
                           </span>
                         </div>
@@ -226,23 +226,23 @@ const DesignGuide: React.FC = () => {
         <Card className="mb-8">
           <CardHeader>
             <h2 className="text-2xl font-semibold">Tables</h2>
-            <p className="text-gray-600">Table styles for data presentation</p>
+            <p className="text-gray-800">Table styles for data presentation</p>
           </CardHeader>
           <CardContent>
             <div className="overflow-x-auto">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-gray-50">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-800 uppercase tracking-wider">
                       Name
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-800 uppercase tracking-wider">
                       Email
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-800 uppercase tracking-wider">
                       Status
                     </th>
-                    <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-right text-xs font-medium text-gray-800 uppercase tracking-wider">
                       Actions
                     </th>
                   </tr>
@@ -256,7 +256,7 @@ const DesignGuide: React.FC = () => {
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm text-gray-500">{row.email}</div>
+                        <div className="text-sm text-gray-800">{row.email}</div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <span
@@ -288,7 +288,7 @@ const DesignGuide: React.FC = () => {
         <Card className="mb-8">
           <CardHeader>
             <h2 className="text-2xl font-semibold">Article Components</h2>
-            <p className="text-gray-600">Article cards and content styles</p>
+            <p className="text-gray-800">Article cards and content styles</p>
           </CardHeader>
           <CardContent>
             <div className="space-y-8">
@@ -308,7 +308,7 @@ const DesignGuide: React.FC = () => {
                       <h3 className="text-xl font-semibold mb-2">
                         Digital Government Initiatives
                       </h3>
-                      <p className="text-gray-600 mb-4">
+                      <p className="text-gray-800 mb-4">
                         Latest updates on the government's digital
                         transformation projects and e-services.
                       </p>
@@ -345,7 +345,7 @@ const DesignGuide: React.FC = () => {
                 <h3 className="font-medium mb-4">Article Content</h3>
                 <div className="prose max-w-none">
                   <h1 className="text-3xl font-bold mb-4">Article Title</h1>
-                  <p className="text-gray-600 mb-6">
+                  <p className="text-gray-800 mb-6">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua.
@@ -353,7 +353,7 @@ const DesignGuide: React.FC = () => {
                   <h2 className="text-2xl font-semibold mb-3">
                     Section Heading
                   </h2>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-gray-800 mb-4">
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco
                     laboris nisi ut aliquip ex ea commodo consequat.
                   </p>
@@ -367,7 +367,7 @@ const DesignGuide: React.FC = () => {
         <Card>
           <CardHeader>
             <h2 className="text-2xl font-semibold">Official Biography</h2>
-            <p className="text-gray-600">
+            <p className="text-gray-800">
               Government official profile and biography layout
             </p>
           </CardHeader>
@@ -416,7 +416,7 @@ const DesignGuide: React.FC = () => {
                           Contact Information
                         </h3>
                         <div className="space-y-4">
-                          <div className="flex items-center text-gray-600">
+                          <div className="flex items-center text-gray-800">
                             <Building className="h-5 w-5 mr-3 text-primary-600" />
                             <div>
                               <div className="font-medium">Office</div>
@@ -425,21 +425,21 @@ const DesignGuide: React.FC = () => {
                               </div>
                             </div>
                           </div>
-                          <div className="flex items-center text-gray-600">
+                          <div className="flex items-center text-gray-800">
                             <Phone className="h-5 w-5 mr-3 text-primary-600" />
                             <div>
                               <div className="font-medium">Phone</div>
                               <div className="text-sm">+63 (2) 8736 8645</div>
                             </div>
                           </div>
-                          <div className="flex items-center text-gray-600">
+                          <div className="flex items-center text-gray-800">
                             <Mail className="h-5 w-5 mr-3 text-primary-600" />
                             <div>
                               <div className="font-medium">Email</div>
                               <div className="text-sm">op@president.gov.ph</div>
                             </div>
                           </div>
-                          <div className="flex items-center text-gray-600">
+                          <div className="flex items-center text-gray-800">
                             <Globe className="h-5 w-5 mr-3 text-primary-600" />
                             <div>
                               <div className="font-medium">Website</div>
@@ -462,10 +462,10 @@ const DesignGuide: React.FC = () => {
                               className="border-l-2 border-primary-500 pl-4"
                             >
                               <div className="font-medium">{edu.degree}</div>
-                              <div className="text-sm text-gray-600">
+                              <div className="text-sm text-gray-800">
                                 {edu.institution}
                               </div>
-                              <div className="text-sm text-gray-500">
+                              <div className="text-sm text-gray-800">
                                 {edu.year}
                               </div>
                             </div>
@@ -481,7 +481,7 @@ const DesignGuide: React.FC = () => {
                           Biography
                         </h3>
                         <div className="prose max-w-none">
-                          <p className="text-gray-600 leading-relaxed">
+                          <p className="text-gray-800 leading-relaxed">
                             Ferdinand "Bongbong" Romualdez Marcos Jr. serves as
                             the 17th President of the Philippines, assuming
                             office on June 30, 2022. As the country's chief
@@ -489,7 +489,7 @@ const DesignGuide: React.FC = () => {
                             policies aimed at national development and public
                             welfare.
                           </p>
-                          <p className="text-gray-600 leading-relaxed mt-4">
+                          <p className="text-gray-800 leading-relaxed mt-4">
                             Prior to his presidency, he served in various
                             government positions including as a Senator of the
                             Philippines from 2010 to 2016, and as Governor of
@@ -508,7 +508,7 @@ const DesignGuide: React.FC = () => {
                           {achievements.map((achievement, index) => (
                             <div key={index} className="flex items-start">
                               <Award className="h-5 w-5 text-primary-600 mt-1 mr-3 flex-shrink-0" />
-                              <p className="text-gray-600">{achievement}</p>
+                              <p className="text-gray-800">{achievement}</p>
                             </div>
                           ))}
                         </div>

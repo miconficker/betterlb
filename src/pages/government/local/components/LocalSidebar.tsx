@@ -43,7 +43,7 @@ export default function LocalSidebar({ currentRegion }: LocalSidebarProps) {
           <div className="max-h-[calc(100vh-200px)] overflow-y-auto">
             <nav className="p-2 space-y-4 pt-4">
               <div>
-                <h3 className="px-3 text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">
+                <h3 className="px-3 text-xs font-medium text-gray-800 uppercase tracking-wider mb-2">
                   Regions
                 </h3>
                 <ul className="space-y-1">
@@ -65,7 +65,7 @@ export default function LocalSidebar({ currentRegion }: LocalSidebarProps) {
                           </span>
                           <div className="flex items-center ml-2">
                             <Users className="h-3 w-3 text-gray-400 mr-1" />
-                            <span className="text-xs text-gray-500">
+                            <span className="text-xs text-gray-800">
                               {region.cityCount}
                             </span>
                           </div>

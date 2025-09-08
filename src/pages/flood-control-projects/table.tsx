@@ -163,7 +163,7 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
                 >
                   <div className="flex justify-between items-center">
                     <span className="truncate">{option.value}</span>
-                    <span className="text-gray-500 text-xs">
+                    <span className="text-gray-800 text-xs">
                       {option.count}
                     </span>
                   </div>
@@ -319,25 +319,25 @@ const ResultsStatistics: React.FC<{
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="bg-blue-50 p-3 rounded-md">
-          <p className="text-sm text-gray-500">Total Projects</p>
+          <p className="text-sm text-gray-800">Total Projects</p>
           <p className="text-2xl font-bold text-blue-700">
             {totalCount.toLocaleString()}
           </p>
         </div>
         <div className="bg-green-50 p-3 rounded-md">
-          <p className="text-sm text-gray-500">Estimated Total Contract Cost</p>
+          <p className="text-sm text-gray-800">Estimated Total Contract Cost</p>
           <p className="text-2xl font-bold text-green-700">
             ₱
             {estimatedTotalContractCost.toLocaleString(undefined, {
               maximumFractionDigits: 0,
             })}
           </p>
-          <p className="text-xs text-gray-500 mt-1">
+          <p className="text-xs text-gray-800 mt-1">
             Based on average project cost
           </p>
         </div>
         <div className="bg-purple-50 p-3 rounded-md">
-          <p className="text-sm text-gray-500">Unique Contractors</p>
+          <p className="text-sm text-gray-800">Unique Contractors</p>
           <p className="text-2xl font-bold text-purple-700">
             {uniqueContractors.toLocaleString()}
           </p>
@@ -399,7 +399,7 @@ const TableHits: React.FC<{ filters: FilterState; searchTerm: string }> = ({
         onClick={() => handleSort(field)}
       >
         <div className="flex items-center">
-          <span className={`${isActive ? 'text-blue-600' : 'text-gray-500'}`}>
+          <span className={`${isActive ? 'text-blue-600' : 'text-gray-800'}`}>
             {label}
           </span>
           {isActive ? (
@@ -520,7 +520,7 @@ const TableHits: React.FC<{ filters: FilterState; searchTerm: string }> = ({
                   className={`relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium ${
                     currentPage === 0
                       ? 'text-gray-300 cursor-not-allowed'
-                      : 'text-gray-500 hover:bg-gray-50'
+                      : 'text-gray-800 hover:bg-gray-50'
                   }`}
                 >
                   <span className="sr-only">Previous</span>
@@ -566,7 +566,7 @@ const TableHits: React.FC<{ filters: FilterState; searchTerm: string }> = ({
                       className={`relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium ${
                         currentPage === pageToShow
                           ? 'z-10 bg-blue-50 border-blue-500 text-blue-600'
-                          : 'bg-white text-gray-500 hover:bg-gray-50'
+                          : 'bg-white text-gray-800 hover:bg-gray-50'
                       }`}
                     >
                       {pageToShow + 1}
@@ -583,7 +583,7 @@ const TableHits: React.FC<{ filters: FilterState; searchTerm: string }> = ({
                   className={`relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium ${
                     currentPage >= totalPages - 1
                       ? 'text-gray-300 cursor-not-allowed'
-                      : 'text-gray-500 hover:bg-gray-50'
+                      : 'text-gray-800 hover:bg-gray-50'
                   }`}
                 >
                   <span className="sr-only">Next</span>
@@ -901,14 +901,14 @@ const FloodControlProjectsTable: React.FC = () => {
                   About This Data
                 </h2>
               </div>
-              <p className="text-gray-600 mb-4">
+              <p className="text-gray-800 mb-4">
                 This table displays flood control infrastructure projects across
                 the Philippines. Use the filters in the sidebar to narrow down
                 specific projects, or use the search functionality to find
                 projects by keyword. You can sort the table by clicking on any
                 column header.
               </p>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-gray-800">
                 Source: https://sumbongsapangulo.ph/flood-control-map/
               </p>
             </div>

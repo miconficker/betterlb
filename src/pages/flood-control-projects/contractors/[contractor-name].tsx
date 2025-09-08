@@ -179,13 +179,13 @@ const ResultsStatistics: React.FC<{
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="bg-blue-50 p-4 rounded-md">
-          <p className="text-sm text-gray-500">Total Projects</p>
+          <p className="text-sm text-gray-800">Total Projects</p>
           <p className="text-3xl font-bold text-blue-700">
             {totalCount.toLocaleString()}
           </p>
         </div>
         <div className="bg-green-50 p-4 rounded-md">
-          <p className="text-sm text-gray-500">Total Contract Cost</p>
+          <p className="text-sm text-gray-800">Total Contract Cost</p>
           <p className="text-3xl font-bold text-green-700">
             ₱
             {estimatedTotalContractCost.toLocaleString(undefined, {
@@ -194,7 +194,7 @@ const ResultsStatistics: React.FC<{
           </p>
         </div>
         <div className="bg-purple-50 p-4 rounded-md">
-          <p className="text-sm text-gray-500">Average Project Cost</p>
+          <p className="text-sm text-gray-800">Average Project Cost</p>
           <p className="text-3xl font-bold text-purple-700">
             ₱
             {avgCostPerProject.toLocaleString(undefined, {
@@ -287,7 +287,7 @@ const TableHits: React.FC<{ selectedContractor: string }> = ({
         onClick={() => handleSort(field)}
       >
         <div className="flex items-center">
-          <span className={`${isActive ? 'text-blue-600' : 'text-gray-500'}`}>
+          <span className={`${isActive ? 'text-blue-600' : 'text-gray-800'}`}>
             {label}
           </span>
           {isActive ? (
@@ -405,7 +405,7 @@ const TableHits: React.FC<{ selectedContractor: string }> = ({
                   className={`relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium ${
                     currentPage === 0
                       ? 'text-gray-300 cursor-not-allowed'
-                      : 'text-gray-500 hover:bg-gray-50'
+                      : 'text-gray-800 hover:bg-gray-50'
                   }`}
                 >
                   <span className="sr-only">Previous</span>
@@ -451,7 +451,7 @@ const TableHits: React.FC<{ selectedContractor: string }> = ({
                       className={`relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium ${
                         currentPage === pageToShow
                           ? 'z-10 bg-blue-50 border-blue-500 text-blue-600'
-                          : 'bg-white text-gray-500 hover:bg-gray-50'
+                          : 'bg-white text-gray-800 hover:bg-gray-50'
                       }`}
                     >
                       {pageToShow + 1}
@@ -468,7 +468,7 @@ const TableHits: React.FC<{ selectedContractor: string }> = ({
                   className={`relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium ${
                     currentPage >= totalPages - 1
                       ? 'text-gray-300 cursor-not-allowed'
-                      : 'text-gray-500 hover:bg-gray-50'
+                      : 'text-gray-800 hover:bg-gray-50'
                   }`}
                 >
                   <span className="sr-only">Next</span>
@@ -592,7 +592,7 @@ const ContractorDetail: React.FC = () => {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading contractor details...</p>
+          <p className="mt-4 text-gray-800">Loading contractor details...</p>
         </div>
       </div>
     )
@@ -622,7 +622,7 @@ const ContractorDetail: React.FC = () => {
             Back to Contractors
           </Link>
 
-          <nav className="text-sm text-gray-500 mb-4">
+          <nav className="text-sm text-gray-800 mb-4">
             <Link to="/" className="hover:text-blue-600">
               Home
             </Link>
@@ -646,21 +646,21 @@ const ContractorDetail: React.FC = () => {
         <div className="flex border-b border-gray-200 mb-6">
           <Link
             to="/flood-control-projects"
-            className="px-4 py-2 text-gray-600 hover:text-blue-600 font-medium flex items-center"
+            className="px-4 py-2 text-gray-800 hover:text-blue-600 font-medium flex items-center"
           >
             <BarChart3 className="w-4 h-4 mr-2" />
             Visual
           </Link>
           <Link
             to="/flood-control-projects/table"
-            className="px-4 py-2 text-gray-600 hover:text-blue-600 font-medium flex items-center"
+            className="px-4 py-2 text-gray-800 hover:text-blue-600 font-medium flex items-center"
           >
             <Table className="w-4 h-4 mr-2" />
             Table
           </Link>
           <Link
             to="/flood-control-projects/map"
-            className="px-4 py-2 text-gray-600 hover:text-blue-600 font-medium flex items-center"
+            className="px-4 py-2 text-gray-800 hover:text-blue-600 font-medium flex items-center"
           >
             <Map className="w-4 h-4 mr-2" />
             Map
@@ -685,7 +685,7 @@ const ContractorDetail: React.FC = () => {
                     <h1 className="text-3xl font-bold text-gray-900 mb-2">
                       {contractorProfile.company_name}
                     </h1>
-                    <p className="text-gray-600 mb-4">
+                    <p className="text-gray-800 mb-4">
                       {contractorProfile.description ||
                         'Construction company specializing in flood control projects'}
                     </p>
@@ -699,7 +699,7 @@ const ContractorDetail: React.FC = () => {
                       <h4 className="font-semibold text-gray-900 mb-1">
                         Address
                       </h4>
-                      <p className="text-gray-600 text-sm">
+                      <p className="text-gray-800 text-sm">
                         {contractorProfile.address}
                       </p>
                     </div>
@@ -709,7 +709,7 @@ const ContractorDetail: React.FC = () => {
                       <h4 className="font-semibold text-gray-900 mb-1">
                         Phone
                       </h4>
-                      <p className="text-gray-600 text-sm">
+                      <p className="text-gray-800 text-sm">
                         {contractorProfile.phone}
                       </p>
                     </div>
@@ -719,7 +719,7 @@ const ContractorDetail: React.FC = () => {
                       <h4 className="font-semibold text-gray-900 mb-1">
                         Email
                       </h4>
-                      <p className="text-gray-600 text-sm">
+                      <p className="text-gray-800 text-sm">
                         {contractorProfile.email}
                       </p>
                     </div>
@@ -751,7 +751,7 @@ const ContractorDetail: React.FC = () => {
                       <div className="space-y-1">
                         {contractorProfile.key_personnel.map(
                           (person, index) => (
-                            <div key={index} className="text-sm text-gray-600">
+                            <div key={index} className="text-sm text-gray-800">
                               <span className="font-medium">{person.name}</span>{' '}
                               - {person.role}
                             </div>
@@ -766,7 +766,7 @@ const ContractorDetail: React.FC = () => {
               <div>
                 <div className="space-y-4">
                   <div className="bg-blue-50 p-4 rounded-md">
-                    <p className="text-sm text-gray-500">Total Projects</p>
+                    <p className="text-sm text-gray-800">Total Projects</p>
                     <p className="text-2xl font-bold text-blue-700">
                       {contractor?.count || 0}
                     </p>
@@ -774,7 +774,7 @@ const ContractorDetail: React.FC = () => {
 
                   {contractorProfile.sec_registration && (
                     <div className="bg-purple-50 p-4 rounded-md">
-                      <p className="text-sm text-gray-500">SEC Registration</p>
+                      <p className="text-sm text-gray-800">SEC Registration</p>
                       <p className="text-sm font-medium text-purple-700">
                         {contractorProfile.sec_registration}
                       </p>
@@ -783,7 +783,7 @@ const ContractorDetail: React.FC = () => {
 
                   {contractorProfile.license && (
                     <div className="bg-orange-50 p-4 rounded-md">
-                      <p className="text-sm text-gray-500">License</p>
+                      <p className="text-sm text-gray-800">License</p>
                       <p className="text-sm text-orange-700">
                         {contractorProfile.license}
                       </p>
@@ -802,7 +802,7 @@ const ContractorDetail: React.FC = () => {
               <h1 className="text-3xl font-bold text-gray-900 mb-2">
                 {contractor?.value || 'Contractor'}
               </h1>
-              <p className="text-gray-600">
+              <p className="text-gray-800">
                 Flood control projects contractor with {contractor?.count || 0}{' '}
                 total projects
               </p>
@@ -919,28 +919,28 @@ const ContractorDetail: React.FC = () => {
                             <h3 className="font-bold text-gray-900">
                               {project.ProjectDescription || 'Unnamed Project'}
                             </h3>
-                            <p className="text-sm text-gray-600 mt-1">
+                            <p className="text-sm text-gray-800 mt-1">
                               <strong>Region:</strong> {project.Region || 'N/A'}
                             </p>
-                            <p className="text-sm text-gray-600">
+                            <p className="text-sm text-gray-800">
                               <strong>Province:</strong>{' '}
                               {project.Province || 'N/A'}
                             </p>
-                            <p className="text-sm text-gray-600">
+                            <p className="text-sm text-gray-800">
                               <strong>Municipality:</strong>{' '}
                               {project.Municipality || 'N/A'}
                             </p>
-                            <p className="text-sm text-gray-600">
+                            <p className="text-sm text-gray-800">
                               <strong>Type of Work:</strong>{' '}
                               {project.TypeofWork || 'N/A'}
                             </p>
-                            <p className="text-sm text-gray-600">
+                            <p className="text-sm text-gray-800">
                               <strong>Cost:</strong> ₱
                               {project.ContractCost
                                 ? Number(project.ContractCost).toLocaleString()
                                 : 'N/A'}
                             </p>
-                            <p className="text-sm text-gray-600">
+                            <p className="text-sm text-gray-800">
                               <strong>Year:</strong>{' '}
                               {project.InfraYear || 'N/A'}
                             </p>
@@ -978,10 +978,10 @@ const ContractorDetail: React.FC = () => {
                       contractor?.value ||
                       'Contractor'}
                   </h4>
-                  <p className="text-xs text-gray-600">
+                  <p className="text-xs text-gray-800">
                     <strong>Total:</strong> {mapProjects.length}
                   </p>
-                  <p className="text-xs text-gray-600">
+                  <p className="text-xs text-gray-800">
                     <strong>With Location:</strong>{' '}
                     {
                       mapProjects.filter((p) => p.Latitude && p.Longitude)
@@ -1027,7 +1027,7 @@ const ContractorDetail: React.FC = () => {
             <Info className="w-5 h-5 text-blue-500 mt-0.5" />
             <div>
               <h4 className="text-sm font-medium text-gray-900">Data Source</h4>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-gray-800">
                 This data is sourced from the Department of Public Works and
                 Highways (DPWH) and represents flood control infrastructure
                 projects across the Philippines.
