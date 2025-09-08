@@ -13,6 +13,7 @@ import Home from './pages/Home'
 import DesignGuide from './pages/DesignGuide'
 import Services from './pages/services'
 import AboutPage from './pages/about'
+import AccessibilityPage from './pages/accessibility'
 import AboutPhilippines from './pages/philippines/about'
 import PhilippinesHistory from './pages/philippines/history'
 import PhilippinesCulture from './pages/philippines/culture'
@@ -90,6 +91,7 @@ function App() {
             <Route path="/design" element={<DesignGuide />} />
             <Route path="/services" element={<Services />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/accessibility" element={<AccessibilityPage />} />
             <Route path="/search" element={<SearchPage />} />
             <Route path="/sitemap" element={<SitemapPage />} />
             <Route path="/philippines/about" element={<AboutPhilippines />} />

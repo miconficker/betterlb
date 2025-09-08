@@ -21,6 +21,7 @@ const SitemapPage: React.FC = () => {
       links: [
         { title: 'Home', url: '/', description: 'Main landing page' },
         { title: 'About', url: '/about', description: 'About BetterGov.ph' },
+        { title: 'Accessibility', url: '/accessibility', description: 'Accessibility statement and features' },
         { title: 'Search', url: '/search', description: 'Search the entire site' },
       ]
     },

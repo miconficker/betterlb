@@ -24,6 +24,8 @@ dist-ssr
 *.sw?
 .env
 .windsurf/
+.claude/
+
 
 functions/wrangler.toml
 functions/.wrangler
