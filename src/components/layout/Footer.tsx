@@ -44,15 +44,15 @@ const Footer: React.FC = () => {
             </p>
             <div className="flex space-x-4">
               {footerNavigation.socialLinks.map((link) => (
-                <a
+                <Link
                   key={link.label}
-                  href={link.href}
+                  to={link.href}
                   className="text-gray-400 hover:text-white transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   {getSocialIcon(link.label)}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -63,12 +63,12 @@ const Footer: React.FC = () => {
               <ul className="space-y-2">
                 {section.links.map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
+                    <Link
+                      to={link.href}
                       className="text-gray-400 hover:text-white text-sm transition-colors"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

@@ -85,8 +85,7 @@ export const footerNavigation = {
       title: 'Services',
       links: [
         { label: 'All Services', href: '/services' },
-        { label: 'Popular Services', href: '/services/popular' },
-        { label: 'Service Directory', href: '/services/directory' },
+        { label: 'Service Directory', href: '/services' },
         { label: 'Websites', href: '/services/websites' },
         { label: 'Forex', href: '/data/forex' },
         { label: 'Weather', href: '/data/weather' },

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, Home, Users, Building2, FileText, Globe, Map, Calendar, Phone, Search, Briefcase, GraduationCap, Heart, Car, FileCheck, Wallet, Cloud, Umbrella } from 'lucide-react';
+import { ChevronRight, Home, Building2, FileText, Globe, Briefcase, FileCheck, Waves } from 'lucide-react';
 import SEO from '../../components/SEO';
 
 interface SitemapSection {
@@ -94,6 +94,16 @@ const SitemapPage: React.FC = () => {
       links: [
         { title: 'Weather', url: '/data/weather', description: 'Real-time weather information' },
         { title: 'Foreign Exchange Rates', url: '/data/forex', description: 'Current foreign exchange rates' },
+      ]
+    },
+    {
+      title: 'Infrastructure',
+      icon: <Waves className="h-5 w-5" />,
+      links: [
+        { title: 'Flood Control Projects', url: '/flood-control-projects', description: 'Overview of flood control infrastructure projects' },
+        { title: 'Projects Table View', url: '/flood-control-projects/table', description: 'Detailed table view of all flood control projects' },
+        { title: 'Projects Map View', url: '/flood-control-projects/map', description: 'Interactive map showing flood control project locations' },
+        { title: 'Contractors Directory', url: '/flood-control-projects/contractors', description: 'Directory of contractors working on flood control projects' },
       ]
     },
   ];
