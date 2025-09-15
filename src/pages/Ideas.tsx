@@ -290,7 +290,7 @@ const Ideas: React.FC = () => {
                       </div>
 
                       {/* Voting Buttons */}
-                      <div className="flex flex-col items-center ml-4">
+                      {/* <div className="flex flex-col items-center ml-4">
                         <button
                           onClick={() => handleVote(idea.id, 'up')}
                           className={`p-1 rounded transition-colors ${
@@ -316,7 +316,7 @@ const Ideas: React.FC = () => {
                         >
                           <ChevronDown className="h-5 w-5" />
                         </button>
-                      </div>
+                      </div> */}
                     </div>
 
                     <p className="text-gray-700 mb-4 leading-relaxed">
@@ -344,7 +344,7 @@ const Ideas: React.FC = () => {
                       </span>
                     </div>
 
-                    <div className="flex items-center justify-between text-sm text-gray-500">
+                    {/* <div className="flex items-center justify-between text-sm text-gray-500">
                       <div className="flex items-center space-x-4">
                         <span className="flex items-center">
                           <ChevronUp className="h-4 w-4 text-green-500 mr-1" />
@@ -358,7 +358,7 @@ const Ideas: React.FC = () => {
                       <span className="font-medium">
                         Score: {idea.upvotes - idea.downvotes}
                       </span>
-                    </div>
+                    </div> */}
                   </CardContent>
                 </Card>
               ))}
