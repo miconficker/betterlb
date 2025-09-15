@@ -17,6 +17,11 @@ const Navbar: React.FC = () => {
     }
   }
 
+  const closeMenu = () => {
+    setIsOpen(false)
+    setActiveMenu(null)
+  }
+
   const toggleSubmenu = (label: string) => {
     setActiveMenu(activeMenu === label ? null : label)
   }
@@ -182,6 +187,7 @@ const Navbar: React.FC = () => {
                     <Link
                       key={child.label}
                       to={child.href}
+                      onClick={closeMenu}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary-500"
                     >
                       {child.label}
@@ -193,18 +199,21 @@ const Navbar: React.FC = () => {
           ))}
           <Link
             to="/about"
+            onClick={closeMenu}
             className="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-500"
           >
             About
           </Link>
           <Link
             to="/search"
+            onClick={closeMenu}
             className="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-500"
           >
             Search
           </Link>
           <Link
             to="/sitemap"
+            onClick={closeMenu}
             className="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-500"
           >
             Sitemap
