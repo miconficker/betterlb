@@ -78,19 +78,20 @@ const getNestedValue = (obj: any, path: string): string | undefined => {
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [language, setLanguageState] = useState<LanguageType>('en')
-  const [translations, setTranslations] = useState<any>(enTranslations)
-  const [isLoading, setIsLoading] = useState(false)
-
-  useEffect(() => {
-    // Load saved language preference
+  // Initialize language from localStorage or default to 'en'
+  const getInitialLanguage = (): LanguageType => {
     const savedLanguage = localStorage.getItem('language') as LanguageType
     const validLanguages: LanguageType[] = ['en', 'fil', 'tgl', 'ceb', 'ilo', 'hil', 'war', 'pam', 'bcl', 'pag', 'mag', 'tsg', 'mdh']
 
     if (savedLanguage && validLanguages.includes(savedLanguage)) {
-      setLanguageState(savedLanguage)
+      return savedLanguage
     }
-  }, [])
+    return 'en'
+  }
+
+  const [language, setLanguageState] = useState<LanguageType>(getInitialLanguage)
+  const [translations, setTranslations] = useState<any>(enTranslations)
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     // Load translations when language changes
