@@ -20,12 +20,7 @@
     "index:contractor-profiles": "node ./scripts/index_contractors.cjs",
     "load:flood-control:arcgis": "node ./src/data/flood_control/load_flood_control_arcgis.js",
     "process:unique-contractors": "node ./scripts/process_contractors.cjs",
-    "fetch:contractor-profiles": "node ./scripts/fetch_contractor_profiles.cjs",
-    "translate": "npx tsx scripts/localization-cli.ts",
-    "translate:next": "npx tsx scripts/localization-cli.ts next",
-    "translate:status": "npx tsx scripts/localization-cli.ts status",
-    "translate:interactive": "npx tsx scripts/localization-cli.ts interactive",
-    "translate:scan": "npx tsx scripts/localization-cli.ts scan"
+    "fetch:contractor-profiles": "node ./scripts/fetch_contractor_profiles.cjs"
   },
   "dependencies": {
     "@meilisearch/instant-meilisearch": "^0.26.0",

@@ -1,22 +1,10 @@
 {
-  "navbar": {
-    "philippines": "Pilipinas",
-    "home": "Tahanan",
-    "services": "Mga Serbisyo",
-    "travel": "Paglalakbay",
-    "government": "Pamahalaan",
-    "flood control projects": "Flood Control Projects"
-  },
   "hero": {
-    "title": "Maligayang Pagdating sa Unopisyal na Portal ng Republika ng Pilipinas",
-    "subtitle": "I-access ang mga serbisyo ng pamahalaan, manatiling updated sa pinakabagong balita, at humanap ng impormasyon tungkol sa Pilipinas.",
-    "search": "Maghanap ng mga serbisyo, impormasyon, o ahensya"
+    "title": "Maligayang Pagdating sa BetterGov.ph",
+    "subtitle": "Ang volunteer-run portal ng Republika ng Pilipinas. Maghanap ng impormasyon, i-access ang mga serbisyo ng pamahalaan, manatiling updated sa pinakabagong balita tungkol sa Pilipinas."
   },
   "services": {
     "title": "Mga Sikat na Serbisyo"
-  },
-  "news": {
-    "title": "Pinakabagong Balita at Updates"
   },
   "weather": {
     "title": "Mga Update sa Panahon"
@@ -24,7 +12,17 @@
   "forex": {
     "title": "Palitan ng Pera"
   },
+  "news": {
+    "title": "Pinakabagong Balita at Updates"
+  },
   "footer": {
-    "copyright": "© 2025 BetterGov."
+    "copyright": "© 2025 BetterGov. Lahat ng nilalaman ay public domain maliban kung iba ang nakasaad."
+  },
+  "navbar": {
+    "philippines": "Pilipinas",
+    "services": "Mga Serbisyo",
+    "travel": "Paglalakbay",
+    "government": "Pamahalaan",
+    "flood control projects": "Mga Proyekto sa Pagkontrol ng Baha"
   }
 }

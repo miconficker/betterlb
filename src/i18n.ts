@@ -5,13 +5,30 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 // Import translation files
 import enCommon from './i18n/en/common.json'
 import filCommon from './i18n/fil/common.json'
+import cebCommon from './i18n/ceb/common.json'
+import hilCommon from './i18n/hil/common.json'
+import iloCommon from './i18n/ilo/common.json'
+import warCommon from './i18n/war/common.json'
 
+// TODO: Will make this more dynamic later. Trying to avoid more conflicts.
 const resources = {
   en: {
     common: enCommon,
   },
   fil: {
     common: filCommon,
+  },
+  ceb: {
+    common: cebCommon,
+  },
+  hil: {
+    common: hilCommon,
+  },
+  ilo: {
+    common: iloCommon,
+  },
+  war: {
+    common: warCommon,
   },
 }
 
