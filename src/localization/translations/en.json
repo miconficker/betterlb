@@ -17,5 +17,12 @@
   },
   "footer": {
     "copyright": "© 2025 BetterGov. All content is public domain unless otherwise specified."
+  },
+  "navbar": {
+    "philippines": "Philippines",
+    "services": "Services",
+    "travel": "Travel",
+    "government": "Government",
+    "flood control projects": "Flood Control Projects"
   }
 }

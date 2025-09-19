@@ -1,0 +1,28 @@
+{
+  "hero": {
+    "title": "Malaus a Pagdatang king BetterGov.ph",
+    "subtitle": "Ing volunteer-run portal ning Republika ning Pilipinas. Manintun impormasiun, pag-access kareng serbisyu ning kapamahalan, manatili updated kareng pekabayung balita tungkul king Pilipinas."
+  },
+  "services": {
+    "title": "Deng Sikat a Serbisyu"
+  },
+  "weather": {
+    "title": "Deng Update king Panaun"
+  },
+  "forex": {
+    "title": "Pamagpalit Pera"
+  },
+  "news": {
+    "title": "Pekabayung Balita ampong Updates"
+  },
+  "footer": {
+    "copyright": "© 2025 BetterGov. Ngan laman public domain la pin detang mebangit a aliwa."
+  },
+  "navbar": {
+    "philippines": "Pilipinas",
+    "services": "Deng Serbisyu",
+    "travel": "Pamaglakbe",
+    "government": "Kapamahalan",
+    "flood control projects": "Deng Proyektu king Pamanyabat Bulus"
+  }
+}

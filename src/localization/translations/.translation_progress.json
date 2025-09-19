@@ -1,6 +1,14 @@
 {
-  "completed": [],
-  "inProgress": "common.home",
-  "lastUpdated": "2025-09-19T10:54:38.432Z",
-  "totalEntries": 118
+  "completed": [
+    "hero.title",
+    "hero.subtitle",
+    "services.title",
+    "weather.title",
+    "forex.title",
+    "news.title",
+    "footer.copyright"
+  ],
+  "inProgress": null,
+  "lastUpdated": "2025-09-19T11:32:38.751Z",
+  "totalEntries": 7
 }

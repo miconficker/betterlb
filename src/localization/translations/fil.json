@@ -16,6 +16,13 @@
     "title": "Pinakabagong Balita at Updates"
   },
   "footer": {
-    "copyright": "© 2025 BetterGov. Lahat ng nilalaman ay public domain maliban kung nabanggit."
+    "copyright": "© 2025 BetterGov. Lahat ng nilalaman ay public domain maliban kung iba ang nakasaad."
+  },
+  "navbar": {
+    "philippines": "Pilipinas",
+    "services": "Mga Serbisyo",
+    "travel": "Paglalakbay",
+    "government": "Pamahalaan",
+    "flood control projects": "Mga Proyekto sa Pagkontrol ng Baha"
   }
 }
