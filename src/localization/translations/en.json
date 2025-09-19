@@ -1,0 +1,21 @@
+{
+  "hero": {
+    "title": "Welcome to BetterGov.ph",
+    "subtitle": "The volunteer run portal of the Republic of the Philippines. Find information, access government services, stay updated with the latest news about the Philippines."
+  },
+  "services": {
+    "title": "Popular Services"
+  },
+  "weather": {
+    "title": "Weather Updates"
+  },
+  "forex": {
+    "title": "Foreign Exchange Rates"
+  },
+  "news": {
+    "title": "Latest News & Updates"
+  },
+  "footer": {
+    "copyright": "© 2025 BetterGov. All content is public domain unless otherwise specified."
+  }
+}
