@@ -42,13 +42,13 @@ const Hero: React.FC = () => {
 
   const popularServices = [
     {
-      label: 'National ID',
+      label: t('hero.nationalId'),
       href: `/services?category=${findCategorySlug(
         'Certificates and IDs'
       )}&subcategory=${findSubcategorySlug('Certificates and IDs', 'ID')}`,
     },
     {
-      label: 'Birth Certificate',
+      label: t('hero.birthCertificate'),
       href: `/services?category=${findCategorySlug(
         'Certificates and IDs'
       )}&subcategory=${findSubcategorySlug(
@@ -57,7 +57,7 @@ const Hero: React.FC = () => {
       )}`,
     },
     {
-      label: 'Business Registration',
+      label: t('hero.businessRegistration'),
       href: `/services?category=${findCategorySlug(
         'Business and Trade'
       )}&subcategory=${findSubcategorySlug(
