@@ -1,84 +1,84 @@
-import React from "react"
+import React from 'react'
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
-} from "react-router-dom"
-import Navbar from "./components/layout/Navbar"
-import Ticker from "./components/ui/Ticker"
-import Footer from "./components/layout/Footer"
-import Home from "./pages/Home"
-import DesignGuide from "./pages/DesignGuide"
-import Services from "./pages/services"
-import AboutPage from "./pages/about"
-import AccessibilityPage from "./pages/accessibility"
-import AboutPhilippines from "./pages/philippines/about"
-import PhilippinesHistory from "./pages/philippines/history"
-import PhilippinesCulture from "./pages/philippines/culture"
-import PhilippinesRegions from "./pages/philippines/regions"
-import PhilippinesMap from "./pages/philippines/map"
-import PublicHolidays from "./pages/philippines/holidays"
-import Hotlines from "./pages/philippines/Hotlines"
-import VisaPage from "./pages/travel/visa"
-import VisaTypesPage from "./pages/travel/visa-types"
-import VisaTypeDetail from "./pages/travel/visa-types/[type]"
-import ExecutiveDirectory from "./pages/government/executive"
-import ExecutiveLayout from "./pages/government/executive/layout"
-import DepartmentsIndex from "./pages/government/departments"
-import DepartmentDetail from "./pages/government/departments/[department]"
-import DepartmentsLayout from "./pages/government/departments/layout"
-import GovernmentLayout from "./pages/government/layout"
-import ConstitutionalLayout from "./pages/government/constitutional/layout"
-import ConstitutionalIndex from "./pages/government/constitutional/index"
-import ConstitutionalOffice from "./pages/government/constitutional/[office]"
-import GOCCsPage from "./pages/government/constitutional/goccs"
-import SUCsPage from "./pages/government/constitutional/sucs"
+} from 'react-router-dom'
+import Navbar from './components/layout/Navbar'
+import Ticker from './components/ui/Ticker'
+import Footer from './components/layout/Footer'
+import Home from './pages/Home'
+import DesignGuide from './pages/DesignGuide'
+import Services from './pages/services'
+import AboutPage from './pages/about'
+import AccessibilityPage from './pages/accessibility'
+import AboutPhilippines from './pages/philippines/about'
+import PhilippinesHistory from './pages/philippines/history'
+import PhilippinesCulture from './pages/philippines/culture'
+import PhilippinesRegions from './pages/philippines/regions'
+import PhilippinesMap from './pages/philippines/map'
+import PublicHolidays from './pages/philippines/holidays'
+import Hotlines from './pages/philippines/Hotlines'
+import VisaPage from './pages/travel/visa'
+import VisaTypesPage from './pages/travel/visa-types'
+import VisaTypeDetail from './pages/travel/visa-types/[type]'
+import ExecutiveDirectory from './pages/government/executive'
+import ExecutiveLayout from './pages/government/executive/layout'
+import DepartmentsIndex from './pages/government/departments'
+import DepartmentDetail from './pages/government/departments/[department]'
+import DepartmentsLayout from './pages/government/departments/layout'
+import GovernmentLayout from './pages/government/layout'
+import ConstitutionalLayout from './pages/government/constitutional/layout'
+import ConstitutionalIndex from './pages/government/constitutional/index'
+import ConstitutionalOffice from './pages/government/constitutional/[office]'
+import GOCCsPage from './pages/government/constitutional/goccs'
+import SUCsPage from './pages/government/constitutional/sucs'
 
 // Legislative Branch
-import LegislativeLayout from "./pages/government/legislative/layout"
-import LegislativeIndex from "./pages/government/legislative/index"
-import LegislativeChamber from "./pages/government/legislative/[chamber]"
-import HouseMembersPage from "./pages/government/legislative/house-members"
-import SenateCommitteesPage from "./pages/government/legislative/senate-committees"
+import LegislativeLayout from './pages/government/legislative/layout'
+import LegislativeIndex from './pages/government/legislative/index'
+import LegislativeChamber from './pages/government/legislative/[chamber]'
+import HouseMembersPage from './pages/government/legislative/house-members'
+import SenateCommitteesPage from './pages/government/legislative/senate-committees'
 
 // Diplomatic Section
-import DiplomaticLayout from "./pages/government/diplomatic/layout"
-import DiplomaticIndex from "./pages/government/diplomatic/index"
-import DiplomaticMissionsPage from "./pages/government/diplomatic/missions"
-import ConsulatesPage from "./pages/government/diplomatic/consulates"
-import InternationalOrganizationsPage from "./pages/government/diplomatic/organizations"
-import OfficeOfThePresident from "./pages/government/executive/office-of-the-president"
-import OtherExecutiveOffices from "./pages/government/executive/other-executive-offices"
-import OfficeOfTheVicePresident from "./pages/government/executive/office-of-the-vice-president"
-import PresidentialCommunicationsOffice from "./pages/government/executive/presidential-communications-office"
+import DiplomaticLayout from './pages/government/diplomatic/layout'
+import DiplomaticIndex from './pages/government/diplomatic/index'
+import DiplomaticMissionsPage from './pages/government/diplomatic/missions'
+import ConsulatesPage from './pages/government/diplomatic/consulates'
+import InternationalOrganizationsPage from './pages/government/diplomatic/organizations'
+import OfficeOfThePresident from './pages/government/executive/office-of-the-president'
+import OtherExecutiveOffices from './pages/government/executive/other-executive-offices'
+import OfficeOfTheVicePresident from './pages/government/executive/office-of-the-vice-president'
+import PresidentialCommunicationsOffice from './pages/government/executive/presidential-communications-office'
 
 // Local Government Units
-import LocalLayout from "./pages/government/local/components/LocalLayout"
-import LocalGovernmentIndex from "./pages/government/local/index"
-import RegionalLGUPage from "./pages/government/local/[region]"
+import LocalLayout from './pages/government/local/components/LocalLayout'
+import LocalGovernmentIndex from './pages/government/local/index'
+import RegionalLGUPage from './pages/government/local/[region]'
 
 // Search Page
-import SearchPage from "./pages/Search"
+import SearchPage from './pages/Search'
 
 // Data Pages
-import WeatherPage from "./pages/data/weather"
-import ForexPage from "./pages/data/forex"
-import FloodControlProjects from "./pages/flood-control-projects"
-import FloodControlProjectsTable from "./pages/flood-control-projects/table"
-import FloodControlProjectsMap from "./pages/flood-control-projects/map"
-import FloodControlProjectsContractors from "./pages/flood-control-projects/contractors"
-import ContractorDetail from "./pages/flood-control-projects/contractors/[contractor-name]"
+import WeatherPage from './pages/data/weather'
+import ForexPage from './pages/data/forex'
+import FloodControlProjects from './pages/flood-control-projects'
+import FloodControlProjectsTable from './pages/flood-control-projects/table'
+import FloodControlProjectsMap from './pages/flood-control-projects/map'
+import FloodControlProjectsContractors from './pages/flood-control-projects/contractors'
+import ContractorDetail from './pages/flood-control-projects/contractors/[contractor-name]'
 
 // Services Pages
-import WebsitesDirectory from "./pages/services/websites"
+import WebsitesDirectory from './pages/services/websites'
 
 // Sitemap Page
-import SitemapPage from "./pages/sitemap"
-import Ideas from "./pages/Ideas"
-import JoinUs from "./pages/JoinUs"
-import ScrollToTop from "./components/ui/ScrollToTop"
-import Discord from "./pages/Discord"
+import SitemapPage from './pages/sitemap'
+import Ideas from './pages/Ideas'
+import JoinUs from './pages/JoinUs'
+import ScrollToTop from './components/ui/ScrollToTop'
+import Discord from './pages/Discord'
 
 function App() {
   return (

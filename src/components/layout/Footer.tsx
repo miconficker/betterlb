@@ -1,21 +1,27 @@
 import React from 'react'
-import { Facebook, Twitter, Instagram, Youtube, CheckCircle2  } from 'lucide-react'
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Youtube,
+  CheckCircle2,
+} from 'lucide-react'
 import { footerNavigation } from '../../data/navigation'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
 const Footer: React.FC = () => {
-  const { t } = useTranslation("common")
+  const { t } = useTranslation('common')
 
   const getSocialIcon = (label: string) => {
     switch (label) {
-      case "Facebook":
+      case 'Facebook':
         return <Facebook className="h-5 w-5" />
-      case "Twitter":
+      case 'Twitter':
         return <Twitter className="h-5 w-5" />
-      case "Instagram":
+      case 'Instagram':
         return <Instagram className="h-5 w-5" />
-      case "YouTube":
+      case 'YouTube':
         return <Youtube className="h-5 w-5" />
       default:
         return null
@@ -34,7 +40,6 @@ const Footer: React.FC = () => {
                 alt="Philippines Coat of Arms"
                 className="h-12 w-12 mr-3"
               /> */}
-
 
               <div>
                 <div className="font-bold">Better Philippines</div>
@@ -81,9 +86,9 @@ const Footer: React.FC = () => {
 
         <div className="flex justify-center my-24">
           <p className="text-white text-sm md:text-lg bg-gray-800 p-4 px-12 md:px-8 rounded-full border border-gray-700">
-            Cost to build this site to date:{" "}
+            Cost to build this site to date:{' '}
             <span className="animate-pulse text-red-500">₱3,000</span>. Cost to
-            the People of the Philippines:{" "}
+            the People of the Philippines:{' '}
             <span className="text-green-500">₱0</span>.
           </p>
         </div>
@@ -91,7 +96,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm mb-4 md:mb-0">
-              {t("footer.copyright")}
+              {t('footer.copyright')}
             </p>
             <div className="flex space-x-6">
               {/* <a
