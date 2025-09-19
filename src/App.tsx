@@ -78,6 +78,7 @@ import WebsitesDirectory from './pages/services/websites'
 import SitemapPage from './pages/sitemap'
 import Ideas from './pages/Ideas'
 import ScrollToTop from './components/ui/ScrollToTop'
+import Discord from './pages/Discord'
 
 function App() {
   return (
@@ -96,6 +97,7 @@ function App() {
             <Route path="/search" element={<SearchPage />} />
             <Route path="/ideas" element={<Ideas />} />
             <Route path="/sitemap" element={<SitemapPage />} />
+            <Route path="/discord" Component={Discord} />
             <Route path="/philippines/about" element={<AboutPhilippines />} />
             <Route
               path="/philippines/history"
