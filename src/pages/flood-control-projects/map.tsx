@@ -474,7 +474,7 @@ const FloodControlProjectsMap: React.FC = () => {
               </MapContainer>
 
               {/* Zoom Controls */}
-              <div className="absolute top-4 right-4 z-[1000] flex flex-col gap-2">
+              <div className="absolute top-4 right-4 z-10 flex flex-col gap-2">
                 <Button
                   variant="primary"
                   size="sm"
