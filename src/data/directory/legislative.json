@@ -1,5 +1,4 @@
 [
-  
   {
     "slug": "senate-of-the-philippines-20th-congress",
     "branch": "Legislative Branch",
@@ -365,83 +364,95 @@
     ]
   },
   {
-    "slug": "house-of-representatives-19th-congress",
+    "slug": "house-of-representatives-20th-congress",
     "branch": "Legislative Branch",
-    "chamber": "House of Representatives (19th Congress)",
+    "chamber": "House of Representatives (20th Congress)",
     "address": "IBP Road, Batasan Hills, 1126 Quezon City",
     "trunkline": "(632) 8931-5001",
     "website": "www.congress.gov.ph",
     "house_leaders": {
       "speaker": {
-        "name": "FERDINAND MARTIN G. ROMUALDEZ",
+        "name": "DY, FAUSTINO \"BOJIE\" G. III",
         "contact": {
           "contact": "[REDACTED]"
         }
       },
       "deputy_speakers": [
         {
-          "name": "Aurelio D. Gonzales Jr.",
+          "name": "GARIN, JANETTE L.",
           "contact": {
             "contact": "[REDACTED]"
           }
         },
         {
-          "name": "Yasser Alonto Balindong",
+          "name": "BALINDONG, YASSER ALONTO",
           "contact": {
             "contact": "[REDACTED]"
           }
         },
         {
-          "name": "Roberto V. Puno",
+          "name": "ORTEGA, FRANCISCO PAOLO P., V",
           "contact": {
             "contact": "[REDACTED]"
           }
         },
         {
-          "name": "Kristine Singson-Meehan",
+          "name": "SINGSON-MEEHAN, KRISTINE",
           "contact": {
             "contact": "[REDACTED]"
           }
         },
         {
-          "name": "Camille A. Villar",
+          "name": "KHONGHUN, JEFFERSON F.",
           "contact": {
             "contact": "[REDACTED]"
           }
         },
         {
-          "name": "Raymond Democrito C. Mendoza",
+          "name": "PUNO, RONALDO V.",
           "contact": {
             "contact": "[REDACTED]"
           }
         },
         {
-          "name": "David C. Suarez",
+          "name": "BIRON, FERJENEL G., MD",
           "contact": {
             "contact": "[REDACTED]"
           }
         },
         {
-          "name": "Vincent Franco D. Frasco",
+          "name": "EMANO, YEVGENY VINCENTE B.",
           "contact": {
             "contact": "[REDACTED]"
           }
         },
         {
-          "name": "Antonio T. Albano",
+          "name": "MENDOZA, RAYMOND DEMOCRITO C.",
           "contact": {
             "contact": "[REDACTED]"
           }
         }
       ],
-      "majority_leader": {
-        "name": "Manuel Jose M. Dalipe",
+      "majority_floor_leader": {
+        "name": "MARCOS, FERDINAND ALEXANDER A.",
         "contact": {
           "contact": "[REDACTED]"
         }
       },
-      "minority_leader": {
-        "name": "Marcelino C. Libanan",
+      "senior_deputy_majority_floor_leader": {
+        "name": "DEFENSOR, LORENZ R.",
+        "contact": {
+          "contact": "[REDACTED]"
+        }
+      },
+      "minority_floor_leader": {
+        "name": "LIBANAN, MARCELINO C.",
+        "contact": {
+          "contact": "[REDACTED]"
+        }
+      },
+      "senior_deputy_minority_floor_leader": {
+        "name": "ERICE, EDGAR R.",
         "contact": {
           "contact": "[REDACTED]"
         }
@@ -449,1828 +460,1834 @@
     },
     "house_members": [
       {
-        "province_city": "Abra",
-        "name": "Bernos, Ching B.",
-        "district": "Lone",
+        "province_city": "City of Manila",
+        "name": "ABANTE, BIENVENIDO M., JR.",
+        "district": "6th District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Agusan del Norte",
-        "name": "Aquino, Jose II S.",
-        "district": "1st",
+        "province_city": "City of Antipolo",
+        "name": "ACOP, ROMEO M.",
+        "district": "2nd District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Agusan del Norte",
-        "name": "Corvera, Dale B.",
-        "district": "2nd",
+        "province_city": "Palawan",
+        "name": "ACOSTA, GIL \"KABARANGAYJR\"",
+        "district": "3rd District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Agusan del Sur",
-        "name": "Bascug, Alfelito M.",
-        "district": "1st",
+        "province_city": "Lanao Del Sur",
+        "name": "ADIONG, ZIAUR-RAHMAN \"ZIA\" ALONTO",
+        "district": "1st District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Agusan del Sur",
-        "name": "Plaza, Eddiebong G.",
-        "district": "2nd",
+        "province_city": "Cavite",
+        "name": "ADVINCULA, ADRIAN JAY C.",
+        "district": "3rd District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Aklan",
-        "name": "Marquez, Carlito S.",
-        "district": "1st",
+        "province_city": "Laguna",
+        "name": "AGARAO, BENJAMIN C., JR.",
+        "district": "4th District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Aklan",
-        "name": "Haresco, Teodorico Jr. T",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Albay",
-        "name": "Lagman, Edcel C.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Albay",
-        "name": "Salceda, Joey S.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Albay",
-        "name": "Cabredo, Fernando T.",
-        "district": "3rd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Antipolo City",
-        "name": "Puno, Roberto V.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Antipolo City",
-        "name": "Acop, Romeo M.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Antique",
-        "name": "Legarda, Antonio Jr. B.",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Apayao",
-        "name": "Bulut-Begtang, Eleanor C.",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Aurora",
-        "name": "Angara, Rommel Rico T.",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Bacolod City",
-        "name": "Gasataya, Greg G.",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Baguio City",
-        "name": "Go, Mark O.",
+        "province_city": "Kalinga",
+        "name": "AGYAO, CAROLINE B., MD.",
         "district": "Lone",
         "contact": "[REDACTED]"
       },
       {
         "province_city": "Basilan",
-        "name": "Hataman, Mujiv S.",
+        "name": "ALANO, USTADZ YUSOP T.",
         "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Bataan",
-        "name": "Roman, Geraldine B.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Bataan",
-        "name": "Garcia, Albert S.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Bataan",
-        "name": "Garcia, Maria Angela S.",
-        "district": "3rd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Batanes",
-        "name": "Gato, Ciriaco Jr. B.",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Batangas",
-        "name": "Buhain, Eric R.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Batangas",
-        "name": "Luistro, Gerville R.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Batangas",
-        "name": "Collantes, Ma. Theresa V.",
-        "district": "3rd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Batangas",
-        "name": "Bolilia, Lianda B.",
-        "district": "4th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Batangas",
-        "name": "Mariño, Mario Vittorio A.",
-        "district": "5th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Batangas",
-        "name": "Romualdez, Ferdinand Martin G. (Caretaker)",
-        "district": "6th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Benguet",
-        "name": "Yap, Eric Go",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Biliran",
-        "name": "Espina, Gerardo Jr. J.",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Biñan City",
-        "name": "Alonte, Marlyn B.",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Bohol",
-        "name": "Chatto, Edgar M.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Bohol",
-        "name": "Aumentado, Maria Vanessa C.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Bohol",
-        "name": "Tutor, Kristine Alexie B.",
-        "district": "3rd",
         "contact": "[REDACTED]"
       },
       {
         "province_city": "Bukidnon",
-        "name": "Alba, Jose Manuel F.",
-        "district": "1st",
+        "name": "ALBA, JOSE MANUEL F.",
+        "district": "1st District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Bukidnon",
-        "name": "Flores, Jonathan Keith T.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Bukidnon",
-        "name": "Zubiri, Jose Ma. Jr. R.",
-        "district": "3rd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Bukidnon",
-        "name": "Roque, Laarni Lavin",
-        "district": "4th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Bulacan",
-        "name": "Domingo, Danny A.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Bulacan",
-        "name": "Pancho, Augustina Dominique C.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Bulacan",
-        "name": "Silverio, Lorna C.",
-        "district": "3rd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Bulacan",
-        "name": "Villarica, Linabelle Ruth R.",
-        "district": "4th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Bulacan",
-        "name": "Cruz, Ambrocio Jr. C.",
-        "district": "5th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Bulacan",
-        "name": "Pleyto, Salvador A.",
-        "district": "6th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Cagayan",
-        "name": "Nolasco, Ramon Jr. C.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Cagayan",
-        "name": "Vargas-Alfonso, Baby Aline",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Cagayan",
-        "name": "Lara, Joseph L.",
-        "district": "3rd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Cagayan de Oro City",
-        "name": "Suan, Lordan G.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Cagayan de Oro City",
-        "name": "Rodriguez, Rufus B.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Calamba City",
-        "name": "Hernandez, Charisse Anne C.",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Caloocan City",
-        "name": "Malapitan, Oscar G.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Caloocan City",
-        "name": "Cajayon-Uy, Mary Mitzi L.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Caloocan City",
-        "name": "Asistio, Dean",
-        "district": "3rd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Camarines Norte",
-        "name": "Tallado, Josefina B.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Camarines Norte",
-        "name": "Panotes, Rosemarie Conejos",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Camarines Sur",
-        "name": "Horibata, Tsuyoshi Anthony G.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Camarines Sur",
-        "name": "Villafuerte, Luis Raymund Jr. F.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Camarines Sur",
-        "name": "Bordado, Gabriel Jr. H.",
-        "district": "3rd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Camarines Sur",
-        "name": "Fuentebella, Arnie B.",
-        "district": "4th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Camarines Sur",
-        "name": "Villafuerte, Miguel Luis R.",
-        "district": "5th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Camiguin",
-        "name": "Romualdo, Jurdin Jesus M.",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Capiz",
-        "name": "Billones, Emmanuel",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Capiz",
-        "name": "Castro, Jane T.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Catanduanes",
-        "name": "Rodriguez, Eulogio R.",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Cavite",
-        "name": "Revilla, Ramon Jolo III B.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Cavite",
-        "name": "Mercado-Revilla, Lani",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Cavite",
-        "name": "Advincula, Adrian Jay C.",
-        "district": "3rd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Cavite",
-        "name": "Romualdez, Ferdinand Martin G. (Caretaker)",
-        "district": "4th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Cavite",
-        "name": "Loyola, Roy M.",
-        "district": "5th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Cavite",
-        "name": "Ferrer, Antonio A.",
-        "district": "6th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Cavite",
-        "name": "Remulla, Crispin Diego",
-        "district": "7th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Cavite",
-        "name": "Tolentino, Aniela Bianca D.",
-        "district": "8th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Cebu",
-        "name": "Gullas, Rhea Mae A.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Cebu",
-        "name": "Galeos, Edsel A.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Cebu",
-        "name": "Garcia, Pablo John F.",
-        "district": "3rd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Cebu",
-        "name": "Salimbangon, Janice Z.",
-        "district": "4th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Cebu",
-        "name": "Frasco, Vincent Franco D.",
-        "district": "5th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Cebu",
-        "name": "Lagon, Daphne A.",
-        "district": "6th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Cebu",
-        "name": "Calderon, Peter John D.",
-        "district": "7th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Cebu City",
-        "name": "Del Mar, Rachel Marguerite B.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Cebu City",
-        "name": "Rama, Eduardo R.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Davao City",
-        "name": "Duterte, Paolo Z.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Davao City",
-        "name": "Garcia, Vincent J.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Davao City",
-        "name": "Ungab, Isidro T.",
-        "district": "3rd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Davao de Oro",
-        "name": "Zamora, Maria Carmen S.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Davao de Oro",
-        "name": "Gonzaga, Ruwel Peter",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Davao del Norte",
-        "name": "Alvarez, Pantaleon D.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Davao del Norte",
-        "name": "Dujali, Alan R.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Davao del Sur",
-        "name": "Cagas, John Tracy F.",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Davao Occidental",
-        "name": "Bautista, Claude P.",
-        "district": "Lone",
+        "province_city": "Isabela",
+        "name": "ALBANO, ANTONIO \"TONYPET\" T.",
+        "district": "1st District",
         "contact": "[REDACTED]"
       },
       {
         "province_city": "Davao Oriental",
-        "name": "Dayanghirang, Nelson L.",
-        "district": "1st",
+        "name": "ALMARIO, CHEENO MIGUEL D.",
+        "district": "2nd District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Davao Oriental",
-        "name": "Almario, Cheeno Miguel D.",
-        "district": "2nd",
+        "province_city": "City of Makati",
+        "name": "ALMARIO, DENNIS \"ALDEN\" B.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Misamis Occidental",
+        "name": "ALMONTE, JASON P.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Palawan",
+        "name": "ALVAREZ, JOSE C.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Negros Occidental",
+        "name": "ALVAREZ, MERCEDES K.",
+        "district": "6th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Laguna",
+        "name": "AMANTE, LORETO S.",
+        "district": "3rd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Zamboanga Del Norte",
+        "name": "AMATONG, ADRIAN MICHAEL A.",
+        "district": "3rd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Aurora",
+        "name": "ANGARA, ROMMEL RICO T.",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Tarlac",
+        "name": "ANGELES, MARIA CRISTINA C.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Butuan",
+        "name": "AQUINO, JOSE \"JOBOY\" S. II",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Sulu",
+        "name": "ARBISON, MUNIR M.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Pangasinan",
+        "name": "ARENAS, MARIA RACHEL J.",
+        "district": "3rd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Quezon",
+        "name": "ARROGANCIA, REYNANTE U.",
+        "district": "3rd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Caloocan",
+        "name": "ASISTIO, DEAN",
+        "district": "3rd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Quezon City",
+        "name": "ATAYDE, JUAN CARLOS \"ARJO\" C.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Bohol",
+        "name": "AUMENTADO, MARIA VANESSA \"VANVAN\" C., RN",
+        "district": "2nd District",
         "contact": "[REDACTED]"
       },
       {
         "province_city": "Dinagat Islands",
-        "name": "Ecleo, Alan 1 B.",
+        "name": "BAG-AO, KAKA J.",
         "district": "Lone",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Eastern Samar",
-        "name": "Abunda, Maria Fe R.",
+        "province_city": "Lanao Del Sur",
+        "name": "BALINDONG, YASSER ALONTO",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of General Santos",
+        "name": "BAÑAS-NOGRALES, SHIRLYN L.",
         "district": "Lone",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "General Santos",
-        "name": "Acharon, Loreto B.",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Guimaras",
-        "name": "Nava, Ma. Lucille L.",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Ifugao",
-        "name": "Chungalao, Solomon R.",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Iligan City",
-        "name": "Regencia, Celso G.",
-        "district": "Lone",
+        "province_city": "Zamboanga Sibugay",
+        "name": "BANCORO, MARLO C.",
+        "district": "1st District",
         "contact": "[REDACTED]"
       },
       {
         "province_city": "Ilocos Norte",
-        "name": "Marcos, Ferdinand Alexander A.",
-        "district": "1st",
+        "name": "BARBA, ANGELO MARCOS",
+        "district": "2nd District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Ilocos Norte",
-        "name": "Barba, Angelo Marcos",
-        "district": "2nd",
+        "province_city": "Surigao Del Norte",
+        "name": "BARBERS, BERNADETTE S.",
+        "district": "2nd District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Ilocos Sur",
-        "name": "Singson, Ronald V.",
-        "district": "1st",
+        "province_city": "City of Iloilo",
+        "name": "BARONDA, JULIENNE \"JAM\" L.",
+        "district": "Lone",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Ilocos Sur",
-        "name": "Singson-Meehan, Kristine",
-        "district": "2nd",
+        "province_city": "Cavite",
+        "name": "BARZAGA, FRANCISCO \"KIKO\" A.",
+        "district": "4th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Agusan Del Sur",
+        "name": "BASCUG, ALFELITO \"ALFEL\" M.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Davao Occidental",
+        "name": "BAUTISTA, CLAUDE P",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Bacolod",
+        "name": "BENITEZ, ALFREDO \"ALBEE\" B.",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Negros Occidental",
+        "name": "BENITEZ, JAVIER MIGUEL LOPEZ",
+        "district": "3rd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Abra",
+        "name": "BERNOS, JB",
+        "district": "Lone",
         "contact": "[REDACTED]"
       },
       {
         "province_city": "Iloilo",
-        "name": "Garin, Janette L.",
-        "district": "1st",
+        "name": "BIRON, FERJENEL G., MD",
+        "district": "4th District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Iloilo",
-        "name": "Gorriceta, Michael B.",
-        "district": "2nd",
+        "province_city": "City of Taguig",
+        "name": "BOCOBO, JORGE DANIEL S.",
+        "district": "Lone District (2nd Councilor District)",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Iloilo",
-        "name": "Defensor, Lorenz R.",
-        "district": "3rd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Iloilo",
-        "name": "Biron, Ferjenel G.",
-        "district": "4th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Iloilo",
-        "name": "Tupas, Raul C.",
-        "district": "5th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Iloilo City",
-        "name": "Baronda, Julienne",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Isabela",
-        "name": "Albano, Antonio T.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Isabela",
-        "name": "Go, Ed Christopher S.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Isabela",
-        "name": "Dy, Ian Paul L.",
-        "district": "3rd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Isabela",
-        "name": "Tan, Joseph S.",
-        "district": "4th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Isabela",
-        "name": "Dy, Faustino Michael Carlos III T.",
-        "district": "5th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Isabela",
-        "name": "Dy, Faustino V A.",
-        "district": "6th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Kalinga",
-        "name": "Mangaoang, Allen Jesse C.",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "La Union",
-        "name": "Ortega, Francisco Paulo V. P.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "La Union",
-        "name": "Garcia, Dante S.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Laguna",
-        "name": "Matibag, Ma. Rene Ann Lourdes G.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Laguna",
-        "name": "Mariano-Hernandez, Ruth",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Laguna",
-        "name": "Amante, Loreto S.",
-        "district": "3rd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Laguna",
-        "name": "Agarao, Maria Jamina Katherine B.",
-        "district": "4th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Lanao del Norte",
-        "name": "Dimaporo, Mohamad Khalid Q.",
-        "district": "Ist",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Lanao del Norte",
-        "name": "Dimaporo, Sittie Aminah Q.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Lanao del Sur",
-        "name": "Adiong, Ziaur-Rahman Alonto",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Lanao del Sur",
-        "name": "Balindong, Yasser Alonto",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Lapu-Lapu City",
-        "name": "Chan, Ma. Cynthia K.",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Las Piñas City",
-        "name": "Villar, Camille A.",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Leyte",
-        "name": "Romualdez, Ferdinand Martin G.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Leyte",
-        "name": "Javier, Lolita T.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Leyte",
-        "name": "Veloso-Tuazon, Anna Victoria",
-        "district": "3rd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Leyte",
-        "name": "Gomez, Richard I.",
-        "district": "4th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Leyte",
-        "name": "Cari, Carl Nicolas C.",
-        "district": "5th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Maguindanao del Norte",
-        "name": "Mastura, Bai Dimple I.",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Maguindanao del Sur",
-        "name": "Paglas, Mohamad P.",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Makati City",
-        "name": "Peña, Romulo Jr.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Makati City",
-        "name": "Campos, Luis Jr. N.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Malabon City",
-        "name": "Lacson-Noel, Josephine Veronique R.",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Mandaluyong City",
-        "name": "Gonzales, Neptali II M.",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Mandaue City",
-        "name": "Ouano-Dizon, Emmarie",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Manila",
-        "name": "Dionisio, Ernesto Jr. M.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Manila",
-        "name": "Valeriano, Rolando M.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Manila",
-        "name": "Chua, Joel R.",
-        "district": "3rd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Manila",
-        "name": "Maceda, Edward Vera Perez",
-        "district": "4th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Manila",
-        "name": "Tieng, Irwin C.",
-        "district": "5th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Manila",
-        "name": "Abante, Bienvenido Jr. M.",
-        "district": "6th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Marikina City",
-        "name": "Teodoro, Marjorie Ann A.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Marikina City",
-        "name": "Quimbo, Stella Luz A.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Marinduque",
-        "name": "Velasco, Lord Allan Jay Q.",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Masbate",
-        "name": "Kho, Ricardo T.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Masbate",
-        "name": "Kho, Olga T.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Masbate",
-        "name": "Kho, Wilton T.",
-        "district": "3rd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Misamis Occidental",
-        "name": "Almonte, Jason P.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Misamis Occidental",
-        "name": "Oaminal, Sancho Fernando F.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Misamis Oriental",
-        "name": "Unabia, Christian S.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Misamis Oriental",
-        "name": "Emano, Yevgeny Vincente B.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Mountain Province",
-        "name": "Dalog, Maximo Jr. Y.",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Muntinlupa City",
-        "name": "Fresnedi, Jaime R.",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Navotas City",
-        "name": "Tiangco, Tobias M.",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Negros Occidental",
-        "name": "Valmayor, Gerardo Jr. P.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Negros Occidental",
-        "name": "Marañon, Alfredo III D.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Negros Occidental",
-        "name": "Paduano, Joseph Stephen S. (Caretaker)",
-        "district": "3rd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Negros Occidental",
-        "name": "Ferrer, Juliet Marie de Leon",
-        "district": "4th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Negros Occidental",
-        "name": "Yulo, Emilio Bernardino L.",
-        "district": "5th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Negros Occidental",
-        "name": "Alvarez, Mercedes K.",
-        "district": "6th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Negros Oriental",
-        "name": "Limkaichong, Jocelyn Sy",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Negros Oriental",
-        "name": "Sagarbarria, Manuel T.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Negros Oriental",
-        "name": "Romualdez, Ferdinand Martin G. (Caretaker)",
-        "district": "3rd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Cotabato",
-        "name": "Sacdalan, Joselito S.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Cotabato",
-        "name": "Caoagdan, Rudy S.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Cotabato",
-        "name": "Santos, Ma. Alana Samantha T.",
-        "district": "3rd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Northern Samar",
-        "name": "Daza, Paul Ruiz",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Northern Samar",
-        "name": "Ongchuan, Harris Christopher M.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Nueva Ecija",
-        "name": "Suansing, Mikaela Angela B.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Nueva Ecija",
-        "name": "Violago, Joseph Gilbert F.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Nueva Ecija",
-        "name": "Vergara, Rosanna V.",
-        "district": "3rd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Nueva Ecija",
-        "name": "Pascual, Emerson D.",
-        "district": "4th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Nueva Vizcaya",
-        "name": "Cuaresma, Luisa Lloren",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Occidental Mindoro",
-        "name": "Tarriela, Leody F.",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Oriental Mindoro",
-        "name": "Panaligan, Arnan C.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Oriental Mindoro",
-        "name": "Umali, Alfonso Jr. V.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Palawan",
-        "name": "Romualdez, Ferdinand Martin G. (Caretaker)",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Palawan",
-        "name": "Alvarez, Jose C.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Palawan",
-        "name": "Romualdez, Ferdinand Martin G. (Caretaker)",
-        "district": "3rd",
+        "province_city": "Batangas",
+        "name": "BOLILIA, AMADO CARLOS A. IV",
+        "district": "4th District",
         "contact": "[REDACTED]"
       },
       {
         "province_city": "Pampanga",
-        "name": "Lazatin, Carmelo II B.",
-        "district": "1st",
+        "name": "BONDOC, ANNA YORK P., MD",
+        "district": "4th District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Pampanga",
-        "name": "Macapagal-Arroyo, Gloria",
-        "district": "2nd",
+        "province_city": "Apayao",
+        "name": "BULUT-BEGTANG, ELEANOR C.",
+        "district": "Lone",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Pampanga",
-        "name": "Gonzales, Aurelio Jr. D.",
-        "district": "3rd",
+        "province_city": "Davao Del Sur",
+        "name": "CAGAS, JOHN TRACY F.",
+        "district": "Lone",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Pampanga",
-        "name": "Bondoc, Anna York P.",
-        "district": "4th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Pangasinan",
-        "name": "Celeste, Arthur F.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Pangasinan",
-        "name": "Cojuanco, Mark O.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Pangasinan",
-        "name": "Arenas, Maria Rachel J.",
-        "district": "3rd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Pangasinan",
-        "name": "De Venecia, Christopher V.P.",
-        "district": "4th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Pangasinan",
-        "name": "Guico, Ramon Jr. N.",
-        "district": "5th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Pangasinan",
-        "name": "Primicias-Agabas, Marlyn L.",
-        "district": "6th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Parañaque City",
-        "name": "Olivarez, Edwin L.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Parañaque City",
-        "name": "Tambunting, Gus S.",
-        "district": "2nd",
+        "province_city": "Cebu",
+        "name": "CALDERON, PATRICIA C.",
+        "district": "7th District",
         "contact": "[REDACTED]"
       },
       {
         "province_city": "Pasay City",
-        "name": "Calixto, Antonino G.",
+        "name": "CALIXTO, ANTONINO G.",
         "district": "Lone",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Pasig City",
-        "name": "Romulo, Roman T.",
+        "province_city": "Cotabato",
+        "name": "CAOAGDAN, RUDY S., DPA",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Leyte",
+        "name": "CARI, CARL NICOLAS C.",
+        "district": "5th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Capiz",
+        "name": "CASTRO, JANE T.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Nueva Vizcaya",
+        "name": "CAYTON, TIMOTHY JOSEPH E.",
         "district": "Lone",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Quezon",
-        "name": "Enverga, Wilfrido Mark M.",
-        "district": "1st",
+        "province_city": "Pangasinan",
+        "name": "CELESTE, ARTHUR F.",
+        "district": "1st District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Quezon",
-        "name": "Suarez, David C.",
-        "district": "2nd",
+        "province_city": "Davao De Oro",
+        "name": "CENIZA, LEONEL \"JHONG\" D.",
+        "district": "2nd District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Quezon",
-        "name": "Arrogancia, Reynante U.",
-        "district": "3rd",
+        "province_city": "City of Lapu-Lapu",
+        "name": "CHAN, JUNARD \"AHONG\" Q.",
+        "district": "Lone",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Quezon",
-        "name": "Tan, Keith Micah D.L.",
-        "district": "4th",
+        "province_city": "City of Manila",
+        "name": "CHUA, JOEL R.",
+        "district": "3rd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Zamboanga",
+        "name": "CHUA-TAI, KATRINA REIKO",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Ifugao",
+        "name": "CHUNGALAO, SOLOMON R.",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Tarlac",
+        "name": "COJUANGCO, JAIME EDUARDO MARC D.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Pangasinan",
+        "name": "COJUANGCO, MARK O.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Batangas",
+        "name": "COLLANTES, KING GEORGE LEANDRO ANTONIO V.",
+        "district": "3rd District",
         "contact": "[REDACTED]"
       },
       {
         "province_city": "Quezon City",
-        "name": "Atayde, Juan Carlos C.",
-        "district": "1st",
+        "name": "CO-PILAR, MA. VICTORIA",
+        "district": "6th District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Quezon City",
-        "name": "Tulfo, Ralph Wendel P.",
-        "district": "2nd",
+        "province_city": "Agusan Del Norte",
+        "name": "CORVERA, DALE B.",
+        "district": "Lone",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Quezon City",
-        "name": "Pumaren, Franz S.",
-        "district": "3rd",
+        "province_city": "Bulacan",
+        "name": "CRUZ, AGATHA PAULA AGUILAR",
+        "district": "5th District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Quezon City",
-        "name": "Rillo, Marvin D.",
-        "district": "4th",
+        "province_city": "City of Taguig - Pateros",
+        "name": "CRUZ, RICARDO S., JR.",
+        "district": "Lone",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Quezon City",
-        "name": "Vargas, Patrick Michael D.",
-        "district": "5th",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Quezon City",
-        "name": "Co-Pilar, Maria Victoria",
-        "district": "6th",
+        "province_city": "Cotabato",
+        "name": "CRUZADO, EDWIN L. M.D.",
+        "district": "1st District",
         "contact": "[REDACTED]"
       },
       {
         "province_city": "Quirino",
-        "name": "Cua, Midy N.",
+        "name": "CUA, MIDY N.",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Mountain Province",
+        "name": "DALOG, MAXIMO Y., JR.",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Davao Oriental",
+        "name": "DAYANGHIRANG, NELSON \"JR\"",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Northern Samar",
+        "name": "DAZA, NIKO RAUL S.J.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Pangasinan",
+        "name": "DE VENECIA, MA. GEORGINA P.",
+        "district": "4th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Iloilo",
+        "name": "DEFENSOR, LORENZ R.",
+        "district": "3rd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Negros Oriental",
+        "name": "DEGAMO, JANICE",
+        "district": "3rd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Cebu",
+        "name": "DEL MAR, RACHEL MARGUERITE B.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Batangas",
+        "name": "DIMACUHA, BEVERLEY ROSE A.",
+        "district": "5th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Biñan",
+        "name": "DIMAGUILA, WALFREDO \"ARMAN\" R., JR.",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Lanao Del Norte",
+        "name": "DIMAPORO, IMELDA QUIBRANZA",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Lanao Del Norte",
+        "name": "DIMAPORO, SITTIE AMINAH Q.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Manila",
+        "name": "DIONISIO, ERNESTO M., JR.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Bulacan",
+        "name": "DOMINGO, DANILO \"DANNY\" A.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Baguio",
+        "name": "DOMOGAN, MAURICIO G.",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Davao",
+        "name": "DUTERTE, OMAR VINCENT SANGKOLA",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Davao",
+        "name": "DUTERTE, PAOLO Z.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Isabela",
+        "name": "DY, FAUSTINO \"BOJIE\" G. III",
+        "district": "6th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Isabela",
+        "name": "DY, FAUSTINO MICHAEL CARLOS III T.",
+        "district": "5th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Isabela",
+        "name": "DY, IAN PAUL L.",
+        "district": "3rd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Misamis Oriental",
+        "name": "EMANO, YEVGENY VINCENTE B.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Quezon",
+        "name": "ENVERGA, WILFRIDO MARK M.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Caloocan",
+        "name": "ERICE, EDGAR R.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Sorsogon",
+        "name": "ESCUDERO, BERNADETTE G.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Biliran",
+        "name": "ESPINA, GERARDO \"GERRYBOY\" JR. J.",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Cavite",
+        "name": "FERRER, ANTONIO A.",
+        "district": "6th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Negros Occidental",
+        "name": "FERRER, JEFFREY P.",
+        "district": "4th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Bukidnon",
+        "name": "FLORES, JONATHAN KEITH T.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Sorsogon",
+        "name": "FORTES, WOWO",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Cebu",
+        "name": "FRASCO, VINCENT FRANCO \"DUKE\" D.",
+        "district": "5th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Muntinlupa",
+        "name": "FRESNEDI, JAIME R.",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Camarines Sur",
+        "name": "FUENTEBELLA, ARNIE B.",
+        "district": "4th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Valenzuela",
+        "name": "GALANG, GERALD CLOYD ALEXIS V.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Cebu",
+        "name": "GALEOS, EDSEL A.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Bataan",
+        "name": "GARCIA, ALBERT S.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "La Union",
+        "name": "GARCIA, DANTE S.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Rizal",
+        "name": "GARCIA, JOSE ARTURO S., JR.",
+        "district": "3rd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Cebu",
+        "name": "GARCIA, KAREN HOPE F.",
+        "district": "3rd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Bataan",
+        "name": "GARCIA, MARIA ANGELA S.",
+        "district": "3rd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Iloilo",
+        "name": "GARIN, JANETTE L.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Valenzuela",
+        "name": "GATCHALIAN, KENNETH T.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Batanes",
+        "name": "GATO, CIRIACO B., JR., MD, FPSO-HNS",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Isabela",
+        "name": "GO, ED CHRISTOPHER S.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Leyte",
+        "name": "GOMEZ, RICHARD I., DPA",
+        "district": "4th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Mandaluyong",
+        "name": "GONZALES, ALEXANDRIA \"QUEENIE\"",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Pampanga",
+        "name": "GONZALES, ALYSSA MICHAELA \"MICA\" M.",
+        "district": "3rd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Eastern Samar",
+        "name": "GONZALES, CHRISTOPHER SHEEN P.",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Santa Rosa",
+        "name": "GONZALES, ROY M.",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Iloilo",
+        "name": "GORRICETA, KATHRYN JOYCE F., MD.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Pangasinan",
+        "name": "GUICO, RAMON N., JR.",
+        "district": "5th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Capiz",
+        "name": "GUINTU, HOWARD A.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Cebu",
+        "name": "GULLAS, RHEA MAE A.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Calamba",
+        "name": "HERNANDEZ, CHARISSE ANNE C.",
         "district": "Lone",
         "contact": "[REDACTED]"
       },
       {
         "province_city": "Rizal",
-        "name": "Duavit, Michael John R.",
-        "district": "1st",
+        "name": "HERNANDEZ, DENNIS \"TOM\" L.",
+        "district": "4th District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Rizal",
-        "name": "Tanjuatco, Emigdio III P.",
-        "district": "2nd",
+        "province_city": "South Cotabato",
+        "name": "HERNANDEZ, FERDINAND L.",
+        "district": "2nd District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Rizal",
-        "name": "Garcia, Jose Arturo Jr. S.",
-        "district": "3rd",
+        "province_city": "Laguna",
+        "name": "HERNANDEZ, RAMIL LAUREL",
+        "district": "2nd District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Rizal",
-        "name": "Nograles, Juan Fidel Felipe F.",
-        "district": "4th",
+        "province_city": "Zamboanga Sibugay",
+        "name": "HOFER-HASIM, MARLESA \"DOC MARLY\"",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Camarines Sur",
+        "name": "HORIBATA, TSUYOSHI ANTHONY \"HORI\" G.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Negros Oriental",
+        "name": "IWAY, EMMANUEL L.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Leyte",
+        "name": "JAVIER, LOLITA T.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Masbate",
+        "name": "KHO, ANTONIO T.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Masbate",
+        "name": "KHO, ELISA \"OLGA\" T.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Masbate",
+        "name": "KHO, WILTON \"TONTON\" T.",
+        "district": "3rd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Zambales",
+        "name": "KHONGHUN, JEFFERSON F.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Zamboanga Del Norte",
+        "name": "LABADLABAD, IRENE G.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Misamis Oriental",
+        "name": "LAGBAS, ATTY. JENNIFER \"KAREN\" A.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Davao Del Norte",
+        "name": "LAGDAMEO, JOSE MANUEL \"JM\" F.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Makati",
+        "name": "LAGDAMEO, MONIQUE YAZMIN MARIA Q.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Albay",
+        "name": "LAGMAN, CIELO KRISEL",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Cebu",
+        "name": "LAGON, DAPHNE A.",
+        "district": "6th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Cagayan",
+        "name": "LARA, JOSEPH \"JOJO\" L.",
+        "district": "3rd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Pampanga",
+        "name": "LAZATIN, CARMELO G. JR",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Negros Occidental",
+        "name": "LEDESMA, JULIO A., IV",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Camarines Sur",
+        "name": "LEGACION, NELSON S.",
+        "district": "3rd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Antique",
+        "name": "LEGARDA, ANTONIO B., JR",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Batangas",
+        "name": "LEVISTE, LEANDRO LEGARDA",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Albay",
+        "name": "LORIA, CARLOS ANDES",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Cavite",
+        "name": "LOYOLA, ROY M.",
+        "district": "5th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Batangas",
+        "name": "LUISTRO, ATTY. GERVILLE \"JINKY BITRICS\" R.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "South Cotabato",
+        "name": "LUMAYAG, ISIDRO D.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Pampanga",
+        "name": "MACAPAGAL-ARROYO, GLORIA",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Manila",
+        "name": "MACEDA, GISELLE MARY L.",
+        "district": "4th District",
         "contact": "[REDACTED]"
       },
       {
         "province_city": "Romblon",
-        "name": "Madrona, Eleandro Jesus F.",
+        "name": "MADRONA, ELEANDRO JESUS F.",
         "district": "Lone",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Samar",
-        "name": "Tan, Stephen James T.",
-        "district": "1st",
+        "province_city": "City of Caloocan",
+        "name": "MALAPITAN, OSCAR G.",
+        "district": "1st District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Samar",
-        "name": "Tan, Reynolds Michael T.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "San Jose Del Monte City",
-        "name": "Robes, Florida P.",
+        "province_city": "Maguindanao del Sur",
+        "name": "MANGUDADATU, ESMAEL G.",
         "district": "Lone",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "San Juan City",
-        "name": "Zamora, Ysabel Maria J.",
+        "province_city": "Zambales",
+        "name": "MANIQUIZ, DORIS E.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Negros Occidental",
+        "name": "MARAÑON, ALFREDO D., III",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Ilocos Norte",
+        "name": "MARCOS, FERDINAND ALEXANDER A.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Aklan",
+        "name": "MARQUEZ, JESUS \"JESS\" R.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Maguindanao del Norte",
+        "name": "MASTURA, BAI DIMPLE I.",
         "district": "Lone",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Santa Rosa City",
-        "name": "Fernandez, Dan S.",
-        "district": "Lone",
+        "province_city": "Laguna",
+        "name": "MATIBAG, ANN",
+        "district": "1st District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Sarangani",
-        "name": "Solon, Steve Chiongbian",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Siquijor",
-        "name": "Villa, Zaldy S.",
-        "district": "Lone",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Sorsogon",
-        "name": "Escudero, Marie Bernadette G.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Sorsogon",
-        "name": "Fortes, Wowo",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "South Cotabato",
-        "name": "Lumayag, Isidro D.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "South Cotabato",
-        "name": "Miguel, Peter B.",
-        "district": "2nd",
+        "province_city": "Surigao Del Norte",
+        "name": "MATUGAS, FRANCISCO \"LALO\" T.",
+        "district": "1st District",
         "contact": "[REDACTED]"
       },
       {
         "province_city": "Southern Leyte",
-        "name": "Mercado, Luz V.",
-        "district": "1st",
+        "name": "MERCADO, ROGER GAVIOLA",
+        "district": "1st District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Southern Leyte",
-        "name": "Yap, Christopherson M.",
-        "district": "2nd",
+        "province_city": "Cavite",
+        "name": "MERCADO-REVILLA, LANI",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Aklan",
+        "name": "MIRAFLORES, FLORENCIO T.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Surigao Del Sur",
+        "name": "MOMO, ROMEO S., SR.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Guimaras",
+        "name": "NAVA, JC RAHMAN A., MD",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Cagayan",
+        "name": "NOLASCO, RAMON C.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Misamis Occidental",
+        "name": "OAMINAL, SANCHO FERNANDO \"ANDO\" F.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Parañaque",
+        "name": "OLIVAREZ, ERIC L.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Northern Samar",
+        "name": "ONGCHUAN, EDWIN",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Malabon",
+        "name": "ORETA, ANTOLIN A. III",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "La Union",
+        "name": "ORTEGA, FRANCISCO PAOLO P., V",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Mandaue",
+        "name": "OUANO-DIZON, EMMARIE \"LOLYPOP\"",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Oriental Mindoro",
+        "name": "PANALIGAN, ARNAN C.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Bulacan",
+        "name": "PANCHO, AUGUSTINA DOMINIQUE \"DITSE TINA\" C.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Camarines Norte",
+        "name": "PANOTES, ROSEMARIE CONEJOS",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Nueva Ecija",
+        "name": "PASCUAL, EMERSON D.",
+        "district": "4th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Zamboanga",
+        "name": "PEREZ, JERRY EVANGELISTA",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Surigao Del Sur",
+        "name": "PIMENTEL, ALEXANDER TY",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Agusan Del Sur",
+        "name": "PLAZA, EDDIEBONG G.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Bulacan",
+        "name": "PLEYTO, SALVADOR A.",
+        "district": "6th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Pangasinan",
+        "name": "PRIMICIAS-AGABAS, MARLYN L.",
+        "district": "6th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Quezon City",
+        "name": "PUMAREN, FRANZ S",
+        "district": "3rd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Antipolo",
+        "name": "PUNO, RONALDO V.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Marikina",
+        "name": "QUIMBO, ATTY. MIRO S.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Cebu",
+        "name": "RAMA, EDUARDO R.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Batangas",
+        "name": "RECTO, RYAN S.",
+        "district": "6th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Iligan",
+        "name": "REGENCIA, CELSO G.",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Cavite",
+        "name": "REMULLA, CRISPIN DIEGO D.",
+        "district": "7th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Cavite",
+        "name": "REVILLA, RAMON JOLO III B.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Tarlac",
+        "name": "RIVERA, NOEL \"BONG\" N.",
+        "district": "3rd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of San Jose Del Monte",
+        "name": "ROBES, ARTURO B.",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Catanduanes",
+        "name": "RODRIGUEZ, EULOGIO \"LEO\" R.",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Cagayan De Oro",
+        "name": "RODRIGUEZ, RUFUS B.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Bataan",
+        "name": "ROMAN, ANTONINO B., III",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Leyte",
+        "name": "ROMUALDEZ, FERDINAND MARTIN G.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Camiguin",
+        "name": "ROMUALDO, JURDIN JESUS M.",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Pasig",
+        "name": "ROMULO, ROMAN T.",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Bukidnon",
+        "name": "ROQUE, LAARNI LAVIN",
+        "district": "4th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Negros Oriental",
+        "name": "SAGARBARRIA, MA. ISABEL L.",
+        "district": "2nd District",
         "contact": "[REDACTED]"
       },
       {
         "province_city": "Sultan Kudarat",
-        "name": "Sakaluran, Princess Rihan M.",
-        "district": "1st",
+        "name": "SAKALURAN, RUTH M.",
+        "district": "1st District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Sultan Kudarat",
-        "name": "Suansing, Horacio Jr. P.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Sulu",
-        "name": "Tan, Samier A.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Sulu",
-        "name": "Arbison, Munir Jr. N.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Surigao del Norte",
-        "name": "Matugas, Francisco Jose II F.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Surigao del Norte",
-        "name": "Barbers, Robert Ace S.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Surigao del Sur",
-        "name": "Momo, Romeo Sr. S.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Surigao del Sur",
-        "name": "Pimentel, Johnny Ty",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Taguig City",
-        "name": "Zamora, Amparo Maria J.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Taguig-Pateros",
-        "name": "Cruz, Ricardo Jr. S.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Tarlac",
-        "name": "Cojuanco, Jaime Eduardo Marc D.",
-        "district": "1st",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Tarlac",
-        "name": "Yap, Christian Tell A.",
-        "district": "2nd",
-        "contact": "[REDACTED]"
-      },
-      {
-        "province_city": "Tarlac",
-        "name": "Rivera, Noel N.",
-        "district": "3rd",
+        "province_city": "Albay",
+        "name": "SALCEDA, ADRIAN E.",
+        "district": "3rd District",
         "contact": "[REDACTED]"
       },
       {
         "province_city": "Tawi-Tawi",
-        "name": "Sali, Dimszar M.",
+        "name": "SALI, DIMSZAR M.",
         "district": "Lone",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Valenzuela City",
-        "name": "Enverga, Wilfrido Mark M. (Caretaker)",
-        "district": "1st",
+        "province_city": "Marinduque",
+        "name": "SALVACION, REYNALDO P.",
+        "district": "Lone",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Valenzuela City",
-        "name": "Martinez, Eric M.",
-        "district": "2nd",
+        "province_city": "Nueva Ecija",
+        "name": "SALVADOR, MARIO \"KOKOY\" O.",
+        "district": "2nd District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Zambales",
-        "name": "Khonghun, Jefferson F.",
-        "district": "1st",
+        "province_city": "Palawan",
+        "name": "SALVAME, ROSALIE ANG",
+        "district": "1st District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Zambales",
-        "name": "Maniquiz, Doris E.",
-        "district": "2nd",
+        "province_city": "Cotabato",
+        "name": "SANTOS, MA. ALANA SAMANTHA TALIÑO",
+        "district": "3rd District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Zamboanga City",
-        "name": "Olaso, Khymer Adan T.",
-        "district": "1st",
+        "province_city": "City of Las Piñas",
+        "name": "SANTOS, MARK ANTHONY",
+        "district": "Lone",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Zamboanga City",
-        "name": "Dalipe, Manuel Jose M.",
-        "district": "2nd",
+        "province_city": "Cebu",
+        "name": "SHIMURA, SUN JUDAL",
+        "district": "4th District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Zamboanga del Norte",
-        "name": "Uy, Roberto Jr. T.",
-        "district": "1st",
+        "province_city": "Ilocos Sur",
+        "name": "SINGSON, RONALD V.",
+        "district": "1st District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Zamboanga del Norte",
-        "name": "Labadlabad, Glona G.",
-        "district": "2nd",
+        "province_city": "Ilocos Sur",
+        "name": "SINGSON-MEEHAN, KRISTINE",
+        "district": "2nd District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Zamboanga del Norte",
-        "name": "Amatong, Adrian Michael A.",
-        "district": "3rd",
+        "province_city": "Sarangani",
+        "name": "SOLON, STEVE CHIONGBIAN",
+        "district": "Lone",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Zamboanga del Sur",
-        "name": "Yu, Divina Grace C.",
-        "district": "1st",
+        "province_city": "City of Cagayan De Oro",
+        "name": "SUAN, LORDAN G.",
+        "district": "1st District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Zamboanga del Sur",
-        "name": "Yu, Jeyzel Victoria C.",
-        "district": "2nd",
+        "province_city": "Sultan Kudarat",
+        "name": "SUANSING, BELLA VANESSA B.",
+        "district": "2nd District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Zamboanga Sibugay",
-        "name": "Palma, Wilter Y.",
-        "district": "1st",
+        "province_city": "Nueva Ecija",
+        "name": "SUANSING, MIKAELA ANGELA B.",
+        "district": "1st District",
         "contact": "[REDACTED]"
       },
       {
-        "province_city": "Zamboanga Sibugay",
-        "name": "Eudela, Antonieta R.",
-        "district": "2nd",
+        "province_city": "Quezon",
+        "name": "SUAREZ, DAVID \"JAY-JAY\" C.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Quezon City",
+        "name": "SUNTAY, JESUS MANUEL \"BONG\" C.",
+        "district": "4th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Camarines Norte",
+        "name": "TALLADO, JOSEFINA B.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Isabela",
+        "name": "TAN, JOSEPH S.",
+        "district": "4th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Quezon",
+        "name": "TAN, KEITH MICAH \"ATTY. MIKE\" D.L.",
+        "district": "4th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Samar",
+        "name": "TAN, REYNOLDS MICHAEL T.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Sulu",
+        "name": "TAN, SAMIER A.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Samar",
+        "name": "TAN, STEPHEN JAMES T.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Rizal",
+        "name": "TANJUATCO, EMIGDIO P., III",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Occidental Mindoro",
+        "name": "TARRIELA, LEODY \"ODIE\" F.",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Marikina",
+        "name": "TEODORO, MARCELINO \"MARCY\" R.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Navotas",
+        "name": "TIANGCO, TOBIAS \"TOBY\" M.",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Manila",
+        "name": "TIENG, IRWIN C.",
+        "district": "5th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Cavite",
+        "name": "TOLENTINO, ANIELA BIANCA D.",
+        "district": "8th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "South Cotabato",
+        "name": "TUAN, DIBU S.",
+        "district": "3rd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Quezon City",
+        "name": "TULFO, RALPH WENDEL P.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Iloilo",
+        "name": "TUPAS, BINKY APRIL M.",
+        "district": "5th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Bohol",
+        "name": "TUTOR, KRISTINE ALEXIE B.",
+        "district": "3rd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Oriental Mindoro",
+        "name": "UMALI, ALFONSO V., JR.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Davao",
+        "name": "UNGAB, ISIDRO T.",
+        "district": "3rd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Davao Del Norte",
+        "name": "UY, DE CARLO L.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Zamboanga Del Norte",
+        "name": "UY, ROBERTO \"PINPIN\" T. JR.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Manila",
+        "name": "VALERIANO, ROLANDO M.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Quezon City",
+        "name": "VARGAS, PATRICK MICHAEL D.",
+        "district": "5th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Cagayan",
+        "name": "VARGAS-ALFONSO, BABY ALINE",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Leyte",
+        "name": "VELOSO-TUAZON, ANNA VICTORIA",
+        "district": "3rd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Nueva Ecija",
+        "name": "VERGARA, JULIUS CESAR \"JAY\" V.",
+        "district": "3rd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Siquijor",
+        "name": "VILLA, ZALDY S.",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Camarines Sur",
+        "name": "VILLAFUERTE, MIGUEL LUIS R.",
+        "district": "5th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Camarines Sur",
+        "name": "VILLAFUERTE, VINCENZO RENATO LUIGI R.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Bulacan",
+        "name": "VILLARICA, LINABELLE RUTH R.",
+        "district": "4th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Bulacan",
+        "name": "VIOLAGO, MARK CHOLO I.",
+        "district": "3rd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of Parañaque",
+        "name": "YAMSUAN, BRIAN RAYMUND S.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Southern Leyte",
+        "name": "YAP, CHRISTOPHERSON \"COCO\" M.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Benguet",
+        "name": "YAP, ERIC GO",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Bohol",
+        "name": "YAP, JOHN GEESNELL \"BABA\"",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Rizal",
+        "name": "YNARES, REBECCA MARIA ALCANTARA",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Zamboanga Del Sur",
+        "name": "YU, JEYZEL VICTORIA C.",
+        "district": "2nd District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Zamboanga Del Sur",
+        "name": "YU, JOSEPH KIM C.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Negros Occidental",
+        "name": "YULO, EMILIO BERNARDINO L.",
+        "district": "5th District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Davao De Oro",
+        "name": "ZAMORA, MARIA CARMEN S.",
+        "district": "1st District",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "City of San Juan",
+        "name": "ZAMORA, YSABEL MARIA J.",
+        "district": "Lone",
+        "contact": "[REDACTED]"
+      },
+      {
+        "province_city": "Bukidnon",
+        "name": "ZUBIRI, AUDREY KAY T.",
+        "district": "3rd District",
         "contact": "[REDACTED]"
       }
     ],
     "party_list_representatives": [
       {
-        "party_list": "1-PACMAN",
-        "name": "Romero, Michael L.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "1-RIDER",
-        "name": "Bosita, Bonifacio L.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "1-RIDER",
-        "name": "Gutierrez, Ramon Rodrigo L.",
-        "contact": "[REDACTED]"
-      },
-      {
         "party_list": "4PS",
-        "name": "Abalos, JC",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "4PS",
-        "name": "Libanan, Marcelino C.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "AAMBIS-OWA",
-        "name": "Colada, Lex Anthony Cris A.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "ABANG LINGKOD",
-        "name": "Paduano, Joseph Stephen S.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "ABONO",
-        "name": "Estrella, Robert Raymund M.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "ACT TEACHERS",
-        "name": "Castro, France L.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "ACT-CIS",
-        "name": "Tulfo, Erwin T.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "ACT-CIS",
-        "name": "Tulfo, Jocelyn P.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "ACT-CIS",
-        "name": "Yap, Edvic G.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "AGAP",
-        "name": "Briones, Nicanor M.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "AGIMAT",
-        "name": "Revilla, Bryan B.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "AGRI",
-        "name": "Lee, Wilbert T.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "AKBAYAN",
-        "name": "Cendaña, Percival V.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "AKO BICOL",
-        "name": "Bongalon, Raul Angelo D.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "AKO BICOL",
-        "name": "Co, Elizaldy S.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "AKO BISAYA",
-        "name": "Lagon, Sonny L.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "AKO ILOCANO AKO",
-        "name": "Singson, Richelle",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "ALONA",
-        "name": "Villaraza-Suarez, Anna Marie",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "ANAKALUSUGAN",
-        "name": "Reyes, Ray T.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "ANG PROBINSYANO",
-        "name": "Delos Santos, Alfred C.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "ANGAT",
-        "name": "Tamayo, Reynaldo S.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "APEC",
-        "name": "Dagooc, Sergio C.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "API",
-        "name": "Morden, Michael M.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "BH",
-        "name": "Herrera, Bernadette",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "BHW",
-        "name": "Co, Angelica Natasha",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "BICOL SARO",
-        "name": "Yamsuan, Brian Raymund S.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "CIBAC",
-        "name": "Villanueva, Eduardo C.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "COOP-NATCCO",
-        "name": "Espares, Felimon M.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "CWS",
-        "name": "Gardiola, Edwin L.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "DUMPER PTDA",
-        "name": "BautistaLim-, Claudine Diana D.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "DUTERTE YOUTH",
-        "name": "Cardema, Drixie Mae S.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "GABRIELA",
-        "name": "Brosas, Arlene D.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "GP PARTY",
-        "name": "Padienos, Jose Gay G.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "KABATAAN",
-        "name": "Manuel, Raoul Danniel A.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "KABAYAN",
-        "name": "Salo Ron P.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "KALINGA",
-        "name": "Saulog, Irene Gay F.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "KUSUG TAUSUG",
-        "name": "Tan-Tambut, Shernee A.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "LPGMA",
-        "name": "Ty, Allan U.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "MALASAKIT@BAYANIHAN",
-        "name": "Golez, Anthony Rolando Jr. T.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "MANILA TEACHERS",
-        "name": "Lacson, Virgilio S.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "MARINO",
-        "name": "Gonzalez, Sandro L.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "OFW",
-        "name": "Magsino, Marissa",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "PATROL",
-        "name": "Bustos, Jorge",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "PBA",
-        "name": "Nograles, Margarita B.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "PHILRECA",
-        "name": "De Jesus, Presley C.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "PINUNO",
-        "name": "Guintu, Ivan Howard A.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "PROBINSYANO AKO",
-        "name": "Fariñas, Rudys Caesar I G.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "PUSONG PINΟΥ",
-        "name": "Nisay, Jernie Jett V.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "SAGIP",
-        "name": "Marcoleta, Rodante D.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "SAGIP",
-        "name": "Tanchay, Caroline L.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "SENIOR CITIZENS",
-        "name": "Ordanes, Rodolfo M.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "TGP",
-        "name": "Teves, Jose Jr. J.",
+        "name": "ABALOS, JC M.",
         "contact": "[REDACTED]"
       },
       {
         "party_list": "TINGOG",
-        "name": "Acidre, Jude A.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "TINGOG",
-        "name": "Romualdez, Yedda Marie K.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "TUCP",
-        "name": "Mendoza, Raymond Democrito C.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "TUTOK TO WIN",
-        "name": "Verzosa, Samuel Jr. S.",
-        "contact": "[REDACTED]"
-      },
-      {
-        "party_list": "UNITED SENIOR CITIZENS",
-        "name": "Aquino-Magsaysay, Milagros",
+        "name": "ACIDRE, JUDE A.",
         "contact": "[REDACTED]"
       },
       {
         "party_list": "USWAG ILONGGO",
-        "name": "Ang, James Jr. A.",
+        "name": "ANG, JAMES \"JOJO\" JR.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "UNITED SENIOR CITIZENS",
+        "name": "AQUINO-MAGSAYSAY, MILAGROS",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "KAPUSO PM",
+        "name": "ARBISON, MUNIR N., JR.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "SWERTE",
+        "name": "AYON, ARLYN P.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "TRABAHO",
+        "name": "BAUTISTA, JOHANNE MONICH G.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "DUMPER-PTDA",
+        "name": "BAUTISTA-LIM, CLAUDINE DIANA D.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "MAGBUBUKID",
+        "name": "BELTRAN, FERDINAND \"B1\" L.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "SOLID NORTH PARTY",
+        "name": "BERNOS, CHING B.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "AGAP",
+        "name": "BRIONES, NICANOR M.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "AKBAYAN",
+        "name": "CENDAÑA, PERCIVAL \"PERCI\"",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "AKO BICOL",
+        "name": "CO, ELIZALDY S.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "KABATAAN",
+        "name": "CO, RENEE LOUISE M.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "APEC",
+        "name": "DAGOOC, SERGIO C.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "PHILRECA",
+        "name": "DE JESUS, PRESLEY C.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "ML",
+        "name": "DE LIMA, LEILA M.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "AKBAYAN",
+        "name": "DIOKNO, JOSE MANUEL TADEO \"CHEL\" I.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "PPP",
+        "name": "DUTERTE, HAROLD JAMES T.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "COOP NATCCO",
+        "name": "ESPARES, FELIMON M.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "AKO BICOL",
+        "name": "GARBIN, ALFREDO JR. A.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "CWS",
+        "name": "GARDIOLA, EDWIN L.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "ONE COOP",
+        "name": "GLEPA, MARIA KRISTINA JIHAN B.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "1-RIDER PARTYLIST",
+        "name": "GUTIERREZ, RAMON RODRIGO L.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "AKBAYAN",
+        "name": "ISMULA, DADAH KIRAM",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "ABANG LINGKOD",
+        "name": "KO, MANUEL \"MANMAN\" O.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "MANILA TEACHERS",
+        "name": "LACSON, MA.NINA FRANCESCA P.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "AKO BISAYA",
+        "name": "LAGON, SONNY \"SL\" L.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "PINOY WORKERS",
+        "name": "LEGAZPI, FRANZ VINCENT F.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "4PS",
+        "name": "LIBANAN, MARCELINO C.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "ALONA",
+        "name": "LOPEZ, MA. CRISTINA TALAVERA",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "SSS-GSIS PENSYONADO",
+        "name": "MACASAET, ROLANDO LEDESMA",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "SAGIP",
+        "name": "MARCOLETA, PAOLO HENRY M.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "TUCP",
+        "name": "MENDOZA, RAYMOND DEMOCRITO C.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "4K",
+        "name": "MONTES, IRIS MARIE DEMESA",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "BH",
+        "name": "NAZAL, ROBERT",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "PUSONG PINOY",
+        "name": "NISAY, JERNIE JETT V.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "ASENSO PINOY",
+        "name": "OAMINAL, HENRY \"INDY\" F. JR.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "1TAHANAN",
+        "name": "ODUCADO, NATHANIEL M.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "SENIOR CITIZENS PARTYLIST",
+        "name": "ORDANES, RODOLFO \"OMPONG\" M.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "GP (GALING SA PUSO)",
+        "name": "PADIERNOS, JAN \"ATTY. JP\"",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "FPJ PANDAY BAYANIHAN",
+        "name": "POE, BRIAN",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "AGIMAT",
+        "name": "REVILLA, BRYAN B.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "BICOL SARO",
+        "name": "RIDON, TERRY L.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "ABAMIN",
+        "name": "RODRIGUEZ, MAXIMO B., JR.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "TINGOG",
+        "name": "ROMUALDEZ, ANDREW JULIAN K.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "TINGOG",
+        "name": "ROMUALDEZ, YEDDA MARIE K.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "KAMANGGAGAWA",
+        "name": "SAN FERNANDO, ELIJAH RUMBAOA",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "AKO ILOCANO AKO",
+        "name": "SINGSON, RICHELLE",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "KUSUG TAUSUG",
+        "name": "TAN, AIMAN T.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "KAMALAYAN",
+        "name": "TANCHAY, CAROLINE L.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "KM NGAYON NA",
+        "name": "TERENG, KENNETH PAOLO",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "TGP",
+        "name": "TEVES, JOSE \"BONG\" J., JR.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "ACT TEACHERS",
+        "name": "TINIO, ANTONIO L.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "ACT-CIS",
+        "name": "TULFO, JOCELYN P.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "LPGMA",
+        "name": "TY, ALLAN U.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "MALASAKIT@BAYANIHAN",
+        "name": "VELOSO, GIRLIE E.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "CIBAC",
+        "name": "VILLANUEVA, EDUARDO \"BRO. EDDIE\" C.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "ACT-CIS",
+        "name": "YAP, EDVIC G.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "NANAY",
+        "name": "YATCO, FLORABEL C.",
+        "contact": "[REDACTED]"
+      },
+      {
+        "party_list": "GABRIELA",
+        "name": "ELAGO, SARAH JANE",
         "contact": "[REDACTED]"
       }
     ],
@@ -2278,163 +2295,163 @@
       "chairpersons": [
         {
           "committee": "Accounts",
-          "name": "YEDDA MARIE K. ROMUALDEZ"
+          "name": "MARICAR ZAMORA"
         },
         {
           "committee": "Agrarian Reform",
-          "name": "SOLOMON R. CHUNGALAO"
+          "name": "ELEANOR BEGTANG"
         },
         {
           "committee": "Agriculture and Food",
-          "name": "WILFRIDO MARK M. ENVERGA"
+          "name": "MARK ENVERGA"
         },
         {
           "committee": "Appropriations",
-          "name": "ELIZALDY S. CO"
+          "name": "MIKAELA SUANSING"
         },
         {
           "committee": "Aquaculture and Fisheries Resources",
-          "name": "BRIAN RAYMUND S. YAMSUAN"
+          "name": "HORI HORIBATA"
         },
         {
           "committee": "Banks and Financial Intermediaries",
-          "name": "IRWIN C. TIENG"
+          "name": "IRWIN TIENG"
         },
         {
           "committee": "Basic Education and Culture",
-          "name": "ROMAN T. ROMULO"
+          "name": "ROMAN ROMULO"
         },
         {
           "committee": "Civil Service and Professional Regulation",
-          "name": "KRISTINE ALEXIE B. TUTOR"
+          "name": "LAARNI ROQUE"
         },
         {
           "committee": "Climate Change",
-          "name": "EDGAR M. CHATTO"
+          "name": "ANIELA TOLENTINO"
         },
         {
           "committee": "Constitutional Amendments",
-          "name": "RUFUS B. RODRIGUEZ"
+          "name": "RUFUS RODRIGUEZ"
         },
         {
           "committee": "Cooperatives Development",
-          "name": "NICANOR M. BRIONES"
+          "name": "FELIMON ESPARES"
         },
         {
           "committee": "Dangerous Drugs",
-          "name": "ROBERT ACE S. BARBERS"
+          "name": "JONATHAN KEITH FLORES"
         },
         {
           "committee": "Disaster Resilience",
-          "name": "ALAN I B. ECLEO"
+          "name": "JOSEPH LARA"
         },
         {
           "committee": "Ecology",
-          "name": "MARLYN B. ALONTE"
+          "name": "VANVAN AUMENTADO"
         },
         {
           "committee": "Economic Affairs",
-          "name": "GERARDO P. VALMAYOR JR."
+          "name": "ANTONIO LEGARDA JR."
         },
         {
           "committee": "Energy",
-          "name": "LORD ALLAN JAY Q. VELASCO"
+          "name": "JOSE ALVAREZ"
         },
         {
           "committee": "Ethics and Privileges",
-          "name": "FELIMON M. ESPARES"
+          "name": "JONATHAN CLEMENT ABALOS"
         },
         {
-          "committee": "Flagship Programs And Projects",
-          "name": "CLAUDE P. BAUTISTA"
+          "committee": "Flagship Programs and Projects",
+          "name": "JOSE ARTURO GARCIA JR."
         },
         {
           "committee": "Foreign Affairs",
-          "name": "MARIA RACHEL J. ARENAS"
+          "name": "MARIA RACHEL ARENAS"
         },
         {
           "committee": "Games and Amusements",
-          "name": "ANTONIO A. FERRER"
+          "name": "ANTONIO FERRER"
         },
         {
           "committee": "Good Government and Public Accountability",
-          "name": "JOEL R. CHUA"
+          "name": "JOEL CHUA"
         },
         {
           "committee": "Government Enterprises and Privatization",
-          "name": "EDWIN L. OLIVAREZ"
+          "name": "ERIC OLIVAREZ"
         },
         {
           "committee": "Government Reorganization",
-          "name": "JONATHAN KEITH T. FLORES"
+          "name": "SALVADOR PLEYTO"
         },
         {
           "committee": "Health",
-          "name": "CIRIACO B. GATO JR."
+          "name": "JUN GATO"
         },
         {
           "committee": "Higher and Technical Education",
-          "name": "MARK O. GO"
+          "name": "JUDE ACIDRE"
         },
         {
           "committee": "Housing and Urban Development",
-          "name": "FLORIDA P. ROBES"
+          "name": "MARIVIC CO-PILAR"
         },
         {
           "committee": "Human Rights",
-          "name": "BIENVENIDO M. ABANTE JR."
+          "name": "BENNY ABANTE"
         },
         {
           "committee": "Indigenous Cultural Communities and Indigenous Peoples",
-          "name": "ALLEN JESSE C. MANGAOANG"
+          "name": "MAURICIO DOMOGAN"
         },
         {
           "committee": "Information and Communications Technology",
-          "name": "TOBIAS REYNALD M. TIANGCO"
+          "name": "MIGUEL LUIS VILLAFUERTE"
         },
         {
-          "committee": "Inter-parliamentary Relations And Diplomacy",
-          "name": "GLONA G. LABADLABAD"
+          "committee": "Inter-Parliamentary Relations and Diplomacy",
+          "name": "GINA DE VENECIA"
         },
         {
           "committee": "Justice",
-          "name": "JULIET MARIE DE LEON FERRER"
+          "name": "GERVILLE LUISTRO"
         },
         {
           "committee": "Labor and Employment",
-          "name": "JUAN FIDEL FELIPE F. NOGRALES"
+          "name": "JOLO REVILLA"
         },
         {
           "committee": "Legislative Franchises",
-          "name": "GUS S. TAMBUNTING"
+          "name": "JEFFREY FERRER"
         },
         {
           "committee": "Local Government",
-          "name": "MANUEL T. SAGARBARRIA"
+          "name": "FLORENCIO MIRAFLORES"
         },
         {
           "committee": "Metro Manila Development",
-          "name": "ROLANDO M. VALERIANO"
+          "name": "DEAN ASISTIO"
         },
         {
           "committee": "Micro, Small and Medium Enterprise Development",
-          "name": "CHRISTIAN S. UNABIA"
+          "name": "LEODY TARRIELA"
         },
         {
           "committee": "Mindanao Affairs",
-          "name": "YEVGENY VINCENTE B. EMANO"
+          "name": "JASON ALMONTE"
         },
         {
           "committee": "Muslim Affairs",
-          "name": "MOHAMAD KHALID Q. DIMAPORO"
+          "name": "DIMPLE MASTURA"
         },
         {
           "committee": "National Defense and Security",
-          "name": "OSCAR G. MALAPITAN"
+          "name": "OSCAR MALAPITAN"
         },
         {
           "committee": "Natural Resources",
-          "name": "ALFREDO D. MARAÑON III"
+          "name": "ALFREDO MARAÑON III"
         },
         {
           "committee": "North Luzon Growth Quadrangle",
@@ -2442,176 +2459,165 @@
         },
         {
           "committee": "Overseas Workers Affairs",
-          "name": "JUDE A. ACIDRE"
+          "name": "BRYAN REVILLA"
         },
         {
           "committee": "People's Participation",
-          "name": "EMMARIE OUANO-DIZON"
+          "name": "MARCELINO TEODORO"
         },
         {
           "committee": "Population and Family Relations",
-          "name": "IAN PAUL L. DY"
+          "name": "ROGER MERCADO"
         },
         {
           "committee": "Poverty Alleviation",
-          "name": "MICHAEL L. ROMERO"
+          "name": "GLORIA MACAPAGAL ARROYO"
         },
         {
           "committee": "Public Accounts",
-          "name": "JOSEPH STEPHEN S. PADUANO"
+          "name": "TERRY RIDON"
         },
         {
           "committee": "Public Information",
-          "name": "JOSE S. AQUINO II"
+          "name": "LORDAN SUAN"
         },
         {
           "committee": "Public Order and Safety",
-          "name": "DAN S. FERNANDEZ"
+          "name": "ROLANDO VALERIANO"
         },
         {
           "committee": "Public Works and Highways",
-          "name": "ROMEO S. MOMO"
+          "name": "ROMEO MOMO"
         },
         {
           "committee": "Revision of Laws",
-          "name": "EDWARD VERA PEREZ MACEDA"
+          "name": "DINO TANJUATCO"
         },
         {
           "committee": "Rules",
-          "name": "MANUEL JOSE M. DALIPE"
+          "name": "SANDRO MARCOS"
         },
         {
           "committee": "Rural Development",
-          "name": "WILTON T. KHO"
+          "name": "WILTON KHO"
         },
         {
           "committee": "Science and Technology",
-          "name": "CARLITO S. MARQUEZ"
+          "name": "JULES LEDESMA"
         },
         {
           "committee": "Senior Citizens",
-          "name": "RODOLFO M. ORDANES"
+          "name": "MILAGROS MAGSAYSAY"
         },
         {
           "committee": "Social Services",
-          "name": "ROSANNA V. VERGARA"
+          "name": "CHEENO MIGUEL ALMARIO"
         },
         {
           "committee": "Suffrage and Electoral Reforms",
-          "name": "MAXIMO Y. DALOG JR."
+          "name": "VACANT"
         },
         {
           "committee": "Sustainable Development Goals",
-          "name": "EDUARDO C. VILLANUEVA"
+          "name": "JOSE MANUEL ALBA"
         },
         {
           "committee": "Tourism",
-          "name": "ELEANDRO JESUS F. MADRONA"
+          "name": "ELEANDRO JESUS MADRONA"
         },
         {
           "committee": "Trade and Industry",
-          "name": "FERJENEL G. BIRON"
+          "name": "MAXIMO DALOG"
         },
         {
           "committee": "Transportation",
-          "name": "ROMEO M. ACOP"
+          "name": "FRANZ PUMAREN"
         },
         {
           "committee": "Veterans Affairs and Welfare",
-          "name": "JORGE BUSTOS"
+          "name": "RUDY CAOAGDAN"
         },
         {
           "committee": "Visayas Development",
-          "name": "LOLITA T. JAVIER"
+          "name": "LOLITA JAVIER"
         },
         {
           "committee": "Ways and Means",
-          "name": "JOEY S. SALCEDA"
+          "name": "MIRO QUIMBO"
         },
         {
           "committee": "Welfare of Children",
-          "name": "ANGELICA NATASHA CO"
+          "name": "RICHELLE SINGSON-MICHAEL"
         },
         {
           "committee": "Women and Gender Equality",
-          "name": "GERALDINE B. ROMAN"
+          "name": "ANN MATIBAG"
         },
         {
           "committee": "Youth and Sports Development",
-          "name": "FAUSTINO MICHAEL CARLOS T. DY III"
+          "name": "FAUSTINO MICHAEL CARLOS DY III"
         }
       ]
     },
     "special_committees": [
       {
-        "committee": "Ad Hoc Committee on Agriculture Services Convergence Initiative",
-        "chairperson": "MICHAEL JOHN R. DUAVIT"
-      },
-      {
-        "committee": "Ad Hoc Committee on Marawi Rehabilitation and Victims Compensation",
-        "chairperson": "ZIA ALONTO ADIONG"
-      },
-      {
-        "committee": "Ad Hoc Committee on the Relocation Commitee of the House of Representatives Complex",
-        "chairperson": "RICARDO S. CRUZ JR."
-      },
-      {
         "committee": "Bases Conversion",
-        "chairperson": "JEFFERSON F. KHONGHUN"
+        "chairperson": "ARTHUR ROBES"
       },
       {
         "committee": "Bicol Affairs and Economic Development",
-        "chairperson": "JOSEFINA B. TALLADO"
+        "chairperson": "LEO RODRIGUEZ"
       },
       {
         "committee": "Creative Industries",
-        "chairperson": "CHRISTOPHER V.P. DE VENECIA"
+        "chairperson": "JAVI BENITEZ"
       },
       {
         "committee": "East ASEAN Growth Area",
-        "chairperson": "PRINCESS RIHAN M. SAKALURAN"
+        "chairperson": "MAXIMO RODRIGUEZ JR."
       },
       {
         "committee": "Food Security",
-        "chairperson": "LUISA LLOREN CUARESMA"
+        "chairperson": "ADRIAN SALCEDA"
       },
       {
         "committee": "Globalization and WTO",
-        "chairperson": "JOSEPH L. LARA"
+        "chairperson": "ALEXIE TUTOR"
       },
       {
         "committee": "Land Use",
-        "chairperson": "FRANCISCO JOSE F. MATUGAS II"
+        "chairperson": "FRANCISCO MATUGAS"
       },
       {
         "committee": "Nuclear Energy",
-        "chairperson": "MARK O. COJUANGCO"
+        "chairperson": "MARK COJUANGCO"
       },
       {
         "committee": "Peace, Reconciliation and Unity",
-        "chairperson": "SHERNEE A. TAN-TAMBUT"
+        "chairperson": "SAMIER TAN"
       },
       {
-        "committee": "Persons With Disabilities",
-        "chairperson": "ALFELITO M. BASCUG"
+        "committee": "Persons with Disabilities",
+        "chairperson": "ALFEL BASCUG"
       },
       {
         "committee": "Reforestation",
-        "chairperson": "ELEANOR C. BULUT-BEGTANG"
+        "chairperson": "VACANT"
       },
       {
         "committee": "Southern Tagalog Development",
-        "chairperson": "RUTH MARIANO-HERNANDEZ"
+        "chairperson": "RAMIL HERNANDEZ"
       },
       {
         "committee": "Strategic Intelligence",
-        "chairperson": "MARIA CARMEN S. ZAMORA"
+        "chairperson": "ALEXANDER PIMENTEL"
       },
       {
         "committee": "West Philippine Sea",
-        "chairperson": "NEPTALI M. GONZALES II"
+        "chairperson": "MARIA ANGELA GARCIA"
       }
-    ],
+    ]
+    ,
     "secretariat_officials": [
       {
         "role": "Secretary General",
