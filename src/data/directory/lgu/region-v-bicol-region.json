@@ -509,10 +509,14 @@
           "municipality": "Ocampo",
           "zip_code": "4419",
           "mayor": {
-            "name": "RONALD ALLAN J. GO"
+            "name": "RONALD ALLAN J. GO",
+            "contact": "[REDACTED]",
+            "email": "lguocampo.omm@gmail.com"
           },
           "vice_mayor": {
-            "name": "EULA C. FORMALEJO"
+            "name": "FIDEL R. CARIDO JR.",
+            "contact": "[REDACTED]",
+            "email": "fidelcaridojr@gmail.com"
           }
         },
         {
