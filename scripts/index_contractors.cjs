@@ -36,6 +36,7 @@ const contractorsDir = path.join(
 // Define settings for the contractors index
 const CONTRACTORS_INDEX_SETTINGS = {
   filterableAttributes: [
+    'slug',
     'company_name',
     'ceo',
     'employees',
