@@ -1,42 +1,22 @@
-# BetterGov.ph
+# BetterLB
 
-A community-led initiative to create a better and more usable Philippine national government website.
+A LGU focused fork of BetterGovPH.
 
 ## Why We're Building This Project
 
-The current state of Philippine government websites, particularly the main portal [www.gov.ph](https://www.gov.ph), presents numerous challenges for citizens:
-
-- The main Gov.ph website is outdated and has not been updated for a long time
-- Full of broken links and difficult navigation paths
-- Inconsistent formatting and design across pages
-- Poor user experience and accessibility issues
-- Similar problems exist across most Philippine government agency websites
-
-These issues create barriers for citizens trying to access essential government services and information.
+todo
 
 ## Our Mission
 
-We are a volunteer-led initiative with a clear mission: to provide a 'better' and 'usable' website for the Philippines.
-
-Our goals include:
-
-- Building a proper national website that reflects Filipino values and culture
-- Creating intuitive navigation and search functionality
-- Ensuring accessibility for all citizens, including those with disabilities
-- Providing accurate, up-to-date information about government services
-- Establishing a model for how government digital services can and should work
+todo
 
 ## Features
 
-- Modern, responsive design that works on all devices
-- Comprehensive directory of government services and agencies
-- User-friendly navigation and search
-- Accessibility features for users with disabilities
-- Regular updates and maintenance
+todo
 
 ## Documentation
 
-For an easy-to-read overview of the project, visit the [BetterGov Docs](https://docs.bettergov.ph/).
+todo
 
 ## Join Us as a Volunteer
 
@@ -128,9 +108,6 @@ For setup instructions, coverage details, and examples, see our [Testing Guide](
 
 Thanks to all the people who already contributed!
 
-<a href="https://github.com/bettergovph/bettergov/graphs/contributors">
-    <img src="https://contributors-img.web.app/image?repo=bettergovph/bettergov&max=750&columns=20" />
-</a>
 
 ## License
 
