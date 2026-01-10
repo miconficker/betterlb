@@ -1,12 +1,13 @@
 {
   "id": "sb_12_13",
   "term_id": "sb_12",
-  "number": 13,
+  "number": 11,
   "type": "Regular",
-  "date": "2025-09-15",
+  "date": "2025-10-13",
   "present": [
     "perez-aldous-amiel b",
     "alborida-benedicto-s",
+    "macatangay-gaudencio-p",
     "rolusta-jay-g",
     "bautista-leren-mae-m",
     "alipon-marlo-pj-a",
@@ -16,5 +17,6 @@
     "de-jesus-rand-edouard-r",
     "banasihan-ortega-samantha-nicole-a"
   ],
-  "absent": ["macatangay-gaudencio-p"]
+  "absent": [],
+  "ordinal_number": "11th"
 }

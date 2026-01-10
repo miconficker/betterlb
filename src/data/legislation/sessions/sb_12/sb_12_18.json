@@ -1,9 +1,9 @@
 {
   "id": "sb_12_18",
   "term_id": "sb_12",
-  "number": 18,
+  "number": 15,
   "type": "Regular",
-  "date": "2025-10-27",
+  "date": "2025-11-17",
   "present": [
     "perez-aldous-amiel b",
     "alborida-benedicto-s",
@@ -14,8 +14,8 @@
     "pelegrina-miko-c",
     "dizon-muriel-laisa-b",
     "alinsunurin-myla-e",
-    "de-jesus-rand-edouard-r",
-    "banasihan-ortega-samantha-nicole-a"
+    "de-jesus-rand-edouard-r"
   ],
-  "absent": []
+  "absent": ["banasihan-ortega-samantha-nicole-a"],
+  "ordinal_number": "15th"
 }

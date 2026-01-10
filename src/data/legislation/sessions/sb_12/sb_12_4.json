@@ -1,9 +1,9 @@
 {
   "id": "sb_12_4",
   "term_id": "sb_12",
-  "number": 4,
+  "number": 3,
   "type": "Regular",
-  "date": "2025-07-21",
+  "date": "2025-07-28",
   "present": [
     "perez-aldous-amiel b",
     "alborida-benedicto-s",
@@ -17,5 +17,6 @@
     "de-jesus-rand-edouard-r",
     "banasihan-ortega-samantha-nicole-a"
   ],
-  "absent": []
+  "absent": [],
+  "ordinal_number": "3rd"
 }

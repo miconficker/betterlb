@@ -1,11 +1,10 @@
 {
   "id": "sb_12_20",
   "term_id": "sb_12",
-  "number": 20,
-  "type": "Regular",
-  "date": "2025-11-17",
+  "number": 3,
+  "type": "Special",
+  "date": "2025-11-27",
   "present": [
-    "perez-aldous-amiel b",
     "alborida-benedicto-s",
     "macatangay-gaudencio-p",
     "rolusta-jay-g",
@@ -14,7 +13,9 @@
     "pelegrina-miko-c",
     "dizon-muriel-laisa-b",
     "alinsunurin-myla-e",
-    "de-jesus-rand-edouard-r"
+    "de-jesus-rand-edouard-r",
+    "banasihan-ortega-samantha-nicole-a"
   ],
-  "absent": ["banasihan-ortega-samantha-nicole-a"]
+  "absent": ["perez-aldous-amiel b"],
+  "ordinal_number": "3rd"
 }

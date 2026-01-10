@@ -1,7 +1,7 @@
 {
   "id": "sb_12_2",
   "term_id": "sb_12",
-  "number": 2,
+  "number": 1,
   "type": "Regular",
   "date": "2025-07-14",
   "present": [
@@ -17,5 +17,6 @@
     "de-jesus-rand-edouard-r",
     "banasihan-ortega-samantha-nicole-a"
   ],
-  "absent": []
+  "absent": [],
+  "ordinal_number": "1st"
 }
