@@ -17,7 +17,7 @@ export default function InfrastructurePage() {
     'https://bisto.ph/projects?search=los+ba%C3%B1os&region=Region+IV-A&province=LAGUNA';
 
   return (
-    <div className='animate-in fade-in mx-auto max-w-7xl space-y-6 pb-20 duration-500'>
+    <div className='pb-20 mx-auto space-y-6 max-w-7xl duration-500 animate-in fade-in'>
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
@@ -44,19 +44,19 @@ export default function InfrastructurePage() {
           rel='noopener noreferrer'
           className='bg-secondary-600 hover:bg-secondary-700 inline-flex min-h-[48px] items-center gap-2 rounded-xl px-6 py-3 font-bold text-white shadow-lg transition-all'
         >
-          View on Bisto.ph <ExternalLink className='h-4 w-4' />
+          View on Bisto.ph <ExternalLink className='w-4 h-4' />
         </a>
       </ModuleHeader>
 
       <DetailSection
         title='Project Tracking'
         icon={HardHat}
-        className='border-l-secondary-600 border-l-4'
+        className='border-l-4 border-l-secondary-600'
       >
         <div className='space-y-6'>
-          <div className='flex items-start gap-3 rounded-xl border border-orange-100 bg-orange-50 p-4 text-orange-800'>
+          <div className='flex gap-3 items-start p-4 text-orange-800 bg-orange-50 rounded-xl border border-orange-100'>
             <AlertCircle className='mt-0.5 h-5 w-5 shrink-0' />
-            <p className='text-sm leading-relaxed font-medium'>
+            <p className='text-sm font-medium leading-relaxed'>
               Interactive monitoring of ongoing local and national projects in
               the municipality.
             </p>
