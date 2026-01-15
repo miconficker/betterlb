@@ -10,7 +10,7 @@ export const mainNavigation: NavigationItem[] = [
   {
     label: 'Services',
     href: '/services',
-    children: (serviceCategories.categories as Category[]).map(category => ({
+    children: (serviceCategories.categories as Category[]).map((category) => ({
       label: category.name,
       href: `/services?category=${category.slug}`,
     })),
@@ -49,11 +49,11 @@ export const mainNavigation: NavigationItem[] = [
       { label: 'Financial Reports', href: '/transparency/financial' },
       {
         label: 'Procurement',
-        href: 'https://transparency.bettergov.ph/organizations/MUNICIPALITY%20OF%20LOS%20BA%C3%91OS%2C%20LAGUNA',
+        href: '/transparency/procurement',
       },
       {
         label: 'DPWH Projects',
-        href: 'https://bisto.ph/projects?search=los+ba%C3%B1os&region=Region+IV-A&province=LAGUNA',
+        href: '/transparency/infrastructure',
       },
     ],
   },
