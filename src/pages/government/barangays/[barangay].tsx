@@ -20,8 +20,8 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@/components/ui/Breadcrumb';
-import { CardAvatar } from '@/components/ui/CardList';
+} from '@/components/navigation/Breadcrumb';
+import { CardAvatar } from '@/components/ui/Card';
 
 import barangaysData from '@/data/directory/barangays.json';
 

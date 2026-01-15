@@ -9,7 +9,7 @@ import {
   formatStandardTitle,
 } from '@/lib/seoTemplates';
 
-import routeMeta from '../data/seo-metadata.json';
+import routeMeta from '@/data/seo-metadata.json';
 
 interface SEOProps {
   title?: string;
