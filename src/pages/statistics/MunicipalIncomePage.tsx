@@ -3,8 +3,12 @@ import { useMemo } from 'react';
 import { formatMillions } from '@/utils/format';
 import { Coins, Landmark, Wallet } from 'lucide-react';
 
+import {
+  StatsFooter,
+  StatsHero,
+  StatsKPICard,
+} from '@/components/data-display/StatsUI';
 import { DetailSection } from '@/components/layout/PageLayouts';
-import { StatsFooter, StatsHero, StatsKPICard } from '@/components/ui/StatsUI';
 
 import FinancialPieChart from '@/pages/transparency/components/FinancialPieChart';
 

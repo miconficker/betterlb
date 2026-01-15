@@ -7,7 +7,7 @@ import { ArrowRight, MapPinIcon, Phone, User2 } from 'lucide-react';
 // UI Components
 import { ModuleHeader } from '@/components/layout/PageLayouts';
 import { Badge } from '@/components/ui/Badge';
-import { Card, CardContent } from '@/components/ui/CardList';
+import { Card, CardContent } from '@/components/ui/Card';
 import SearchInput from '@/components/ui/SearchInput';
 
 import { toTitleCase } from '@/lib/stringUtils';

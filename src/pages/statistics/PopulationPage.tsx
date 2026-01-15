@@ -18,8 +18,15 @@ import {
   YAxis,
 } from 'recharts';
 
-import { ChartContainer, ChartTooltip } from '@/components/ui/ChartContainer';
-import { StatsFooter, StatsHero, StatsKPICard } from '@/components/ui/StatsUI';
+import {
+  ChartContainer,
+  ChartTooltip,
+} from '@/components/data-display/ChartContainer';
+import {
+  StatsFooter,
+  StatsHero,
+  StatsKPICard,
+} from '@/components/data-display/StatsUI';
 
 import { cn } from '@/lib/utils';
 

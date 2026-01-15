@@ -6,7 +6,7 @@ import { ArrowRight, Building2Icon, Globe, Phone, User2 } from 'lucide-react';
 
 // UI Components
 import { ModuleHeader } from '@/components/layout/PageLayouts';
-import { Card, CardContent } from '@/components/ui/CardList';
+import { Card, CardContent } from '@/components/ui/Card';
 import SearchInput from '@/components/ui/SearchInput';
 
 import { officeIcons } from '@/lib/officeIcons';

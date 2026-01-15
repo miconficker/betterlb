@@ -12,7 +12,6 @@ import {
 
 // UI & Layout Components
 import { ModuleHeader } from '@/components/layout/PageLayouts';
-import { Badge } from '@/components/ui/Badge';
 import {
   Breadcrumb,
   BreadcrumbHome,
@@ -21,8 +20,9 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@/components/ui/Breadcrumb';
-import { Card, CardContent, CardHeader } from '@/components/ui/CardList';
+} from '@/components/navigation/Breadcrumb';
+import { Badge } from '@/components/ui/Badge';
+import { Card, CardContent, CardHeader } from '@/components/ui/Card';
 import { EmptyState } from '@/components/ui/EmptyState';
 import SearchInput from '@/components/ui/SearchInput';
 
