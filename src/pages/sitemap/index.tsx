@@ -81,7 +81,7 @@ const SitemapPage: FC = () => {
         },
         {
           title: 'Hotlines',
-          url: '/philippines/hotlines',
+          url: 'https://hotlines.bettergov.ph/',
           description: 'Emergency and important contact numbers',
         },
       ],
