@@ -1,74 +1,64 @@
 import { Link, Outlet, useLocation } from 'react-router-dom';
 
-import {
-  Building2Icon,
-  ChevronRight,
-  MapPinIcon,
-  UsersIcon,
-} from 'lucide-react';
+import { Building2Icon, MapPinIcon, UsersIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
-// UI Components
 import { PageHero } from '@/components/layout/PageLayouts';
 
 import { cn } from '@/lib/utils';
 
-// Removed 'children' from props to satisfy ESLint
-interface GovernmentLayoutProps {
-  title: string;
-  description?: string;
-}
-
-export default function GovernmentLayout({ title }: GovernmentLayoutProps) {
+export default function GovernmentRootLayout() {
   const location = useLocation();
   const currentPath = location.pathname;
   const { t } = useTranslation('common');
 
   const branches = [
     {
-      title: t('government.electedofficialsTitle'),
-      description: t('government.electedofficialsDescription'),
+      title: t('government.electedofficialsTitle', 'Elected Officials'),
+      description: t(
+        'government.electedofficialsDescription',
+        'Meet your Mayor, Vice Mayor, and Councilors.'
+      ),
       icon: UsersIcon,
       path: '/government/elected-officials',
       category: 'Leadership',
     },
     {
-      title: t('government.departmentsTitle'),
-      description: t('government.departmentsDescription'),
+      title: t('government.departmentsTitle', 'Departments'),
+      description: t(
+        'government.departmentsDescription',
+        'Services and offices under the Executive branch.'
+      ),
       icon: Building2Icon,
       path: '/government/departments',
       category: 'Administrative',
     },
     {
-      title: t('government.barangaysTitle'),
-      description: t('government.barangaysDescription'),
+      title: t('government.barangaysTitle', 'Barangays'),
+      description: t(
+        'government.barangaysDescription',
+        'The 14 local component units of Los Baños.'
+      ),
       icon: MapPinIcon,
       path: '/government/barangays',
       category: 'Local Units',
     },
   ];
 
-  const isMainPage =
-    currentPath === '/government' || currentPath === '/government/';
-
   return (
     <div className='pb-20 mx-auto space-y-12 max-w-7xl duration-700 animate-in fade-in md:pb-32'>
       {/* 1. Unified Page Header */}
       <PageHero
-        title={title} // Uses the title passed from the route
+        title='Government'
         description='Access information on elected leaders, municipal departments, and the 14 component barangays of Los Baños.'
       />
 
-      {/* 2. Branch Navigation Grid */}
-      <div className='px-4 md:px-0'>
-        <div
-          className='grid grid-cols-1 gap-4 md:grid-cols-3'
-          role='navigation'
-          aria-label='Government sections'
-        >
-          {branches.map(branch => {
-            const isActive = currentPath.includes(branch.path);
-            const Icon = branch.icon;
+      {/* 2. Persistent Navigation (The Big 3) */}
+      <div className='grid grid-cols-1 gap-4 mt-8 mb-12 md:grid-cols-3'>
+        {branches.map(branch => {
+          // Check if this branch is currently active
+          const isActive = currentPath.includes(branch.path);
+          const Icon = branch.icon;
 
             return (
               <Link
@@ -121,7 +111,7 @@ export default function GovernmentLayout({ title }: GovernmentLayoutProps) {
                       isActive ? 'text-primary-50' : 'text-slate-500'
                     )}
                   >
-                    {branch.description}
+                    {branch.category}
                   </p>
                   <ChevronRight
                     className={cn(
@@ -130,10 +120,25 @@ export default function GovernmentLayout({ title }: GovernmentLayoutProps) {
                     )}
                   />
                 </div>
-              </Link>
-            );
-          })}
-        </div>
+              </div>
+
+              {/* RESTORED DESCRIPTION */}
+              <p
+                className={cn(
+                  'text-xs font-medium leading-relaxed line-clamp-2',
+                  isActive ? 'text-primary-50' : 'text-slate-500'
+                )}
+              >
+                {branch.description}
+              </p>
+            </Link>
+          );
+        })}
+      </div>
+
+      {/* 3. The Content Area */}
+      <div className='duration-500 animate-in fade-in slide-in-from-bottom-4'>
+        <Outlet />
       </div>
 
       {/* 3. Sub-route rendering (The Content) */}
