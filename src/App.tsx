@@ -60,12 +60,15 @@ import ContributePage from './pages/contribute';
 import ElectedOfficialsIndex from './pages/government/elected-officials';
 import CompetitivenessPage from './pages/statistics/CompetitivenessPage';
 import MunicipalIncomePage from './pages/statistics/MunicipalIncomePage';
+import PopulationPage from './pages/statistics/PopulationPage';
+import InfrastructurePage from './pages/transparency/infrastructure';
+import ProcurementPage from './pages/transparency/procurement';
 
 function App() {
   return (
     <Router>
       <NuqsAdapter>
-        <div className='flex flex-col min-h-screen'>
+        <div className='flex min-h-screen flex-col'>
           <SEO />
           <Navbar />
           <Ticker />
@@ -95,10 +98,7 @@ function App() {
             </Route>
 
             {/* Government Directory Hub */}
-            <Route
-              path='/government'
-              element={<GovernmentRootLayout title='Government' />}
-            >
+            <Route path='/government' element={<GovernmentRootLayout />}>
               <Route
                 index
                 element={<Navigate to='elected-officials' replace />}

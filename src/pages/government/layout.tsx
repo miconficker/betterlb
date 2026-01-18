@@ -1,6 +1,11 @@
 import { Link, Outlet, useLocation } from 'react-router-dom';
 
-import { Building2Icon, MapPinIcon, UsersIcon } from 'lucide-react';
+import {
+  Building2Icon,
+  ChevronRight,
+  MapPinIcon,
+  UsersIcon,
+} from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 import { PageHero } from '@/components/layout/PageLayouts';
@@ -46,7 +51,7 @@ export default function GovernmentRootLayout() {
   ];
 
   return (
-    <div className='pb-20 mx-auto space-y-12 max-w-7xl duration-700 animate-in fade-in md:pb-32'>
+    <div className='animate-in fade-in mx-auto max-w-7xl space-y-12 pb-20 duration-700 md:pb-32'>
       {/* 1. Unified Page Header */}
       <PageHero
         title='Government'
@@ -54,96 +59,84 @@ export default function GovernmentRootLayout() {
       />
 
       {/* 2. Persistent Navigation (The Big 3) */}
-      <div className='grid grid-cols-1 gap-4 mt-8 mb-12 md:grid-cols-3'>
+      <div className='mt-8 mb-12 grid grid-cols-1 gap-4 md:grid-cols-3'>
         {branches.map(branch => {
-          // Check if this branch is currently active
           const isActive = currentPath.includes(branch.path);
           const Icon = branch.icon;
 
-            return (
-              <Link
-                key={branch.path}
-                to={branch.path}
-                className={cn(
-                  'flex relative flex-col justify-between p-6 rounded-2xl border-2 transition-all duration-300 group min-h-[160px]',
-                  isActive
-                    ? 'text-white shadow-xl bg-primary-600 border-primary-600 shadow-primary-900/20'
-                    : 'bg-white shadow-sm hover:border-primary-400 border-slate-200 text-slate-900'
-                )}
-                state={{ scrollToContent: true }}
-              >
-                <div>
-                  <div className='flex justify-between items-center mb-4'>
-                    <div
-                      className={cn(
-                        'rounded-xl p-2.5 shadow-sm transition-colors',
-                        isActive
-                          ? 'bg-white/20 text-white'
-                          : 'bg-primary-50 text-primary-600 border-primary-100 border'
-                      )}
-                    >
-                      <Icon className='w-5 h-5' />
-                    </div>
-                    <p
-                      className={cn(
-                        'text-[10px] font-bold tracking-[0.2em] uppercase',
-                        isActive ? 'text-primary-100' : 'text-slate-400'
-                      )}
-                    >
-                      {branch.category}
-                    </p>
-                  </div>
-
-                  <h3
+          return (
+            <Link
+              key={branch.path}
+              to={branch.path}
+              className={cn(
+                'group relative flex min-h-[160px] flex-col justify-between rounded-2xl border-2 p-6 transition-all duration-300',
+                isActive
+                  ? 'bg-primary-600 border-primary-600 shadow-primary-900/20 text-white shadow-xl'
+                  : 'hover:border-primary-400 border-slate-200 bg-white text-slate-900 shadow-sm'
+              )}
+              state={{ scrollToContent: true }}
+            >
+              <div>
+                <div className='mb-4 flex items-center justify-between'>
+                  <div
                     className={cn(
-                      'text-xl font-extrabold tracking-tight leading-tight',
-                      isActive ? 'text-white' : 'text-slate-900'
+                      'rounded-xl p-2.5 shadow-sm transition-colors',
+                      isActive
+                        ? 'bg-white/20 text-white'
+                        : 'bg-primary-50 text-primary-600 border-primary-100 border'
                     )}
                   >
-                    {branch.title}
-                  </h3>
-                </div>
-
-                <div className='flex justify-between items-center mt-6'>
+                    <Icon className='h-5 w-5' />
+                  </div>
                   <p
                     className={cn(
-                      'pr-6 text-xs font-medium leading-relaxed line-clamp-2',
-                      isActive ? 'text-primary-50' : 'text-slate-500'
+                      'text-[10px] font-bold tracking-[0.2em] uppercase',
+                      isActive ? 'text-primary-100' : 'text-slate-400'
                     )}
                   >
                     {branch.category}
                   </p>
-                  <ChevronRight
-                    className={cn(
-                      'w-5 h-5 transition-transform shrink-0 group-hover:translate-x-1',
-                      isActive ? 'text-white' : 'text-slate-300'
-                    )}
-                  />
                 </div>
+
+                <h3
+                  className={cn(
+                    'text-xl leading-tight font-extrabold tracking-tight',
+                    isActive ? 'text-white' : 'text-slate-900'
+                  )}
+                >
+                  {branch.title}
+                </h3>
               </div>
 
-              {/* RESTORED DESCRIPTION */}
-              <p
-                className={cn(
-                  'text-xs font-medium leading-relaxed line-clamp-2',
-                  isActive ? 'text-primary-50' : 'text-slate-500'
-                )}
-              >
-                {branch.description}
-              </p>
+              <div className='mt-6 flex items-center justify-between'>
+                <p
+                  className={cn(
+                    'line-clamp-2 pr-6 text-xs leading-relaxed font-medium',
+                    isActive ? 'text-primary-50' : 'text-slate-500'
+                  )}
+                >
+                  {branch.description}
+                </p>
+                <ChevronRight
+                  className={cn(
+                    'h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1',
+                    isActive ? 'text-white' : 'text-slate-300'
+                  )}
+                />
+              </div>
             </Link>
           );
         })}
       </div>
 
       {/* 3. The Content Area */}
-      <div className='duration-500 animate-in fade-in slide-in-from-bottom-4'>
+      <div className='animate-in fade-in slide-in-from-bottom-4 duration-500'>
         <Outlet />
       </div>
 
       {/* 3. Sub-route rendering (The Content) */}
       {!isMainPage && (
-        <div className='px-4 duration-500 animate-in slide-in-from-bottom-2 md:px-0'>
+        <div className='animate-in slide-in-from-bottom-2 px-4 duration-500 md:px-0'>
           {/* Outlet handles the rendering of child components automatically */}
           <Outlet />
         </div>
